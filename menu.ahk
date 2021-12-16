@@ -1,5 +1,4 @@
-﻿#include <log4ahk>
-OnMessage(0x100, "GuiKeyDown")
+﻿OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x6, "GuiActivate")
 #include <py>
 #Persistent
