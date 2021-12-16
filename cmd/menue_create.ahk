@@ -250,7 +250,7 @@ Exit(){
 }
 save_script()
 {
-    MenuHandler("Copy To &Clipboard", 4, "File")
+    MenuHandler("save", 4, "File")
     run, %A_ScriptDir%/../menu.ahk
 }
 editcmd()
@@ -269,14 +269,13 @@ editcmd()
     gui,2: +hwndgui2
     GuiControl,,% edit,% Node.text
     gui,2:show, AutoSize
-    MenuHandler("Copy To &Clipboard", 4, "File")
     return
     savefile:
         Node:=GetNode()
         Populate(1)
         gui,2: submit, NoHide
         Node.text := Myedit
-        MenuHandler("Copy To &Clipboard", 4, "File")
+        MenuHandler("save", 4, "File")
         run, %A_ScriptDir%/../menu.ahk
     return
 }
@@ -322,7 +321,9 @@ MenuHandler(a,b,c){
 			}else{
 				MenuXML.Save(1)
 			}
-			return Clipboard:=Export(1),outToFile(),changeCmdfile()
+			return Clipboard:=Export(1)
+            ;outToFile(),
+            ;changeCmdfile()
 		}
 	}if(c="About"){
 		if(Item="Help")
