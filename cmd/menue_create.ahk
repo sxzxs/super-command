@@ -9,7 +9,7 @@ if((A_PtrSize=8&&A_IsCompiled="")||!A_IsUnicode){
 	Run,"%correct%" "%A_ScriptName%" "%file%",%A_ScriptDir%
 	ExitApp
 	return
-}Main:={"&File":["&New","&Open","Ex&port","Copy To &Clipboard","&Save","E&xit"],"A&bout":["Help","Online Manual"]},Order:=["&File","A&bout"],MenuXML:=new XML("Menu",Settings.Get("//Last/@file","Menus\Menu.XML"))
+}Main:={"&File":["&New","&Open","Ex&port","&Save","E&xit"],"A&bout":["Help","Online Manual"]},Order:=["&File","A&bout"],MenuXML:=new XML("Menu",Settings.Get("//Last/@file","Menus\Menu.XML"))
 for a,b in Order
 	for c,d in Main[b]
 		Menu,% RegExReplace(b,"\W"),Add,%d%,MenuHandler
@@ -35,7 +35,7 @@ MainWin.Add("TreeView,w350 h300 vTV gUpdateColor AltSubmit,,wh"
 		 ,"Button,gsave_script x+10,确定,y"
 		 ,"StatusBar")
 MainWin.SetText("Confirm",Settings.Get("//Confirm",1))
-MainWin.Show("Menu Maker")
+MainWin.Show("超级命令添加工具")
 Hotkey,IfWinActive,% MainWin.ID
 for a,b in {Delete:"Delete",Up:"Arrows",Down:"Arrows",Left:"Arrows",Right:"Arrows","!Up":"Move","!Down":"Move","!Left":"Move","!Right":"Move"}
 	Hotkey,%a%,%b%,On
@@ -257,6 +257,12 @@ editcmd()
 {  
     static
 	Node:=GetNode()
+    first_child_name := SSN(Node, "Item/@name").text
+    if(first_child_name != "")
+    {
+        msgbox, 当前节点有子节点不能编辑
+        return
+    }
     gui,2: Destroy
     Gui,2: Add, Edit, vMyEdit Hwndedit w500 h500
     gui,2: Add, Button, gsavefile, 保存
@@ -467,8 +473,7 @@ Move(){
 	}
 }
 Help(){
-	clipboard:="_" . ToBase(A_Now,36)
-	;m("Press Alt+Up/Down/Left/Right to move menu items")
+	m("按下 Alt+Up/Down/Left/Right 移动 menu items")
 }
 m(x*){
 	static list:={btn:{oc:1,ari:2,ync:3,yn:4,rc:5,ctc:6},ico:{"x":16,"?":32,"!":48,"i":64}},msg:=[]

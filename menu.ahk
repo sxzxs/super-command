@@ -1,11 +1,12 @@
-﻿OnMessage(0x100, "GuiKeyDown")
+﻿#include <log4ahk>
+OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x6, "GuiActivate")
 #include <py>
 #Persistent
 #SingleInstance force
 
+SetBatchLines -1
 ;管理员运行
-full_command_line := DllCall("GetCommandLine", "str")
 if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 {
     try
@@ -17,40 +18,29 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
     }
     ExitApp
 }
-SetBatchLines -1
 help_string =
 (
 alt+c:  编辑命令
 alt+q:  搜索命令
-alt+x:  menu菜单命令
 )
-;msgbox,% help_string
+full_command_line := DllCall("GetCommandLine", "str")
 py.allspell_muti("ahk")
 begin := 1
 total_command := 0 ;总命令个数
 is_get_all_cmd := false
 cmds := ""
 my_xml := new xml("xml")
+
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
 {
-    MsgBox,% A_ScriptDir "\cmd\Menus\超级命令.xml 不存在,\cmd\menue_create.ahk 创建并保持在上面目录" 
+    MsgBox,% A_ScriptDir "\cmd\Menus\超级命令.xml 不存在, alt + c 添加命令并保存在上面目录" 
 }
 fileread, xml_file_content,% A_ScriptDir "\cmd\Menus\超级命令.xml"
 my_xml.XML.LoadXML(xml_file_content)
-
-#include %A_ScriptDir%\cmd\menufunc.ahk
-init()
-{
-    global
-    Gui Destroy
-    Gui, +HwndMyGuiHwnd
-    Menu, MyMenuBar, Add, $, :Menu
-    Gui, Menu, MyMenuBar,
-    if(!is_get_all_cmd)
-    {
-        cmds := MenuGetAll(MyGuiHwnd)
-    }
-}
+cmds := xml_parse(my_xml)
+!c::
+run,% A_ScriptDir "\cmd\menue_create.ahk"
+return
 !q::
 SetCapsLockState,off
 switchime(0)
@@ -61,8 +51,6 @@ if WinActive()
 }
 Gui Destroy
 Gui, +HwndMyGuiHwnd
-Menu, MyMenuBar, Add, $, :Menu
-Gui, Menu, MyMenuBar,
 Gui, Color,,0x000000
 Gui Font, s11
 Gui Margin, 0, 0
@@ -70,15 +58,8 @@ Gui, Font, s10 cLime, Consolas
 Gui Add, Edit, x0 w500 vQuery gType
 Gui Add, ListBox, x0 y+2 h20 w500  vCommand gSelect AltSubmit +Background0x000000 -HScroll
 Gui, -Caption +AlwaysOnTop
-if(!is_get_all_cmd)
-{
-    cmds := MenuGetAll(MyGuiHwnd)
-}
 gosub Type
-DllCall("SetMenu", "Ptr", MyGuiHwnd, "Ptr", 0)
-with:=A_ScreenWidth/2
-height:=A_ScreenHeight/2
-Gui Show, x%with% y%height%
+Gui Show
 GuiControl Focus, Query
 return
 
@@ -97,15 +78,14 @@ if (Query != "")
 {
     StringSplit q, Query, %A_Space%
     Loop % q0
-        r := Filter_new(r, q%A_Index%, c)
+        r := Filter(r, q%A_Index%, c)
 }
 rows := ""
 row_id := []
 Loop Parse, r, `n
 {
-    RegExMatch(A_LoopField, "(\d+)`t(.*)", m)
-    row_id[A_Index] := m1
-    rows .= "|"  m2
+    row_id[A_Index] := A_LoopField
+    rows .= "|"  A_LoopField
 }
 GuiControl,, Command, % rows ? rows : "|"
 if (Query = "")
@@ -120,7 +100,6 @@ GuiControlGet Command
 if !Command
     Command := 1
 Command := row_id[Command]
-SB_SetText("Total " c " results`t`tID: " Command)
 if (A_GuiEvent != "DoubleClick")
 {
     return
@@ -131,18 +110,11 @@ if !GetKeyState("Shift")
 {
     gosub GuiEscape
 }
-;DllCall("SendNotifyMessage", "ptr", MyGuiHwnd, "uint", 0x111, "ptr", Command, "ptr", 0)
-cmd2array(Command)
+handle_command(Command)
 return
 
 GuiEscape:
 Gui,Hide
-;cmds := r := ""
-return
-
-GuiSize:
-;GuiControl Move, Query, % "w" A_GuiWidth-20
-;GuiControl Move, Command, % "w" A_GuiWidth-20
 return
 
 GuiActivate(wParam)
@@ -209,7 +181,7 @@ keyValueFind(haystack,needle)
 	}
 	return findSign
 }
-Filter_new(s, q, ByRef count)
+Filter(s, q, ByRef count)
 {
     ;建立数组 [{“a" : "原始值", "b" : "首字母"}]
     ;匹配
@@ -230,54 +202,6 @@ Filter_new(s, q, ByRef count)
     return SubStr(result, 1, -1)
 }
 
-Filter(s, q, ByRef count)
-{
-    ;转换_拼音首字母,或者 建立数组 [{“a" : "", "b" :""}]
-    ;匹配，删除
-    if (q = "")
-    {
-        StringReplace s, s, `n, `n, UseErrorLevel
-        count := ErrorLevel
-        return s
-    }
-    i := 1
-    match := ""
-    result := ""
-    count := 0
-    while i := RegExMatch(s, "`ami)^.*\Q" q "\E.*$", match, i + StrLen(match))
-    {
-        result .= match "`n"
-        count += 1
-    }
-    return SubStr(result, 1, -1)
-}
-
-MenuGetAll(hwnd)
-{
-    if !menu := DllCall("GetMenu", "ptr", hwnd, "ptr")
-        return ""    
-    MenuGetAll_sub(menu, "", cmds)
-    return cmds
-}
-
-MenuGetAll_sub(menu, prefix, ByRef cmds)
-{
-    Loop % DllCall("GetMenuItemCount", "ptr", menu)
-    {
-        VarSetCapacity(itemString, 2000)
-        if !DllCall("GetMenuString", "ptr", menu, "int", A_Index-1, "str", itemString, "int", 1000, "uint", 0x400)
-            continue
-        StringReplace itemString, itemString, &
-        itemID := DllCall("GetMenuItemID", "ptr", menu, "int", A_Index-1)
-        if (itemID = -1)
-        if subMenu := DllCall("GetSubMenu", "ptr", menu, "int", A_Index-1, "ptr")
-        {
-            MenuGetAll_sub(subMenu, prefix itemString " > ", cmds)
-            continue
-        }
-        cmds .= itemID "`t" prefix RegExReplace(itemString, "`t.*") "`n"
-    }
-}
 
 Class XML{
 	keep:=[]
@@ -405,45 +329,53 @@ DynaRun(Script,Wait:=true,name:="Untitled"){
 	v.Running[Name]:=exec
 	return
 }
-!x::
-init()
-Menu,Menu,Show
-return
 
-!c::
-;Menu,Menu,Show
-run,% A_ScriptDir "\cmd\menue_create.ahk"
-return
-Function(Item,Index,Menu)
-{
-    MenuID := DllCall( "GetMenuItemID", "ptr", Menu_GetMenuByName(Menu), "int", Index-1 )
-    cmd2array(MenuID)
-}
 
-cmd2array(command)
+handle_command(command)
 {
-    global cmds,my_xml
-    pattern = 
-    (
-Om`a)%command%.*?>(.*)$
-    )
-    word_array := []
-    if(RegExMatch(cmds, pattern, SubPat))
-    {
-        newstr := StrReplace(subpat.Value(1), A_Space)
-        word_array := StrSplit(newstr, ">")
-        ;xx := my_xml.SSN("//Menu/*[@name='网站文件夹']/*[@name='百度_75WWJ2OTZ']").text
-    }
+    global my_xml
+    word_array := StrSplit(command, " > ")
     pattern := ""
     for k,v in word_array
     {
         pattern .= "/*[@name='" v "']"
     }
     pattern := "//Menu" . pattern
-
-    UnityPath:=my_xml.SSN(pattern).text
-    DynaRun(UnityPath)
+    first_child_name := SSN(my_xml.SSN(pattern), "Item/@name").text
+    if(first_child_name != "")
+    {
+        return
+    }
+    UnityPath:= my_xml.SSN(pattern).text
+    ExecScript(UnityPath)
 }
+
+xml_parse(xml)
+{
+	All:=xml.SN("//Menu/descendant::*")
+    Script := ""
+	while(aa:=All.Item[A_Index-1],ea:=XML.EA(aa))
+    {
+        c := aa
+        first_child_name := SSN(c, "Item/@name").text
+        if(first_child_name != "")
+            Continue
+        ParentName := ""
+        loop
+        {
+		    p := c.ParentNode
+            c_parent_name := SSN(p,"@name").text
+            if(c_parent_name == "")
+                break
+            else
+                ParentName := c_parent_name " > " parentname
+            c := p
+        }
+        Script .= ParentName  ea.Name "`r`n"
+    }
+    return script
+}
+
 switchime(ime := "A")
 {
 	if (ime = 1){
@@ -457,35 +389,33 @@ switchime(ime := "A")
 	}
 }
 
-; ======================================================================================================================
-; GetMenuByName   Retrieves a handle to the menu specified by its name.
-; Return values:  If the function succeeds, the return value is a handle to the menu.
-;                 Otherwise, the return value is zero (False).
-; Remarks:        Based on MI.ahk by Lexikos -> http://www.autohotkey.com/board/topic/20253-menu-icons-v2/
-; ======================================================================================================================
-Menu_GetMenuByName(MenuName) {
-   Static HMENU := 0
-   If !(HMENU) {
-      Menu, %A_ThisFunc%Menu, Add
-      Menu, %A_ThisFunc%Menu, DeleteAll
-      Gui, %A_ThisFunc%GUI:+HwndHGUI
-      Gui, %A_ThisFunc%GUI:Menu, %A_ThisFunc%Menu
-      HMENU := Menu_GetMenu(HGUI)
-      Gui, %A_ThisFunc%GUI:Menu
-      Gui, %A_ThisFunc%GUI:Destroy
-   }
-   If !(HMENU)
-      Return 0
-   Menu, %A_ThisFunc%Menu, Add, :%MenuName%
-   HSUBM := Menu_GetSubMenu(HMENU, 1)
-   Menu, %A_ThisFunc%Menu, Delete, :%MenuName%
-   Return HSUBM
-}
-Menu_GetMenu(HWND) {
-   ; http://msdn.microsoft.com/en-us/library/ms647640(v=vs.85).aspx
-   Return DllCall("User32.dll\GetMenu", "Ptr", HWND, "Ptr")
-}
-Menu_GetSubMenu(HMENU, ItemPos) {
-   ; http://msdn.microsoft.com/en-us/library/ms647984(v=vs.85).aspx
-   Return DllCall("User32.dll\GetSubMenu", "Ptr", HMENU, "Int", ItemPos - 1, "Ptr")
+ExecScript(Script, Params := "", AhkPath := "") {
+    Local Name, Pipe, Call, Shell, Exec
+
+    Name := "AHK_CQT_" . A_TickCount
+    Pipe := []
+
+    Loop 2 {
+        Pipe[A_Index] := DllCall("CreateNamedPipe"
+        , "Str", "\\.\pipe\" . Name
+        , "UInt", 2, "UInt", 0
+        , "UInt", 255, "UInt", 0
+        , "UInt", 0, "UPtr", 0
+        , "UPtr", 0, "UPtr")
+    }
+
+    If (!FileExist(AhkPath)) {
+        AhkPath := A_AhkPath
+    }
+
+    Call = "%AhkPath%" /CP65001 "\\.\pipe\%Name%"
+    Shell := ComObjCreate("WScript.Shell")
+    Exec := Shell.Exec(Call . " " . Params)
+    DllCall("ConnectNamedPipe", "UPtr", Pipe[1], "UPtr", 0)
+    DllCall("CloseHandle", "UPtr", Pipe[1])
+    DllCall("ConnectNamedPipe", "UPtr", Pipe[2], "UPtr", 0)
+    FileOpen(Pipe[2], "h", "UTF-8").Write(Script)
+    DllCall("CloseHandle", "UPtr", Pipe[2])
+
+    Return Exec
 }
