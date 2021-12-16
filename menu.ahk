@@ -22,6 +22,10 @@ help_string =
 alt+c:  编辑命令
 alt+q:  搜索命令
 )
+
+ToolTip,% help_string
+SetTimer, RemoveToolTip, -5000
+
 full_command_line := DllCall("GetCommandLine", "str")
 py.allspell_muti("ahk")
 begin := 1
@@ -418,3 +422,7 @@ ExecScript(Script, Params := "", AhkPath := "") {
 
     Return Exec
 }
+
+RemoveToolTip:
+ToolTip
+return

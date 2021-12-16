@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0"?>
 <Menu>
-	<Item name="网站文件夹" tv="11589736">
-		<Item name="百度" tv="11590456">run,www.baidu.com</Item>
-		<Item name="虎牙" tv="11590528">run,www.huya.com</Item>
-		<Item name="斗鱼" tv="11589376">run, www.douyu.com</Item>
-		<Item name="ahk中文论坛autoahk" tv="11589520">run,www.autoahk.com</Item>
-		<Item name="ahk官网论坛" tv="11590096">run, www.autohotkey.com</Item>
-		<Item name="github" tv="11590600">run,https:github.com</Item>
-		<Item name="卡牌card" tv="11590312">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
-		<Item name="我的ahk工程" tv="11589808" last="1">run,G:\我的AHK程序\我的工程</Item>
-		<Item name="超级命令目录" tv="11590888">run,G:\我的AHK程序\我的工程\超级命令</Item></Item>
-	<Item name="ahk" tv="11589448">
-		<Item name="帮助手册" tv="11590816">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item></Item>
+	<Item name="网站文件夹" tv="160928368">
+		<Item name="百度" tv="160927144">run,www.baidu.com</Item>
+		<Item name="虎牙" tv="160927432">run,www.huya.com</Item>
+		<Item name="斗鱼" tv="160926856">run, www.douyu.com</Item>
+		<Item name="ahk中文论坛autoahk" tv="160927504">run,www.autoahk.com</Item>
+		<Item name="ahk官网论坛" tv="160927720">run, www.autohotkey.com</Item>
+		<Item name="github" tv="160926640">run,https:github.com</Item>
+		<Item name="卡牌card" tv="160927936">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
+		<Item name="我的ahk工程" tv="160928080" last="1">run,G:\我的AHK程序\我的工程</Item>
+		<Item name="超级命令目录" tv="160928008">run,G:\我的AHK程序\我的工程\超级命令</Item></Item>
+	<Item name="ahk" tv="160928224">
+		<Item name="帮助手册" tv="160927576">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item></Item>
 </Menu>
