@@ -1,0 +1,30 @@
+﻿<scheme const="P">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="CommentLine" v="1" fc="0x767676" bc="" b="0" i="1" />
+        <style name="Number" v="2" fc="0x880088" bc="" b="0" i="0" />
+        <style name="String" v="3" fc="0x008000" bc="" b="0" i="0" />
+        <style name="Character" v="4" fc="0x008000" bc="" b="0" i="0" />
+        <style name="Word" v="5" fc="0x004CB1" bc="" b="0" i="0" />
+        <style name="Triple" v="6" fc="0x000000" bc="" b="0" i="0" />
+        <style name="TripleDouble" v="7" fc="0x000000" bc="" b="0" i="0" />
+        <style name="ClassName" v="8" fc="0x0000DD" bc="" b="0" i="0" />
+        <style name="DefName" v="9" fc="0x0000DD" bc="" b="0" i="0" />
+        <style name="Operator" v="10" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Identifier" v="11" fc="0x000000" bc="" b="0" i="0" />
+        <style name="CommentBlock" v="12" fc="0x767676" bc="" b="0" i="1" />
+        <style name="StringEOL" v="13" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Word2" v="14" fc="0x0070A0" bc="" b="0" i="0" />
+        <style name="Decorator" v="15" fc="0x000000" bc="" b="0" i="0" />
+        <style name="FString" v="16" fc="0x000000" bc="" b="0" i="0" />
+        <style name="FCharacter" v="17" fc="0x000000" bc="" b="0" i="0" />
+        <style name="FTriple" v="18" fc="0x000000" bc="" b="0" i="0" />
+        <style name="FTripleDouble" v="19" fc="0x000000" bc="" b="0" i="0" />
+    </theme>
+
+    <keywords>
+        <language id="PY">
+            <group id="0" name="Keywords" keywords="and as assert break class continue def del elif else except exec False finally for from global if import in is lambda None not or pass print raise return True try while with yield async await" />
+        </language>
+    </keywords>
+</scheme>

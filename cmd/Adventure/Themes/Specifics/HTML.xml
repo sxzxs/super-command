@@ -1,0 +1,137 @@
+﻿<scheme const="">
+    <theme name="Default">
+        <style name="H_Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_Tag" v="1" fc="0x0000FF" bc="" b="0" i="0" />
+        <style name="H_TagUnknown" v="2" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_Attribute" v="3" fc="0x1E90FF" bc="" b="0" i="0" />
+        <style name="H_AttributeUnknown" v="4" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_Number" v="5" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_DoubleString" v="6" fc="0x008000" bc="" b="0" i="0" />
+        <style name="H_SingleString" v="7" fc="0x008000" bc="" b="0" i="0" />
+        <style name="H_Other" v="8" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_Comment" v="9" fc="0x767676" bc="" b="0" i="0" />
+        <style name="H_Entity" v="10" fc="0x000000" bc="" b="0" i="0" />
+        <!-- XML and ASP -->
+        <style name="H_TagEnd" v="11" fc="0x0000FF" bc="" b="0" i="0" />
+        <style name="H_XMLStart" v="12" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_XMLEnd" v="13" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_Script" v="14" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_ASP" v="15" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_ASPAT" v="16" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_CDATA" v="17" fc="0x880088" bc="" b="0" i="0" />
+        <style name="H_Question" v="18" fc="0x000000" bc="" b="0" i="0" />
+        <!-- More HTML -->
+        <style name="H_Value" v="19" fc="0x880088" bc="" b="0" i="0" />
+        <!-- X-Code -->
+        <style name="H_XCComment" v="20" fc="0x000000" bc="" b="0" i="0" />
+        <!-- SGML -->
+        <style name="H_SGML_Default" v="21" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_SGML_Command" v="22" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_SGML_1st_Param" v="23" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_SGML_DoubleString" v="24" fc="0x183691" bc="" b="0" i="0" />
+        <style name="H_SGML_SimpleString" v="25" fc="0x183691" bc="" b="0" i="0" />
+        <style name="H_SGML_Error" v="26" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_SGML_Special" v="27" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_SGML_Entity" v="28" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_SGML_Comment" v="29" fc="0x767676" bc="" b="0" i="0" />
+        <style name="H_SGML_1st_Param_Comment" v="30" fc="0x000000" bc="" b="0" i="0" />
+        <style name="H_SGML_Block_Default" v="31" fc="0x000000" bc="" b="0" i="0" />
+        <!-- Embedded JavaScript -->
+        <style name="HJ_Start" v="40" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJ_Default" v="41" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJ_Comment" v="42" fc="0x767676" bc="" b="0" i="0" />
+        <style name="HJ_CommentLine" v="43" fc="0x767676" bc="" b="0" i="0" />
+        <style name="HJ_CommentDoc" v="44" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJ_Number" v="45" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJ_Word" v="46" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJ_Keyword" v="47" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJ_DoubleString" v="48" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HJ_SingleString" v="49" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HJ_Symbols" v="50" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJ_StringEOL" v="51" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJ_RegEx" v="52" fc="0x000000" bc="" b="0" i="0" />
+        <!-- ASP JavaScript -->
+        <style name="HJA_Start" v="55" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJA_Default" v="56" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJA_Comment" v="57" fc="0x767676" bc="" b="0" i="0" />
+        <style name="HJA_CommentLine" v="58" fc="0x767676" bc="" b="0" i="0" />
+        <style name="HJA_CommentDoc" v="59" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJA_Number" v="60" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJA_Word" v="61" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJA_Keyword" v="62" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJA_DoubleString" v="63" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HJA_SingleString" v="64" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HJA_Symbols" v="65" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJA_StringEOL" v="66" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HJA_RegEx" v="67" fc="0x000000" bc="" b="0" i="0" />
+        <!-- Embedded VBScript -->
+        <style name="HB_Start" v="70" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HB_Default" v="71" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HB_CommentLine" v="72" fc="0x767676" bc="" b="0" i="0" />
+        <style name="HB_Number" v="73" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HB_Word" v="74" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HB_String" v="75" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HB_Identifier" v="76" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HB_StringEOL" v="77" fc="0x000000" bc="" b="0" i="0" />
+        <!-- ASP VBScript -->
+        <style name="HBA_Start" v="80" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HBA_Default" v="81" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HBA_CommentLine" v="82" fc="0x767676" bc="" b="0" i="0" />
+        <style name="HBA_Number" v="83" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HBA_Word" v="84" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HBA_String" v="85" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HBA_Identifier" v="86" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HBA_StringEOL" v="87" fc="0x000000" bc="" b="0" i="0" />
+        <!-- Embedded Python -->
+        <style name="HP_Start" v="90" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HP_Default" v="91" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HP_CommentLine" v="92" fc="0x767676" bc="" b="0" i="0" />
+        <style name="HP_Number" v="93" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HP_String" v="94" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HP_Character" v="95" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HP_Word" v="96" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HP_Triple" v="97" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HP_TripleDouble" v="98" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HP_ClassName" v="99" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HP_DefName" v="100" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HP_Operator" v="101" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HP_Identifier" v="102" fc="0x000000" bc="" b="0" i="0" />
+        <!-- PHP -->
+        <style name="HPHP_Complex_Variable" v="104" fc="0x000000" bc="" b="0" i="0" />
+        <!-- ASP Python -->
+        <style name="HPA_Start" v="105" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPA_Default" v="106" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPA_CommentLine" v="107" fc="0x767676" bc="" b="0" i="0" />
+        <style name="HPA_Number" v="108" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPA_String" v="109" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HPA_Character" v="110" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HPA_Word" v="111" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPA_Triple" v="112" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPA_TripleDouble" v="113" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPA_ClassName" v="114" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPA_DefName" v="115" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPA_Operator" v="116" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPA_Identifier" v="117" fc="0x000000" bc="" b="0" i="0" />
+        <!-- PHP -->
+        <style name="HPHP_Default" v="118" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPHP_HString" v="119" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HPHP_SimpleString" v="120" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HPHP_Word" v="121" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPHP_Number" v="122" fc="0x880088" bc="" b="0" i="0" />
+        <style name="HPHP_Variable" v="123" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HPHP_Comment" v="124" fc="0x767676" bc="" b="0" i="0" />
+        <style name="HPHP_CommentLine" v="125" fc="0x767676" bc="" b="0" i="0" />
+        <style name="HPHP_HString_Variable" v="126" fc="0x183691" bc="" b="0" i="0" />
+        <style name="HPHP_Operator" v="127" fc="0x000000" bc="" b="0" i="0" />
+    </theme>
+
+    <keywords>
+        <language id="">
+            <group id="0" name="" keywords="" />
+        </language>
+    </keywords>
+
+    <properties>
+        <property name="fold.html" value="1" />
+    </properties>
+</scheme>

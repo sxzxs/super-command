@@ -1,0 +1,19 @@
+﻿<scheme const="BAT">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Comment" v="1" fc="0x767676" bc="" b="0" i="1" />
+        <style name="Word" v="2" fc="0x183691" bc="" b="0" i="0" />
+        <style name="Label" v="3" fc="0x0000DD" bc="" b="0" i="0" u="1" />
+        <style name="Hide" v="4" fc="0x4070F0" bc="" b="0" i="0" />
+        <style name="Command" v="5" fc="0x1F609F" bc="" b="0" i="0" />
+        <style name="Identifier" v="6" fc="0x759C12" bc="" b="0" i="0" />
+        <style name="Operator" v="7" fc="0x880088" bc="" b="0" i="0" />
+    </theme>
+
+    <keywords>
+        <language id="BAT">
+            <group id="0" name="Internal Commands" keywords="assoc aux break call cd chdir cls cmdextversion color com com1 com2 com3 com4 con copy country ctty date defined del dir do dpath echo else endlocal erase errorlevel exist exit for ftype goto if in loadfix loadhigh lpt lpt1 lpt2 lpt3 lpt4 md mkdir mklink move not nul path pause popd prn prompt pushd rd rem ren rename rmdir set setlocal shift start time title type ver verify vol" />
+            <group id="1" name="External Commands" keywords="arp at attrib bcdedit cacls certreq chcp chkdsk chkntfs choice cipher clip cmd comp compact convert cscript debug diskcomp diskcopy diskpart doskey driverquery eventcreate expand fc find findstr forfiles format fsutil ftp gpresult graftabl help icacls ipconfig label logman makecab mode mofcomp more mountvol net netsh netstat nslookup openfiles ping powercfg powershell recover reg replace robocopy runas rundll32 sc schtasks setx sfc shutdown sort subst systeminfo takeown taskkill tasklist timeout tracert tree tzutil wevutil where whoami wmic xcopy" />
+        </language>
+    </keywords>
+</scheme>

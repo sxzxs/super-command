@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+
+<title>JavaScript Eval</title>
+
+<meta name="description" content="Dynamic execution of JavaScript">
+<meta name="author" content="Alguimist">
+
+<link rel="shortcut icon" href="..\Images\Script.ico">
+<link rel="icon" href="..\Images\Script.ico">
+
+<style>
+BODY {
+    border: 0px;
+    margin: 10px;
+    font-family: Calibri;
+    font-variant: small-caps;
+    background-color: #FEFEFE;
+}
+
+H3 {
+    width: 150px;
+    margin-left: -30px;
+    padding-left: 40px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    background: linear-gradient(#EEFFCC, white 1%, #EEFFCC);
+}
+
+P {
+    padding-left: 10px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+TEXTAREA {
+    width: 600px;
+    height: 320px;
+    padding: 5px;
+    background: linear-gradient(#EEFFCC, white 1%, #EEFFCC);
+    box-shadow: inset 1px 1px 3px 0px #000, 0px 3px 5px #CCC;
+}
+
+BUTTON {
+    width: 84px;
+    height: 24px;
+    margin-top: 8px;
+}
+</style>
+
+<script type="text/javascript">
+function setTab() {
+    var textareas = document.getElementsByTagName('textarea');
+
+    var count = textareas.length;
+
+    for(var i = 0 ; i < count; i++) {
+        textareas[i].onkeydown = function(e) {
+            if (e.keyCode == 9 || e.which == 9) {
+                e.preventDefault();
+                var s = this.selectionStart;
+                this.value = this.value.substring(0, this.selectionStart) + "    " + this.value.substring(this.selectionEnd);
+                this.selectionEnd = s + 4;
+            }
+        }
+    }
+}
+</script>
+
+</head>
+
+<body onload="setTab();">
+    <h3>JavaScript Eval</h3>
+    <p>Enter JavaScript code and press the Execute button</p>
+
+    <textarea id="output">
+var i = 1;            // Number
+var s = "world!";     // String
+var bEnabled = false; // Boolean
+
+// If bEnabled is true, sayHello is called.
+bEnabled && sayHelloEx("cosmos!");
+
+sayHelloEx(s, "msgbox"); // Function call
+
+// Function declaration
+function sayHelloEx(param, outputType = "msgbox") {
+    var hello = "Hello, ";
+
+    if (outputType == "msgbox") {
+        alert(hello + param);
+
+    } else { // "logmsg"...
+        console.log(hello + param);
+    }
+}
+</textarea><br/>
+
+    <button onclick="eval(document.getElementById('output').value);">Execute</button>
+    <button onclick="document.getElementById('output').value = ''";>Clear</button>
+</body>
+</html>

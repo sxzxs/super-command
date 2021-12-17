@@ -1,0 +1,39 @@
+﻿<scheme const="B">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Comment" v="1" fc="0x767676" bc="" b="0" i="1" />
+        <style name="Number" v="2" fc="0x880088" bc="" b="0" i="0" />
+        <style name="Keyword" v="3" fc="0x004CB1" bc="" b="0" i="0" />
+        <style name="String" v="4" fc="0x008000" bc="" b="0" i="0" />
+        <style name="Preprocessor" v="5" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Operator" v="6" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Identifier" v="7" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Date" v="8" fc="0x000000" bc="" b="0" i="0" />
+        <style name="StringEOL" v="9" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Keyword2" v="10" fc="0x0000CF" bc="" b="0" i="0" />
+        <style name="Keyword3" v="11" fc="0x1E90FF" bc="" b="0" i="0" />
+        <style name="Keyword4" v="12" fc="0x004CB1" bc="" b="1" i="0" />
+        <style name="Constant" v="13" fc="0x000000" bc="" b="0" i="0" />
+        <style name="ASM" v="14" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Label" v="15" fc="0x0000DD" bc="" b="0" i="0" />
+        <style name="Error" v="16" fc="0x000000" bc="" b="0" i="0" />
+        <style name="HexNumber" v="17" fc="0x880088" bc="" b="0" i="0" />
+        <style name="BinNumber" v="18" fc="0x880088" bc="" b="0" i="0" />
+        <style name="CommentBlock" v="19" fc="0x767676" bc="" b="0" i="0" />
+        <style name="DocLine" v="20" fc="0x000000" bc="" b="0" i="0" />
+        <style name="DocBlock" v="21" fc="0x000000" bc="" b="0" i="0" />
+        <style name="DocKeyword" v="22" fc="0x000000" bc="" b="0" i="0" />
+    </theme>
+
+    <keywords>
+        <language id="FB">
+            <group id="0" name="Keywords" keywords="$dynamic $include $lang $static abs abstract access acos add alias allocate alpha and andalso any append as asc asin asm assert assertwarn atan2 atn base beep bin binary bit bitreset bitset bload boolean bsave byref byte byval call callocate case cast cbool cbyte cdbl cdecl chain chdir chr cint circle class clear clng clngint close cls color com command common condbroadcast condcreate conddestroy condsignal condwait cons const constructor continue cos cptr cshort csign csng csrlin cubyte cuint culng culngint cunsg curdir cushort custom cvd cvi cvl cvlongint cvs cvshort data date dateadd datediff datepart dateserial datevalue day deallocate declare defbyte defdbl defined defint deflng deflongint defshort defsng defstr defubyte defuint defulongint defushort delete destructor dim dir do double draw draw dylibfree dylibload dylibsymbol dynamic else elseif encoding end enum environ eof eqv erase erfn erl ermn err error escape event exec exepath exit exp explicit export extends extern false field fileattr filecopy filedatetime fileexists filelen fix flip for format frac fre freefile function get getjoystick getkey getmouse gosub goto hex hibyte hiword hour if iif imageconvertrow imagecreate imagedestroy imageinfo imp implements import inkey inp input input$ instr instrrev int integer is isdate isredirected kill lbound lcase left len let lib line lobyte loc local locate lock lof log long longint loop loword lpos lprint lpt lset ltrim mid minute mkd mkdir mki mkl mklongint mks mkshort mod month monthname multikey mutexcreate mutexdestroy mutexlock mutexunlock naked name namespace new next next nogosub nokeyword not now object oct offsetof on once open operator option or orelse out output overload override paint palette pascal pcopy peek pipe pmap point pointcoord pointer poke pos preserve preset print private procptr property protected pset ptr public put random randomize read reallocate redim rem reset restore resume return rgb rgba right rmdir rnd rset rtrim run sadd scope screen screencontrol screencopy screenevent screenglproc screeninfo screenlist screenlock screenptr screenres screenset screensync screenunlock scrn second seek select setdate setenviron setmouse settime sgn shared shell shl short shr sin single sizeof sleep space spc sqr static stdcall step stick stop str strig string strptr sub swap system tab tan then this threadcall threadcreate threaddetach threadwait time timer timeserial timevalue to trans trim true type typeof ubound ubyte ucase uinteger ulong ulongint union unlock unsigned until ushort using va_arg va_first va_next val valint vallng valuint valulng var varptr view virtual wait wbin wchr weekday weekdayname wend whex while width window windowtitle winput with woct write wspace wstr wstring xor year zstring" />
+
+            <group id="1" name="Preprocessor Directives" keywords="#assert #define #else #elseif #endif #endmacro #error #if #ifdef #ifndef #inclib #include #lang #libpath #line #macro #pragma #print #undef" />
+
+            <group id="2" name="Intrinsic Defines" keywords="__date__ __date_iso__ __fb_64bit__ __fb_argc__ __fb_argv__ __fb_arm__ __fb_asm__ __fb_backend__ __fb_bigendian__ __fb_build_date__ __fb_cygwin__ __fb_darwin__ __fb_debug__ __fb_dos__ __fb_err__ __fb_fpmode__ __fb_fpu__ __fb_freebsd__ __fb_gcc__ __fb_lang__ __fb_linux__ __fb_main__ __fb_min_version__ __fb_mt__ __fb_netbsd__ __fb_openbsd__ __fb_option_byval__ __fb_option_dynamic__ __fb_option_escape__ __fb_option_explicit__ __fb_option_gosub__ __fb_option_private__ __fb_out_dll__ __fb_out_exe__ __fb_out_lib__ __fb_out_obj__ __fb_pcos__ __fb_signature__ __fb_sse__ __fb_unix__ __fb_vectorize__ __fb_ver_major__ __fb_ver_minor__ __fb_ver_patch__ __fb_version__ __fb_win32__ __fb_xbox__ __file__ __file_nq__ __function__ __function_nq__ __line__ __path__ __time__" />
+
+            <group id="3" name="Control Flow" keywords="case continue do else elseif end exit for function gosub goto if loop next on return select step sub then to until wend while with" />
+        </language>
+    </keywords>
+</scheme>

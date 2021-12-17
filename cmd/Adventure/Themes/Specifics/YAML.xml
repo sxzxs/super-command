@@ -1,0 +1,20 @@
+﻿<scheme const="YAML">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Comment" v="1" fc="0x767676" bc="" b="0" i="0" u="" />
+        <style name="Identifier" v="2" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="Keyword" v="3" fc="0x9F1F6F" bc="" b="0" i="0" u="" />
+        <style name="Number" v="4" fc="0x880088" bc="" b="0" i="0" u="" />
+        <style name="Reference" v="5" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Document" v="6" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Text" v="7" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="Error" v="8" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Operator" v="9" fc="0x000000" bc="" b="0" i="0" u="" />
+    </theme>
+
+    <keywords>
+        <language id="YAML">
+            <group id="0" name="YAML" keywords="" />
+        </language>
+    </keywords>
+</scheme>

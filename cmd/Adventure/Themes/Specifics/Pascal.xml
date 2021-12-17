@@ -1,0 +1,29 @@
+﻿<scheme const="PAS">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Identifier" v="1" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Comment" v="2" fc="0x767676" bc="" b="0" i="1" />
+        <style name="Comment2" v="3" fc="0x767676" bc="" b="0" i="1" />
+        <style name="CommentLine" v="4" fc="0x767676" bc="" b="0" i="1" />
+        <style name="Preprocessor" v="5" fc="0x0000CF" bc="" b="0" i="0" />
+        <style name="Preprocessor2" v="6" fc="0x0000CF" bc="" b="0" i="0" />
+        <style name="Number" v="7" fc="0x880088" bc="" b="0" i="0" />
+        <style name="HexNumber" v="8" fc="0x880088" bc="" b="0" i="0" />
+        <style name="Word" v="9" fc="0x0070A0" bc="" b="1" i="0" />
+        <style name="String" v="10" fc="0x183691" bc="" b="0" i="0" />
+        <style name="StringEOL" v="11" fc="0x183691" bc="" b="0" i="0" />
+        <style name="Character" v="12" fc="0x183691" bc="" b="0" i="0" />
+        <style name="Operator" v="13" fc="0x1F609F" bc="" b="0" i="0" />
+        <style name="ASM" v="14" fc="0xA2A2A2" bc="" b="0" i="0" />
+    </theme>
+
+    <keywords>
+        <language id="PAS">
+            <group id="0" name="Keywords" keywords="absolute abstract alias and array as asm assembler automated begin bitpacked break case cdecl class const constref constructor contains continue cppdecl cvar default delayed deprecated destructor dispid dispinterface dispose div do downto dynamic else end enumerator except exit experimental exports external false far far16 file final finalization finally for forward function generic goto helper if implementation implements in index inherited initialization inline interface interrupt iocheck is label library local message mod name near new nil nodefault noreturn nostackframe not object of oldfpccall on operator or otherwise out overload override package packed pascal platform private procedure program property protected public published raise read readonly record reference register reintroduce repeat requires resident resourcestring result safecall saveregisters sealed self set shl shr softfloat specialize static stdcall stored strict string then threadvar to true try type unaligned unimplemented unit unsafe until uses var varargs virtual while winapi with write writeonly xor" />
+        </language>
+    </keywords>
+
+    <properties>
+        <property name="lexer.pascal.smart.highlighting" value="1" />
+    </properties>
+</scheme>

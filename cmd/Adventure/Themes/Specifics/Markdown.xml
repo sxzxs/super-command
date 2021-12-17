@@ -1,0 +1,26 @@
+﻿<scheme const="MARKDOWN">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Line_Begin" v="1" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Strong1" v="2" fc="0x000000" bc="" b="1" i="0" u="" />
+        <style name="Strong2" v="3" fc="0x000000" bc="" b="1" i="0" u="" />
+        <style name="EM1" v="4" fc="0x000000" bc="" b="0" i="1" u="" />
+        <style name="EM2" v="5" fc="0x000000" bc="" b="0" i="1" u="" />
+        <style name="Header1" v="6" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="Header2" v="7" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="Header3" v="8" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="Header4" v="9" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="Header5" v="10" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="Header6" v="11" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="Prechar" v="12" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="UList_Item" v="13" fc="0x880088" bc="" b="0" i="0" u="" />
+        <style name="OList_Item" v="14" fc="0x880088" bc="" b="0" i="0" u="" />
+        <style name="Blockquote" v="15" fc="0x183691" bc="" b="0" i="0" u="" />
+        <style name="Strikeout" v="16" fc="0xFF0000" bc="" b="0" i="0" u="" />
+        <style name="HRule" v="17" fc="0x767676" bc="" b="0" i="0" u="" />
+        <style name="Link" v="18" fc="0x1E90FF" bc="" b="0" i="0" u="1" />
+        <style name="Code" v="19" fc="0xC7254E" bc="0xF9F2F4" b="0" i="0" u="" />
+        <style name="Code2" v="20" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="CodeBK" v="21" fc="0x000000" bc="" b="0" i="0" u="" />
+    </theme>
+</scheme>

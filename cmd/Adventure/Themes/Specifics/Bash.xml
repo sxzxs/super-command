@@ -1,0 +1,24 @@
+﻿<scheme const="SH">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Error" v="1" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="CommentLine" v="2" fc="0x767676" bc="" b="0" i="0" u="" />
+        <style name="Number" v="3" fc="0x880088" bc="" b="0" i="0" u="" />
+        <style name="Word" v="4" fc="0x0070A0" bc="" b="0" i="0" u="" />
+        <style name="String" v="5" fc="0x183691" bc="" b="0" i="0" u="" />
+        <style name="Character" v="6" fc="0x183691" bc="" b="0" i="0" u="" />
+        <style name="Operator" v="7" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Identifier" v="8" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Scalar" v="9" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Param" v="10" fc="0x9F1F6F" bc="" b="0" i="0" u="" />
+        <style name="Backticks" v="11" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Here_Delim" v="12" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Here_Q" v="13" fc="0x000000" bc="" b="0" i="0" u="" />
+    </theme>
+
+    <keywords>
+        <language id="BASH">
+            <group id="0" name="Keywords" keywords="" />
+        </language>
+    </keywords>
+</scheme>

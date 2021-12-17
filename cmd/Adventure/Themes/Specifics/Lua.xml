@@ -1,0 +1,39 @@
+﻿<scheme const="LUA">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Comment" v="1" fc="0x767676" bc="" b="0" i="1" u="" />
+        <style name="CommentLine" v="2" fc="0x767676" bc="" b="0" i="1" u="" />
+        <style name="CommentDoc" v="3" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Number" v="4" fc="0x880088" bc="" b="0" i="0" u="" />
+        <style name="Word" v="5" fc="0x004CB1" bc="" b="1" i="0" u="" />
+        <style name="String" v="6" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="Character" v="7" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="LiteralString" v="8" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="PreProcessor" v="9" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="Operator" v="10" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Identifier" v="11" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="StringEOL" v="12" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Word2" v="13" fc="0x004CB1" bc="" b="0" i="0" u="" />
+        <style name="Word3" v="14" fc="0x004CB1" bc="" b="0" i="0" u="" />
+        <style name="Word4" v="15" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Word5" v="16" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Word6" v="17" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Word7" v="18" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Word8" v="19" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Label" v="20" fc="0x1E90FF" bc="" b="0" i="0" u="" />
+    </theme>
+</scheme>
+
+<!--
+static const char * const luaWordListDesc[] = {
+	"Keywords",
+	"Basic functions",
+	"String, (table) & math functions",
+	"(coroutines), I/O & system facilities",
+	"user1",
+	"user2",
+	"user3",
+	"user4",
+	0
+};
+-->

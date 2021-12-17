@@ -1,0 +1,52 @@
+﻿<scheme const="CSS">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Tag" v="1" fc="0x004CB1" bc="" b="1" i="0" u="" />
+        <style name="Class" v="2" fc="0x0070A0" bc="" b="0" i="0" u="" />
+        <style name="PseudoClass" v="3" fc="0x1E90FF" bc="" b="0" i="1" u="" />
+        <style name="Unknown_PseudoClass" v="4" fc="0x0070A8" bc="" b="0" i="0" u="" />
+        <style name="Operator" v="5" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Identifier" v="6" fc="0x183691" bc="" b="0" i="0" u="" />
+        <style name="Unknown_Identifier" v="7" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Value" v="8" fc="0x880088" bc="" b="0" i="0" u="0" />
+        <style name="Comment" v="9" fc="0x767676" bc="" b="0" i="1" u="" />
+        <style name="ID" v="10" fc="0x1F609F" bc="" b="0" i="0" u="" />
+        <style name="Important" v="11" fc="0x9F1F6F" bc="" b="0" i="0" u="" />
+        <style name="Directive" v="12" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="DoubleString" v="13" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="SingleString" v="14" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="Identifier2" v="15" fc="0xF16400" bc="" b="0" i="0" u="" />
+        <style name="Attribute" v="16" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Identifier3" v="17" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="PseudoElement" v="18" fc="0xAA22FF" bc="" b="0" i="1" u="" />
+        <style name="Extended_Identifier" v="19" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Extended_PseudoClass" v="20" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Extended_PseudoElement" v="21" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Media" v="22" fc="0xB80047" bc="0xF0F0F0" b="0" i="0" u="" />
+        <style name="Variable" v="23" fc="0x000000" bc="" b="0" i="0" u="" />
+    </theme>
+
+    <keywords>
+        <language id="CSS">
+            <group id="0" name="Properties" keywords="additive-symbols align-content align-items align-self all animation animation-delay animation-direction animation-duration animation-fill-mode animation-iteration-count animation-name animation-play-state animation-timing-function appearance ascent-override aspect-ratio backdrop-filter backface-visibility background background-attachment background-blend-mode background-clip background-color background-image background-origin background-position background-position-x background-position-y background-repeat background-size block-size border border-block border-block-color border-block-end border-block-end-color border-block-end-style border-block-end-width border-block-start border-block-start-color border-block-start-style border-block-start-width border-block-style border-block-width border-bottom border-bottom-color border-bottom-left-radius border-bottom-right-radius border-bottom-style border-bottom-width border-collapse border-color border-end-end-radius border-end-start-radius border-image border-image-outset border-image-repeat border-image-slice border-image-source border-image-width border-inline border-inline-color border-inline-end border-inline-end-color border-inline-end-style border-inline-end-width border-inline-start border-inline-start-color border-inline-start-style border-inline-start-width border-inline-style border-inline-width border-left border-left-color border-left-style border-left-width border-radius border-right border-right-color border-right-style border-right-width border-spacing border-start-end-radius border-start-start-radius border-style border-top border-top-color border-top-left-radius border-top-right-radius border-top-style border-top-width border-width bottom box-decoration-break box-shadow box-sizing break-after break-before break-inside caption-side caret-color clear clip clip-path color color-adjust color-scheme column-count column-fill column-gap column-rule column-rule-color column-rule-style column-rule-width column-span column-width columns contain content content-visibility counter-increment counter-reset counter-set cursor descent-override direction display empty-cells fallback filter flex flex-basis flex-direction flex-flow flex-grow flex-shrink flex-wrap float font font-display font-family font-feature-settings font-kerning font-language-override font-optical-sizing font-size font-size-adjust font-stretch font-style font-synthesis font-variant font-variant-alternates font-variant-caps font-variant-east-asian font-variant-ligatures font-variant-numeric font-variant-position font-variation-settings font-weight forced-color-adjust gap grid grid-area grid-auto-columns grid-auto-flow grid-auto-rows grid-column grid-column-end grid-column-start grid-row grid-row-end grid-row-start grid-template grid-template-areas grid-template-columns grid-template-rows hanging-punctuation height hyphens image-orientation image-rendering inherits initial initial-letter initial-value inline-size inset inset-block inset-block-end inset-block-start inset-inline inset-inline-end inset-inline-start isolation justify-content justify-items justify-self left letter-spacing line-break line-gap-override line-height line-height-step list-style list-style-image list-style-position list-style-type margin margin-block margin-block-end margin-block-start margin-bottom margin-inline margin-inline-end margin-inline-start margin-left margin-right margin-top margin-trim mask mask-border mask-border-mode mask-border-outset mask-border-repeat mask-border-slice mask-border-source mask-border-width mask-clip mask-composite mask-image mask-mode mask-origin mask-position mask-repeat mask-size mask-type math-style max-block-size max-height max-inline-size max-width min-block-size min-height min-inline-size min-width mix-blend-mode negative object-fit object-position offset offset-anchor offset-distance offset-path offset-rotate opacity order orphans outline outline-color outline-offset outline-style outline-width overflow overflow-anchor overflow-block overflow-clip-margin overflow-inline overflow-wrap overflow-x overflow-y overscroll-behavior overscroll-behavior-block overscroll-behavior-inline overscroll-behavior-x overscroll-behavior-y pad padding padding-block padding-block-end padding-block-start padding-bottom padding-inline padding-inline-end padding-inline-start padding-left padding-right padding-top page-break-after page-break-before page-break-inside paint-order perspective perspective-origin place-content place-items place-self pointer-events position prefix quotes range resize revert right rotate row-gap ruby-align ruby-position scale scroll-behavior scroll-margin scroll-margin-block scroll-margin-block-end scroll-margin-block-start scroll-margin-bottom scroll-margin-inline scroll-margin-inline-end scroll-margin-inline-start scroll-margin-left scroll-margin-right scroll-margin-top scroll-padding scroll-padding-block scroll-padding-block-end scroll-padding-block-start scroll-padding-bottom scroll-padding-inline scroll-padding-inline-end scroll-padding-inline-start scroll-padding-left scroll-padding-right scroll-padding-top scroll-snap-align scroll-snap-stop scroll-snap-type scrollbar-color scrollbar-gutter scrollbar-width shape-image-threshold shape-margin shape-outside size size-adjust speak-as src suffix symbols syntax system tab-size table-layout text-align text-align-last text-combine-upright text-decoration text-decoration-color text-decoration-line text-decoration-skip text-decoration-skip-ink text-decoration-style text-decoration-thickness text-emphasis text-emphasis-color text-emphasis-position text-emphasis-style text-indent text-justify text-orientation text-overflow text-rendering text-shadow text-size-adjust text-transform text-underline-offset text-underline-position top touch-action transform transform-box transform-origin transform-style transition transition-delay transition-duration transition-property transition-timing-function translate unicode-bidi unicode-range unset user-select vertical-align visibility white-space widows width will-change word-break word-spacing word-wrap writing-mode z-index" />
+
+            <group id="1" name="Pseudo-classes" keywords="active any-link checked current dir disabled empty enabled first first-child first-of-type focus focus-visible focus-within fullscreen future has host() host-context() hover in-range indeterminate invalid is lang last-child last-of-type left link local-link not nth-child nth-last-child nth-last-of-type nth-of-type only-child only-of-type optional out-of-range past picture-in-picture placeholder-shown read-only read-write required right root scope target user-invalid user-valid valid visited where 
+" />
+
+            <group id="4" name="Pseudo-elements" keywords="after backdrop before cue first-letter first-line marker part placeholder selection slotted target-text" />
+
+            <group id="5" name="Browser-Specific Properties" keywords="" />
+        </language>
+    </keywords>
+</scheme>
+
+<!--
+	"CSS1 Properties",
+	"Pseudo-classes",
+	"CSS2 Properties",
+	"CSS3 Properties",
+	"Pseudo-elements",
+	"Browser-Specific CSS Properties",
+	"Browser-Specific Pseudo-classes",
+	"Browser-Specific Pseudo-elements",
+-->

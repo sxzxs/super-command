@@ -1,0 +1,53 @@
+﻿<scheme const="SQL">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Comment" v="1" fc="0x767676" bc="" b="0" i="0" />
+        <style name="CommentLine" v="2" fc="0x767676" bc="" b="0" i="0" />
+        <style name="CommentDoc" v="3" fc="0x767676" bc="" b="0" i="0" />
+        <style name="Number" v="4" fc="0x880088" bc="" b="0" i="0" />
+        <style name="Word" v="5" fc="0x0070A0" bc="" b="0" i="0" />
+        <style name="String" v="6" fc="0x183691" bc="" b="0" i="0" />
+        <style name="Character" v="7" fc="0x183691" bc="" b="0" i="0" />
+        <style name="SQLPlus" v="8" fc="0x000000" bc="" b="0" i="0" />
+        <style name="SQLPlus_Prompt" v="9" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Operator" v="10" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Identifier" v="11" fc="0x000000" bc="" b="0" i="0" />
+        <style name="SQLPlus_Comment" v="13" fc="0x000000" bc="" b="0" i="0" />
+        <style name="CommentLineDoc" v="15" fc="0x767676" bc="" b="0" i="0" />
+        <style name="Word2" v="16" fc="0x0000CF" bc="" b="0" i="0" />
+        <style name="CommentDocKeyword" v="17" fc="0x183691" bc="" b="0" i="0" />
+        <style name="CommentDocKeywordError" v="18" fc="0x183691" bc="" b="0" i="0" />
+        <style name="User1" v="19" fc="0x000000" bc="" b="0" i="0" />
+        <style name="User2" v="20" fc="0x000000" bc="" b="0" i="0" />
+        <style name="User3" v="21" fc="0x000000" bc="" b="0" i="0" />
+        <style name="User4" v="22" fc="0x000000" bc="" b="0" i="0" />
+        <style name="QuotedIdentifier" v="23" fc="0x183691" bc="" b="0" i="0" />
+        <style name="QOperator" v="24" fc="0x183691" bc="" b="0" i="0" />
+    </theme>
+
+    <keywords>
+        <language id="SQL">
+            <group id="0" name="" keywords="" />
+        </language>
+    </keywords>
+
+    <properties>
+        <property name="sql.backslash.escapes" value="1" />
+        <property name="lexer.sql.backticks.identifier" value="1" />
+        <property name="lexer.sql.numbersign.comment" value="1" />
+    </properties>
+</scheme>
+
+<!--
+static const char * const sqlWordListDesc[] = {
+	"Keywords",
+	"Database Objects",
+	"PLDoc",
+	"SQL*Plus",
+	"User Keywords 1",
+	"User Keywords 2",
+	"User Keywords 3",
+	"User Keywords 4",
+	0
+};
+-->

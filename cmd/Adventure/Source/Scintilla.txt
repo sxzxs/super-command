@@ -1,0 +1,16 @@
+﻿Scintilla 64-bit was compiled with MinGW-w64-dgn.
+URL: https://sourceforge.net/projects/mingw-w64-dgn/
+Original filename: mingw-w64-bin-x86_64-20180726.7z.
+
+The 32-bit version was compiled with MinGW-w64.
+URL: https://sourceforge.net/projects/mingw-w64/
+Original filename: i686-8.1.0-release-win32-sjlj-rt_v6-rev0.7z.
+
+In order to compile Scintilla, open a command prompt in the scintilla\win32 directory and set the PATH environment variable to the location of the compiler toolset. Then, run make.exe (64-bit) or mingw32-make.exe (32-bit). Resulting files (Scintilla.dll and SciLexer.dll) are output in the scintilla\bin directory.
+
+A batch file may facilitate this procedure: save a file called Build.bat (encoded as UTF-8 without BOM) in the scintilla\win32 directory with the following instructions:
+
+@ECHO OFF 
+PATH = C:\MinGW-w64-dgn\bin\
+make.exe
+PAUSE

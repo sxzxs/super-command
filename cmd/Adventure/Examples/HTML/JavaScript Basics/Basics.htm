@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+
+<title>JavaScript Basics</title>
+
+<meta name="description" content="JavaScript Basics">
+<meta name="author" content="Alguimist">
+
+<link rel="shortcut icon" href="..\Images\Script.ico">
+<link rel="icon" href="..\Images\Script.ico">
+
+<style>
+BODY {
+    border: 0px;
+    margin: 10px;
+    font-family: Calibri;
+    font-variant: small-caps;
+    background-color: #FEFEFE;
+}
+
+H3 {
+    width: 150px;
+    margin-left: -30px;
+    padding-left: 40px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    background: linear-gradient(#EEFFCC, white 1%, #EEFFCC);
+}
+
+P {
+    padding-left: 10px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+DIV {
+    border: 1px solid lightblue;
+    border-radius: 3px;
+    padding: 7px;
+    background: linear-gradient(#EEFFCC, #FFF 1%, #EEFFCC);
+}
+
+SPAN {
+    border: 1px solid lightblue;
+    border-radius: 3px;
+    padding: 3px;
+    background-color: #FFF;
+}
+</style>
+
+<script type="text/javascript" src="Basics.js"></script>
+
+</head>
+
+<body>
+    <h3>JavaScript Basics</h3>
+    <p>Open the web developer console to examine the output</p>
+
+    <script>
+        src = document.getElementsByTagName('script')[0].src;
+        src = decodeURI(src);
+        src = src.replace(/\//g, "\\");
+        src = src.replace("file:\\\\\\", "");
+        document.write("<div>Script file: " + "<span>" + src + "</span></div>");
+    </script>
+</body>
+</html>

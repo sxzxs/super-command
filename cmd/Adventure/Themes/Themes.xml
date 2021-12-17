@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<themes>
+    <theme name="Shenanigans" specifics="Default">
+        <default fc="0x000000" bc="0xF8F8F8" />
+        <selection fc="0xFFFFFF" bc="0x3399FF" a="256" />
+        <numbersmargin fc="0x000000" bc="0xE8E4E0" />
+        <symbolmargin bc="0xE8E4E0" />
+        <divider bc="0x000000" w="1" />
+        <foldmargin dlc="0x008EBC" bbc="0xFAFAFA" mbc="0xFAFAFA" />
+        <caret fc="0x000000" />
+        <activeline bc="0xFFFFFF" />
+        <bracematch fc="0x3399FF" bc="" b="1" i="0" />
+        <markers t="7" c="0x3FBBE3" a="80" oa="255" />
+        <highlights t="8" c="0x3FBBE3" a="80" oa="80" />
+        <calltip fc="" bc="0xFFFFDD" />
+        <indentguide fc="0xF8F8F8" bc="0x20D010" />
+        <whitespace fc="0x008EBC" bc="0xF8F8F8" />
+    </theme>
+
+    <theme name="Acropolis" specifics="Default">
+        <default fc="0x000000" bc="0xF8F8F8" />
+        <selection fc="0xFFFFFF" bc="0x3399FF" a="256" />
+        <numbersmargin fc="0xCFD2CA" bc="0x20AEDD" />
+        <symbolmargin bc="0x20AECC" />
+        <divider bc="0x0000FF" w="1" />
+        <foldmargin dlc="0x008EBC" bbc="0xFAFAFA" mbc="0xFAFAFA" />
+        <caret fc="0x000000" />
+        <activeline bc="0xFFFFFF" />
+        <bracematch fc="0x3399FF" bc="" b="1" i="0" />
+        <markers t="7" c="0x3FBBE3" a="80" oa="255" />
+        <highlights t="8" c="0x3FBBE3" a="80" oa="80" />
+        <calltip fc="" bc="0xFFFFDD" />
+        <indentguide fc="0xF8F8F8" bc="0x20D010" />
+        <whitespace fc="0x008EBC" bc="0xF8F8F8" />
+    </theme>
+
+    <theme name="Moonbase" specifics="Default">
+        <default fc="0x000000" bc="0xF8F8F8" />
+        <selection fc="0xFFFFFF" bc="0x3399FF" a="256" />
+        <numbersmargin fc="0xCFD2CA" bc="0xFFFFFF" />
+        <symbolmargin bc="0xFFFFFF" />
+        <divider bc="0x1EA8F0" w="1" />
+        <foldmargin dlc="0x008EBC" bbc="0xFAFAFA" mbc="0xFAFAFA" />
+        <caret fc="0x000000" />
+        <activeline bc="0xFFFFFF" />
+        <bracematch fc="0x3399FF" bc="" b="1" i="0" />
+        <markers t="7" c="0x3FBBE3" a="80" oa="255" />
+        <highlights t="8" c="0x3FBBE3" a="80" oa="80" />
+        <calltip fc="" bc="0xFFFFDD" />
+        <indentguide fc="0xF8F8F8" bc="0x20D010" />
+        <whitespace fc="0x008EBC" bc="0xF8F8F8" />
+    </theme>
+
+    <theme name="Daguerreotype" specifics="Default">
+        <default fc="0x000000" bc="0xF9F9F5" />
+        <selection fc="0xFFFFFF" bc="0x7B6666" a="256" />
+        <numbersmargin fc="0x7B6666" bc="0xDDDDBB" />
+        <symbolmargin bc="0xEEEECC" />
+        <divider bc="0x000000" w="1" />
+        <foldmargin dlc="0x008EBC" bbc="0xFAFAFA" mbc="0xFAFAFA" />
+        <caret fc="0x000000" />
+        <activeline bc="0xFAF9CC" />
+        <bracematch fc="0x3399FF" bc="" b="1" i="0" />
+        <markers t="7" c="0x3FBBE3" a="80" oa="255" />
+        <highlights t="8" c="0xFFB250" a="80" oa="80" />
+        <calltip fc="" bc="0xFFFFDD" />
+        <indentguide fc="0xF8F8F8" bc="0x20D010" />
+        <whitespace fc="0x008EBC" bc="0xF8F8F8" />
+    </theme>
+
+    <theme name="Olive" specifics="Default">
+        <default fc="0x000000" bc="0xF0F4E9" />
+        <selection fc="0xFFFFFF" bc="0x3399FF" a="256" />
+        <numbersmargin fc="0x000000" bc="0xE1E9CF" />
+        <symbolmargin bc="0xE1E9CF" />
+        <divider bc="0xF8F8F8" w="3" />
+        <foldmargin dlc="0x008EBC" bbc="0xFAFAFA" mbc="0xF0F4E9" />
+        <caret fc="0x000000" />
+        <activeline bc="0xFFFFFF" />
+        <bracematch fc="0x3399FF" bc="" b="1" i="0" />
+        <markers t="7" c="0x3FBBE3" a="80" oa="255" />
+        <highlights t="8" c="0x3FBBE3" a="80" oa="80" />
+        <calltip fc="" bc="0xFFFFDD" />
+        <indentguide fc="0xF8F8F8" bc="0x20D010" />
+        <whitespace fc="0x008EBC" bc="0xF8F8F8" />
+    </theme>
+
+    <theme name="Atlantis" specifics="Default">
+        <default fc="0x2F33D8" bc="0xF1F8FF" />
+        <selection fc="0xFFFFFF" bc="0x3399FF" a="256" />
+        <numbersmargin fc="0xFFFFFF" bc="0x4AACC5" />
+        <symbolmargin bc="0x4AACC5" />
+        <divider bc="0x9FDDF1" w="1" />
+        <foldmargin dlc="0x008EBC" bbc="0xF1F8FF" mbc="0xF1F8FF" />
+        <caret fc="0x000000" />
+        <activeline bc="0xFFFFFF" />
+        <bracematch fc="0x3399FF" bc="" b="1" i="0" />
+        <markers t="7" c="0x3FBBE3" a="80" oa="255" />
+        <highlights t="8" c="0x3FBBE3" a="80" oa="80" />
+        <calltip fc="0xF1F8FF" bc="0x2F66D8" />
+        <indentguide fc="0xF8F8F8" bc="0x20D010" />
+        <whitespace fc="0x008EBC" bc="0xF8F8F8" />
+    </theme>
+
+    <theme name="Solomon" specifics="Default">
+        <default fc="0x000000" bc="0xF8F8F8" />
+        <selection fc="0x00CCFF" bc="0x000000" a="256" />
+        <numbersmargin fc="0x00FFFF" bc="0x0080C0" />
+        <symbolmargin bc="0x0080C0" />
+        <divider bc="0xC0C0C0" w="3" />
+        <foldmargin dlc="0x008EBC" bbc="0xFAFAFA" mbc="0xFAFAFA" />
+        <caret fc="0x000000" />
+        <activeline bc="0xFFFFFF" />
+        <bracematch fc="0x3399FF" bc="" b="1" i="0" />
+        <markers t="7" c="0x3FBBE3" a="80" oa="255" />
+        <highlights t="8" c="0x3FBBE3" a="80" oa="80" />
+        <calltip fc="0x00FFFF" bc="0x0080C0" />
+        <indentguide fc="0xF8F8F8" bc="0x00ADEF" />
+        <whitespace fc="0x008EBC" bc="0xF8F8F8" />
+    </theme>
+
+    <theme name="Dark" specifics="Monokai">
+        <default fc="0xF8F8F2" bc="0x272822" />
+        <selection fc="0xFFFFFF" bc="0x3399FF" a="60" />
+        <numbersmargin fc="0xF8F8F2" bc="0x272822" />
+        <symbolmargin bc="0x272822" />
+        <divider bc="0x92CC47" w="2" />
+        <foldmargin dlc="0x008EBC" bbc="0x272822" mbc="0x272822" />
+        <caret fc="0xF8F8F0" />
+        <activeline bc="0x3E3D32" />
+        <bracematch fc="0x3399FF" bc="" b="1" i="0" />
+        <markers t="7" c="0x3FBBE3" a="80" oa="255" />
+        <highlights t="8" c="0x3FBBE3" a="80" oa="80" />
+        <calltip fc="0xF8F8F2" bc="0x808080" />
+        <indentguide fc="0xF8F8F8" bc="0x20D010" />
+        <whitespace fc="0x008EBC" bc="0xF8F8F8" />
+    </theme>
+</themes>

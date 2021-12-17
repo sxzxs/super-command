@@ -1,0 +1,41 @@
+﻿<scheme const="RUST">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="CommentBlock" v="1" fc="0x767676" bc="" b="0" i="1" u="" />
+        <style name="CommentLine" v="2" fc="0x767676" bc="" b="0" i="1" u="" />
+        <style name="CommentBlockDoc" v="3" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="CommentLineDoc" v="4" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Number" v="5" fc="0x880088" bc="" b="0" i="0" u="" />
+        <style name="Word" v="6" fc="0x004CB1" bc="" b="1" i="0" u="" />
+        <style name="Word2" v="7" fc="0x0070A0" bc="" b="0" i="0" u="" />
+        <style name="Word3" v="8" fc="0x004CB1" bc="" b="0" i="0" u="" />
+        <style name="Word4" v="9" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Word5" v="10" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Word6" v="11" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Word7" v="12" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="String" v="13" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="Stringr" v="14" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="Character" v="15" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="Operator" v="16" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Identifier" v="17" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Lifetime" v="18" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Macro" v="19" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="LexError" v="20" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="ByteString" v="21" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="ByteStringr" v="22" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="ByteCharacter" v="23" fc="0x000000" bc="" b="0" i="0" u="" />
+    </theme>
+</scheme>
+
+<!--
+static const char * const rustWordLists[NUM_RUST_KEYWORD_LISTS + 1] = {
+			"Primary keywords and identifiers",
+			"Built in types",
+			"Other keywords",
+			"Keywords 4",
+			"Keywords 5",
+			"Keywords 6",
+			"Keywords 7",
+			0,
+		};
+-->

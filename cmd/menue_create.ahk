@@ -1,4 +1,5 @@
-﻿#SingleInstance,Force
+﻿OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
+#SingleInstance,Force
 global Settings:=new XML("Settings"),MainWin:=new GUIKeep(1),MenuXML
 if((A_PtrSize=8&&A_IsCompiled="")||!A_IsUnicode){
 	SplitPath,A_AhkPath,,dir
@@ -268,7 +269,19 @@ editcmd()
     gui,2: Add, Button, gsavefile, 保存
     gui,2: +hwndgui2
     GuiControl,,% edit,% Node.text
-    gui,2:show, AutoSize
+    ;gui,2:show, AutoSize
+
+    node_path := node_get_path(Node)
+    Process Exist
+    my_pid := ErrorLevel
+
+    FileDelete,% A_ScriptDir "\tmp\tmp.ahk"
+    FileAppend,% Node.text,% A_ScriptDir "\tmp\tmp.ahk",UTF-8
+    tmp_path =
+    (
+        "%node_path%"
+    ) 
+    run,% A_ScriptDir "\Adventure\Adventure.ahk  " tmp_path " " my_pid
     return
     savefile:
         Node:=GetNode()
@@ -278,6 +291,22 @@ editcmd()
         MenuHandler("save", 4, "File")
         run, %A_ScriptDir%/../menu.ahk
     return
+}
+node_get_path(c)
+{
+    c_name := SSN(c, "@name").text
+    loop
+    {
+        p := c.ParentNode
+        c_parent_name := SSN(p,"@name").text
+        if(c_parent_name == "")
+            break
+        else
+            ParentName := c_parent_name " > " parentname
+        c := p
+    }
+    node_path := ParentName c_name
+    return node_path
 }
 MenuHandler(a,b,c){
 	Item:=Clean(a)
@@ -393,6 +422,7 @@ AddMenuItem(){
 		else
 			Node.ParentNode.AppendChild(New)
 	}MainWin.SetText("Item"),Populate()
+    MenuHandler("save", 4, "File")
 }
 AddSubMenuItem(){
     ;ToolTip, 注意命令节点名称不能相同，建议名字结尾添加当前时间(点击TIME按钮获取到剪切板)
@@ -406,6 +436,7 @@ AddSubMenuItem(){
 	if(MenuXML.Find(Node,"Item/@name",Item))
 		return m("Menu already exists")
 	New:=MenuXML.Under(Node,"Item",{name:Item,last:1}),Populate(),MainWin.SetText("Item")
+    MenuHandler("save", 4, "File")
 }
 Delete(){
 	Node:=GetNode(),Confirm:=MainWin[].Confirm
@@ -706,6 +737,20 @@ outToFile()
     FileDelete,% filename
     FileAppend, %outstring% ,% filename,UTF-8
 }
+xml_reload()
+{
+    global
+    ToolTip, reload
+    SetTimer, RemoveToolTip, -1000
+    FileName := A_ScriptDir "\Menus\超级命令.xml"
+    if(ErrorLevel||!FileExist(FileName))
+        return
+    xx:=new XML("Menu",FileName)
+    if(!xx.SSN("//*[not(Menu) or not(Item)]"))
+        return m("XML Not compatible")
+    MenuXML:=xx,Populate()
+    run, %A_ScriptDir%/../menu.ahk
+}
 
 changeCmdfile()
 {
@@ -732,3 +777,12 @@ changeCmdfile()
 RemoveToolTip:
 ToolTip
 return
+Receive_WM_COPYDATA(wParam, lParam)
+{
+    StringAddress := NumGet(lParam + 2*A_PtrSize)  ; 获取 CopyDataStruct 的 lpData 成员.
+    CopyOfData := StrGet(StringAddress)  ; 从结构中复制字符串.
+    ; 比起 MsgBox, 应该用 ToolTip 显示, 这样我们可以及时返回:
+    ToolTip %A_ScriptName%`nReceived the following string:`n%CopyOfData%
+    xml_reload()
+    return true  ; 返回 1(true) 是回复此消息的传统方式.
+}

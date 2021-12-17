@@ -1,11 +1,12 @@
-﻿OnMessage(0x100, "GuiKeyDown")
+﻿#SingleInstance force
+OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x6, "GuiActivate")
 #include <py>
 #Persistent
-#SingleInstance force
 
 SetBatchLines -1
 ;管理员运行
+full_command_line := DllCall("GetCommandLine", "str")
 if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 {
     try
@@ -17,16 +18,17 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
     }
     ExitApp
 }
+
+
 help_string =
 (
 alt+c:  编辑命令
-alt+q:  搜索命令
+alt+q  或者 shift+endter:  搜索命令
 )
 
 ToolTip,% help_string
 SetTimer, RemoveToolTip, -5000
 
-full_command_line := DllCall("GetCommandLine", "str")
 py.allspell_muti("ahk")
 begin := 1
 total_command := 0 ;总命令个数
@@ -38,13 +40,20 @@ if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
 {
     MsgBox,% A_ScriptDir "\cmd\Menus\超级命令.xml 不存在, alt + c 添加命令并保存在上面目录" 
 }
-fileread, xml_file_content,% A_ScriptDir "\cmd\Menus\超级命令.xml"
+fileread, xml_file_content,% "*P65001 " A_ScriptDir "\cmd\Menus\超级命令.xml"
 my_xml.XML.LoadXML(xml_file_content)
 cmds := xml_parse(my_xml)
 !c::
 run,% A_ScriptDir "\cmd\menue_create.ahk"
 return
++Enter::
 !q::
+if (cmds == "")
+{
+    my_xml := new xml("xml")
+    my_xml.XML.LoadXML(xml_file_content)
+    cmds := xml_parse(my_xml)
+}
 SetCapsLockState,off
 switchime(0)
 Gui +LastFoundExist

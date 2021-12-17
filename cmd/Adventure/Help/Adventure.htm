@@ -1,0 +1,453 @@
+﻿<html>
+<head>
+<title>Adventure - Help</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="icon" href="Images\Adventure.ico" type="image/x-icon"/>
+
+<style>
+BODY {
+    border: 0px;
+    margin: 0px;
+    background: #fff;
+    font-family: Calibri;
+}
+
+.topbar {
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 50px;
+    margin: 0px;
+
+    background-color: white;
+    box-shadow: inset 2px 2px 20px 0px #0099CC, 0px 3px 10px #CCC;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.name {
+    position: relative;
+    top: 7px;
+    left: 10px;
+    width: 50px;
+    height: 100%;
+
+    font-family: Verdana;
+    font-size: 27px;
+    font-weight: 700;
+    color: #008EBC;
+}
+
+H2, H3 {
+    position: relative;
+    color: #1F609F;
+    margin-bottom: 4px;
+    padding-bottom: 0px;
+}
+
+P {
+    margin-top: 0px;
+}
+
+TABLE {
+    font-family: Calibri;
+    font-size: 16px;
+    border: 1px solid black;
+    border-spacing: 0px;
+    margin: 0px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-collapse: separate; /* for td:hover overlapping border */
+}
+
+CAPTION {
+    position: relative;
+    font-family: Segoe UI;
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+    background: no-repeat linear-gradient(#3FBBE3, #3FBBE3, #008EBC, #008EBC);
+    padding: 3px;
+    text-align: left;
+}
+
+TH {
+    background-color: #0099CC;
+    color: white;
+    text-align: left;
+    padding-left: 4px;
+    font-weight: normal;
+}
+
+TR:hover {
+    border: 1px solid lightblue;
+    background: linear-gradient(lightblue, white 10%, lightblue);
+}
+
+A {
+    color: #000;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+}
+
+.bullet {
+    font-family: Verdana;
+    font-size: 16px;
+    color: #00A1DE;
+    font-weight: bold;
+    margin-left: 3px;
+    padding-right: 6px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 50px;
+    width: 160px;
+    height: 100%;
+    background: no-repeat linear-gradient(to left, lightblue, white);
+    box-shadow: inset 2px 2px 20px 0px #0099CC;
+}
+
+.navtable {
+    position: relative;
+    font-family: Calibri;
+    border: 0px;
+    top: 10px;
+    left: 10px;
+    width: 140px;
+}
+
+.content {
+    position: absolute;
+    top: 50px;
+    left: 160px;
+    width: calc(100% - 180px);
+    padding-left: 10px;
+}
+
+.anchor {
+    position: absolute;
+    top: -50px;
+}
+
+</style>
+</head>
+
+<body>
+    <!-- top bar -->
+    <div class="topbar">
+        <span class="name">Adventure IDE</span>
+    </div>
+
+    <!-- side bar -->
+    <div class="sidebar">
+        <table class="navtable">
+            <caption>Help Topics</caption>
+            <tr><td><a href="#intro">Introduction</td></tr>
+            <tr><td><a href="#features">General Features</td></tr>
+            <tr><td><a href="#developer">Developer Features</td></tr>
+            <tr><td><a href="#tools">Tools</a></td></tr>
+            <tr><td><a href="#config">Configuration</a></td></tr>
+        </table>
+    </div>
+
+    <!-- content area -->
+    <div class="content">
+
+    <h2><span id="intro" class="anchor"></span>Introduction</h2>
+    <p>Adventure is a lightweight and flexible, general-purpose IDE (Integrated Development Environment) and advanced text editor. Formerly known as AutoGUI, a GUI designer for AutoHotkey scripts, the project evolved towards the goal of achieving the status of a complete IDE, accomplished once its code editor became feature-rich and with the implementation of a debugger. No longer an editor with features particularly targeted to a specific language, Adventure is right away ready to suite the needs of programmers on a broad range of environments and scenarios, or else it can be adapted for such.</p>
+
+    <!-- General Features -->
+    <table width="100%">
+        <col width="25%" />
+        <col width="70%" />
+        <caption><span id="features" class="anchor"></span>General Features</caption>
+        <tr><th>Feature</th><th>Description</th></tr>
+        <tr>
+            <td><span class="bullet">•</span>Multi-tabbed editor</td>
+            <td>Multiple documents can be opened in a single instance of the program, each one represented by a tab button.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Line and text markers</td>
+            <td>Indicators that provide quick navigation and visual aid.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Smart highlighting</td>
+            <td>Automatic highlight of text that matches the selection.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Search</td>
+            <td>Advanced Find/Replace dialog. Quick "Find Next" mode: select the desired text and press F3.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Find in Files</td>
+            <td>Integrated file search tool. Also works separately.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Auto-save and backup</td>
+            <td>Automatic file saving on a specific interval. A backup copy is also created on manual saving.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>File metadata</td>
+            <td>Data such as line and text markers, cursor position, selections and contracted folds, is preserved out of the file.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Jump menu</td>
+            <td>A pop-up menu that provides access to all marked lines. Right-click the 2nd part of the status bar or press Ctrl + AppsKey.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Load/Save session</td>
+            <td>The set of open files (location and metadata), or a subset of it, can be stored for later reopening.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Recent files</td>
+            <td>Most recently used files.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Favorites</td>
+            <td>A user-defined menu that provides easy access to frequently used files.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>File History Manager</td>
+            <td>Management of sessions, favorites, recent files, open files. Metadata settings.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Tab bar positioning and style</td>
+            <td>The tab bar can be positioned on the bottom (default) or on the top.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Custom themes</td>
+            <td>Colors and styles can be defined for text, background, selection, margins, etc, and also for specific syntactic elements.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Zoom in/out</td>
+            <td>Increase/decrease font size via keyboard or mouse.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Multiple selection/typing/paste</td>
+            <td>Allowing the selection of noncontiguous text areas. Multiple insertion points (carets) allow multityping.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Rectangular selection</td>
+            <td>To select a limited portion of text across lines, press and hold Alt + Shift, then move the cursor with the arrow keys.</td>
+        </tr>
+    </table>
+
+    <!-- Programming Features -->
+    <table width="100%">
+        <col width="30%" />
+        <col width="70%" />
+        <caption><span id="developer" class="anchor"></span>Programming Features</caption>
+        <tr><th>Feature</th><th>Description</th></tr>
+
+        <tr>
+            <td><span class="bullet">•</span>Support for multiple programming languages</td>
+            <td>Style definitions for lexical elements and keywords for highlight and autocompletion.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Syntax highlighting</td>
+            <td>Colored/styled indication of the syntactic elements of text so as to enhance readability.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Autocompletion</td>
+            <td>Automatic prediction of the remaining characters in keywords.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Code tooltips (calltips)</td>
+            <td>Pop-up reminder of the signature of a function, method or command.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Insertion of parameters</td>
+            <td>Insertion of the function signature by pressing Ctrl + Insert or by clicking on the calltip.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Autoclose brackets</td>
+            <td>Automatic insertion of the matching brace.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Templates</td>
+            <td>Sample files providing minimal or routinely used lines of code.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Custom Syntax Type Menu</td>
+            <td>The Syntax menu can be configured to display only the necessary items.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Line numbering</td>
+            <td>An extra margin that displays the numbers associated to the lines.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Code folding</td>
+            <td>Logical sections of text (such as functions) can be visually delimited, allowing the collapse or expansion of specific areas.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Automatic indentation</td>
+            <td>When the Enter key is pressed, the indentation level of the previous line is reproduced in the new line.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Indentation guides</td>
+            <td>Vertical lines that follow along blocks of code.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Show white spaces</td>
+            <td>A way to visualize white spaces and line ending characters.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Hexadecimal/decimal conversion</td>
+            <td>Convert the number representation from hex to decimal and vice versa.</span></td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Run with Associated Application</td>
+            <td>Directly run files with the press of a key (F9).</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Command line parameters</td>
+            <td>Command line arguments can be specified for the execution of the current file (tab-based). Additionally, file association info.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Explorer context menu</td>
+            <td>Integration with the dynamic shell menu that provides access to specific actions and common verbs.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet">•</span>Custom Tools menu</td>
+            <td>A user-defined menu that provides access to useful applications.</td>
+        </tr>
+        <tr>
+            <td colspan="2"><span class="bullet">•</span>Facilities for AutoHotkey:</td>
+        </tr>
+        <tr>
+            <td><span class="bullet" style="margin-left: 40px">•</span>Dedicated menu</td>
+            <td>Functionality available exclusively for AutoHotkey.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet" style="margin-left: 40px">•</span>Run without save</td>
+            <td>AHK code can be quickly tested without choosing a file location.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet" style="margin-left: 40px">•</span>StdErr capture</td>
+            <td>By intercepting the standard error stream of a failed script execution, the editor is able to jump to the affected line.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet" style="margin-left: 40px">•</span>Debugger</td>
+            <td>A way to inspect the flow and variables of a script on a step-by-step basis or through breakpoints.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet" style="margin-left: 40px">•</span>Tools</td>
+            <td>A set of tools particularly useful for the development of AutoHotkey scripts.</td>
+        </tr>
+        <tr>
+            <td><span class="bullet" style="margin-left: 40px">•</span>Help</td>
+            <td>Integration with an up-to-date version of the AHK help file (compiled in the classical style).</td>
+        </tr>
+        <tr>
+            <td><span class="bullet" style="margin-left: 40px">•</span>AHK-WinAPI table</td>
+            <td>A document that provides a deeper understanding on how AutoHotkey works.</td>
+        </tr>
+    </table>
+
+    <!-- Tools -->
+    <h2><span id="tools" class="anchor"></span>Tools</h2>
+    <p>The <b>Tools menu</b> is a user-defined menu. A tool can be an executable file, a script, a help file, a folder, a web address. To add, modify or remove items from the Tools menu, go to <i>Tools</i> &gt; <i>Configure Tools</i>. On the left of the dialog is a list of the currently defined tools, which can be moved up or down with the respective buttons. To add a new tool, click New, then browse to the file in the file selection dialog. To remove an item from the list, click Remove. On the right are the input fields where a new or existing tool can be set.</p>
+    <p>Near the parameters field, a button gives access to a popup menu with the available placeholders. Choose "{:FULLPATH:}", for example, to pass the entire path of the current file to the command line of the tool when executed.</p>
+    <p>Settings are stored in the file <i>Settings\Tools.xml</i>. For a preset of tools, rename the file AHK-Tools.xml to Tools.xml. Some of these tools are relevant to AutoHotkey only. See the complete list of tools below.</p>
+    <table width="100%">
+        <col width="25%" />
+        <col width="70%" />
+        <caption>Tools</caption>
+        <tr><th>Name</th><th>Description</th></tr>
+        <tr><td><span class="bullet">•</span>Auto-GUI</td><td>Windows form designer for AutoHotkey.</td></tr>
+        <tr><td><span class="bullet">•</span>MagicBox</td><td>Powerful message box generator.</td></tr>
+        <tr><td><span class="bullet">•</span>Expressive</td><td>Regular expression tool.</td></tr>
+        <tr><td><span class="bullet">•</span>Constantine</td><td>Windows API constants reference.</td></tr>
+        <tr><td><span class="bullet">•</span>A_Variables</td><td>AutoHotkey built-in variables.</td></tr>
+        <tr><td><span class="bullet">•</span>AutoTaskMan</td><td>AutoHotkey Scripts Manager.</td></tr>
+        <tr><td><span class="bullet">•</span>COM Inspector</td><td>ActiveX/COM Objects Reference.</td></tr>
+        <tr><td><span class="bullet">•</span>Structor and Verifier</td><td>Windows API structure offsets, size of data types and constant values.</td></tr>
+        <tr><td><span class="bullet">•</span>ErrorView</td><td>Win32 error messages reference.</td></tr>
+        <tr><td><span class="bullet">•</span>Script Directives</td><td>AutoHotkey directives generator.</td></tr>
+        <tr><td><span class="bullet">•</span>XML Syntax Checker</td><td>A tool that warns about errors in the formatting of XML documents.</td></tr>
+        <tr><td><span class="bullet">•</span>Sort Panel</td><td>Sort string items in alphabetical, numerical or random order (optionally removing duplicates).</td></tr>
+    </table>
+
+    <!-- Configuration -->
+    <h2><span id="config" class="anchor"></span>Configuration</h2>
+    <p>It might be of interest to enable <b>multiple selection</b> (<i>Options</i> &gt; <i>Enable Multiple Selection</i>) and the <b>Explorer context menu</b> (<i>Run</i> &gt; <i>Explorer Context Menu...</i>), options not enabled by default because they were not fully tested.</p>
+    <p>The Find/Replace dialog offers the option "<b>F3: find the next occurrence of the currently selected text</b>", which means that, once enabled, the F3 key can be used to quickly find the next or previous (Shift + F3) occurrence of the selected text without the dialog being visible. Some search options like <i>case sensitive</i> and <i>regular expression</i> do not take place when using this mode.</p>
+    <p>File metadata: by default, Adventure doesn't store the position of selections and the lines indicating collapsed folds. Go to <i>Sessions</i> &gt; <i>Manage Sessions...</i> &gt; <i>Settings</i> to enable them.</p>
+    <table width="100%">
+        <col width="25%" />
+        <col width="70%" />
+        <caption>Configuration</caption>
+        <tr><th>Where</th><th>What can be configured</th></tr>
+        <tr>
+            <td>&nbsp;Find/Replace dialog</td>
+            <td>Basic matching options, F3 mode, wrap around, starting position, automatic highlight options.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;File History Manager</td>
+            <td>Related menu items, startup session, file metadata (cursor position, line markers, text markers, selections, code folding).</td>
+            </tr>
+        <tr>
+            <td>&nbsp;View menu</td>
+            <td>Tab bar position and style, visible margins, word wrap, syntax highlighting, indentation lines, theme, font family and size.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;Syntax Type menu/dialog</td>
+            <td>Current syntax type, default syntax type, available menu items.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;Options menu</td>
+            <td>AutoComplete, calltips, autoclose brackets, indentation, multiple selection, auto-save and backup, ask to save on exit.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;Indentation dialog</td>
+            <td>Indentation size, indent with spaces and automatic indentation.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;Auto-save and backup dialog</td>
+            <td>Directory, backup before saving, auto-save interval and location, automatic deletion.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;Explorer menu</td>
+            <td>Enabled for the drop-down of the Execute button and/or as a submenu of the tab bar menu.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;Tools menu/dialog</td>
+            <td>Items, display name, file, parameters, working dir, icon, description.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;AHK Settings</td>
+            <td>32 and 64-bit executable path, alternative executable, standard error capture, help file path.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;Settings file (Adventure.ini)</td>
+            <td>Some settings (file manager path, for example) are not yet exposed in the user interface. Be careful when editing this file.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;FileTypes.xml</td>
+            <td>File extension types and description, Scintilla lexers, file dialog filter groups.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;Themes.xml</td>
+            <td>Global theme data for common elements of the Scintilla control.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;Language-specific XML files</td>
+            <td>Files containing the definitions for colors, styles, keywords and properties applied to specific programming languages.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;AutoCompletion XML files</td>
+            <td>Files containing a list of keywords. The language <i>id</i> attribute must be in conformity with those defined in FileTypes.xml.</td>
+        </tr>
+    </table>
+
+    <hr />
+    <p>Last updated: August, 2021.</p>
+
+    </div>
+</body>
+</html>

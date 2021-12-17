@@ -1,0 +1,29 @@
+﻿<scheme const="H">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Tag" v="1" fc="0x0000FF" bc="" b="0" i="0" />
+        <style name="TagUnknown" v="2" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Attribute" v="3" fc="0x1E90FF" bc="" b="0" i="0" />
+        <style name="AttributeUnknown" v="4" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Number" v="5" fc="0x000000" bc="" b="0" i="0" />
+        <style name="DoubleString" v="6" fc="0x008000" bc="" b="0" i="0" />
+        <style name="SingleString" v="7" fc="0x008000" bc="" b="0" i="0" />
+        <style name="Other" v="8" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Comment" v="9" fc="0x767676" bc="" b="0" i="0" />
+        <style name="Entity" v="10" fc="0x000000" bc="" b="0" i="0" />
+        <style name="TagEnd" v="11" fc="0x0000FF" bc="" b="0" i="0" />
+        <style name="XMLStart" v="12" fc="0x000000" bc="" b="0" i="0" />
+        <style name="XMLEnd" v="13" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Script" v="14" fc="0x000000" bc="" b="0" i="0" />
+        <style name="ASP" v="15" fc="0x000000" bc="" b="0" i="0" />
+        <style name="ASPAT" v="16" fc="0x000000" bc="" b="0" i="0" />
+        <style name="CDATA" v="17" fc="0x880088" bc="" b="0" i="0" />
+        <style name="Question" v="18" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Value" v="19" fc="0x880088" bc="" b="0" i="0" />
+        <style name="XCComment" v="20" fc="0x000000" bc="" b="0" i="0" />
+    </theme>
+
+    <properties>
+        <property name="fold.html" value="1" />
+    </properties>
+</scheme>

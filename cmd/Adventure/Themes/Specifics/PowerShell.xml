@@ -1,0 +1,45 @@
+﻿<scheme const="POWERSHELL">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Comment" v="1" fc="0x767676" bc="" b="0" i="1" />
+        <style name="String" v="2" fc="0x183691" bc="" b="0" i="0" />
+        <style name="Character" v="3" fc="0x183691" bc="" b="0" i="0" />
+        <style name="Number" v="4" fc="0x880088" bc="" b="0" i="0" />
+        <style name="Variable" v="5" fc="0x990055" bc="" b="0" i="0" />
+        <style name="Operator" v="6" fc="0x9F1F6F" bc="" b="0" i="0" />
+        <style name="Identifier" v="7" fc="0x0070A0" bc="" b="0" i="0" />
+        <style name="Keyword" v="8" fc="0x0F707F" bc="" b="0" i="0" />
+        <style name="Cmdlet" v="9" fc="0x0000DD" bc="" b="0" i="0" />
+        <style name="Alias" v="10" fc="0x0070A0" bc="" b="0" i="0" />
+        <style name="Function" v="11" fc="0x0000DD" bc="" b="0" i="0" />
+        <style name="User1" v="12" fc="0x000000" bc="" b="0" i="0" />
+        <style name="CommentStream" v="13" fc="0x767676" bc="" b="0" i="0" />
+        <style name="Here_String" v="14" fc="0x183691" bc="" b="0" i="1" />
+        <style name="Here_Character" v="15" fc="0x183691" bc="" b="0" i="1" />
+        <style name="CommentDocKeyword" v="16" fc="0x00FF00" bc="" b="0" i="0" />
+    </theme>
+
+    <keywords>
+        <language id="PS1">
+            <group id="0" name="Keywords" keywords="break continue do else elseif filter for foreach function if in return switch until where while" />
+
+            <group id="1" name="Commands" keywords="add-content add-history add-member add-pssnapin clear-content clear-item clear-itemproperty clear-variable compare-object convert-path convertfrom-securestring convertto-html convertto-securestring copy-item copy-itemproperty export-alias export-clixml export-console export-csv foreach-object format-custom format-list format-table format-wide get-acl get-alias get-authenticodesignature get-childitem get-command get-content get-credential get-culture get-date get-eventlog get-executionpolicy get-help get-history get-host get-item get-itemproperty get-location get-member get-pfxcertificate get-process get-psdrive get-psprovider get-pssnapin get-service get-tracesource get-uiculture get-unique get-variable get-wmiobject group-object import-alias import-clixml import-csv invoke-expression invoke-history invoke-item join-path measure-command measure-object move-item move-itemproperty new-alias new-item new-itemproperty new-object new-psdrive new-service new-timespan new-variable out-default out-file out-host out-null out-printer out-string pop-location push-location read-host remove-item remove-itemproperty remove-psdrive remove-pssnapin remove-variable rename-item rename-itemproperty resolve-path restart-service resume-service select-object select-string set-acl set-alias set-authenticodesignature set-content set-date set-executionpolicy set-item set-itemproperty set-location set-psdebug set-service set-tracesource set-variable sort-object split-path start-service start-sleep start-transcript stop-process stop-service stop-transcript suspend-service tee-object test-path trace-command update-formatdata update-typedata where-object write-debug write-error write-host write-output write-progress write-verbose write-warning" />
+
+            <group id="2" name="Aliases" keywords="ac asnp cat cd chdir clc clear cli clp cls clv copy cp cpi cpp cvpa del diff dir echo epal epcsv erase fc fl foreach ft fw gal gc gci gcm gdr ghy gi gl gm gp gps group gsnp gsv gu gv gwmi h history iex ihy ii ipal ipcsv kill lp ls mi mount move mp mv nal ndr ni nv oh popd ps pushd pwd r rd rdr ren ri rm rmdir rni rnp rp rsnp rv rvpa sal sasv sc select set si sl sleep sort sp spps spsv sv tee type where write" />
+
+            <group id="3" name="" keywords="component description example externalhelp forwardhelpcategory forwardhelptargetname functionality inputs link notes outputs parameter remotehelprunspace role synopsis" />
+        </language>
+    </keywords>
+</scheme>
+
+<!--
+static const char *const powershellWordLists[] = {
+	"Commands",
+	"Cmdlets",
+	"Aliases",
+	"Functions",
+	"User1",
+	"DocComment",
+	0
+};
+-->

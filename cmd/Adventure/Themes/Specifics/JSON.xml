@@ -1,0 +1,30 @@
+﻿<scheme const="JSON">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Number" v="1" fc="0x880088" bc="" b="0" i="0" u="" />
+        <style name="String" v="2" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="StringEOL" v="3" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="PropertyName" v="4" fc="0x004CB1" bc="" b="0" i="0" u="" />
+        <style name="EscapeSequence" v="5" fc="0x9F1F6F" bc="" b="0" i="0" u="" />
+        <style name="LineComment" v="6" fc="0x767676" bc="" b="0" i="0" u="" />
+        <style name="BlockComment" v="7" fc="0x767676" bc="" b="0" i="0" u="" />
+        <style name="Operator" v="8" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="URI" v="9" fc="0x1E90FF" bc="" b="0" i="0" u="" />
+        <style name="CompactIRI" v="10" fc="0x1E90FF" bc="" b="0" i="0" u="" />
+        <style name="Keyword" v="11" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="LDKeyword" v="12" fc="0xAA22FF" bc="" b="0" i="0" u="" />
+        <style name="Error" v="13" fc="0xFF0000" bc="" b="0" i="0" u="" />
+    </theme>
+
+    <keywords>
+        <language id="JSON">
+            <group id="0" name="Keywords" keywords="false null true" />
+            <group id="1" name="JSON-LD Keywords" keywords="@base @container @context @graph @id @index @language @list @nest @none @prefix @reverse @set @type @value @version @vocab" />
+        </language>
+    </keywords>
+
+    <properties>
+        <property name="lexer.json.escape.sequence" value="1" />
+        <property name="lexer.json.allow.comments" value="1" />
+    </properties>
+</scheme>

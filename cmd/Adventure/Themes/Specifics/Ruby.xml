@@ -1,0 +1,44 @@
+﻿<scheme const="RB">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Error" v="1" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="CommentLine" v="2" fc="0x767676" bc="" b="0" i="1" u="" />
+        <style name="POD" v="3" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Number" v="4" fc="0x880088" bc="" b="0" i="0" u="" />
+        <style name="Word" v="5" fc="0x004CB1" bc="" b="0" i="0" u="" />
+        <style name="String" v="6" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="Character" v="7" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="ClassName" v="8" fc="0x000000" bc="" b="1" i="0" u="" />
+        <style name="DefName" v="9" fc="0x000000" bc="" b="1" i="0" u="" />
+        <style name="Operator" v="10" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Identifier" v="11" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="RegEx" v="12" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="Global" v="13" fc="0xAA22FF" bc="" b="0" i="0" u="" />
+        <style name="Symbol" v="14" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Module_Name" v="15" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Instance_Var" v="16" fc="0x183691" bc="" b="0" i="0" u="" />
+        <style name="Class_Var" v="17" fc="0x000000" bc="" b="0" i="1" u="" />
+        <style name="Backticks" v="18" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="DataSection" v="19" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Here_Delim" v="20" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Here_Q" v="21" fc="0x008000" bc="" b="0" i="0" u="" />
+        <style name="Here_QQ" v="22" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Here_QX" v="23" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="String_Q" v="24" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="String_QQ" v="25" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="String_QX" v="26" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="String_QR" v="27" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="String_QW" v="28" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Word_Demoted" v="29" fc="0x004CB1" bc="" b="0" i="0" u="" />
+        <style name="StdIn" v="30" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="StdOut" v="31" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="StdErr" v="40" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Upper_Bound" v="41" fc="0x000000" bc="" b="0" i="0" u="" />
+    </theme>
+
+    <keywords>
+        <language id="RB">
+            <group id="0" name="Keywords" keywords="__ENCODING__ __FILE__ __LINE__ BEGIN END alias and begin break case class def defined? do else elsif end ensure false for if in module next nil not or redo require rescue retry return self super then true undef unless until when while yield" />
+        </language>
+    </keywords>
+</scheme>

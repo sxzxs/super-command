@@ -1,0 +1,52 @@
+﻿<scheme const="C">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Comment" v="1" fc="0x767676" bc="" b="0" i="1" />
+        <style name="CommentLine" v="2" fc="0x767676" bc="" b="0" i="1" />
+        <style name="CommentDoc" v="3" fc="0x767676" bc="" b="0" i="1" />
+        <style name="Number" v="4" fc="0x880088" bc="" b="0" i="0" />
+        <style name="Word" v="5" fc="0x004CB1" bc="" b="1" i="0" />
+        <style name="String" v="6" fc="0x008000" bc="" b="0" i="0" />
+        <style name="Character" v="7" fc="0x008000" bc="" b="0" i="0" />
+        <style name="UUID" v="8" fc="" bc="" b="0" i="0" />
+        <style name="Preprocessor" v="9" fc="0x183691" bc="" b="0" i="0" u="0" />
+        <style name="Operator" v="10" fc="" bc="" b="0" i="0" />
+        <style name="Identifier" v="11" fc="0x000000" bc="" b="0" i="0" />
+        <style name="StringEOL" v="12" fc="0x008000" bc="" b="0" i="0" />
+        <style name="Verbatim" v="13" fc="0x000000" bc="" b="0" i="0" />
+        <style name="RegEx" v="14" fc="0x008000" bc="" b="0" i="0" />
+        <style name="CommentLineDoc" v="15" fc="" bc="" b="0" i="0" />
+        <style name="Word2" v="16" fc="0x0000DD" bc="" b="0" i="0" />
+        <style name="CommentDocKeyword" v="17" fc="0x000000" bc="" b="0" i="0" />
+        <style name="CommentDocKeywordError" v="18" fc="0x000000" bc="" b="0" i="0" />
+        <style name="GlobalClass" v="19" fc="0x0070A0" bc="" b="0" i="0" />
+        <style name="StringRaw" v="20" fc="0x008000" bc="" b="0" i="0" />
+        <style name="TripleVerbatim" v="21" fc="0x008000" bc="" b="0" i="0" />
+        <style name="HashQuotedString" v="22" fc="0x008000" bc="" b="0" i="0" />
+        <style name="PreprocessorComment" v="23" fc="0x767676" bc="" b="0" i="0" />
+        <style name="PreprocessorCommentDoc" v="24" fc="0x767676" bc="" b="0" i="0" />
+        <style name="UserLiteral" v="25" fc="0x000000" bc="" b="0" i="0" />
+        <style name="TaskMarker" v="26" fc="0x008000" bc="" b="0" i="0" />
+        <style name="EscapeSequence" v="27" fc="0x0090B3" bc="" b="0" i="0" />
+    </theme>
+
+    <keywords>
+        <language id="JAVA">
+            <group id="0" name="Primary Keywords and Identifiers" keywords="assert break case catch class continue default do else extends false finally for goto if implements import instanceof main new null return super switch this throw throws true try while" />
+            <group id="1" name="Secondary Keywords and Identifiers" keywords="" />
+            <group id="2" name="Documentation Comment Keywords" keywords="" />
+            <group id="3" name="Global Classes and Typedefs" keywords="abstract boolean byte char const double enum final float int interface long native package private protected public short static strictfp String synchronized transient void volatile" />
+            <group id="4" name="Preprocessor Definitions" keywords="" />
+            <group id="5" name="Task Marker and Error Marker Keywords" keywords="" />
+        </language>
+    </keywords>
+
+    <properties>
+        <property name="styling.within.preprocessor" value="1" />
+        <property name="lexer.cpp.track.preprocessor" value="1" />
+        <property name="lexer.cpp.update.preprocessor" value="1" />
+        <property name="lexer.cpp.escape.sequence" value="1" />
+        <property name="fold.at.else" value="1" />
+        <property name="fold.cpp.preprocessor.at.else" value="1" />
+    </properties>
+</scheme>

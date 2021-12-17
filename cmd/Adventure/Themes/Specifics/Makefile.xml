@@ -1,0 +1,11 @@
+﻿<scheme const="MAKE">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Comment" v="1" fc="0x767676" bc="" b="0" i="0" u="" />
+        <style name="Preprocessor" v="2" fc="0x0000CF" bc="" b="0" i="0" u="" />
+        <style name="Identifier" v="3" fc="0x0070A0" bc="" b="0" i="0" u="" />
+        <style name="Operator" v="4" fc="0x000000" bc="" b="0" i="0" u="" />
+        <style name="Target" v="5" fc="0x9F1F6F" bc="" b="0" i="0" u="" />
+        <style name="IDEOL" v="9" fc="0x000000" bc="" b="0" i="0" u="" />
+    </theme>
+</scheme>

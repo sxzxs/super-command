@@ -1,0 +1,36 @@
+﻿<scheme const="NSIS">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Comment" v="1" fc="0x000000" bc="" b="0" i="0" />
+        <style name="StringDQ" v="2" fc="0x000000" bc="" b="0" i="0" />
+        <style name="StringLQ" v="3" fc="0x000000" bc="" b="0" i="0" />
+        <style name="StringRQ" v="4" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Function" v="5" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Variable" v="6" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Label" v="7" fc="0x000000" bc="" b="0" i="0" />
+        <style name="UserDefined" v="8" fc="0x000000" bc="" b="0" i="0" />
+        <style name="SectionDef" v="9" fc="0x000000" bc="" b="0" i="0" />
+        <style name="SubsectionDef" v="10" fc="0x000000" bc="" b="0" i="0" />
+        <style name="IfDefineDef" v="11" fc="0x000000" bc="" b="0" i="0" />
+        <style name="MacroDef" v="12" fc="0x000000" bc="" b="0" i="0" />
+        <style name="StringVar" v="13" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Number" v="14" fc="0x000000" bc="" b="0" i="0" />
+        <style name="SectionGroup" v="15" fc="0x000000" bc="" b="0" i="0" />
+        <style name="PageEx" v="16" fc="0x000000" bc="" b="0" i="0" />
+        <style name="FunctionDef" v="17" fc="0x000000" bc="" b="0" i="0" />
+        <style name="CommentBox" v="18" fc="0x000000" bc="" b="0" i="0" />
+    </theme>
+
+    <keywords>
+        <language id="NSIS">
+            <group id="0" name="Functions" keywords="" />
+            <group id="1" name="Variables" keywords="" />
+            <group id="2" name="Lables" keywords="" />
+            <group id="3" name="UserDefined" keywords="" />
+        </language>
+    </keywords>
+
+    <properties>
+        <property name="nsis.ignorecase" value="1" />
+    </properties>
+</scheme>

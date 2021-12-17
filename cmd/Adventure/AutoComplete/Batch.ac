@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AutoComplete>
+    <language id="BAT">
+        <key name="ASSOC">
+            <params>[.ext[=[fileType]]]</params>
+        </key>
+        <key name="AUX" />
+        <key name="BREAK" />
+        <key name="CALL">
+            <params>[drive:][path]filename [batch-parameters]</params>
+            <params>:label arguments</params>
+        </key>
+        <key name="CD">
+            <params>[/D] [drive:][path]</params>
+            <params>[..]</params>
+        </key>
+        <key name="CHCP">
+            <params>[nnn]</params>
+        </key>
+        <key name="CHDIR">
+            <params>[/D] [drive:][path]</params>
+            <params>[..]</params>
+        </key>
+        <key name="CHOICE">
+            <params>[/C choices] [/N] [/CS] [/T timeout /D choice] [/M text]</params>
+        </key>
+        <key name="CLS" />
+        <key name="CMDEXTVERSION" />
+        <key name="COLOR">
+            <params>[attr]</params>
+        </key>
+        <key name="COM" />
+        <key name="COM1" />
+        <key name="COM2" />
+        <key name="COM3" />
+        <key name="COM4" />
+        <key name="CON" />
+        <key name="COPY">
+            <params>source destination</params>
+            <params>[/D] [/V] [/N] [/Y | /-Y] [/Z] [/L] [/A | /B ] source [/A | /B] [+ source [/A | /B] [+ ...]] [destination [/A | /B]]</params>
+        </key>
+        <key name="COUNTRY" />
+        <key name="CTTY" />
+        <key name="DATE">
+            <params>[/T | date]</params>
+        </key>
+        <key name="DEFINED" />
+        <key name="DEL">
+            <params>[/P] [/F] [/S] [/Q] [/A[[:]attributes]] names</params>
+        </key>
+        <key name="DIR">
+            <params>[/A] [/S] [drive:][path][filename]</params>
+            <params>[drive:][path][filename] [/A[[:]attributes]] [/B] [/C] [/D] [/L] [/N] [/O[[:]sortorder]] [/P] [/Q] [/R] [/S] [/T[[:]timefield]] [/W] [/X] [/4]</params>
+        </key>
+        <key name="DO" />
+        <key name="DPATH">
+            <params>[[drive:]path[;...]] [/X[:ON | :OFF]] [/PATH:ON | /PATH:OFF] [/E]</params>
+            <params>;</params>
+        </key>
+        <key name="ECHO">
+            <params>OFF</params>
+            <params>ON</params>
+            <params>[message]</params>
+        </key>
+        <key name="ELSE" />
+        <key name="ENDLOCAL" />
+        <key name="ERASE">
+            <params>[/P] [/F] [/S] [/Q] [/A[[:]attributes]] names</params>
+        </key>
+        <key name="ERRORLEVEL" />
+        <key name="EXIST" />
+        <key name="EXIT">
+            <params>[/B] [exitCode]</params>
+        </key>
+        <key name="FOR">
+            <params>%variable IN (set) DO command [command-parameters]</params>
+        </key>
+        <key name="FTYPE">
+            <params>[fileType[=[openCommandString]]]</params>
+        </key>
+        <key name="GOTO">
+            <params>label</params>
+        </key>
+        <key name="IF">
+            <params>[NOT] ERRORLEVEL number command</params>
+            <params>[NOT] string1==string2 command</params>
+            <params>[NOT] EXIST filename command</params>
+        </key>
+        <key name="IN" />
+        <key name="LOADFIX" />
+        <key name="LOADHIGH" />
+        <key name="LPT" />
+        <key name="LPT1" />
+        <key name="LPT2" />
+        <key name="LPT3" />
+        <key name="LPT4" />
+        <key name="MD">
+            <params>[drive:]path</params>
+        </key>
+        <key name="MKDIR">
+            <params>[drive:]path</params>
+        </key>
+        <key name="MKLINK">
+            <params>[[/D] | [/H] | [/J]] Link Target</params>
+        </key>
+        <key name="MOVE">
+            <params>[/Y | /-Y] [drive:][path]filename1[,...] destination</params>
+            <params>[/Y | /-Y] [drive:][path]dirname1 dirname2</params>
+        </key>
+        <key name="NOT" />
+        <key name="NUL" />
+        <key name="PATH">
+            <params>[[drive:]path[;...][;%PATH%]</params>
+            <params>;</params>
+        </key>
+        <key name="PAUSE" />
+        <key name="POPD" />
+        <key name="PRN" />
+        <key name="PROMPT">
+            <params>[text]</params>
+        </key>
+        <key name="PUSHD">
+            <params>[path | ..]</params>
+        </key>
+        <key name="RANDOM" />
+        <key name="RD">
+            <params>[/S] [/Q] [drive:]path</params>
+        </key>
+        <key name="REM">
+            <params>[comment]</params>
+        </key>
+        <key name="REN">
+            <params>[drive:][path]filename1 filename2</params>
+        </key>
+        <key name="RENAME">
+            <params>[drive:][path]filename1 filename2</params>
+        </key>
+        <key name="RMDIR">
+            <params>[/S] [/Q] [drive:]path</params>
+        </key>
+        <key name="SET">
+            <params>[variable=[string]]</params>
+            <params>/A expression</params>
+            <params>/P variable=[promptString]</params>
+        </key>
+        <key name="SETLOCAL" />
+        <key name="SHIFT">
+            <params>[/n]</params>
+        </key>
+        <key name="START">
+            <params>[/WAIT] [command/program] [parameters]</params>
+            <params>[&quot;title&quot;] [/D path] [/I] [/MIN] [/MAX] [/SEPARATE | /SHARED] [/LOW | /NORMAL | /HIGH | /REALTIME | /ABOVENORMAL | /BELOWNORMAL] [/AFFINITY &lt;hex affinity&gt;] [/WAIT] [/B] [command/program] [parameters]</params>
+        </key>
+        <key name="TIME">
+            <params>[/T | time]</params>
+        </key>
+        <key name="TITLE">
+            <params>[string]</params>
+        </key>
+        <key name="TYPE">
+            <params>[drive:][path]filename</params>
+        </key>
+        <key name="VER" />
+        <key name="VERIFY">
+            <params>[ON | OFF]</params>
+        </key>
+        <key name="VOL">
+            <params>[drive:]</params>
+        </key>
+    </language>
+</AutoComplete>

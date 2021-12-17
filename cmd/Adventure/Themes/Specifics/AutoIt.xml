@@ -1,0 +1,23 @@
+﻿<scheme const="AU3">
+    <theme name="Default">
+        <style name="Default" v="0" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Comment" v="1" fc="0x767676" bc="" b="0" i="1" />
+        <style name="CommentBlock" v="2" fc="0x767676" bc="" b="0" i="0" />
+        <style name="Number" v="3" fc="0x880088" bc="" b="0" i="0" />
+        <style name="Function" v="4" fc="0x0000DD" bc="" b="0" i="0" />
+        <style name="Keyword" v="5" fc="0x0070A0" bc="" b="0" i="0" />
+        <style name="Macro" v="6" fc="0x000000" bc="" b="0" i="0" />
+        <style name="String" v="7" fc="0x183691" bc="" b="0" i="0" />
+        <style name="Operator" v="8" fc="0x1F609F" bc="" b="0" i="0" />
+        <style name="Variable" v="9" fc="0x008000" bc="" b="0" i="0" />
+        <style name="Sent" v="10" fc="0x880088" bc="" b="0" i="0" />
+        <style name="Preprocessor" v="11" fc="0x0000CF" bc="" b="0" i="0" />
+        <style name="Special" v="12" fc="0x000000" bc="" b="0" i="0" />
+        <style name="Expand" v="13" fc="0x000000" bc="" b="0" i="0" />
+        <style name="COMObj" v="14" fc="0x0F707F" bc="" b="0" i="0" />
+        <style name="UDF" v="15" fc="0x000FCF" bc="" b="0" i="0" />
+    </theme>
+
+    <keywords>
+    </keywords>
+</scheme>
