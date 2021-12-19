@@ -346,8 +346,10 @@ handle_command(command)
         return
     }
     UnityPath:= my_xml.SSN(pattern).text
-    ExecScript(UnityPath)
-    ;DynaRun_n(UnityPath)
+    if(A_IsCompiled)
+        ExecScript(UnityPath)
+    else
+        DynaRun_n(UnityPath)
 }
 
 xml_parse(xml)
