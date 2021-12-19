@@ -1,16 +1,24 @@
 ﻿<?xml version="1.0"?>
 <Menu>
-	<Item name="网站文件夹" tv="11799776">
-		<Item name="百度" tv="11800208">run,www.baidu.com</Item>
-		<Item name="虎牙" tv="11800640">run,www.huya.com</Item>
-		<Item name="斗鱼" tv="11801000">run, www.douyu.com</Item>
-		<Item name="ahk中文论坛autoahk" tv="11800352">run,www.autoahk.com</Item>
-		<Item name="ahk官网论坛" tv="11801072">run, www.autohotkey.com</Item>
-		<Item name="github" tv="11801144">run,https:github.com</Item>
-		<Item name="卡牌card" tv="11801216">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
-		<Item name="我的ahk工程" tv="11799560">run,G:\我的AHK程序\我的工程</Item>
-		<Item name="超级命令目录" tv="11799920">run,G:\我的AHK程序\我的工程\超级命令</Item></Item>
-	<Item name="ahk" tv="11800064">
-		<Item name="帮助手册" tv="11800136" last="1">MsgBox, bangzhu
-run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item></Item>
+	<Item name="网站文件夹" tv="10491816">
+		<Item name="百度" tv="10491888" last="1">run,www.baidu.com</Item>
+		<Item name="虎牙" tv="10490736">run,www.huya.com</Item>
+		<Item name="斗鱼" tv="10490520">run, www.douyu.com</Item>
+		<Item name="ahk中文论坛autoahk" tv="10490880">run,www.autoahk.com</Item>
+		<Item name="ahk官网论坛" tv="10491240">run, www.autohotkey.com</Item>
+		<Item name="github" tv="10490808">run,https:github.com</Item>
+		<Item name="卡牌card" tv="10492104">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
+		<Item name="我的ahk工程" tv="10491168">run,G:\我的AHK程序\我的工程</Item>
+		<Item name="超级命令目录" tv="10490952">run,G:\我的AHK程序\我的工程\超级命令</Item>
+		<Item name="gitee" tv="10491456">run, https://gitee.com/</Item></Item>
+	<Item name="软件" tv="10491312">
+		<Item name="词典" tv="10491960">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
+		<Item name="音乐" tv="10492032">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
+		<Item name="cherry笔记" tv="10490664">run,G:\CherryTree\bin\cherrytree.exe</Item></Item>
+	<Item name="命令" tv="10492176">
+		<Item name="关机" tv="10491024">#include &lt;log4ahk&gt;
+msgbox,没有这个命令
+log.info("hetong")</Item></Item>
+	<Item name="ahk" tv="10490592">
+		<Item name="帮助手册" tv="10491096">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item></Item>
 </Menu>

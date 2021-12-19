@@ -27,7 +27,7 @@ alt+q  或者 shift+endter:  搜索命令
 )
 
 ToolTip,% help_string
-SetTimer, RemoveToolTip, -5000
+SetTimer, RemoveToolTip, -1000
 
 py.allspell_muti("ahk")
 begin := 1
@@ -44,7 +44,10 @@ fileread, xml_file_content,% "*P65001 " A_ScriptDir "\cmd\Menus\超级命令.xml
 my_xml.XML.LoadXML(xml_file_content)
 cmds := xml_parse(my_xml)
 !c::
-run,% A_ScriptDir "\cmd\menue_create.ahk"
+if(A_IsCompiled)
+    run,% A_ScriptDir "\cmd\menue_create.exe"
+else
+    run,% A_ScriptDir "\cmd\menue_create.ahk"
 return
 +Enter::
 !q::
@@ -327,22 +330,6 @@ Class XML{
 	}
 }
 
-DynaRun(Script,Wait:=true,name:="Untitled"){
-	static exec,started,filename
-	if(!IsObject(v.Running))
-		v.Running:=[]
-	filename:=name,MainWin.Size(),exec.Terminate()
-	if(Script~="i)m(.*)\{"=0)
-		Script.="`n" "m(x*){`nfor a,b in x`nlist.=b Chr(10)`nMsgBox,,AHK Studio,% list`n}"
-	if(Script~="i)t(.*)\{"=0)
-		Script.="`n" "t(x*){`nfor a,b in x`nlist.=b Chr(10)`nToolTip,% list`n}"
-	;shell:=ComObjCreate("WScript.Shell"),exec:=shell.Exec("AutoHotkey.exe /ErrorStdOut *"),exec.StdIn.Write(Script),exec.StdIn.Close(),started:=A_Now
-	shell:=ComObjCreate("WScript.Shell"),exec:=shell.Exec("AutoHotkey.exe /ErrorStdOut *"),exec.StdIn.Write(Script),exec.StdIn.Close(),started:=A_Now
-	v.Running[Name]:=exec
-	return
-}
-
-
 handle_command(command)
 {
     global my_xml
@@ -360,6 +347,7 @@ handle_command(command)
     }
     UnityPath:= my_xml.SSN(pattern).text
     ExecScript(UnityPath)
+    ;DynaRun_n(UnityPath)
 }
 
 xml_parse(xml)
@@ -423,6 +411,8 @@ ExecScript(Script, Params := "", AhkPath := "") {
     Call = "%AhkPath%" /CP65001 "\\.\pipe\%Name%"
     Shell := ComObjCreate("WScript.Shell")
     Exec := Shell.Exec(Call . " " . Params)
+    Exec.StdIn.Write("hh")
+    Exec.StdIn.Close()
     DllCall("ConnectNamedPipe", "UPtr", Pipe[1], "UPtr", 0)
     DllCall("CloseHandle", "UPtr", Pipe[1])
     DllCall("ConnectNamedPipe", "UPtr", Pipe[2], "UPtr", 0)
@@ -430,6 +420,22 @@ ExecScript(Script, Params := "", AhkPath := "") {
     DllCall("CloseHandle", "UPtr", Pipe[2])
 
     Return Exec
+}
+
+DynaRun_n(s, pn:="", pr:=""){ ; s=Script,pn=PipeName,n:=,pr=Parameters,p1+p2=hPipes,P=PID
+   static AhkPath:="""" A_AhkPath """" (A_IsCompiled||(A_IsDll&&DllCall(A_AhkPath "\ahkgetvar","Str","A_IsCompiled"))?" /E":"") " """
+   if (-1=p1 := DllCall("CreateNamedPipe","str",pf:="\\.\pipe\" (pn!=""?pn:"AHK" A_TickCount),"uint",2,"uint",0,"uint",255,"uint",0,"uint",0,"Ptr",0,"Ptr",0))
+      || (-1=p2 := DllCall("CreateNamedPipe","str",pf,"uint",2,"uint",0,"uint",255,"uint",0,"uint",0,"Ptr",0,"Ptr",0))
+      Return 0
+   ; allow compiled executable to execute dynamic scripts. Requires AHK_H
+   Run, % AhkPath pf """ " pr,,UseErrorLevel HIDE, P
+   If ErrorLevel
+      return 0,DllCall("CloseHandle","Ptr",p1),DllCall("CloseHandle","Ptr",p2)
+   DllCall("ConnectNamedPipe","Ptr",p1,"Ptr",0),DllCall("CloseHandle","Ptr",p1),DllCall("ConnectNamedPipe","Ptr",p2,"Ptr",0)
+   if !DllCall("WriteFile","Ptr",p2,"Wstr",s:=(A_IsUnicode?chr(0xfeff):"ï»¿") s,"UInt",StrLen(s)*(A_IsUnicode ? 2 : 1)+(A_IsUnicode?4:6),"uint*",0,"Ptr",0)
+      P:=0
+   DllCall("CloseHandle","Ptr",p2)
+   Return P
 }
 
 RemoveToolTip:

@@ -252,7 +252,10 @@ Exit(){
 save_script()
 {
     MenuHandler("save", 4, "File")
-    run, %A_ScriptDir%/../menu.ahk
+    if(A_IsCompiled)
+        run, %A_ScriptDir%/../menu.exe
+    else
+        run, %A_ScriptDir%/../menu.ahk
 }
 editcmd()
 {  
@@ -281,7 +284,10 @@ editcmd()
     (
         "%node_path%"
     ) 
-    run,% A_ScriptDir "\Adventure\Adventure.ahk  " tmp_path " " my_pid
+    if(A_IsCompiled)
+        run,% A_ScriptDir "\Adventure\Adventure.exe  " tmp_path " " my_pid
+    else
+        run,% A_ScriptDir "\Adventure\Adventure.ahk  " tmp_path " " my_pid
     return
     savefile:
         Node:=GetNode()
@@ -289,7 +295,10 @@ editcmd()
         gui,2: submit, NoHide
         Node.text := Myedit
         MenuHandler("save", 4, "File")
-        run, %A_ScriptDir%/../menu.ahk
+        if(A_IsCompiled)
+            run, %A_ScriptDir%/../menu.exe
+        else
+            run, %A_ScriptDir%/../menu.ahk
     return
 }
 node_get_path(c)
@@ -749,7 +758,10 @@ xml_reload()
     if(!xx.SSN("//*[not(Menu) or not(Item)]"))
         return m("XML Not compatible")
     MenuXML:=xx,Populate()
-    run, %A_ScriptDir%/../menu.ahk
+    if(A_IsCompiled)
+        run, %A_ScriptDir%/../menu.exe
+    else
+        run, %A_ScriptDir%/../menu.ahk
 }
 
 changeCmdfile()
