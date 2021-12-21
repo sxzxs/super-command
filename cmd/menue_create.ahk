@@ -32,8 +32,8 @@ MainWin.Add("TreeView,w350 h300 vTV gUpdateColor AltSubmit,,wh"
 		 ;,"Button,xm gShowMenu,Sho&w Menu,y"
 		 ,"Checkbox,xm vConfirm,Confirm Delete,y"
 		 ;,"Button,gname_add_time, name增加id,y"
-		 ,"Button,geditcmd,编辑命令,y"
-		 ,"Button,gsave_script x+10,确定,y"
+		 ,"Button,geditcmd,Edit Command,y"
+		 ,"Button,gsave_script x+10,OK,y"
 		 ,"StatusBar")
 MainWin.SetText("Confirm",Settings.Get("//Confirm",1))
 MainWin.Show("超级命令添加工具")
