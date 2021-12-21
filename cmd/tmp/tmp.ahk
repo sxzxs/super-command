@@ -1,1 +1,1 @@
-﻿run,www.baidu.com
+﻿run,www.google.com

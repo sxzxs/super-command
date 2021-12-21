@@ -1,43 +1,44 @@
 ﻿<?xml version="1.0"?>
 <Menu>
-	<Item name="网站文件夹" tv="11145024" last="1">
-		<Item name="百度" tv="11145168">run,www.baidu.com</Item>
-		<Item name="虎牙" tv="11146104">run,www.huya.com</Item>
-		<Item name="斗鱼" tv="11145384">run, www.douyu.com</Item>
-		<Item name="ahk中文论坛autoahk" tv="11145456">run,www.autoahk.com</Item>
-		<Item name="ahk官网论坛autohotkey" tv="11145672">run, www.autohotkey.com</Item>
-		<Item name="github" tv="11145744">run,https:github.com</Item>
-		<Item name="卡牌card" tv="11145888">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
-		<Item name="我的ahk工程" tv="11145960">run,G:\我的AHK程序\我的工程</Item>
-		<Item name="超级命令目录" tv="11146032">run,G:\我的AHK程序\我的工程\超级命令</Item>
-		<Item name="gitee" tv="11454680">run, https://gitee.com/</Item>
-		<Item name="必应" tv="11456696">run,https://cn.bing.com/</Item>
-		<Item name="打字练习网站" tv="11456840">run,https://dazi.kukuw.com/</Item>
-		<Item name="正则表达式帮助" tv="11455616">run,C:\Users\hetong\Documents\Tencent Files\2397633100\FileRecv\55分钟学会正则表达式.DOC</Item>
-		<Item name="c++中文网" tv="11456048">run,http://c.biancheng.net/view/151.html</Item>
-		<Item name="c++chm" tv="11454824">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
-		<Item name="leedcode" tv="11456408">run,https://leetcode-cn.com</Item>
-		<Item name="linux命令大全" tv="11455688">run,https://man.linuxde.net/</Item></Item>
-	<Item name="软件" tv="11455256">
-		<Item name="词典" tv="11455040">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
-		<Item name="音乐" tv="11455328">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
-		<Item name="cherry笔记" tv="11456120">run,G:\CherryTree\bin\cherrytree.exe</Item>
-		<Item name="搜索" tv="11454608">Run, everything, F:\everything,</Item>
-		<Item name="画图可汗" tv="11455544">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
-		<Item name="tgp" tv="11456552">Run,*RunAs WeGame,E:\wegeme,</Item>
-		<Item name="录制" tv="11455184">run,bdcam.exe,F:\Bandicam</Item>
-		<Item name="百度网盘" tv="11454752">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
-		<Item name="截图" tv="11454896">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
+	<Item name="网站文件夹" tv="11258416">
+		<Item name="百度" tv="11258632">run,www.baidu.com</Item>
+		<Item name="虎牙" tv="11258992">run,www.huya.com</Item>
+		<Item name="斗鱼" tv="11257120">run, www.douyu.com</Item>
+		<Item name="ahk中文论坛autoahk" tv="11259136">run,www.autoahk.com</Item>
+		<Item name="ahk官网论坛autohotkey" tv="11257192">run, www.autohotkey.com</Item>
+		<Item name="github" tv="11257552">run,https:github.com</Item>
+		<Item name="卡牌card" tv="11256976">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
+		<Item name="我的ahk工程" tv="11257048">run,G:\我的AHK程序\我的工程</Item>
+		<Item name="超级命令目录" tv="11257624">run,G:\我的AHK程序\我的工程\超级命令</Item>
+		<Item name="gitee" tv="11257336">run, https://gitee.com/</Item>
+		<Item name="必应" tv="11257408">run,https://cn.bing.com/</Item>
+		<Item name="打字练习网站" tv="11257840">run,https://dazi.kukuw.com/</Item>
+		<Item name="正则表达式帮助" tv="11257912">run,C:\Users\hetong\Documents\Tencent Files\2397633100\FileRecv\55分钟学会正则表达式.DOC</Item>
+		<Item name="c++中文网" tv="11257984">run,http://c.biancheng.net/view/151.html</Item>
+		<Item name="c++chm" tv="11258128">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
+		<Item name="leedcode" tv="11258056">run,https://leetcode-cn.com</Item>
+		<Item name="linux命令大全" tv="11258200">run,https://man.linuxde.net/</Item>
+		<Item name="google" tv="11398672" last="1">run,www.google.com</Item></Item>
+	<Item name="软件" tv="11398312">
+		<Item name="词典" tv="11397952">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
+		<Item name="音乐" tv="11399320">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
+		<Item name="cherry笔记" tv="11399104">run,G:\CherryTree\bin\cherrytree.exe</Item>
+		<Item name="搜索" tv="11398168">Run, everything, F:\everything,</Item>
+		<Item name="画图可汗" tv="11398816">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
+		<Item name="tgp" tv="11398240">Run,*RunAs WeGame,E:\wegeme,</Item>
+		<Item name="录制" tv="11399176">run,bdcam.exe,F:\Bandicam</Item>
+		<Item name="百度网盘" tv="11398384">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
+		<Item name="截图" tv="11399392">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
 </Item>
-		<Item name="秒表" tv="11456480">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item></Item>
-	<Item name="命令" tv="11455472">
-		<Item name="关机" tv="11456264">#include &lt;log4ahk&gt;
+		<Item name="秒表" tv="11399464">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item></Item>
+	<Item name="命令" tv="11397880">
+		<Item name="关机" tv="11399536">#include &lt;log4ahk&gt;
 log.info("no this cddommand")
 msgbox,没有这个命令</Item>
-		<Item name="窗口置顶" tv="11455760">MouseGetPos, MouseX, MouseY, MouseWin
+		<Item name="窗口置顶" tv="11398528">MouseGetPos, MouseX, MouseY, MouseWin
 ; 似乎有必要首先关闭任何现有的透明度:
 WinSet, AlwaysOnTop, TOGGLE , ahk_id %MouseWin%</Item>
-		<Item name="vim操作说明" tv="11455832">CommandText =
+		<Item name="vim操作说明" tv="11398600">CommandText =
     (% 
 重要的概念
 	增：
@@ -147,10 +148,10 @@ TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, I
 
     Return {1: "OK", 2: "Cancel", 4: "Retry", 6: "Yes", 7: "No", 8: "Close"}[Ret]
 }</Item>
-		<Item name="ipconfig" tv="11456192">#include &lt;runcmd&gt;
+		<Item name="ipconfig" tv="11398096">#include &lt;runcmd&gt;
 #include &lt;log4ahk&gt;
 rtn := cmd.run("ifconfig")
 log.info(rtn)</Item></Item>
-	<Item name="ahk" tv="11454968">
-		<Item name="帮助手册" tv="11455112">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item></Item>
+	<Item name="ahk" tv="11398024">
+		<Item name="帮助手册" tv="11398456">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item></Item>
 </Menu>
