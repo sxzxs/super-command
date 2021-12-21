@@ -1,25 +1,156 @@
 ﻿<?xml version="1.0"?>
 <Menu>
-	<Item name="网站文件夹" tv="9819160">
-		<Item name="百度" tv="9818008">run,www.baidu.com</Item>
-		<Item name="虎牙" tv="9819232">run,www.huya.com</Item>
-		<Item name="斗鱼" tv="9818440">run, www.douyu.com</Item>
-		<Item name="ahk中文论坛autoahk" tv="9817000">run,www.autoahk.com</Item>
-		<Item name="ahk官网论坛" tv="9818080">run, www.autohotkey.com</Item>
-		<Item name="github" tv="9818728">run,https:github.com</Item>
-		<Item name="卡牌card" tv="9818872">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
-		<Item name="我的ahk工程" tv="9817864">run,G:\我的AHK程序\我的工程</Item>
-		<Item name="超级命令目录" tv="9817504">run,G:\我的AHK程序\我的工程\超级命令</Item>
-		<Item name="gitee" tv="9817072">run, https://gitee.com/</Item>
-		<Item name="必应" tv="9817576">run,https://cn.bing.com/</Item></Item>
-	<Item name="软件" tv="9817648">
-		<Item name="词典" tv="9818584">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
-		<Item name="音乐" tv="9817936">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
-		<Item name="cherry笔记" tv="9818224">run,G:\CherryTree\bin\cherrytree.exe</Item></Item>
-	<Item name="命令" tv="9818296">
-		<Item name="关机" tv="9975608" last="1">#include &lt;log4ahk&gt;
-msgbox,没有这个命令
-log.info("hetong")</Item></Item>
-	<Item name="ahk" tv="9977264">
-		<Item name="帮助手册" tv="9976904">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item></Item>
+	<Item name="网站文件夹" tv="10784928">
+		<Item name="百度" tv="10784480">run,www.baidu.com</Item>
+		<Item name="虎牙" tv="10784816">run,www.huya.com</Item>
+		<Item name="斗鱼" tv="10786496">run, www.douyu.com</Item>
+		<Item name="ahk中文论坛autoahk" tv="10785040">run,www.autoahk.com</Item>
+		<Item name="ahk官网论坛autohotkey" tv="10786272" last="1">run, www.autohotkey.com</Item>
+		<Item name="github" tv="10786384">run,https:github.com</Item>
+		<Item name="卡牌card" tv="10783808">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
+		<Item name="我的ahk工程" tv="10782688">run,G:\我的AHK程序\我的工程</Item>
+		<Item name="超级命令目录" tv="10785488">run,G:\我的AHK程序\我的工程\超级命令</Item>
+		<Item name="gitee" tv="10783584">run, https://gitee.com/</Item>
+		<Item name="必应" tv="10783920">run,https://cn.bing.com/</Item>
+		<Item name="打字练习网站" tv="10785264">run,https://dazi.kukuw.com/</Item>
+		<Item name="正则表达式帮助" tv="10782800">run,C:\Users\hetong\Documents\Tencent Files\2397633100\FileRecv\55分钟学会正则表达式.DOC</Item>
+		<Item name="c++中文网" tv="10782912">run,http://c.biancheng.net/view/151.html</Item>
+		<Item name="c++chm" tv="10784032">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
+		<Item name="leedcode" tv="10783136">run,https://leetcode-cn.com</Item>
+		<Item name="linux命令大全" tv="10783248">run,https://man.linuxde.net/</Item></Item>
+	<Item name="软件" tv="10784144">
+		<Item name="词典" tv="10783360">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
+		<Item name="音乐" tv="10785600">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
+		<Item name="cherry笔记" tv="10785376">run,G:\CherryTree\bin\cherrytree.exe</Item>
+		<Item name="搜索" tv="10784256">Run, everything, F:\everything,</Item>
+		<Item name="画图可汗" tv="10784368">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
+		<Item name="tgp" tv="10740736">Run,*RunAs WeGame,E:\wegeme,</Item>
+		<Item name="录制" tv="10738496">run,bdcam.exe,F:\Bandicam</Item>
+		<Item name="百度网盘" tv="10741408">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
+		<Item name="截图" tv="10738272">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
+</Item>
+		<Item name="秒表" tv="10739392">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item></Item>
+	<Item name="命令" tv="10741632">
+		<Item name="关机" tv="10741744">#include &lt;log4ahk&gt;
+log.info("no this cddommand")
+msgbox,没有这个命令</Item>
+		<Item name="窗口置顶" tv="10738608">MouseGetPos, MouseX, MouseY, MouseWin
+; 似乎有必要首先关闭任何现有的透明度:
+WinSet, AlwaysOnTop, TOGGLE , ahk_id %MouseWin%</Item>
+		<Item name="vim操作说明" tv="10740848">CommandText =
+    (% 
+重要的概念
+	增：
+		a/A(append)   i/i(insert)  o/O(open a line)
+	删：
+		diw(delete inner word)   daw(delete around word)  dd(delete a line word)
+		x 删除一个字符  
+		s 删除一个字符并进入插入模式 S 删除一行进入插入模式
+		D 删除当前到行尾 
+		C 删除当前到行尾巴进入插入模式
+		删除不剪切  "_dd
+	改：
+		c (change as word)  ci字符(例如：ci" 删除引号里面的内容，并改成插入模式)   ct字符(删除到字符的内容，并改成插入模式)
+	查：
+		f字符(向前查找字符)   F字符(向后查找字符)  ;(重复上一个命名)
+		命令模式下：   /字符(高亮字符，并向前查)   ?字符(高亮字符，并向后查)
+	复制 y  复制到行首 y0  复制到行尾 y$  复制到( yF(    yi(    yt)
+
+
+	替换:
+		:s/(obj)/(value)/c
+			范围：%s 表示全文 5s 第5行  .,+3当前行和接下来两行  %s全文
+			c:表示需要确认-&gt; y n  1  a
+			g:表示行中所有
+
+	光标移动：
+		h j k l (左 下 上  右)
+		w(前字符)   b()
+		:数字   数字G    gg   G    0(行首)  $(行尾) 
+		
+		ctrl+o(向后跳转)   ctrl+i(向前跳转)
+		zz:行光标屏幕中心  zt 行光标屏幕顶部  zb行光标屏幕底部
+		L:定位屏幕底部
+		H:定位到屏幕顶
+		
+	翻页：
+		Ctrl+f(forward  page)   ctrl+b(back page)
+		ctrl+e(屏幕向下滚动一行)  ctrl+y(屏幕向上滚动一行)
+		ctrl+d(down)   ctrl+u()
+	
+	编辑：
+		u(撤销上一步的操作)    Ctrl+r(恢复上一步被撤销的操作)
+	设置：
+		set: clipboard=unnamed
+		set: hlsearch  
+		set: nohlsearch
+	
+	jkhl：单个光标移动
+	a，A
+	i , I
+	o, O 
+	x 
+	w
+	b
+	daw diw d$ d0   dw db  
+	caw ciw  c$ c0  cw cb  ci"  ci}  ci)  
+	} {  段落跳转
+	[[  ]] 函数跳转  
+	% 跳转到匹配的括号
+	ma 标记位置a,  `a 调转到a处， ‘a跳转到a行首
+
+	宏录制：
+		qa：录制到a寄存, q退出录制
+		@a:执行a
+
+	寄存器：
+		"+:默认寄存器，复制，剪切命令会存到这里
+		"0:最近复制的内容
+		"1-9:最近剪切的内容
+		"a-z:可以选择复制剪切的的寄存器
+		"A-Z:内容归家到a-z里面
+		命令模式使用寄存器内容：ctrl+" 然后输入寄存器名字
+	vscode:
+		gh 鼠标悬停效果  gd 跳转定义处
+) 
+Instruction := CommandText
+Content := ""
+TaskDialog(Instruction, Content, "", 0x1, 0)
+run,C:\Users\hetong\Desktop\我的AHK程序\自动化办公\vim.png 
+
+
+TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, IconRes := "", Owner := 0x10010) {
+    Local hModule, LoadLib, Ret
+
+    If (IconRes != "") {
+        hModule := DllCall("GetModuleHandle", "Str", IconRes, "Ptr")
+        LoadLib := !hModule
+            &amp;&amp; hModule := DllCall("LoadLibraryEx", "Str", IconRes, "UInt", 0, "UInt", 0x2, "Ptr")
+    } Else {
+        hModule := 0
+        LoadLib := False
+    }
+
+    DllCall("TaskDialog"
+        , "Ptr" , Owner        ; hWndParent
+        , "Ptr" , hModule      ; hInstance
+        , "Ptr" , &amp;Title       ; pszWindowTitle
+        , "Ptr" , &amp;Instruction ; pszMainInstruction
+        , "Ptr" , &amp;Content     ; pszContent
+        , "Int" , Buttons      ; dwCommonButtons
+        , "Ptr" , IconID       ; pszIcon
+        , "Int*", Ret := 0)    ; *pnButton
+
+    If (LoadLib) {
+        DllCall("FreeLibrary", "Ptr", hModule)
+    }
+
+    Return {1: "OK", 2: "Cancel", 4: "Retry", 6: "Yes", 7: "No", 8: "Close"}[Ret]
+}</Item>
+		<Item name="ipconfig" tv="10738720">#include &lt;runcmd&gt;
+#include &lt;log4ahk&gt;
+rtn := cmd.run("ifconfig")
+log.info(rtn)</Item></Item>
+	<Item name="ahk" tv="10739280">
+		<Item name="帮助手册" tv="10740960">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item></Item>
 </Menu>
