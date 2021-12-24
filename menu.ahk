@@ -108,6 +108,8 @@ if (Query = "")
 total_command := c
 GuiControl, Move, Command, % "h" 4 + 15 * (total_command > 4 ? 10 : total_command + 2)
 GuiControl, % (total_command && Query != "") ? "Show" : "Hide", Command
+HighlightedCommand := 1
+GuiControl, Choose, Command, 1
 Gui, Show, AutoSize
 
 Select:
@@ -131,6 +133,30 @@ return
 GuiEscape:
 Gui,Hide
 return
+
+#IfWinActive, menu ahk_exe AutoHotkey.exe
+
++Tab::
+Up::
+    if(HighlightedCommand == 1)
+        HighlightedCommand := total_command
+    else
+        HighlightedCommand--
+    GuiControl, Choose, command, %HighlightedCommand%
+    Gui, Show		
+return
+
+Tab::
+Down::
+    if(HighlightedCommand == total_command)
+        HighlightedCommand := 1
+    else
+		HighlightedCommand++
+    GuiControl, Choose, command, %HighlightedCommand%
+    Gui, Show
+return
+
+#If
 
 GuiActivate(wParam)
 {
