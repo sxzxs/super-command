@@ -1,6 +1,9 @@
-﻿OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
+﻿command_pid = %1%
+reply2menu()
+OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 #SingleInstance,Force
 global Settings:=new XML("Settings"),MainWin:=new GUIKeep(1),MenuXML
+/*
 if((A_PtrSize=8&&A_IsCompiled="")||!A_IsUnicode){
 	SplitPath,A_AhkPath,,dir
 	if(!FileExist(correct:=dir "\AutoHotkeyU32.exe")){
@@ -10,7 +13,9 @@ if((A_PtrSize=8&&A_IsCompiled="")||!A_IsUnicode){
 	Run,"%correct%" "%A_ScriptName%" "%file%",%A_ScriptDir%
 	ExitApp
 	return
-}Main:={"&File":["&New","&Open","&Save","E&xit"],"A&bout":["Help","Online Manual"]},Order:=["&File","A&bout"],MenuXML:=new XML("Menu",Settings.Get("//Last/@file","Menus\Menu.XML"))
+}
+*/
+Main:={"&File":["&New","&Open","&Save","E&xit"],"A&bout":["Help","Online Manual"]},Order:=["&File","A&bout"],MenuXML:=new XML("Menu",Settings.Get("//Last/@file","Menus\Menu.XML"))
 for a,b in Order
 	for c,d in Main[b]
 		Menu,% RegExReplace(b,"\W"),Add,%d%,MenuHandler
@@ -58,7 +63,7 @@ class GUIKeep{
 		this.All:=[],this.gui:=[],this.hwnd:=hwnd,this.con:=[],this.XML:=new XML("GUI"),this.ahkid:=this.id:="ahk_id" hwnd,this.win:=win,this.Table[win]:=this,this.var:=[],this.Radio:=[],this.Static:=[]
 		for a,b in {border:A_OSVersion~="^10"?3:0,caption:DllCall("GetSystemMetrics",int,4,"int")}
 			this[a]:=b
-		Gui,%win%:+LabelGUIKeep.
+		Gui,%win%:+LabelGUIKeep. +AlwaysOnTop
 		Gui,%win%:Default
 		return this
 	}Add(info*){
@@ -257,6 +262,52 @@ save_script()
     else
         run, %A_ScriptDir%/../menu.ahk
 }
+f7::
+id := TV_GetSelection()
+ItemID := 0  ; 这样使得首次循环从树的顶部开始搜索.
+Loop
+{
+    ItemID := TV_GetNext(ItemID, "Full")  ; 把 "Full" 替换为 "Checked" 来找出所有含复选标记的项目.
+    if not ItemID  ; 没有更多项目了.
+        break
+    TV_GetText(SelectedItemText, ItemID)
+    ParentID := ItemID
+    Loop  ; 建立到选择的文件夹的完整路径.
+    {
+        ParentID := TV_GetParent(ParentID)
+        if not ParentID  ; 没有更高层的项目了.
+            break
+        TV_GetText(ParentText, ParentID)
+        SelectedItemText := ParentText " > " SelectedItemText
+    }
+}
+return
+
+filter(command)
+{
+    ItemID := 0  ; 这样使得首次循环从树的顶部开始搜索.
+    Loop
+    {
+        ItemID := TV_GetNext(ItemID, "Full")  ; 把 "Full" 替换为 "Checked" 来找出所有含复选标记的项目.
+        if not ItemID  ; 没有更多项目了.
+            break
+        TV_GetText(SelectedItemText, ItemID)
+        ParentID := ItemID
+        Loop  ; 建立到选择的文件夹的完整路径.
+        {
+            ParentID := TV_GetParent(ParentID)
+            if not ParentID  ; 没有更高层的项目了.
+                break
+            TV_GetText(ParentText, ParentID)
+            SelectedItemText := ParentText " > " SelectedItemText
+        }
+        if(SelectedItemText == command)
+        {
+            TV_Modify(itemid , select)
+        }
+    }
+}
+
 editcmd()
 {  
     static
@@ -790,12 +841,71 @@ changeCmdfile()
 RemoveToolTip:
 ToolTip
 return
+reply2menu()
+{
+    global command_pid
+
+    TargetScriptTitle := "ahk_pid " command_pid " ahk_class AutoHotkey"
+    Process Exist
+    my_pid := ErrorLevel
+
+    StringToSend := my_pid
+    result := Send_WM_COPYDATA(StringToSend, TargetScriptTitle)
+}
+handle_filer(command)
+{
+    ItemID := 0  ; 这样使得首次循环从树的顶部开始搜索.
+    Loop
+    {
+        ItemID := TV_GetNext(ItemID, "Full")  ; 把 "Full" 替换为 "Checked" 来找出所有含复选标记的项目.
+        if not ItemID  ; 没有更多项目了.
+            break
+        TV_GetText(SelectedItemText, ItemID)
+        ParentID := ItemID
+        Loop  ; 建立到选择的文件夹的完整路径.
+        {
+            ParentID := TV_GetParent(ParentID)
+            if not ParentID  ; 没有更高层的项目了.
+                break
+            TV_GetText(ParentText, ParentID)
+            SelectedItemText := ParentText " > " SelectedItemText
+        }
+        if(SelectedItemText == command)
+        {
+            TV_Modify(itemid , "Select")
+        }
+    }
+
+}
 Receive_WM_COPYDATA(wParam, lParam)
 {
     StringAddress := NumGet(lParam + 2*A_PtrSize)  ; 获取 CopyDataStruct 的 lpData 成员.
     CopyOfData := StrGet(StringAddress)  ; 从结构中复制字符串.
     ; 比起 MsgBox, 应该用 ToolTip 显示, 这样我们可以及时返回:
-    ToolTip %A_ScriptName%`nReceived the following string:`n%CopyOfData%
-    xml_reload()
+    ;ToolTip %A_ScriptName%`nReceived the following string:`n%CopyOfData%
+    if(CopyOfData == "data")
+        xml_reload()
+    else
+        handle_filer(CopyOfData)
     return true  ; 返回 1(true) 是回复此消息的传统方式.
+}
+Send_WM_COPYDATA(ByRef StringToSend, ByRef TargetScriptTitle)  ; 在这种情况中使用 ByRef 能节约一些内存.
+; 此函数发送指定的字符串到指定的窗口然后返回收到的回复.
+; 如果目标窗口处理了消息则回复为 1, 而消息被忽略了则为 0.
+{
+    VarSetCapacity(CopyDataStruct, 3*A_PtrSize, 0)  ; 分配结构的内存区域.
+    ; 首先设置结构的 cbData 成员为字符串的大小, 包括它的零终止符:
+    SizeInBytes := (StrLen(StringToSend) + 1) * (A_IsUnicode ? 2 : 1)
+    NumPut(SizeInBytes, CopyDataStruct, A_PtrSize)  ; 操作系统要求这个需要完成.
+    NumPut(&StringToSend, CopyDataStruct, 2*A_PtrSize)  ; 设置 lpData 为到字符串自身的指针.
+    Prev_DetectHiddenWindows := A_DetectHiddenWindows
+    Prev_TitleMatchMode := A_TitleMatchMode
+    DetectHiddenWindows On
+    SetTitleMatchMode 2
+    TimeOutTime := 4000  ; 可选的. 等待 receiver.ahk 响应的毫秒数. 默认是 5000
+    ; 必须使用发送 SendMessage 而不是投递 PostMessage.
+    SendMessage, 0x004A, 0, &CopyDataStruct,, %TargetScriptTitle%  ; 0x004A 为 WM_COPYDAT
+    DetectHiddenWindows %Prev_DetectHiddenWindows%  ; 恢复调用者原来的设置.
+    SetTitleMatchMode %Prev_TitleMatchMode%         ; 同样.
+    return ErrorLevel  ; 返回 SendMessage 的回复给我们的调用者.
 }

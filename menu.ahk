@@ -1,6 +1,7 @@
-﻿#SingleInstance force
+﻿OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x6, "GuiActivate")
+#SingleInstance force
 #include <py>
 #Persistent
 
@@ -22,7 +23,7 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 help_string =
 (
 alt+c:  编辑命令
-alt+q  或者 shift+endter:  搜索命令
+alt+q  或者 shift+enter:  搜索命令
 )
 
 ToolTip,% help_string
@@ -34,6 +35,7 @@ total_command := 0 ;总命令个数
 is_get_all_cmd := false
 cmds := ""
 my_xml := new xml("xml")
+menue_create_pid := 0
 
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
 {
@@ -43,10 +45,12 @@ fileread, xml_file_content,% "*P65001 " A_ScriptDir "\cmd\Menus\超级命令.xml
 my_xml.XML.LoadXML(xml_file_content)
 cmds := xml_parse(my_xml)
 !c::
+Process Exist
+my_pid := ErrorLevel
 if(A_IsCompiled)
-    run,% A_ScriptDir "\cmd\menue_create.exe"
+    run,% A_ScriptDir "\cmd\menue_create.exe " my_pid
 else
-    run,% A_ScriptDir "\cmd\menue_create.ahk"
+    run,% A_ScriptDir "\cmd\menue_create.ahk " my_pid
 return
 +Enter::
 !q::
@@ -112,6 +116,13 @@ GuiControl, Choose, Command, 1
 Gui, Show, AutoSize
 
 Select:
+GuiControlGet Command
+if !Command
+    Command := 1
+Command := row_id[Command]
+    TargetScriptTitle := "ahk_pid " menue_create_pid " ahk_class AutoHotkey"
+    StringToSend := command
+    result := Send_WM_COPYDATA(StringToSend, TargetScriptTitle)
 if (A_GuiEvent != "DoubleClick")
 {
     return
@@ -133,7 +144,7 @@ GuiEscape:
 Gui,Hide
 return
 
-#IfWinActive, menu ahk_exe AutoHotkey.exe
+#IfWinActive, menu ahk_class AutoHotkeyGUI
 
 +Tab::
 Up::
@@ -142,6 +153,7 @@ Up::
     else
         HighlightedCommand--
     GuiControl, Choose, command, %HighlightedCommand%
+    gosub Select
     Gui, Show		
 return
 
@@ -152,6 +164,7 @@ Down::
     else
 		HighlightedCommand++
     GuiControl, Choose, command, %HighlightedCommand%
+    gosub Select
     Gui, Show
 return
 #If
@@ -357,7 +370,7 @@ Class XML{
 
 handle_command(command)
 {
-    global my_xml
+    global my_xml, menue_create_pid, log
     word_array := StrSplit(command, " > ")
     pattern := ""
     for k,v in word_array
@@ -371,6 +384,8 @@ handle_command(command)
         return
     }
     UnityPath:= my_xml.SSN(pattern).text
+
+
     ExecScript(UnityPath)
 }
 
@@ -449,3 +464,34 @@ ExecScript(Script, Params := "", AhkPath := "") {
 RemoveToolTip:
 ToolTip
 return
+
+Receive_WM_COPYDATA(wParam, lParam)
+{
+    global
+    StringAddress := NumGet(lParam + 2*A_PtrSize)  ; 获取 CopyDataStruct 的 lpData 成员.
+    CopyOfData := StrGet(StringAddress)  ; 从结构中复制字符串.
+    menue_create_pid := CopyOfData
+    ; 比起 MsgBox, 应该用 ToolTip 显示, 这样我们可以及时返回:
+    ;ToolTip %A_ScriptName%`nReceived the following string:`n%CopyOfData%
+    return true  ; 返回 1(true) 是回复此消息的传统方式.
+}
+Send_WM_COPYDATA(ByRef StringToSend, ByRef TargetScriptTitle)  ; 在这种情况中使用 ByRef 能节约一些内存.
+; 此函数发送指定的字符串到指定的窗口然后返回收到的回复.
+; 如果目标窗口处理了消息则回复为 1, 而消息被忽略了则为 0.
+{
+    VarSetCapacity(CopyDataStruct, 3*A_PtrSize, 0)  ; 分配结构的内存区域.
+    ; 首先设置结构的 cbData 成员为字符串的大小, 包括它的零终止符:
+    SizeInBytes := (StrLen(StringToSend) + 1) * (A_IsUnicode ? 2 : 1)
+    NumPut(SizeInBytes, CopyDataStruct, A_PtrSize)  ; 操作系统要求这个需要完成.
+    NumPut(&StringToSend, CopyDataStruct, 2*A_PtrSize)  ; 设置 lpData 为到字符串自身的指针.
+    Prev_DetectHiddenWindows := A_DetectHiddenWindows
+    Prev_TitleMatchMode := A_TitleMatchMode
+    DetectHiddenWindows On
+    SetTitleMatchMode 2
+    TimeOutTime := 4000  ; 可选的. 等待 receiver.ahk 响应的毫秒数. 默认是 5000
+    ; 必须使用发送 SendMessage 而不是投递 PostMessage.
+    SendMessage, 0x004A, 0, &CopyDataStruct,, %TargetScriptTitle%  ; 0x004A 为 WM_COPYDAT
+    DetectHiddenWindows %Prev_DetectHiddenWindows%  ; 恢复调用者原来的设置.
+    SetTitleMatchMode %Prev_TitleMatchMode%         ; 同样.
+    return ErrorLevel  ; 返回 SendMessage 的回复给我们的调用者.
+}
