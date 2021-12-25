@@ -1,1 +1,3 @@
-﻿run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm
+﻿#include <log4ahk>
+log.info("no this cddommand")
+msgbox,没有这个命令

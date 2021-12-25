@@ -3923,11 +3923,7 @@ write2xml(command, data)
     pattern := "//Menu" . pattern
     my_xml.SSN(pattern).text := data
     my_xml.save(1)
-    ;PostMessage, 0x001A,,,, ahk_pid %command_pid% 
-    ;SendMessage, 0x001A,,,, ahk_id 0xFFFF
-    ;SendMessage, 0x001A,,,, ahk_id 65535
 
-    ;TargetScriptTitle := "menue_create.ahk"
     TargetScriptTitle := "ahk_pid " command_pid " ahk_class AutoHotkey"
     StringToSend := "data"
     result := Send_WM_COPYDATA(StringToSend, TargetScriptTitle)
@@ -3938,7 +3934,6 @@ Class XML{
 	__Get(x=""){
 		return this.XML.xml
 	}__New(param*){
-		;temp.preserveWhiteSpace:=1
 		root:=param.1,file:=param.2,file:=file?file:root ".xml",temp:=ComObjCreate("MSXML2.DOMDocument")
 		this.xml:=temp,this.file:=file,XML.keep[root]:=this
 		temp.SetProperty("SelectionLanguage","XPath")
