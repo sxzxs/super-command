@@ -10,7 +10,7 @@ if((A_PtrSize=8&&A_IsCompiled="")||!A_IsUnicode){
 	Run,"%correct%" "%A_ScriptName%" "%file%",%A_ScriptDir%
 	ExitApp
 	return
-}Main:={"&File":["&New","&Open","Ex&port","&Save","E&xit"],"A&bout":["Help","Online Manual"]},Order:=["&File","A&bout"],MenuXML:=new XML("Menu",Settings.Get("//Last/@file","Menus\Menu.XML"))
+}Main:={"&File":["&New","&Open","&Save","E&xit"],"A&bout":["Help","Online Manual"]},Order:=["&File","A&bout"],MenuXML:=new XML("Menu",Settings.Get("//Last/@file","Menus\Menu.XML"))
 for a,b in Order
 	for c,d in Main[b]
 		Menu,% RegExReplace(b,"\W"),Add,%d%,MenuHandler
@@ -25,10 +25,10 @@ MainWin.Add("TreeView,w350 h300 vTV gUpdateColor AltSubmit,,wh"
 		 ,"Button,x+m gEdit,&Name,y"
 		 ,"Radio,xs+30 yp+35 vAfter Checked gFocusItem,Insert Af&ter,y"
 		 ,"Radio,vBefore gFocusItem,Insert &Before,y"
-		 ,"GroupBox,xs+250 ys w100 h110 Section,Color,y"
-		 ,"Progress,xs+10 ys+20 w16 h16 c0xff00ff vProgress,100,y"
-		 ,"Button,xs+10 yp+20 gChangeColor,&Current,y"
-		 ,"Button,gChangeRoot,&Root,y"
+		 ;,"GroupBox,xs+250 ys w100 h110 Section,Color,y"
+		 ;,"Progress,xs+10 ys+20 w16 h16 c0xff00ff vProgress,100,y"
+		 ;,"Button,xs+10 yp+20 gChangeColor,&Current,y"
+		 ;,"Button,gChangeRoot,&Root,y"
 		 ;,"Button,xm gShowMenu,Sho&w Menu,y"
 		 ,"Checkbox,xm vConfirm,Confirm Delete,y"
 		 ;,"Button,gname_add_time, name增加id,y"
@@ -369,6 +369,7 @@ MenuHandler(a,b,c){
 		else if(Item="Online_Manual")
 			{
                 clipboard:="-" . ToBase(A_Now,36)
+                run,https://github.com/kazhafeizhale/supper_command
             }
 	}
 	;m("Coming Soon...")
