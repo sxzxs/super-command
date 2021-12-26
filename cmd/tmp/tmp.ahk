@@ -1,1 +1,1 @@
-﻿msgbox, test
+﻿run,G:\我的AHK程序\游戏脚本\HX云顶之奕挂机脚本
