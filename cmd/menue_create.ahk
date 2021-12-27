@@ -2,8 +2,9 @@
 reply2menu()
 OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 #SingleInstance,Force
-global Settings:=new XML("Settings"),MainWin:=new GUIKeep(1),MenuXML
-Main:={"&File":["&New","&Open","&Save","E&xit"],"A&bout":["Help","Online Manual"]},Order:=["&File","A&bout"],MenuXML:=new XML("Menu",Settings.Get("//Last/@file","Menus\Menu.XML"))
+global Settings:=new XML(A_ScriptDir "\Settings"),MainWin:=new GUIKeep(1),MenuXML
+;msgbox,% Settings.Get("//Last/@file","Menus\Menu.XML")
+Main:={"&File":["&New","&Open","&Save","E&xit"],"A&bout":["Help","Online Manual"]},Order:=["&File","A&bout"],MenuXML:=new XML("Menu",A_ScriptDir "/Menus/超级命令.xml")
 for a,b in Order
 	for c,d in Main[b]
 		Menu,% RegExReplace(b,"\W"),Add,%d%,MenuHandler
