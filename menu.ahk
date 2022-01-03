@@ -387,7 +387,7 @@ Class XML{
 handle_command(command)
 {
     global my_xml, menue_create_pid, log
-    word_array := StrSplit(command, " > ")
+    word_array := StrSplit(command, " >")
     pattern := ""
     for k,v in word_array
     {
@@ -423,7 +423,7 @@ xml_parse(xml)
             if(c_parent_name == "")
                 break
             else
-                ParentName := c_parent_name " > " parentname
+                ParentName := c_parent_name " >" parentname
             c := p
         }
         Script .= ParentName  ea.Name "`r`n"
