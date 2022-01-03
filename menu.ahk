@@ -3,6 +3,7 @@ OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x6, "GuiActivate")
 #SingleInstance force
 #include <py>
+#include <log4ahk>
 #Persistent
 
 SetBatchLines -1
@@ -54,6 +55,20 @@ else
 return
 +Enter::
 !q::
+/*
+pos := GetCaretPos()
+pos_x := pos["x"]
+pos_y := pos["y"] 
+log.info(pos_x, pos_y)
+if(pos_x < 0 || pos_x = 0 || pos_y < 0 || pos_y = 0 || A_ThisHotkey == "!q")
+{
+    pos_x := A_ScreenWidth / 2
+    pos_y := (A_ScreenHeight / 2)
+}
+pos_y += 35
+if(pos_y > (A_ScreenHeight - 250))
+    pos_y := A_ScreenHeight - 250
+*/
 if (cmds == "")
 {
     my_xml := new xml("xml")
@@ -77,6 +92,7 @@ Gui Add, Edit, x0 w500 vQuery gType
 Gui Add, ListBox, x0 y+2 h20 w500  vCommand gSelect AltSubmit +Background0x000000 -HScroll
 Gui, -Caption +AlwaysOnTop
 gosub Type
+;Gui Show, X%pos_x% Y%pos_y%
 Gui Show
 GuiControl Focus, Query
 return
@@ -494,4 +510,31 @@ Send_WM_COPYDATA(ByRef StringToSend, ByRef TargetScriptTitle)  ; 在这种情况
     DetectHiddenWindows %Prev_DetectHiddenWindows%  ; 恢复调用者原来的设置.
     SetTitleMatchMode %Prev_TitleMatchMode%         ; 同样.
     return ErrorLevel  ; 返回 SendMessage 的回复给我们的调用者.
+}
+
+GetCaretPos(Byacc:=1)
+{
+	Static init
+    If (A_CaretX=""){
+		Caretx:=Carety:=CaretH:=CaretW:=0
+		If (Byacc){
+			If (!init)
+				init:=DllCall("LoadLibrary","Str","oleacc","Ptr")
+			VarSetCapacity(IID,16), idObject:=OBJID_CARET:=0xFFFFFFF8
+			, NumPut(idObject==0xFFFFFFF0?0x0000000000020400:0x11CF3C3D618736E0, IID, "Int64")
+			, NumPut(idObject==0xFFFFFFF0?0x46000000000000C0:0x719B3800AA000C81, IID, 8, "Int64")
+			If (DllCall("oleacc\AccessibleObjectFromWindow", "Ptr",Hwnd:=WinExist("A"), "UInt",idObject, "Ptr",&IID, "Ptr*",pacc)=0){
+				Acc:=ComObject(9,pacc,1), ObjAddRef(pacc)
+				Try Acc.accLocation(ComObj(0x4003,&x:=0), ComObj(0x4003,&y:=0), ComObj(0x4003,&w:=0), ComObj(0x4003,&h:=0), ChildId:=0)
+				, CaretX:=NumGet(x,0,"int"), CaretY:=NumGet(y,0,"int"), CaretH:=NumGet(h,0,"int")
+			}
+		}
+		If (Caretx=0&&Carety=0){
+			MouseGetPos, x, y
+            ;x := 0, y := 0
+			Return {x:x,y:y,h:30,t:"Mouse",Hwnd:Hwnd}
+		} Else
+        	Return {x:Caretx,y:Carety,h:Max(Careth,30),t:"Acc",Hwnd:Hwnd}
+    } Else
+        Return {x:A_CaretX,y:A_CaretY,h:30,t:"Caret",Hwnd:Hwnd}
 }
