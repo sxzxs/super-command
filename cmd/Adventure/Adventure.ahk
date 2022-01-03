@@ -3886,7 +3886,7 @@ xml_parse(xml)
             if(c_parent_name == "")
                 break
             else
-                ParentName := c_parent_name " > " parentname
+                ParentName := c_parent_name " >" parentname
             c := p
         }
         Script .= ParentName  ea.Name "`r`n"
@@ -3897,7 +3897,7 @@ xml_parse(xml)
 handle_command(command)
 {
     global my_xml
-    word_array := StrSplit(command, " > ")
+    word_array := StrSplit(command, " >")
     pattern := ""
     for k,v in word_array
     {
@@ -3914,7 +3914,7 @@ handle_command(command)
 write2xml(command, data)
 {
     global my_xml,command_pid
-    word_array := StrSplit(command, " > ")
+    word_array := StrSplit(command, " >")
     pattern := ""
     for k,v in word_array
     {

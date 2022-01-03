@@ -261,7 +261,7 @@ Loop
         if not ParentID  ; 没有更高层的项目了.
             break
         TV_GetText(ParentText, ParentID)
-        SelectedItemText := ParentText " > " SelectedItemText
+        SelectedItemText := ParentText " >" SelectedItemText
     }
 }
 return
@@ -282,7 +282,7 @@ filter(command)
             if not ParentID  ; 没有更高层的项目了.
                 break
             TV_GetText(ParentText, ParentID)
-            SelectedItemText := ParentText " > " SelectedItemText
+            SelectedItemText := ParentText " >" SelectedItemText
         }
         if(SelectedItemText == command)
         {
@@ -345,7 +345,7 @@ node_get_path(c)
         if(c_parent_name == "")
             break
         else
-            ParentName := c_parent_name " > " parentname
+            ParentName := c_parent_name " >" parentname
         c := p
     }
     node_path := ParentName c_name
@@ -851,7 +851,7 @@ handle_filer(command)
             if not ParentID  ; 没有更高层的项目了.
                 break
             TV_GetText(ParentText, ParentID)
-            SelectedItemText := ParentText " > " SelectedItemText
+            SelectedItemText := ParentText " >" SelectedItemText
         }
         if(SelectedItemText == command)
         {

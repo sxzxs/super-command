@@ -1,47 +1,52 @@
 ﻿<?xml version="1.0"?>
 <Menu>
-	<Item name="网站文件夹" tv="9652080">
-		<Item name="百度" tv="9652752">run,www.baidu.com</Item>
-		<Item name="虎牙" tv="9652304" last="1">run,www.huya.com</Item>
-		<Item name="斗鱼" tv="9652864">run, www.douyu.com</Item>
-		<Item name="ahk中文论坛autoahk" tv="9651520">run,www.autoahk.com</Item>
-		<Item name="ahk官网论坛autohotkey" tv="9652192">run, www.autohotkey.com</Item>
-		<Item name="github" tv="9651744">run,https:github.com</Item>
-		<Item name="卡牌card" tv="9651968">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
-		<Item name="云顶之奕" tv="9732880">run,G:\我的AHK程序\游戏脚本\HX云顶之奕挂机脚本</Item>
-		<Item name="我的ahk工程" tv="9733328">run,G:\我的AHK程序\我的工程</Item>
-		<Item name="超级命令目录" tv="9733440">run,G:\我的AHK程序\我的工程\超级命令</Item>
-		<Item name="gitee" tv="9731088">run, https://gitee.com/</Item>
-		<Item name="必应" tv="9730976">run,https://cn.bing.com/</Item>
-		<Item name="打字练习网站" tv="9732544">run,https://dazi.kukuw.com/</Item>
-		<Item name="正则表达式帮助" tv="9731200">run,C:\Users\hetong\Documents\Tencent Files\2397633100\FileRecv\55分钟学会正则表达式.DOC</Item>
-		<Item name="c++中文网" tv="9733552">run,http://c.biancheng.net/view/151.html</Item>
-		<Item name="c++chm" tv="9731648">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
-		<Item name="leedcode" tv="9732320">run,https://leetcode-cn.com</Item>
-		<Item name="linux命令大全" tv="9731312">run,https://man.linuxde.net/</Item>
-		<Item name="google" tv="9730528">run,www.google.com</Item>
-		<Item name="嗨正则" tv="9733664">run,https://hiregex.com/</Item></Item>
-	<Item name="软件" tv="9731872">
-		<Item name="词典" tv="9732208">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
-		<Item name="音乐" tv="9731424">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
-		<Item name="cherry笔记" tv="9731536">run,G:\CherryTree\bin\cherrytree.exe</Item>
-		<Item name="搜索" tv="9731760">Run, everything, F:\everything,</Item>
-		<Item name="画图可汗" tv="9732656">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
-		<Item name="tgp" tv="9732432">Run,*RunAs WeGame,E:\wegeme,</Item>
-		<Item name="录制" tv="9732992">run,bdcam.exe,F:\Bandicam</Item>
-		<Item name="百度网盘" tv="9732768">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
-		<Item name="截图" tv="9730864">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
+	<Item name="网站文件夹" tv="121514560" last="1">
+		<Item name="百度" tv="121514896">run,www.baidu.com</Item>
+		<Item name="虎牙" tv="121515456">run,www.huya.com</Item>
+		<Item name="斗鱼" tv="121514112">run, www.douyu.com</Item>
+		<Item name="ahk中文论坛autoahk" tv="121515792">run,www.autoahk.com</Item>
+		<Item name="ahk官网论坛autohotkey" tv="121515232">run, www.autohotkey.com</Item>
+		<Item name="github" tv="121513776">run,https:github.com</Item>
+		<Item name="卡牌card目录" tv="121513888">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
+		<Item name="云顶之奕" tv="121516352">run,G:\我的AHK程序\游戏脚本\HX云顶之奕挂机脚本</Item>
+		<Item name="我的ahk工程" tv="121516912">run,G:\我的AHK程序\我的工程</Item>
+		<Item name="超级命令目录" tv="121514336">run,G:\我的AHK程序\我的工程\超级命令</Item>
+		<Item name="gitee" tv="121515568">run, https://gitee.com/</Item>
+		<Item name="必应" tv="121517024">run,https://cn.bing.com/</Item>
+		<Item name="bilibilib站" tv="121514448">run,https://www.bilibili.com/</Item>
+		<Item name="打字练习网站" tv="121514672">run,https://dazi.kukuw.com/
+run,https://www.bilibili.com/video/av57373164?from=search&amp;seid=7505871621684040908</Item>
+		<Item name="正则表达式帮助" tv="121517136">run,C:\Users\hetong\Documents\Tencent Files\2397633100\FileRecv\55分钟学会正则表达式.DOC</Item>
+		<Item name="c++中文网" tv="121517248">run,http://c.biancheng.net/view/151.html</Item>
+		<Item name="c++chm" tv="10237472">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
+		<Item name="leedcode" tv="10238256">run,https://leetcode-cn.com</Item>
+		<Item name="linux命令大全" tv="10239152">run,https://man.linuxde.net/</Item>
+		<Item name="google" tv="10237584">run,www.google.com</Item>
+		<Item name="autohotkey目录" tv="10238368">run,C:\Program Files\AutoHotkey</Item>
+		<Item name="嗨正则" tv="10237696">run,https://hiregex.com/</Item>
+		<Item name="音乐" tv="10238592">run,http://tool.liumingye.cn/music/?page=searchPage</Item></Item>
+	<Item name="软件" tv="10239264">
+		<Item name="词典" tv="10237808">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
+		<Item name="音乐" tv="10239824">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
+		<Item name="cherry笔记" tv="10238480">run,G:\CherryTree\bin\cherrytree.exe</Item>
+		<Item name="搜索" tv="10238704">Run, everything, F:\everything,</Item>
+		<Item name="画图可汗" tv="10238816">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
+		<Item name="tgp" tv="10239600">Run,*RunAs WeGame,E:\wegeme,</Item>
+		<Item name="录制" tv="10240384">run,bdcam.exe,F:\Bandicam</Item>
+		<Item name="百度网盘" tv="10240496">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
+		<Item name="截图" tv="9953584">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
 </Item>
-		<Item name="秒表" tv="9731984">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item>
-		<Item name="gif录屏" tv="9733216">run,F:\gif\屏幕录制ScreenToGif 2.34.1.exe</Item>
-		<Item name="正则表达式ahk" tv="9729968">run,C:\Users\hetong\Desktop\我的AHK程序\Adventure\Tools\Expressive\Expressive.ahk</Item>
-		<Item name="正则表达式buddy" tv="9733776">run, F:\正则表达式\RegexBuddy4.9.exe</Item></Item>
-	<Item name="命令" tv="9733104">
-		<Item name="关机" tv="9730080">msgbox, no this command</Item>
-		<Item name="窗口置顶" tv="9730192">MouseGetPos, MouseX, MouseY, MouseWin
+		<Item name="秒表" tv="9952912">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item>
+		<Item name="gif录屏" tv="9952352">run,F:\gif\屏幕录制ScreenToGif 2.34.1.exe</Item>
+		<Item name="正则表达式ahk" tv="9953024">run,C:\Users\hetong\Desktop\我的AHK程序\Adventure\Tools\Expressive\Expressive.ahk</Item>
+		<Item name="正则表达式buddy" tv="9952464">run, F:\正则表达式\RegexBuddy4.9.exe</Item>
+		<Item name="按键显示" tv="9953136">run,G:\我的AHK程序\我的工程\KeyPress-OSD-master（按键显示工具）\keycastow\keycastow.exe</Item></Item>
+	<Item name="命令" tv="9953248">
+		<Item name="关机" tv="9953360">msgbox, no this command</Item>
+		<Item name="窗口置顶" tv="121287232">MouseGetPos, MouseX, MouseY, MouseWin
 ; 似乎有必要首先关闭任何现有的透明度:
 WinSet, AlwaysOnTop, TOGGLE , ahk_id %MouseWin%</Item>
-		<Item name="vim操作说明" tv="9730304">CommandText =
+		<Item name="vim操作说明" tv="121287344">CommandText =
     (% 
 重要的概念
 	增：
@@ -151,13 +156,21 @@ TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, I
 
     Return {1: "OK", 2: "Cancel", 4: "Retry", 6: "Yes", 7: "No", 8: "Close"}[Ret]
 }</Item>
-		<Item name="ipconfig" tv="9730416">#include &lt;runcmd&gt;
+		<Item name="ipconfig" tv="121123696">#include &lt;runcmd&gt;
 #include &lt;log4ahk&gt;
 rtn := cmd.run("ifconfig")
-log.info(rtn)</Item></Item>
-	<Item name="@ahk" tv="9732096">
-		<Item name="帮助手册" tv="9730640">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item>
-		<Item name="开头设置" tv="9730752">#NoEnv
+log.info(rtn)</Item>
+		<Item name="test" tv="10336368">msgbox, test</Item>
+		<Item name="mathematica" tv="10140592">
+			<Item name="转换为c语言" tv="10143056">
+inputvar = 
+(
+CForm[expr]
+)
+	clipboard:=inputvar </Item></Item></Item>
+	<Item name="@ahk" tv="10140144">
+		<Item name="帮助手册" tv="10142048">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item>
+		<Item name="开头设置" tv="10141936">#NoEnv
 #KeyHistory 0
 #MaxThreads 255
 #MaxMem 4095
@@ -199,7 +212,7 @@ SetDefaultMouseSpeed, 0
 CoordMode, ToolTip , Screen 
     )    
 clipboard:=CommandText</Item>
-		<Item name="快捷输入模板" tv="9740208">CommandText =
+		<Item name="快捷输入模板" tv="10142720">CommandText =
 (%
 CommandText =
 `(%
@@ -208,12 +221,661 @@ CommandText =
 clipboard:=CommandText
 )    
 clipboard:=CommandText</Item>
-		<Item name="include库" tv="9738192">CommandText =
+		<Item name="include库" tv="10142832">CommandText =
 (%
 #Include &lt;log4ahk&gt;
 #Include &lt;my_lib&gt;
 )
 clipboard:=CommandText</Item>
-		<Item name="字符串转双引号其他语言" tv="9738640">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符串转双引号.ahk</Item>
-		<Item name="字符串转延续片段" tv="9738752">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符片段转延续片段.ahk</Item></Item>
+		<Item name="字符串转双引号其他语言" tv="10143616">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符串转双引号.ahk</Item>
+		<Item name="字符串转延续片段" tv="10142160">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符片段转延续片段.ahk</Item>
+		<Item name="脚本库" tv="10143504">
+			<Item name="json_feiyue_源码" tv="10142944">c=
+(%
+;------------------------------
+;  JSon.ahk - v2.1  By FeiYue
+;------------------------------
+
+
+json_toobj(s)  ; JSon字符串转AHK对象
+{
+  static rep:=[ ["\\","\u005c"], ["\""",""""], ["\/","/"]
+    , ["\r","``r"], ["\n","``n"], ["\t","``t"]
+    , ["\b","``b"], ["\f","``f"] ]
+  if !(p:=RegExMatch(s, "[\{\[]", r))
+    return
+  SetBatchLines, % (bch:=A_BatchLines)?"-1":"-1"
+  stack:=[], obj:=arr:=[], is_arr:=(r="[")
+  , key:=(is_arr ? 1:""), keyok:=0
+  While p:=RegExMatch(s, "\S", r, p+StrLen(r))
+  {
+    if (r="{" or r="[")  ; 如果是 左括号
+    {
+      stack.Push(is_arr, arr), arr[key]:=[], arr:=arr[key]
+      , is_arr:=(r="["), key:=(is_arr ? 1:""), keyok:=0
+    }
+    else if (r="}" or r="]")  ; 如果是 右括号
+    {
+      if !stack.Length()
+        Break
+      arr:=stack.Pop(), is_arr:=stack.Pop()
+      , key:=(is_arr ? arr.Length():""), keyok:=0
+    }
+    else if (r=",")  ; 如果是 逗号
+    {
+      key:=(is_arr ? Floor(key)+1:""), keyok:=0
+    }
+    else if (r="""")  ; 如果是 双引号
+    {
+      if RegExMatch(s, """((?:[^""\\]|\\[\s\S])*)""", r, p)!=p
+        Break
+      if InStr(r1, "\")
+      {
+        For k,v in rep
+          r1:=StrReplace(r1, v[1], v[2])
+        v:="", k:=1
+        While i:=RegExMatch(r1, "\\u[0-9A-Fa-f]{4}",, k)
+          v.=SubStr(r1,k,i-k) . Chr("0x" SubStr(r1,i+2,4)), k:=i+6
+        r1:=v . SubStr(r1,k)
+      }
+      if (!is_arr and keyok=0)
+      {
+        p+=StrLen(r)
+        if RegExMatch(s, "\s*:", r, p)!=p
+          Break
+        key:=r1, keyok:=1
+      }
+      else arr[key]:=r1
+    }
+    else  ; 如果是 true、false、null、数字
+    {
+      if RegExMatch(s, "[\w\+\-\.]+", r, p)!=p
+        Break
+      arr[key]:=(r=="true" ? 1:r=="false" ? 0:r=="null" ? "":r+0)
+    }
+  }
+  SetBatchLines, %bch%
+  return obj
+}
+
+json_fromobj(obj, space:="")  ; AHK对象转JSon字符串
+{
+  ;-------------------
+  ; 默认不替换 "/--&gt;\/" 与 特殊html字符&lt;、&gt;、&amp;
+  ;-------------------
+  static rep:=[ ["\\","\"], ["\""",""""]  ; , ["\/","/"]
+    ; , ["\\u003c","&lt;"], ["\\u003e","&gt;"], ["\\u0026","&amp;"]
+    , ["\r","``r"], ["\n","``n"], ["\t","``t"]
+    , ["\b","``b"], ["\f","``f"] ]
+  if !IsObject(obj)
+  {
+    if obj is Number  ; thanks lexikos
+      return ([obj].GetCapacity(1) ? """" obj """" : obj)
+    ;-------------------
+    ; 布尔值在AHK中转为数字了
+    ; if (obj=="true" or obj=="false" or obj=="null")
+    ;   return obj
+    ;-------------------
+    For k,v in rep
+      obj:=StrReplace(obj, v[2], v[1])
+    ;-------------------
+    ; 默认不替换 "Unicode字符--&gt;\uXXXX"
+    ; While RegExMatch(obj, "[^\x20-\x7e]", k)
+    ;   obj:=StrReplace(obj, k, Format("\u{:04x}",Ord(k)))
+    ;-------------------
+    return """" obj """"
+  }
+  is_arr:=1  ; 是简单数组
+  For k,v in obj
+    if (k!=A_Index) and !(is_arr:=0)
+      Break
+  s:="", space2:=space . "    ", f:=A_ThisFunc
+  For k,v in obj
+    s.= "``r``n" space2
+    . (is_arr ? "" : """" Trim(%f%(k ""),"""") """: ")
+    . %f%(v,space2) . ","
+  return (is_arr?"[":"{") . Trim(s,",")
+    . "``r``n" space . (is_arr?"]":"}")
+}
+
+
+s=
+`(
+
+{
+    "name": "BeJson",
+    "url": "http://www.bejson.com",
+    "page": 88,
+    "page2": "88",
+    "isNonProfit": true,
+    "address": {
+        "street": "科技园路",
+        "city": "江苏苏州",
+        "country": "中国"
+    },
+    "links": [
+        {
+            "name": "Google",
+            "url": "http://www.google.com"
+        },
+        {
+            "name": "Baidu",
+            "url": "http://www.baidu.com"
+        },
+        {
+            "name": "SoSo",
+            "url": "http://www.SoSo.com"
+        }
+    ]
+}
+`)
+
+Goto, F1
+
+F1::
+t1:=A_TickCount
+s:=json_fromobj(json_toobj(s))
+t1:=A_TickCount-t1
+MsgBox, 4096, %t1% ms, % SubStr(s,1,1000)
+return
+)
+Clipboard := c
+</Item>
+			<Item name="win_ocr" tv="10142272">c=
+(%
+#include &lt;log4ahk&gt;
+#NoEnv
+SetBatchLines, -1
+Return
+
+Esc:: ExitApp
+
+^X::
+hBitmap := HBitmapFromScreen(GetArea()*)
+pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
+DllCall("DeleteObject", "Ptr", hBitmap)
+text := ocr(pIRandomAccessStream, "zh-Hans-CN")
+MsgBox, % text
+Return
+
+GetArea() {
+   area := []
+   StartSelection(area)
+   while !area.w
+      Sleep, 100
+   Return area
+}
+   
+StartSelection(area) {
+   handler := Func("Select").Bind(area)
+   Hotkey, LButton, % handler, On
+   ReplaceSystemCursors("IDC_CROSS")
+}
+
+Select(area) {
+   static hGui := CreateSelectionGui()
+   Hook := new WindowsHook(WH_MOUSE_LL := 14, "LowLevelMouseProc", hGui)
+   Loop {
+      KeyWait, LButton
+      WinGetPos, X, Y, W, H, ahk_id %hGui%
+   } until w &gt; 0
+   ReplaceSystemCursors("")
+   Hotkey, LButton, Off
+   Hook := ""
+   Gui, %hGui%:Show, Hide
+   for k, v in ["x", "y", "w", "h"]
+      area[v] := %v%
+}
+
+ReplaceSystemCursors(IDC = "")
+{
+   static IMAGE_CURSOR := 2, SPI_SETCURSORS := 0x57
+        , exitFunc := Func("ReplaceSystemCursors").Bind("")
+        , SysCursors := { IDC_APPSTARTING: 32650
+                        , IDC_ARROW      : 32512
+                        , IDC_CROSS      : 32515
+                        , IDC_HAND       : 32649
+                        , IDC_HELP       : 32651
+                        , IDC_IBEAM      : 32513
+                        , IDC_NO         : 32648
+                        , IDC_SIZEALL    : 32646
+                        , IDC_SIZENESW   : 32643
+                        , IDC_SIZENWSE   : 32642
+                        , IDC_SIZEWE     : 32644
+                        , IDC_SIZENS     : 32645 
+                        , IDC_UPARROW    : 32516
+                        , IDC_WAIT       : 32514 }
+   if !IDC {
+      DllCall("SystemParametersInfo", UInt, SPI_SETCURSORS, UInt, 0, UInt, 0, UInt, 0)
+      OnExit(exitFunc, 0)
+   }
+   else  {
+      hCursor := DllCall("LoadCursor", Ptr, 0, UInt, SysCursors[IDC], Ptr)
+      for k, v in SysCursors  {
+         hCopy := DllCall("CopyImage", Ptr, hCursor, UInt, IMAGE_CURSOR, Int, 0, Int, 0, UInt, 0, Ptr)
+         DllCall("SetSystemCursor", Ptr, hCopy, UInt, v)
+      }
+      OnExit(exitFunc)
+   }
+}
+
+CreateSelectionGui() {
+   Gui, New, +hwndhGui +Alwaysontop -Caption +LastFound +ToolWindow +E0x20 -DPIScale
+   WinSet, Transparent, 130
+   Gui, Color, FFC800
+   Return hGui
+}
+
+LowLevelMouseProc(nCode, wParam, lParam) {
+   static WM_MOUSEMOVE := 0x200, WM_LBUTTONUP := 0x202
+        , coords := [], startMouseX, startMouseY, hGui
+        , timer := Func("LowLevelMouseProc").Bind("timer", "", "")
+   
+   if (nCode = "timer") {
+      while coords[1] {
+         point := coords.RemoveAt(1)
+         mouseX := point[1], mouseY := point[2]
+         x := startMouseX &lt; mouseX ? startMouseX : mouseX
+         y := startMouseY &lt; mouseY ? startMouseY : mouseY
+         w := Abs(mouseX - startMouseX)
+         h := Abs(mouseY - startMouseY)
+         try Gui, %hGUi%: Show, x%x% y%y% w%w% h%h% NA
+      }
+   }
+   else {
+`(!hGui &amp;&amp; hGui := A_EventInfo)
+      if (wParam = WM_LBUTTONUP)
+         startMouseX := startMouseY := ""
+      if (wParam = WM_MOUSEMOVE)  {
+         mouseX := NumGet(lParam + 0, "Int")
+         mouseY := NumGet(lParam + 4, "Int")
+         if (startMouseX = "") {
+            startMouseX := mouseX
+            startMouseY := mouseY
+         }
+         coords.Push([mouseX, mouseY])
+         SetTimer, % timer, -10
+      }
+      Return DllCall("CallNextHookEx", Ptr, 0, Int, nCode, UInt, wParam, Ptr, lParam)
+   }
+}
+
+class WindowsHook {
+   __New(type, callback, eventInfo := "", isGlobal := true) {
+      this.callbackPtr := RegisterCallback(callback, "Fast", 3, eventInfo)
+      this.hHook := DllCall("SetWindowsHookEx", "Int", type, "Ptr", this.callbackPtr
+                                              , "Ptr", !isGlobal ? 0 : DllCall("GetModuleHandle", "UInt", 0, "Ptr")
+                                              , "UInt", isGlobal ? 0 : DllCall("GetCurrentThreadId"), "Ptr")
+   }
+   __Delete() {
+      DllCall("UnhookWindowsHookEx", "Ptr", this.hHook)
+      DllCall("GlobalFree", "Ptr", this.callBackPtr, "Ptr")
+   }
+}
+
+HBitmapFromScreen(X, Y, W, H) {
+   HDC := DllCall("GetDC", "Ptr", 0, "UPtr")
+   HBM := DllCall("CreateCompatibleBitmap", "Ptr", HDC, "Int", W, "Int", H, "UPtr")
+   PDC := DllCall("CreateCompatibleDC", "Ptr", HDC, "UPtr")
+   DllCall("SelectObject", "Ptr", PDC, "Ptr", HBM)
+   DllCall("BitBlt", "Ptr", PDC, "Int", 0, "Int", 0, "Int", W, "Int", H
+                   , "Ptr", HDC, "Int", X, "Int", Y, "UInt", 0x00CC0020)
+   DllCall("DeleteDC", "Ptr", PDC)
+   DllCall("ReleaseDC", "Ptr", 0, "Ptr", HDC)
+   Return HBM
+}
+
+HBitmapToRandomAccessStream(hBitmap) {
+   static IID_IRandomAccessStream := "{905A0FE1-BC53-11DF-8C49-001E4FC686DA}"
+        , IID_IPicture            := "{7BF80980-BF32-101A-8BBB-00AA00300CAB}"
+        , PICTYPE_BITMAP := 1
+        , BSOS_DEFAULT   := 0
+        
+   DllCall("Ole32\CreateStreamOnHGlobal", "Ptr", 0, "UInt", true, "PtrP", pIStream, "UInt")
+   
+   VarSetCapacity(PICTDESC, sz := 8 + A_PtrSize*2, 0)
+   NumPut(sz, PICTDESC)
+   NumPut(PICTYPE_BITMAP, PICTDESC, 4)
+   NumPut(hBitmap, PICTDESC, 8)
+   riid := CLSIDFromString(IID_IPicture, GUID1)
+   DllCall("OleAut32\OleCreatePictureIndirect", "Ptr", &amp;PICTDESC, "Ptr", riid, "UInt", false, "PtrP", pIPicture, "UInt")
+   ; IPicture::SaveAsFile
+   DllCall(NumGet(NumGet(pIPicture+0) + A_PtrSize*15), "Ptr", pIPicture, "Ptr", pIStream, "UInt", true, "UIntP", size, "UInt")
+   riid := CLSIDFromString(IID_IRandomAccessStream, GUID2)
+   DllCall("ShCore\CreateRandomAccessStreamOverStream", "Ptr", pIStream, "UInt", BSOS_DEFAULT, "Ptr", riid, "PtrP", pIRandomAccessStream, "UInt")
+   ObjRelease(pIPicture)
+   ObjRelease(pIStream)
+   Return pIRandomAccessStream
+}
+
+CLSIDFromString(IID, ByRef CLSID) {
+   VarSetCapacity(CLSID, 16, 0)
+   if res := DllCall("ole32\CLSIDFromString", "WStr", IID, "Ptr", &amp;CLSID, "UInt")
+      throw Exception("CLSIDFromString failed. Error: " . Format("{:#x}", res))
+   Return &amp;CLSID
+}
+
+
+ocr(file, lang := "FirstFromAvailableLanguages")
+{
+   static OcrEngineStatics, OcrEngine, MaxDimension, LanguageFactory, Language, CurrentLanguage, BitmapDecoderStatics, GlobalizationPreferencesStatics
+   if (OcrEngineStatics = "")
+   {
+      CreateClass("Windows.Globalization.Language", ILanguageFactory := "{9B0252AC-0C27-44F8-B792-9793FB66C63E}", LanguageFactory)
+      CreateClass("Windows.Graphics.Imaging.BitmapDecoder", IBitmapDecoderStatics := "{438CCB26-BCEF-4E95-BAD6-23A822E58D01}", BitmapDecoderStatics)
+      CreateClass("Windows.Media.Ocr.OcrEngine", IOcrEngineStatics := "{5BFFA85A-3384-3540-9940-699120D428A8}", OcrEngineStatics)
+      DllCall(NumGet(NumGet(OcrEngineStatics+0)+6*A_PtrSize), "ptr", OcrEngineStatics, "uint*", MaxDimension)   ; MaxImageDimension
+   }
+   if (file = "ShowAvailableLanguages")
+   {
+      if (GlobalizationPreferencesStatics = "")
+         CreateClass("Windows.System.UserProfile.GlobalizationPreferences", IGlobalizationPreferencesStatics := "{01BF4326-ED37-4E96-B0E9-C1340D1EA158}", GlobalizationPreferencesStatics)
+      DllCall(NumGet(NumGet(GlobalizationPreferencesStatics+0)+9*A_PtrSize), "ptr", GlobalizationPreferencesStatics, "ptr*", LanguageList)   ; get_Languages
+      DllCall(NumGet(NumGet(LanguageList+0)+7*A_PtrSize), "ptr", LanguageList, "int*", count)   ; count
+      loop % count
+      {
+         DllCall(NumGet(NumGet(LanguageList+0)+6*A_PtrSize), "ptr", LanguageList, "int", A_Index-1, "ptr*", hString)   ; get_Item
+         DllCall(NumGet(NumGet(LanguageFactory+0)+6*A_PtrSize), "ptr", LanguageFactory, "ptr", hString, "ptr*", LanguageTest)   ; CreateLanguage
+         DllCall(NumGet(NumGet(OcrEngineStatics+0)+8*A_PtrSize), "ptr", OcrEngineStatics, "ptr", LanguageTest, "int*", bool)   ; IsLanguageSupported
+         if (bool = 1)
+         {
+            DllCall(NumGet(NumGet(LanguageTest+0)+6*A_PtrSize), "ptr", LanguageTest, "ptr*", hText)
+            buffer := DllCall("Combase.dll\WindowsGetStringRawBuffer", "ptr", hText, "uint*", length, "ptr")
+            text .= StrGet(buffer, "UTF-16") "``n"
+         }
+         ObjRelease(LanguageTest)
+      }
+      ObjRelease(LanguageList)
+      return text
+   }
+   if (lang != CurrentLanguage) or (lang = "FirstFromAvailableLanguages")
+   {
+      if (OcrEngine != "")
+      {
+         ObjRelease(OcrEngine)
+         if (CurrentLanguage != "FirstFromAvailableLanguages")
+            ObjRelease(Language)
+      }
+      if (lang = "FirstFromAvailableLanguages")
+         DllCall(NumGet(NumGet(OcrEngineStatics+0)+10*A_PtrSize), "ptr", OcrEngineStatics, "ptr*", OcrEngine)   ; TryCreateFromUserProfileLanguages
+      else
+      {
+         CreateHString(lang, hString)
+         DllCall(NumGet(NumGet(LanguageFactory+0)+6*A_PtrSize), "ptr", LanguageFactory, "ptr", hString, "ptr*", Language)   ; CreateLanguage
+         DeleteHString(hString)
+         DllCall(NumGet(NumGet(OcrEngineStatics+0)+9*A_PtrSize), "ptr", OcrEngineStatics, ptr, Language, "ptr*", OcrEngine)   ; TryCreateFromLanguage
+      }
+      if (OcrEngine = 0)
+      {
+         msgbox Can not use language "%lang%" for OCR, please install language pack.
+         ExitApp
+      }
+      CurrentLanguage := lang
+   }
+   IRandomAccessStream := file
+   DllCall(NumGet(NumGet(BitmapDecoderStatics+0)+14*A_PtrSize), "ptr", BitmapDecoderStatics, "ptr", IRandomAccessStream, "ptr*", BitmapDecoder)   ; CreateAsync
+   WaitForAsync(BitmapDecoder)
+   BitmapFrame := ComObjQuery(BitmapDecoder, IBitmapFrame := "{72A49A1C-8081-438D-91BC-94ECFC8185C6}")
+   DllCall(NumGet(NumGet(BitmapFrame+0)+12*A_PtrSize), "ptr", BitmapFrame, "uint*", width)   ; get_PixelWidth
+   DllCall(NumGet(NumGet(BitmapFrame+0)+13*A_PtrSize), "ptr", BitmapFrame, "uint*", height)   ; get_PixelHeight
+   if (width &gt; MaxDimension) or (height &gt; MaxDimension)
+   {
+      msgbox Image is to big - %width%x%height%.``nIt should be maximum - %MaxDimension% pixels
+      ExitApp
+   }
+   BitmapFrameWithSoftwareBitmap := ComObjQuery(BitmapDecoder, IBitmapFrameWithSoftwareBitmap := "{FE287C9A-420C-4963-87AD-691436E08383}")
+   DllCall(NumGet(NumGet(BitmapFrameWithSoftwareBitmap+0)+6*A_PtrSize), "ptr", BitmapFrameWithSoftwareBitmap, "ptr*", SoftwareBitmap)   ; GetSoftwareBitmapAsync
+   WaitForAsync(SoftwareBitmap)
+   DllCall(NumGet(NumGet(OcrEngine+0)+6*A_PtrSize), "ptr", OcrEngine, ptr, SoftwareBitmap, "ptr*", OcrResult)   ; RecognizeAsync
+   WaitForAsync(OcrResult)
+   DllCall(NumGet(NumGet(OcrResult+0)+6*A_PtrSize), "ptr", OcrResult, "ptr*", LinesList)   ; get_Lines
+   DllCall(NumGet(NumGet(LinesList+0)+7*A_PtrSize), "ptr", LinesList, "int*", count)   ; count
+   loop % count
+   {
+      DllCall(NumGet(NumGet(LinesList+0)+6*A_PtrSize), "ptr", LinesList, "int", A_Index-1, "ptr*", OcrLine)
+      DllCall(NumGet(NumGet(OcrLine+0)+7*A_PtrSize), "ptr", OcrLine, "ptr*", hText) 
+      buffer := DllCall("Combase.dll\WindowsGetStringRawBuffer", "ptr", hText, "uint*", length, "ptr")
+      text .= StrGet(buffer, "UTF-16") "``n"
+      ObjRelease(OcrLine)
+   }
+   Close := ComObjQuery(IRandomAccessStream, IClosable := "{30D5A829-7FA4-4026-83BB-D75BAE4EA99E}")
+   DllCall(NumGet(NumGet(Close+0)+6*A_PtrSize), "ptr", Close)   ; Close
+   ObjRelease(Close)
+   Close := ComObjQuery(SoftwareBitmap, IClosable := "{30D5A829-7FA4-4026-83BB-D75BAE4EA99E}")
+   DllCall(NumGet(NumGet(Close+0)+6*A_PtrSize), "ptr", Close)   ; Close
+   ObjRelease(Close)
+   ObjRelease(IRandomAccessStream)
+   ObjRelease(BitmapDecoder)
+   ObjRelease(BitmapFrame)
+   ObjRelease(BitmapFrameWithSoftwareBitmap)
+   ObjRelease(SoftwareBitmap)
+   ObjRelease(OcrResult)
+   ObjRelease(LinesList)
+   return text
+}
+
+
+
+CreateClass(string, interface, ByRef Class)
+{
+   CreateHString(string, hString)
+   VarSetCapacity(GUID, 16)
+   DllCall("ole32\CLSIDFromString", "wstr", interface, "ptr", &amp;GUID)
+   result := DllCall("Combase.dll\RoGetActivationFactory", "ptr", hString, "ptr", &amp;GUID, "ptr*", Class)
+   if (result != 0)
+   {
+      if (result = 0x80004002)
+         msgbox No such interface supported
+      else if (result = 0x80040154)
+         msgbox Class not registered
+      else
+         msgbox error: %result%
+      ExitApp
+   }
+   DeleteHString(hString)
+}
+
+CreateHString(string, ByRef hString)
+{
+    DllCall("Combase.dll\WindowsCreateString", "wstr", string, "uint", StrLen(string), "ptr*", hString)
+}
+
+DeleteHString(hString)
+{
+   DllCall("Combase.dll\WindowsDeleteString", "ptr", hString)
+}
+
+WaitForAsync(ByRef Object)
+{
+   AsyncInfo := ComObjQuery(Object, IAsyncInfo := "{00000036-0000-0000-C000-000000000046}")
+   loop
+   {
+      DllCall(NumGet(NumGet(AsyncInfo+0)+7*A_PtrSize), "ptr", AsyncInfo, "uint*", status)   ; IAsyncInfo.Status
+      if (status != 0)
+      {
+         if (status != 1)
+         {
+            DllCall(NumGet(NumGet(AsyncInfo+0)+8*A_PtrSize), "ptr", AsyncInfo, "uint*", ErrorCode)   ; IAsyncInfo.ErrorCode
+            msgbox AsyncInfo status error: %ErrorCode%
+            ExitApp
+         }
+         ObjRelease(AsyncInfo)
+         break
+      }
+      sleep 10
+   }
+   DllCall(NumGet(NumGet(Object+0)+8*A_PtrSize), "ptr", Object, "ptr*", ObjectResult)   ; GetResults
+   ObjRelease(Object)
+   Object := ObjectResult
+}
+)
+Clipboard := c</Item>
+			<Item name="capture" tv="10140256">run,G:\我的AHK程序\我的工程\dxgi_pixelgetcolor
+c =
+(%
+#include &lt;my_lib&gt;
+
+;gdip startup
+if !DllCall("kernel32\GetModuleHandle", Str,"gdiplus", Ptr)
+	DllCall("kernel32\LoadLibrary", Str,"gdiplus", Ptr)
+VarSetCapacity(GdiplusStartupInput, 16, 0), GdiplusStartupInput := Chr(1)
+DllCall("gdiplus\GdiplusStartup", UPtrP,pToken, Ptr,&amp;GdiplusStartupInput, Ptr,0)
+
+Gui +AlwaysOnTop -DPIScale
+Gui Margin, 15, 15
+Gui Add, Pic, HwndhPic w800 h800 +Border	;演示窗口大小
+Gui Show,x1000 y10
+
+;==============================
+;from data
+vSize := 14 + 40 + A_ScreenWidth * A_ScreenHeight * 4
+dxgi_init(0)
+rtn := dxgi_pixelgetcolor(0, 0, p_vitmap_file, p_bitmap_info , p_bitmap_data, is_time_out)
+dxgi_save2file("test.bmp")
+loop
+{
+    dxgi_pixelgetcolor(0, 0, p_vitmap_file, p_bitmap_info , p_bitmap_data, is_time_out)
+    hBitmap := GDIPlus_hBitmapFromPoint(p_vitmap_file, vSize)
+    Show(hPic, hBitmap, 0, 0, 800, 800)
+    DllCall("DeleteObject", "ptr", hBitmap)
+}
+return
+
+f5::
+;gdip shutdown
+DllCall("gdiplus\GdiplusShutdown", UPtr,pToken)
+if hModule := DllCall("kernel32\GetModuleHandle", Str,"gdiplus", Ptr)
+	DllCall("kernel32\FreeLibrary", Ptr,hModule)
+;==============================
+ExitApp
+return
+
+;==================================================
+;GdiPlus_SaveImageToBuffer() - Scripts and Functions - AutoHotkey Community
+;https://autohotkey.com/board/topic/85523-gdiplus-saveimagetobuffer/
+
+GDIPlus_hBitmapFromPoint( ByRef Buffer, nSize ) { ;  Last Modifed : 21-Jun-2011
+; Adapted version by SKAN www.autohotkey.com/forum/viewtopic.php?p=383863#383863
+; Original code   by Sean www.autohotkey.com/forum/viewtopic.php?p=147029#147029
+ hData := DllCall("GlobalAlloc", UInt,2, UInt,nSize )
+ pData := DllCall("GlobalLock",  UInt,hData )
+ DllCall( "RtlMoveMemory", UInt,pData, UInt,Buffer, UInt,nSize )
+ DllCall( "GlobalUnlock" , UInt,hData )
+ DllCall( "ole32\CreateStreamOnHGlobal", UInt,hData, Int,True, UIntP,pStream )
+ DllCall( "gdiplus\GdipCreateBitmapFromStream",  UInt,pStream, UIntP,pBitmap )
+ DllCall( "gdiplus\GdipCreateHBITMAPFromBitmap", UInt,pBitmap, UIntP,hBitmap, UInt
+,DllCall( "ntdll\RtlUlongByteSwap",UInt
+,DllCall( "GetSysColor", Int,15 ) &lt;&lt;8 ) | 0xFF000000 )
+ DllCall( "gdiplus\GdipDisposeImage", UInt,pBitmap )
+ DllCall( NumGet( NumGet(1*pStream)+8 ), UInt,pStream ) ; IStream::Release
+ Dllcall("GlobalFree", "Ptr", hData)
+Return hBitmap
+}
+
+
+GDIPlus_hBitmapFromBuffer( ByRef Buffer, nSize ) { ;  Last Modifed : 21-Jun-2011
+; Adapted version by SKAN www.autohotkey.com/forum/viewtopic.php?p=383863#383863
+; Original code   by Sean www.autohotkey.com/forum/viewtopic.php?p=147029#147029
+ hData := DllCall("GlobalAlloc", UInt,2, UInt,nSize )
+ pData := DllCall("GlobalLock",  UInt,hData )
+ DllCall( "RtlMoveMemory", UInt,pData, UInt,&amp;Buffer, UInt,nSize )
+ DllCall( "GlobalUnlock" , UInt,hData )
+ DllCall( "ole32\CreateStreamOnHGlobal", UInt,hData, Int,True, UIntP,pStream )
+ DllCall( "gdiplus\GdipCreateBitmapFromStream",  UInt,pStream, UIntP,pBitmap )
+ DllCall( "gdiplus\GdipCreateHBITMAPFromBitmap", UInt,pBitmap, UIntP,hBitmap, UInt
+,DllCall( "ntdll\RtlUlongByteSwap",UInt
+,DllCall( "GetSysColor", Int,15 ) &lt;&lt;8 ) | 0xFF000000 )
+ DllCall( "gdiplus\GdipDisposeImage", UInt,pBitmap )
+ DllCall( NumGet( NumGet(1*pStream)+8 ), UInt,pStream ) ; IStream::Release
+ Dllcall("GlobalFree", "Ptr", hData)
+Return hBitmap
+}
+
+;----------------------
+; 显示内存图像  By FeiYue
+;----------------------
+Show(hwnd, hBM, x1, y1, x2, y2) {
+	x:=Min(x1,x2), y:=Min(y1,y2), w:=Abs(x2-x1)+1, h:=Abs(y2-y1)+1
+	, hDC := DllCall("GetDC", "Ptr",hwnd, "Ptr")
+	, mDC := DllCall("CreateCompatibleDC", "Ptr", hDC, "Ptr")
+	, oBM := DllCall("SelectObject", "Ptr", mDC, "Ptr", hBM)
+	rtn := DllCall("BitBlt", "Ptr", hDC, "Int",0, "Int",0, "Int",w, "Int",h, "Ptr",mDC, "Int",x, "Int",y, "UInt",0xCC0020)
+	DllCall("SelectObject", "Ptr", mDC, "Ptr", oBM)
+	, DllCall("ReleaseDC", "Ptr",hwnd, "Ptr",hDC)
+	, DllCall("DeleteDC", "Ptr",mDC)
+}
+)
+Clipboard := c</Item>
+			<Item name="右键选择范围" tv="10140368">c=
+(%
+;------------------------------
+; 右键选择屏幕范围   By FeiYue
+;------------------------------
+
+
+右键选择屏幕范围(x1,y1,x2,y2)
+右键选择屏幕范围(ByRef x1="", ByRef y1="", ByRef x2="", ByRef y2="")
+{
+  KeyWait, RButton
+  For k,v in StrSplit("RButton,Left,Right,Up,Down", ",")
+    Hotkey, % v, GetRange_KeyOff, On
+  if (0)
+  {
+    GetRange_KeyOff:
+    return
+  }
+  Gui, GetRange: Destroy
+  Gui, % "GetRange: +AlwaysOnTop -Caption +ToolWindow"
+    . " +Hwndid -DPIScale +E0x08000000"
+  ok:=0
+  CoordMode, Mouse, Screen
+  While !GetKeyState("Ctrl","P")
+  {
+    Sleep, 50
+    ToolTip, 按右键拖选范围``n方向键微调位置``n再次点右键确定
+    MouseGetPos, x2, y2
+    if (ok=0)
+    {
+      if GetKeyState("RButton","P")
+        ok:=1, x1:=x2, y1:=y2
+    }
+    else if (ok=1)
+    {
+      GetKeyState("Left","P")  &amp;&amp; x1--
+      GetKeyState("Right","P") &amp;&amp; x1++
+      GetKeyState("Up","P")    &amp;&amp; y1--
+      GetKeyState("Down","P")  &amp;&amp; y1++
+      w:=Floor(Abs(x1-x2)), h:=Floor(Abs(y1-y2))
+      x:=Floor(Min(x1,x2)), y:=Floor(Min(y1,y2))
+      d:=2, x-=d, y-=d, w+=2*d, h+=2*d, i:=w-d, j:=h-d
+      s:="0-0 " (w "-0 ") (w "-" h) (" 0-" h) " 0-0  "
+      . (d "-" d) " " (i "-" d) " " (i "-" j) " " (d "-" j) " " (d "-" d)
+      WinSet, Region, %s%, ahk_id %id%
+      Gui, GetRange: Color, % (A_MSec&lt;500 ? "Red":"Blue")
+      Gui, GetRange: Show, NA x%x% y%y% w%w% h%h%
+      if !GetKeyState("RButton","P")
+        ok:=2
+    }
+    else if (ok=2)
+    {
+      GetKeyState("Left","P")  &amp;&amp; x--
+      GetKeyState("Right","P") &amp;&amp; x++
+      GetKeyState("Up","P")    &amp;&amp; y--
+      GetKeyState("Down","P")  &amp;&amp; y++
+      Gui, GetRange: Color, % (A_MSec&lt;500 ? "Red":"Blue")
+      Gui, GetRange: Show, NA x%x% y%y%
+      if GetKeyState("RButton","P")
+        Break
+    }
+  }
+  x1:=x+d, y1:=y+d, x2:=x+w-1-d, y2:=y+h-1-d
+  Gui, GetRange: Destroy
+  ToolTip
+  KeyWait, RButton
+  For k,v in StrSplit("RButton,Left,Right,Up,Down", ",")
+    Hotkey, % v, Off
+  return (x1 "," y1 "," x2 "," y2)
+}
+)
+Clipboard := c</Item></Item></Item>
 </Menu>
