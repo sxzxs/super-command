@@ -3,6 +3,7 @@ OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x6, "GuiActivate")
 #SingleInstance force
 #include <py>
+#include <btt>
 #include <log4ahk>
 #Persistent
 
@@ -93,7 +94,7 @@ Gui Add, ListBox, x0 y+2 h20 w500  vCommand gSelect AltSubmit +Background0x00000
 Gui, -Caption +AlwaysOnTop
 gosub Type
 ;Gui Show, X%pos_x% Y%pos_y%
-Gui Show
+Gui Show, X200 Y0
 GuiControl Focus, Query
 return
 
@@ -139,6 +140,7 @@ Command := row_id[Command]
     TargetScriptTitle := "ahk_pid " menue_create_pid " ahk_class AutoHotkey"
     StringToSend := command
     result := Send_WM_COPYDATA(StringToSend, TargetScriptTitle)
+preview_command(command)
 if (A_GuiEvent != "DoubleClick")
 {
     return
@@ -158,6 +160,7 @@ return
 
 GuiEscape:
 Gui,Hide
+btt()
 return
 
 #IfWinActive, menu ahk_class AutoHotkeyGUI
@@ -382,6 +385,27 @@ Class XML{
 		ControlFocus,%Focus%,ahk_id%active%
 		return b
 	}
+}
+
+preview_command(command)
+{
+    CoordMode, ToolTip, Screen
+    global my_xml, menue_create_pid, log
+    word_array := StrSplit(command, " >")
+    pattern := ""
+    for k,v in word_array
+    {
+        pattern .= "/*[@name='" v "']"
+    }
+    pattern := "//Menu" . pattern
+    first_child_name := SSN(my_xml.SSN(pattern), "Item/@name").text
+    if(first_child_name != "")
+    {
+        return
+    }
+    UnityPath:= my_xml.SSN(pattern).text
+    Clipboard := UnityPath
+    btt(UnityPath, 820, 200,,"Style4")
 }
 
 handle_command(command)

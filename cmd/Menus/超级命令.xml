@@ -1,52 +1,52 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <Menu>
-	<Item name="网站文件夹" tv="964224" last="1">
-		<Item name="百度" tv="964560">run,www.baidu.com</Item>
-		<Item name="虎牙" tv="962096">run,www.huya.com</Item>
-		<Item name="斗鱼" tv="962656">run, www.douyu.com</Item>
-		<Item name="ahk中文论坛autoahk" tv="962320">run,www.autoahk.com</Item>
-		<Item name="ahk官网论坛autohotkey" tv="963216">run, www.autohotkey.com</Item>
-		<Item name="github" tv="964336">run,https:github.com</Item>
-		<Item name="卡牌card目录" tv="963664">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
-		<Item name="云顶之奕" tv="963776">run,G:\我的AHK程序\游戏脚本\HX云顶之奕挂机脚本</Item>
-		<Item name="我的ahk工程" tv="961984">run,G:\我的AHK程序\我的工程</Item>
-		<Item name="超级命令目录" tv="962768">run,G:\我的AHK程序\我的工程\超级命令</Item>
-		<Item name="gitee" tv="961424">run, https://gitee.com/</Item>
-		<Item name="必应" tv="962880">run,https://cn.bing.com/</Item>
-		<Item name="bilibilib站" tv="963440">run,https://www.bilibili.com/</Item>
-		<Item name="打字练习网站" tv="963888">run,https://dazi.kukuw.com/
+	<Item name="@网站文件夹" tv="552810464">
+		<Item name="百度" tv="552816848">run,www.baidu.com</Item>
+		<Item name="虎牙" tv="552816176">run,www.huya.com</Item>
+		<Item name="斗鱼" tv="552812032">run, www.douyu.com</Item>
+		<Item name="ahk中文论坛autoahk" tv="552815616">run,www.autoahk.com</Item>
+		<Item name="ahk官网论坛autohotkey" tv="552810352">run, www.autohotkey.com</Item>
+		<Item name="github" tv="552810576">run,https:github.com</Item>
+		<Item name="卡牌card目录" tv="552813824">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
+		<Item name="云顶之奕" tv="552812592">run,G:\我的AHK程序\游戏脚本\HX云顶之奕挂机脚本</Item>
+		<Item name="我的ahk工程" tv="552816512">run,G:\我的AHK程序\我的工程</Item>
+		<Item name="超级命令目录" tv="552816288">run,G:\我的AHK程序\我的工程\超级命令</Item>
+		<Item name="gitee" tv="552815392">run, https://gitee.com/</Item>
+		<Item name="必应" tv="552811808">run,https://cn.bing.com/</Item>
+		<Item name="bilibilib站" tv="552814496">run,https://www.bilibili.com/</Item>
+		<Item name="打字练习网站" tv="552815728">run,https://dazi.kukuw.com/
 run,https://www.bilibili.com/video/av57373164?from=search&amp;seid=7505871621684040908</Item>
-		<Item name="正则表达式帮助" tv="964000">run,C:\Users\hetong\Documents\Tencent Files\2397633100\FileRecv\55分钟学会正则表达式.DOC</Item>
-		<Item name="c++中文网" tv="960864">run,http://c.biancheng.net/view/151.html</Item>
-		<Item name="c++chm" tv="120919632">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
-		<Item name="leedcode" tv="120920304">run,https://leetcode-cn.com</Item>
-		<Item name="linux命令大全" tv="120918176">run,https://man.linuxde.net/</Item>
-		<Item name="google" tv="120919072">run,www.google.com</Item>
-		<Item name="autohotkey目录" tv="120919744">run,C:\Program Files\AutoHotkey</Item>
-		<Item name="嗨正则" tv="120918400">run,https://hiregex.com/</Item>
-		<Item name="音乐" tv="120919296">run,http://tool.liumingye.cn/music/?page=searchPage</Item></Item>
-	<Item name="软件" tv="120919968">
-		<Item name="词典" tv="120920416">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
-		<Item name="音乐" tv="120920080">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
-		<Item name="cherry笔记" tv="120916944">run,G:\CherryTree\bin\cherrytree.exe</Item>
-		<Item name="搜索" tv="120917952">Run, everything, F:\everything,</Item>
-		<Item name="画图可汗" tv="120917056">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
-		<Item name="tgp" tv="120917280">Run,*RunAs WeGame,E:\wegeme,</Item>
-		<Item name="录制" tv="120917504">run,bdcam.exe,F:\Bandicam</Item>
-		<Item name="百度网盘" tv="120918736">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
-		<Item name="截图" tv="120918848">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
+		<Item name="正则表达式帮助" tv="552813936">run,C:\Users\hetong\Documents\Tencent Files\2397633100\FileRecv\55分钟学会正则表达式.DOC</Item>
+		<Item name="c++中文网" tv="552813264">run,http://c.biancheng.net/view/151.html</Item>
+		<Item name="c++chm" tv="552811136">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
+		<Item name="leedcode" tv="552815280">run,https://leetcode-cn.com</Item>
+		<Item name="linux命令大全" tv="552815504">run,https://man.linuxde.net/</Item>
+		<Item name="google" tv="552816624">run,www.google.com</Item>
+		<Item name="autohotkey目录" tv="552814048">run,C:\Program Files\AutoHotkey</Item>
+		<Item name="嗨正则" tv="552814720">run,https://hiregex.com/</Item>
+		<Item name="音乐" tv="552814160">run,http://tool.liumingye.cn/music/?page=searchPage</Item></Item>
+	<Item name="@软件" tv="552817072">
+		<Item name="词典" tv="552811360">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
+		<Item name="音乐" tv="552814944">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
+		<Item name="cherry笔记" tv="552812480">run,G:\CherryTree\bin\cherrytree.exe</Item>
+		<Item name="搜索" tv="552813376">Run, everything, F:\everything,</Item>
+		<Item name="画图可汗" tv="552810688">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
+		<Item name="tgp" tv="552810800">Run,*RunAs WeGame,E:\wegeme,</Item>
+		<Item name="录制" tv="552812816">run,bdcam.exe,F:\Bandicam</Item>
+		<Item name="百度网盘" tv="552810128">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
+		<Item name="截图" tv="552812928">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
 </Item>
-		<Item name="秒表" tv="623472">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item>
-		<Item name="gif录屏" tv="622016">run,F:\gif\屏幕录制ScreenToGif 2.34.1.exe</Item>
-		<Item name="正则表达式ahk" tv="621904">run,C:\Users\hetong\Desktop\我的AHK程序\Adventure\Tools\Expressive\Expressive.ahk</Item>
-		<Item name="正则表达式buddy" tv="622128">run, F:\正则表达式\RegexBuddy4.9.exe</Item>
-		<Item name="按键显示" tv="622352">run,G:\我的AHK程序\我的工程\KeyPress-OSD-master（按键显示工具）\keycastow\keycastow.exe</Item></Item>
-	<Item name="命令" tv="622464">
-		<Item name="关机" tv="622576">msgbox, no this command</Item>
-		<Item name="窗口置顶" tv="120681424">MouseGetPos, MouseX, MouseY, MouseWin
+		<Item name="秒表" tv="552815168">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item>
+		<Item name="gif录屏" tv="552814832">run,F:\gif\屏幕录制ScreenToGif 2.34.1.exe</Item>
+		<Item name="正则表达式ahk" tv="552815056">run,C:\Users\hetong\Desktop\我的AHK程序\Adventure\Tools\Expressive\Expressive.ahk</Item>
+		<Item name="正则表达式buddy" tv="552811024">run, F:\正则表达式\RegexBuddy4.9.exe</Item>
+		<Item name="按键显示" tv="552811248">run,G:\我的AHK程序\我的工程\KeyPress-OSD-master（按键显示工具）\keycastow\keycastow.exe</Item></Item>
+	<Item name="@命令" tv="552811472">
+		<Item name="关机" tv="552813488">msgbox, no this command</Item>
+		<Item name="窗口置顶" tv="552811920">MouseGetPos, MouseX, MouseY, MouseWin
 ; 似乎有必要首先关闭任何现有的透明度:
 WinSet, AlwaysOnTop, TOGGLE , ahk_id %MouseWin%</Item>
-		<Item name="vim操作说明" tv="120681984">CommandText =
+		<Item name="vim操作说明" tv="552813040">CommandText =
     (% 
 重要的概念
 	增：
@@ -156,21 +156,21 @@ TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, I
 
     Return {1: "OK", 2: "Cancel", 4: "Retry", 6: "Yes", 7: "No", 8: "Close"}[Ret]
 }</Item>
-		<Item name="ipconfig" tv="1140944">#include &lt;runcmd&gt;
+		<Item name="ipconfig" tv="552813600">#include &lt;runcmd&gt;
 #include &lt;log4ahk&gt;
 rtn := cmd.run("ifconfig")
 log.info(rtn)</Item>
-		<Item name="test" tv="954880">msgbox, test</Item>
-		<Item name="mathematica" tv="954992">
-			<Item name="转换为c语言" tv="957456">
+		<Item name="test" tv="552818192">msgbox, test</Item>
+		<Item name="mathematica" tv="552820544">
+			<Item name="转换为c语言" tv="552817520">
 inputvar = 
 (
 CForm[expr]
 )
 	clipboard:=inputvar </Item></Item></Item>
-	<Item name="@ahk" tv="955104">
-		<Item name="帮助手册" tv="953648">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item>
-		<Item name="开头设置" tv="956560">#NoEnv
+	<Item name="@ahk" tv="552818080">
+		<Item name="帮助手册" tv="552817744">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item>
+		<Item name="开头设置" tv="552817632">#NoEnv
 #KeyHistory 0
 #MaxThreads 255
 #MaxMem 4095
@@ -212,7 +212,7 @@ SetDefaultMouseSpeed, 0
 CoordMode, ToolTip , Screen 
     )    
 clipboard:=CommandText</Item>
-		<Item name="快捷输入模板" tv="954320">CommandText =
+		<Item name="快捷输入模板" tv="552819648">CommandText =
 (%
 CommandText =
 `(%
@@ -221,17 +221,80 @@ CommandText =
 clipboard:=CommandText
 )    
 clipboard:=CommandText</Item>
-		<Item name="include库" tv="956784">CommandText =
+		<Item name="include库" tv="552823344">CommandText =
 (%
 #Include &lt;log4ahk&gt;
 #Include &lt;my_lib&gt;
 )
 clipboard:=CommandText</Item>
-		<Item name="字符串转双引号其他语言" tv="954432">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符串转双引号.ahk</Item>
-		<Item name="字符串转延续片段" tv="954208">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符片段转延续片段.ahk</Item>
-		<Item name="脚本库" tv="953872">
-			<Item name="json_feiyue_源码" tv="956112">c=
+		<Item name="字符串转双引号其他语言" tv="552821776">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符串转双引号.ahk</Item>
+		<Item name="字符串转延续片段" tv="552822896">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符片段转延续片段.ahk</Item>
+		<Item name="dialog" tv="552819536">c=
 (%
+Clipboard := c
+TaskDialog(Clipboard, "", "", 0x1, 0)
+TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, IconRes := "", Owner := 0x10010) {
+	Local hModule, LoadLib, Ret
+	
+	If (IconRes != "") {
+		hModule := DllCall("GetModuleHandle", "Str", IconRes, "Ptr")
+		LoadLib := !hModule
+            &amp;&amp; hModule := DllCall("LoadLibraryEx", "Str", IconRes, "UInt", 0, "UInt", 0x2, "Ptr")
+	} Else {
+		hModule := 0
+		LoadLib := False
+	}
+	
+	DllCall("TaskDialog"
+        , "Ptr" , Owner        ; hWndParent
+        , "Ptr" , hModule      ; hInstance
+        , "Ptr" , &amp;Title       ; pszWindowTitle
+        , "Ptr" , &amp;Instruction ; pszMainInstruction
+        , "Ptr" , &amp;Content     ; pszContent
+        , "Int" , Buttons      ; dwCommonButtons
+        , "Ptr" , IconID       ; pszIcon
+        , "Int*", Ret := 0)    ; *pnButton
+	
+	If (LoadLib) {
+		DllCall("FreeLibrary", "Ptr", hModule)
+	}
+	
+	Return {1: "OK", 2: "Cancel", 4: "Retry", 6: "Yes", 7: "No", 8: "Close"}[Ret]
+}
+)
+Clipboard := c
+TaskDialog(Clipboard, "", "", 0x1, 0)
+TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, IconRes := "", Owner := 0x10010) {
+	Local hModule, LoadLib, Ret
+	
+	If (IconRes != "") {
+		hModule := DllCall("GetModuleHandle", "Str", IconRes, "Ptr")
+		LoadLib := !hModule
+            &amp;&amp; hModule := DllCall("LoadLibraryEx", "Str", IconRes, "UInt", 0, "UInt", 0x2, "Ptr")
+	} Else {
+		hModule := 0
+		LoadLib := False
+	}
+	
+	DllCall("TaskDialog"
+        , "Ptr" , Owner        ; hWndParent
+        , "Ptr" , hModule      ; hInstance
+        , "Ptr" , &amp;Title       ; pszWindowTitle
+        , "Ptr" , &amp;Instruction ; pszMainInstruction
+        , "Ptr" , &amp;Content     ; pszContent
+        , "Int" , Buttons      ; dwCommonButtons
+        , "Ptr" , IconID       ; pszIcon
+        , "Int*", Ret := 0)    ; *pnButton
+	
+	If (LoadLib) {
+		DllCall("FreeLibrary", "Ptr", hModule)
+	}
+	
+	Return {1: "OK", 2: "Cancel", 4: "Retry", 6: "Yes", 7: "No", 8: "Close"}[Ret]
+}
+</Item>
+		<Item name="脚本库" tv="552820208">
+			<Item name="json_feiyue_源码" tv="552818640">
 ;------------------------------
 ;  JSon.ahk - v2.1  By FeiYue
 ;------------------------------
@@ -240,8 +303,8 @@ clipboard:=CommandText</Item>
 json_toobj(s)  ; JSon字符串转AHK对象
 {
   static rep:=[ ["\\","\u005c"], ["\""",""""], ["\/","/"]
-    , ["\r","``r"], ["\n","``n"], ["\t","``t"]
-    , ["\b","``b"], ["\f","``f"] ]
+    , ["\r","`r"], ["\n","`n"], ["\t","`t"]
+    , ["\b","`b"], ["\f","`f"] ]
   if !(p:=RegExMatch(s, "[\{\[]", r))
     return
   SetBatchLines, % (bch:=A_BatchLines)?"-1":"-1"
@@ -305,8 +368,8 @@ json_fromobj(obj, space:="")  ; AHK对象转JSon字符串
   ;-------------------
   static rep:=[ ["\\","\"], ["\""",""""]  ; , ["\/","/"]
     ; , ["\\u003c","&lt;"], ["\\u003e","&gt;"], ["\\u0026","&amp;"]
-    , ["\r","``r"], ["\n","``n"], ["\t","``t"]
-    , ["\b","``b"], ["\f","``f"] ]
+    , ["\r","`r"], ["\n","`n"], ["\t","`t"]
+    , ["\b","`b"], ["\f","`f"] ]
   if !IsObject(obj)
   {
     if obj is Number  ; thanks lexikos
@@ -331,16 +394,16 @@ json_fromobj(obj, space:="")  ; AHK对象转JSon字符串
       Break
   s:="", space2:=space . "    ", f:=A_ThisFunc
   For k,v in obj
-    s.= "``r``n" space2
+    s.= "`r`n" space2
     . (is_arr ? "" : """" Trim(%f%(k ""),"""") """: ")
     . %f%(v,space2) . ","
   return (is_arr?"[":"{") . Trim(s,",")
-    . "``r``n" space . (is_arr?"]":"}")
+    . "`r`n" space . (is_arr?"]":"}")
 }
 
 
 s=
-`(
+(
 
 {
     "name": "BeJson",
@@ -368,7 +431,8 @@ s=
         }
     ]
 }
-`)
+
+)
 
 Goto, F1
 
@@ -377,14 +441,8 @@ t1:=A_TickCount
 s:=json_fromobj(json_toobj(s))
 t1:=A_TickCount-t1
 MsgBox, 4096, %t1% ms, % SubStr(s,1,1000)
-return
-)
-Clipboard := c
-</Item>
-			<Item name="win_ocr" tv="954656">c=
-(%
-#include &lt;log4ahk&gt;
-#NoEnv
+return</Item>
+			<Item name="win_ocr" tv="552818528">#NoEnv
 SetBatchLines, -1
 Return
 
@@ -394,7 +452,7 @@ Esc:: ExitApp
 hBitmap := HBitmapFromScreen(GetArea()*)
 pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
 DllCall("DeleteObject", "Ptr", hBitmap)
-text := ocr(pIRandomAccessStream, "zh-Hans-CN")
+text := ocr(pIRandomAccessStream, "ru")
 MsgBox, % text
 Return
 
@@ -483,7 +541,7 @@ LowLevelMouseProc(nCode, wParam, lParam) {
       }
    }
    else {
-`(!hGui &amp;&amp; hGui := A_EventInfo)
+      (!hGui &amp;&amp; hGui := A_EventInfo)
       if (wParam = WM_LBUTTONUP)
          startMouseX := startMouseY := ""
       if (wParam = WM_MOUSEMOVE)  {
@@ -581,7 +639,7 @@ ocr(file, lang := "FirstFromAvailableLanguages")
          {
             DllCall(NumGet(NumGet(LanguageTest+0)+6*A_PtrSize), "ptr", LanguageTest, "ptr*", hText)
             buffer := DllCall("Combase.dll\WindowsGetStringRawBuffer", "ptr", hText, "uint*", length, "ptr")
-            text .= StrGet(buffer, "UTF-16") "``n"
+            text .= StrGet(buffer, "UTF-16") "`n"
          }
          ObjRelease(LanguageTest)
       }
@@ -620,7 +678,7 @@ ocr(file, lang := "FirstFromAvailableLanguages")
    DllCall(NumGet(NumGet(BitmapFrame+0)+13*A_PtrSize), "ptr", BitmapFrame, "uint*", height)   ; get_PixelHeight
    if (width &gt; MaxDimension) or (height &gt; MaxDimension)
    {
-      msgbox Image is to big - %width%x%height%.``nIt should be maximum - %MaxDimension% pixels
+      msgbox Image is to big - %width%x%height%.`nIt should be maximum - %MaxDimension% pixels
       ExitApp
    }
    BitmapFrameWithSoftwareBitmap := ComObjQuery(BitmapDecoder, IBitmapFrameWithSoftwareBitmap := "{FE287C9A-420C-4963-87AD-691436E08383}")
@@ -635,7 +693,7 @@ ocr(file, lang := "FirstFromAvailableLanguages")
       DllCall(NumGet(NumGet(LinesList+0)+6*A_PtrSize), "ptr", LinesList, "int", A_Index-1, "ptr*", OcrLine)
       DllCall(NumGet(NumGet(OcrLine+0)+7*A_PtrSize), "ptr", OcrLine, "ptr*", hText) 
       buffer := DllCall("Combase.dll\WindowsGetStringRawBuffer", "ptr", hText, "uint*", length, "ptr")
-      text .= StrGet(buffer, "UTF-16") "``n"
+      text .= StrGet(buffer, "UTF-16") "`n"
       ObjRelease(OcrLine)
    }
    Close := ComObjQuery(IRandomAccessStream, IClosable := "{30D5A829-7FA4-4026-83BB-D75BAE4EA99E}")
@@ -707,10 +765,8 @@ WaitForAsync(ByRef Object)
    DllCall(NumGet(NumGet(Object+0)+8*A_PtrSize), "ptr", Object, "ptr*", ObjectResult)   ; GetResults
    ObjRelease(Object)
    Object := ObjectResult
-}
-)
-Clipboard := c</Item>
-			<Item name="capture" tv="956896">run,G:\我的AHK程序\我的工程\dxgi_pixelgetcolor
+}</Item>
+			<Item name="capture" tv="552817968">run,G:\我的AHK程序\我的工程\dxgi_pixelgetcolor
 c =
 (%
 #include &lt;my_lib&gt;
@@ -806,14 +862,12 @@ Show(hwnd, hBM, x1, y1, x2, y2) {
 }
 )
 Clipboard := c</Item>
-			<Item name="右键选择范围" tv="953760">c=
-(%
-;------------------------------
+			<Item name="右键选择范围" tv="552821104">;------------------------------
 ; 右键选择屏幕范围   By FeiYue
 ;------------------------------
 
+F1:: MsgBox, 4096,, % "选择的范围是：" 右键选择屏幕范围(x1,y1,x2,y2)
 
-右键选择屏幕范围(x1,y1,x2,y2)
 右键选择屏幕范围(ByRef x1="", ByRef y1="", ByRef x2="", ByRef y2="")
 {
   KeyWait, RButton
@@ -832,7 +886,7 @@ Clipboard := c</Item>
   While !GetKeyState("Ctrl","P")
   {
     Sleep, 50
-    ToolTip, 按右键拖选范围``n方向键微调位置``n再次点右键确定
+    ToolTip, 按右键拖选范围`n方向键微调位置`n再次点右键确定
     MouseGetPos, x2, y2
     if (ok=0)
     {
@@ -876,6 +930,704 @@ Clipboard := c</Item>
     Hotkey, % v, Off
   return (x1 "," y1 "," x2 "," y2)
 }
+</Item>
+			<Item name="外框高亮线条" tv="552820432">Outline := []
+Outline[1] := new HighlightOutline("Blue", 128)
+Outline[1].show(0, 0, 200, 200)
+Outline[1].Destroy()
+class HighlightOutline {
+	__New(color="red", Transparent=255) {
+		Loop 4 {
+			Gui New, -Caption +AlwaysOnTop +ToolWindow HWNDhwnd -DPIScale +E0x20 +E0x00080000
+			Gui Color, %color%
+			DllCall("SetLayeredWindowAttributes", "Ptr", this[A_Index] := hwnd, "Uint", 0, "Uchar", Transparent, "int", 2)
+		}
+		this.top := this[1]
+		, this.right := this[2]
+		, this.bottom := this[3]
+		, this.left := this[4]
+		Gui % "Gui_Cheek_Number" A_DefaultGui ": Default"
+	}
+	
+	Show(x1, y1, x2, y2, b=3) {
+		Try {
+			Gui % this.1 ":Show", % "NA x" x1-b " y" y1-b " w" x2-x1+b*2 " h" b
+			Gui % this.2 ":Show", % "NA x" x2 " y" y1 " w" b " h" y2-y1	
+			Gui % this.3 ":Show", % "NA x" x1-b " y" y2 " w" x2-x1+2*b " h" b
+			Gui % this.4 ":Show", % "NA x" x1-b " y" y1 " w" b " h" y2-y1
+		}
+	}
+
+	Hide() {
+		Loop 4
+			Try Gui % this[A_Index] ": Hide"
+	}
+
+	Destroy() {
+		Loop 4
+			Try Gui % this[A_Index] ": Destroy"
+	}
+}</Item>
+			<Item name="进程间通信feiyue" tv="552818304">/*
+====================================
+  talk v1.2 - by Avi Aryan, FeiYue
+
+  Licensed Under MIT License
+
+  使用方法：
+  1、两个脚本的开头都包含本库脚本：#Include %A_LineFile%\..\talk.ahk
+  2、在一个脚本中新建一个通信对象：aaa := new talk("另一个脚本名")
+  3、然后就可以用这个通信对象控制另一个脚本了：F1:: aaa.Pause()
+====================================
+
+s=
+(%
+return
+bbb:
+Critical
+Loop {
+  if Mod(A_Index,10)=1
+    s:=123
+  ToolTip % "111-" s
+  Sleep, 100
+}
 )
-Clipboard := c</Item></Item></Item>
+talk_exec(s,"111")
+aaa:=new talk("111 ahk_class AutoHotkeyGUI")
+aaa.runlabel("bbb")
+F1:: aaa.setvar("s",456)
+
+*/
+
+/*
+Class talk
+    Methods
+        setvar(varname, value)    -    Set the var in a client script
+        getvar(varname)    -    Get the value of var in a client script
+        runlabel(label, wait:=0)    -    run a label in a client script
+        suspend()    -    suspend a client script
+        pause()    -    pause a client script
+        reload()    -    reload a client script
+        exitapp()    -    exitapp or exits a client script
+    Return Values
+        Except getvar() which returns the value, all other function returns whether they were successful or not
+        Successful = 1
+        Communication Request not accepted = 0
+        (Client) Script not found = FAIL
+*/
+
+class talk {
+
+    __New(WinTitle) {
+        this.Script2 := WinTitle
+        dhw := A_DetectHiddenWindows, tmm := A_TitleMatchMode
+        DetectHiddenWindows On
+        SetTitleMatchMode 2
+        WinWait, %WinTitle%,, 3
+        DetectHiddenWindows %dhw%
+        SetTitleMatchMode %tmm%
+    }
+
+    wait() {
+        lls:=A_ListLines=0 ? "Off" : "On"
+        ListLines, Off
+        while !talk.return
+            sleep, 20
+        talk.return := ""
+        ListLines, %lls%
+    }
+
+    setvar(varname, value) {
+        T := talk_send(this.Script2, "setvar", varname, value)
+        this.wait()
+        return T
+    }
+
+    getvar(varname) {
+        talk_send(this.Script2, "getvar", varname)
+        this.wait()
+        return talk.returnValue
+    }
+
+    runlabel(label, wait:=0) {
+        T := talk_send(this.Script2, "runlabel", label, wait)
+        if (wait)
+            this.wait()
+        return T
+    }
+
+    suspend() {
+        return talk_send(this.Script2, "suspend")
+    }
+
+    pause() {
+        return talk_send(this.Script2, "pause")
+    }
+
+    reload() {
+        return talk_send(this.Script2, "reload")
+    }
+
+    exitapp() {
+        return talk_send(this.Script2, "exitapp")
+    }
+}
+
+talk_send(WinTitle, String*) {
+    local
+    StringToSend:="ahk_id " A_ScriptHwnd "|"
+    For k,v in String
+        StringToSend.=StrReplace(StrReplace(v,"\","\0"),"|","\1") . "|"
+    SizeInBytes := (StrLen(StringToSend) + 1) * (A_IsUnicode ? 2 : 1)
+    VarSetCapacity(CopyDataStruct, 3*A_PtrSize, 0)
+    NumPut(SizeInBytes, CopyDataStruct, A_PtrSize)
+    NumPut(&amp;StringToSend, CopyDataStruct, 2*A_PtrSize)
+    dhw := A_DetectHiddenWindows, tmm := A_TitleMatchMode
+    DetectHiddenWindows On
+    SetTitleMatchMode 2
+    SendMessage, 0x4a, 0, &amp;CopyDataStruct,, %WinTitle%
+    DetectHiddenWindows %dhw%
+    SetTitleMatchMode %tmm%
+    return ErrorLevel
+}
+
+talk_receive(wParam, lParam) {
+    local
+    global talk
+    static init:=OnMessage(0x4a, Func("talk_receive"))
+    static run_label, run_wait, run_script2
+    Critical
+    ;-- SenderScriptHwnd|Cmd|Data1|Data2
+    r:=StrSplit( StrGet( NumGet(lParam+2*A_PtrSize) ), "|")
+    Script2:=StrReplace(StrReplace(r[1],"\1","|"),"\0","\")
+    Cmd    :=StrReplace(StrReplace(r[2],"\1","|"),"\0","\")
+    Data1  :=StrReplace(StrReplace(r[3],"\1","|"),"\0","\")
+    Data2  :=StrReplace(StrReplace(r[4],"\1","|"),"\0","\")
+    if (Cmd="return")
+    {
+        talk.return := 1, talk.returnValue := Data2
+        return
+    }
+    else if (Cmd="setvar")
+    {
+        talk_setvar(Data1, Data2)
+        talk_send(Script2, "return", "setvar")
+        return
+    }
+    else if (Cmd="getvar")
+    {
+        talk_send(Script2, "return", "getvar", talk_getvar(Data1))
+        return
+    }
+    else if (Cmd="runlabel")
+    {
+        run_label:=Data1, run_wait:=Data2, run_script2:=Script2
+        SetTimer, talk_runlabel, -1
+        return
+        talk_runlabel:
+        if IsLabel(run_label)
+            Gosub, %run_label%
+        if (run_wait)
+            talk_send(run_script2, "return", "runlabel")
+        return
+    }
+    else if (Cmd="suspend")
+    {
+        Suspend
+        return
+    }
+    else if (Cmd="pause")
+    {
+        Pause,, 1
+        return
+    }
+    else if (Cmd="reload")
+    {
+        Reload
+        Sleep, 1000
+        return
+    }
+    else if (Cmd="exitapp")
+    {
+        ExitApp
+        return
+    }
+}
+
+talk_setvar(___varname___, ByRef ___value___) {
+    global
+    Try %___varname___% := ___value___
+}
+
+talk_getvar(___varname___) {
+    global
+    Try return (%___varname___%)
+}
+
+talk_exec(script, title:="") {
+    local
+    s1:="`n title=" . title
+    . "`n #NoEnv"
+    . "`n; #NoTrayIcon"
+    . "`n Suspend, On"
+    . "`n SetTitleMatchMode, 2"
+    . "`n DetectHiddenWindows, On"
+    . "`n Gui, Gui_Title_Gui: Show, Hide, &lt;&lt;%title%&gt;&gt;"
+    . "`n Gui, Gui_Title_Gui: +Hwndmyid"
+    . "`n WinGet, list, List, &lt;&lt;%title%&gt;&gt; ahk_class AutoHotkeyGUI"
+    . "`n Loop, % list {"
+    . "`n     IfEqual, myid, % id:=list%A_Index%, Continue"
+    . "`n     WinGet, pid, PID, ahk_id %id%"
+    . "`n     WinClose, ahk_pid %pid% ahk_class AutoHotkey,, 2"
+    . "`n     IfWinExist, ahk_id %id%,, Process, Close, %pid%"
+    . "`n }"
+    FileRead, s2, %A_LineFile%
+    s2:=RegExReplace(s2,"i)^[\s\S]*?(?=class talk {\s)")
+    script:=RegExReplace(s1 "`n" script "`nExitApp`n" s2,"\R","`r`n")
+    ;-------------------------
+    shell:=ComObjCreate("WScript.Shell")
+    exec:=shell.Exec(A_AhkPath " /f *")
+    exec.StdIn.Write(script)
+    exec.StdIn.Close()
+}
+</Item>
+			<Item name="单进程运行函数feiyue" tv="552822448">;-----------------------------
+;  单进程运行函数  By FeiYue
+;
+;  用法：把本函数丢到任何脚本中，设定标记即可（修改001）
+;-----------------------------
+
+; 例子：同时启动10个本脚本，只会保留1个进程
+#SingleInstance Off
+MsgBox, 4096,, % A_Now
+return
+
+;-- 单进程运行函数  By FeiYue
+OnlyOne(flag="") {
+  static init:=OnlyOne("001")
+  DetectHiddenWindows, % (bak:=A_DetectHiddenWindows) ? "On":"On"
+  mypid:=DllCall("GetCurrentProcessId")
+  flag:="Ahk_OnlyOne_Ahk&lt;&lt;" . flag . "&gt;&gt;"
+  Gui, Ahk_OnlyOne_Ahk: Show, Hide, %flag%
+  WinGet, list, List, %flag% ahk_class AutoHotkeyGUI
+  Loop, % list
+  IfWinExist, % "ahk_id " . list%A_Index%
+  {
+    WinGet, pid, PID
+    IfEqual, pid, %mypid%, Continue
+    WinClose, ahk_pid %pid% ahk_class AutoHotkey,, 3
+    IfWinNotExist,,, Continue
+    Process, Close, %pid%
+    WinWaitClose
+  }
+  WinGet, list, List, %flag% ahk_class AutoHotkeyGUI
+  IfNotEqual, list, 1, ExitApp
+  DetectHiddenWindows, %bak%
+}
+</Item>
+			<Item name="获取IP板卡等" tv="552822672" last="1">obj:=[],result:=""
+obj.InsertAt(1,ComInfo.GetIPAPI_2(),ComInfo.GetMacAddress_1(),ComInfo.GetIPAddress_1(),ComInfo.GetSNCode(),[ComInfo.GetCpuID_3()])
+for Section,element In obj
+{
+	Info:=""
+	for key,value in element
+	{
+		if IsObject(value){
+			Loop,% ObjLength(value)
+				Info.=value[A_Index] " "
+		}Else
+			Info.=value " "
+	}
+	result.=Trim(Info) "`r`n"
+}
+MsgBox % result
+Class ComInfo
+{
+	/*
+		;http://pv.sohu.com/cityjson?ie=utf-8
+		    ;返回值{"cip":"xxx","cid":"xxx","cname":"xxx"}
+		    ;cip：ip地址
+		    ;cid：邮编
+		    ;cname：归属地
+		;能获取外网ip的接口：
+		;http://members.3322.org/dyndns/getip    ;直接返回ip
+		;https://api.ipify.org/    ;直接返回ip
+		;http://icanhazip.com/    ;直接返回ip
+		;http://ident.me/    ;直接返回ip
+		;http://ip.cip.cc/    ;直接返回ip
+		;http://ip.qaros.com/    ;直接返回ip
+		;https://api.ip.sb/ip    ;直接返回ip
+		;http://ip.3322.net/    ;直接返回ip
+		;http://ip.42.pl/raw    ;直接返回ip
+		;https://www.fbisb.com/ip.php
+		;http://myip.ipip.net/json    ;返回json格式参数如下：
+			{"ret":"ok"
+			,"data":
+				{"ip":"59.173.134.130"
+				,"location":["中国","xx省","xx","","电信"]}}
+		;http://ip-api.com/json/?fields=520191&amp;lang=zh-CN    ;返回json格式参数如下:
+			{"status":"success","country":"中国"
+			,"countryCode":"CN","region":"HB"
+			,"regionName":"xx省","city":"xx市"
+			,"zip":"","lat":30.5856,"lon":114.2665
+			,"timezone":"Asia/Shanghai","isp":"Chinanet"
+			,"org":"Chinanet HB","as":"AS4134 CHINANET-BACKBONE"
+			,"mobile":false,"proxy":false,"accuracy":10
+			,"query":"171.113.255.124"
+		;https://api.ttt.sh/ip/qqwry/    返回json格式参数如下：
+			{"code":200,"ip":"171.113.255.124"
+			,"address":"\u6e56\u5317\u7701 \u7535\u4fe1"
+			,"date":"2020-06-23 10:09:40"}
+		;http://whois.pconline.com.cn/ipJson.jsp?json=true    返回json格式参数如下：
+			{"ip":"171.113.255.124","pro":"xx省"
+			,"proCode":"420000","city":"xx市"
+			,"cityCode":"420100","region":""
+			,"regionCode":"0","addr":"xx省xx市 电信"
+			,"regionNames":"","err":""}
+	*/
+	;获取本机外网IP①
+	GetIPAPI(url:="http://pv.sohu.com/cityjson?ie=utf-8") {
+		/*
+		;	;~ 测试网络连接
+		;	if(!DllCall("Wininet.dll\InternetCheckConnection", "Ptr", &amp;Url, "UInt", 0x1, "UInt", 0x0, "Int"))
+		;		return []
+		;	iHTTP := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+		;	iHTTP.Open("Get", URL , False)
+		;	iHTTP.SetRequestHeader("User-Agent", "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)")
+		;	iHTTP.SetRequestHeader("Referer", URL)
+		;	iHTTP.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+		;	iHTTP.Send()
+		;	RegExMatch(iHTTP.ResponseText,"\{.+\}",ipobj)   ;iHTTP.ResponseText为接收的结果
+		;	iJson:= Json_toObj(ipobj)
+		;	return [ iJson["cip"], iJson["cname"],"〔 " iJson["cname"] " 〕"]
+		*/
+		if ipobj:=this.UrlDownloadToVars(url,,,,,,,,,3){   ;设定超时时长
+			RegExMatch(ipobj,"\{.+\}",obj)
+			iJson:= Json_toObj(obj)
+			return [ iJson["cip"],"〔 " iJson["cname"] " 〕"]
+		}
+	}
+	;获取本机外网IP②
+	GetIPAPI_1(url:="http://myip.ipip.net/json") {
+		if ipobj:=this.UrlDownloadToVars(url,,,,,,,,,3){   ;设定超时时长
+			iJson:= Json_toObj(ipobj)
+			ipLocal:= iJson["data","location"][1] iJson["data","location"][2] iJson["data","location"][3] iJson["data","location"][5]
+			return [ iJson["data","ip"]," 〔 " ipLocal " 〕"]
+		}
+	}
+	;获取本机外网IP③
+	GetIPAPI_2(url:="http://whois.pconline.com.cn/ipJson.jsp?json=true") {
+		if ipobj:=this.UrlDownloadToVars(url,,,,,,,,,3){   ;设定超时时长
+			iJson:= Json_toObj(ipobj)
+			ipLocal:= iJson["pro"] iJson["city"] "-" iJson["addr"]
+			return [ iJson["ip"]," 〔 " ipLocal " 〕"]
+		}
+	}
+	;获取本机外网IP④
+	GetIPAPI_3(url:="https://api.ttt.sh/ip/qqwry/") {
+		if ipobj:=this.UrlDownloadToVars(url,,,,,,,,,3){   ;设定超时时长
+			iJson:= Json_toObj(ipobj)
+			return [ iJson["ip"]," 〔 " iJson["address"] " 〕"]
+		}
+	}
+	;获取设备型号
+	GetMacName(){
+		;https://docs.microsoft.com/zh-cn/windows/win32/cimwin32prov/win32-computersystemproduct
+		objWMIService := ComObjGet("winmgmts:{impersonationLevel=impersonate}!\\" . "." . "\root\cimv2")
+		colSysProduct := objWMIService.ExecQuery("Select * From Win32_ComputerSystemProduct")._NewEnum
+		while,colSysProduct[objSysProduct]   ;PropertyList&gt;&gt;["Caption,Description,IdentifyingNumber,Name,SKUNumber,UUID,Vendor,Version"]
+		{
+			return [objSysProduct["Name"]," 〔 设备品牌型号 〕"]
+		}
+	}
+	;获取网卡物理地址
+	GetMacAddress(){
+		;https://docs.microsoft.com/zh-cn/windows/win32/cimwin32prov/win32-networkadapterconfiguration
+		NetworkConfiguration:=ComObjGet("Winmgmts:").InstancesOf("Win32_NetworkAdapterConfiguration")
+		for mo in NetworkConfiguration
+		{
+			if(mo.IPEnabled &lt;&gt; 0)
+				return mo.MacAddress
+		}
+	}
+	;获取网卡物理地址
+	GetMacAddress_1(){
+		Adlist:=[], info:=this.GetAdaptersInfo()
+		for index, obj in info
+		{
+			if (not obj["Description"] ~="i)Adapter"||obj["Description"] ~="i)Wifi|wlan"){
+				Adlist.Push([obj["Address"] ," 〔" obj["Description"] "〕"])
+			}
+		}
+		return Adlist
+	}
+	;获取IP地址
+	GetIPAddress_1(){
+		Adlist:=[], info:=this.GetAdaptersInfo()
+		for index, obj in info
+		{
+			if (not obj["Description"] ~="i)Adapter"&amp;&amp;obj["IpAddressList"]&lt;&gt;"0.0.0.0"||obj["Description"] ~="i)Wifi|wlan"&amp;&amp;obj["IpAddressList"]&lt;&gt;"0.0.0.0")
+				Adlist.Push([obj["IpAddressList"] ," 〔" . obj["Description"] . "〕"])
+		}
+		return Adlist
+	}
+	;获取CPU串号
+	GetCpuID_1(){
+		;https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-processor
+		objSWbemObject:=ComObjGet("winmgmts:Win32_Processor.DeviceID='cpu0'")
+		return objSWbemObject.ProcessorId
+	}
+	;获取CPU串号
+	GetCpuID_3(){
+		;https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-processor
+		objWMIService := ComObjGet("winmgmts:{impersonationLevel=impersonate}!\\" . A_ComputerName . "\root\cimv2")
+		colCPU := objWMIService.ExecQuery("Select * From Win32_Processor")._NewEnum
+		While colCPU[objCPU]
+			return objCPU["ProcessorId"]    ;Name获取cpu名称
+	}
+	;获取系统版本信息
+	GetOSVersionInfo()
+	{
+		;https://docs.microsoft.com/zh-cn/windows/win32/cimwin32prov/win32-operatingsystem?redirectedfrom=MSDN
+		osobj := ComObjGet("winmgmts:").ExecQuery("Select * from Win32_OperatingSystem" )._NewEnum()
+		if osobj[win]
+			return [win.Caption,win.Version,win.Version]
+	}
+	;返回当前电脑BIOS里的SN机器码
+	GetSNCode(){
+		;https://docs.microsoft.com/zh-cn/windows/win32/cimwin32prov/win32-bios
+		objWMIService := ComObjGet("winmgmts:{impersonationLevel=impersonate}!\\" . "." . "\root\cimv2")
+		colSettings := objWMIService.ExecQuery("Select * from Win32_BIOS")._NewEnum
+		While colSettings[objBiosItem]
+			return [objBiosItem.SerialNumber ," 〔 设备S/N序列号 〕"]
+	}
+	;返回当前电脑BIOS里的SN机器码
+	GetSNCode_1(){
+		;https://docs.microsoft.com/zh-cn/windows/win32/cimwin32prov/win32-computersystemproduct
+		objWMIService := ComObjGet("winmgmts:{impersonationLevel=impersonate}!\\" . "." . "\root\cimv2")
+		colSysProduct := objWMIService.ExecQuery("Select * From Win32_ComputerSystemProduct")._NewEnum
+		while,colSysProduct[objSysProduct]   ;PropertyList&gt;&gt;["Caption,Description,IdentifyingNumber,Name,SKUNumber,UUID,Vendor,Version"]
+		{
+			return [objSysProduct["IdentifyingNumber"] ," 〔 设备S/N序列号 〕"]
+		}
+	}
+	;获取网卡mac地址
+	GetAdaptersInfo(){
+		; 对GetAdaptersInfo的初始调用以获取所需的大小
+		if (DllCall("iphlpapi.dll\GetAdaptersInfo", "ptr", 0, "UIntP", size) = 111) ; ERROR_BUFFER_OVERFLOW
+			if !(VarSetCapacity(buf, size, 0))  ; size ==&gt;  1x = 704  |  2x = 1408  |  3x = 2112
+				return "IP适配器信息结构的内存分配失败！"
+		; 第二次调用GetAdapters地址以获取我们想要的实际数据
+		if (DllCall("iphlpapi.dll\GetAdaptersInfo", "ptr", &amp;buf, "UIntP", size) != 0) ; NO_ERROR / ERROR_SUCCESS
+			return "调用GetAdaptersInfo失败，ERROR: " A_LastError
+		; 从数据中获取信息
+		addr := &amp;buf, IP_ADAPTER_INFO := {}
+		while (addr)
+		{
+			IP_ADAPTER_INFO[A_Index, "ComboIndex"]:= NumGet(addr+0, o := A_PtrSize, "UInt"), o += 4
+			IP_ADAPTER_INFO[A_Index, "AdapterName"]:= StrGet(addr+0 + o, 260, "CP0"), o += 260
+			IP_ADAPTER_INFO[A_Index, "Description"]:= StrGet(addr+0 + o, 132, "CP0"), o += 132
+			IP_ADAPTER_INFO[A_Index, "AddressLength"]:= NumGet(addr+0, o, "UInt"), o += 4
+			loop % IP_ADAPTER_INFO[A_Index].AddressLength
+				mac .= Format("{:02X}",NumGet(addr+0, o + A_Index - 1, "UChar")) "-"
+			IP_ADAPTER_INFO[A_Index, "Address"]:= SubStr(mac, 1, -1), mac := "", o += 8
+			IP_ADAPTER_INFO[A_Index, "Index"]:= NumGet(addr+0, o, "UInt"), o += 4
+			IP_ADAPTER_INFO[A_Index, "Type"]:= NumGet(addr+0, o, "UInt"), o += 4
+			IP_ADAPTER_INFO[A_Index, "DhcpEnabled"]:= NumGet(addr+0, o, "UInt"), o += A_PtrSize
+			Ptr := NumGet(addr+0, o, "UPtr"), o += A_PtrSize
+			IP_ADAPTER_INFO[A_Index, "CurrentIpAddress"]:= Ptr ? StrGet(Ptr + A_PtrSize, "CP0") : ""
+			IP_ADAPTER_INFO[A_Index, "IpAddressList"]:= StrGet(addr + o + A_PtrSize, "CP0")
+			;~ IP_ADAPTER_INFO[A_Index, "IpMaskList"]:= StrGet(addr + o + A_PtrSize + 16, "CP0") , o += A_PtrSize + 32 + A_PtrSize
+			IP_ADAPTER_INFO[A_Index, "IpMaskList"]:= StrGet(addr + o + A_PtrSize * 3, "CP0") , o += A_PtrSize + 32 + A_PtrSize
+			IP_ADAPTER_INFO[A_Index, "GatewayList"]:= StrGet(addr + o + A_PtrSize, "CP0"), o += A_PtrSize + 32 + A_PtrSize
+			IP_ADAPTER_INFO[A_Index, "DhcpServer"]:= StrGet(addr + o + A_PtrSize, "CP0"), o += A_PtrSize + 32 + A_PtrSize
+			IP_ADAPTER_INFO[A_Index, "HaveWins"]:= NumGet(addr+0, o, "Int"), o += A_PtrSize
+			IP_ADAPTER_INFO[A_Index, "PrimaryWinsServer"]:= StrGet(addr + o + A_PtrSize, "CP0"), o += A_PtrSize + 32 + A_PtrSize
+			IP_ADAPTER_INFO[A_Index, "SecondaryWinsServer"] := StrGet(addr + o + A_PtrSize, "CP0"), o += A_PtrSize + 32 + A_PtrSize
+			IP_ADAPTER_INFO[A_Index, "LeaseObtained"]:= this.DateAdd(NumGet(addr+0, o, "Int")), o += A_PtrSize
+			IP_ADAPTER_INFO[A_Index, "LeaseExpires"]:= this.DateAdd(NumGet(addr+0, o, "Int"))
+			addr := NumGet(addr+0, "UPtr")
+		}
+		; 输出数据并释放缓冲区
+		return IP_ADAPTER_INFO, VarSetCapacity(buf, 0), VarSetCapacity(addr, 0)
+	}
+	;~ *****************说明*****************
+	;~ 此函数与内置命令 UrlDownloadToFile 的区别有以下几点
+	;~ 1.直接下载到变量，没有临时文件
+	;~ 2.下载速度更快，大概100%
+	;~ 3.支持超时，不必死等
+	;~ 4.内置命令执行时，整个AHK程序都是卡顿状态。此函数不会
+	;~ 5.内置命令下载一些诡异网站（例如“牛杂网”）时，会概率性让进程或线程彻底死掉。此函数不会
+	;~ 6.支持设置网页字符集、URL的编码，乱码问题轻松解决
+	;~ 7.支持设置Cookie、Referer、User-Agent，网站检测问题轻松解决
+	;~ 8.支持设置代理服务器
+	;~ 9.支持设置是否开启重定向
+	;~ 10.这个版本是 0.5
+	;~ *****************参数*****************
+	;~ URL 网址，必须包含类似“http://www.”的开头。
+	;~ Charset 网页字符集，不能是“936”之类的数字，必须是“gb2312”这样的字符。
+	;~ URLCodePage URL的编码，是“936”之类的数字，默认是“65001”。有些网站需要UTF-8，有些网站又需要gb2312
+	;~ Proxy 代理服务器，是形如“http://www.tuzi.com:80”的字符。
+	;~ ProxyBypassList 代理服务器绕行名单，是形如“*.microsoft.com”的域名。符合域名的网址，将不通过代理服务器访问。
+	;~ Cookie ，常用于登录验证。
+	;~ Referer 引用网址，常用于防盗链。
+	;~ UserAgent 用户信息，常用于防盗链。
+	;~ EnableRedirects 重定向，默认获取跳转后的页面信息，0为不跳转。
+	;~ Timeout 超时，单位为秒，默认不使用超时（Timeout=-1）。
+	UrlDownloadToVars(URL,Charset="",URLCodePage="",Proxy="",ProxyBypassList="",Cookie="",Referer="",UserAgent="",EnableRedirects="",Timeout=-1)
+	{
+		ComObjError(0)  ;禁用 COM 错误通告。禁用后，检查 A_LastError 的值，脚本可以实现自己的错误处理
+		WebRequest := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+		if (URLCodePage&lt;&gt;"")    ;设置URL的编码
+			WebRequest.Option(2):=URLCodePage
+		if (EnableRedirects&lt;&gt;"")
+			WebRequest.Option(6):=EnableRedirects
+		if (Proxy&lt;&gt;"")  ;设置代理服务器。微软的代码 SetProxy() 是放在 Open() 之前的，所以我也放前面设置，以免无效
+			WebRequest.SetProxy(2,Proxy,ProxyBypassList)
+		WebRequest.Open("GET", URL, true)   ;true为异步获取，默认是false。龟速的根源！！！卡顿的根源！！！
+		if (Cookie&lt;&gt;"") ;设置Cookie。SetRequestHeader() 必须 Open() 之后才有效
+		{
+			WebRequest.SetRequestHeader("Cookie","tuzi")    ;先设置一个cookie，防止出错，见官方文档
+			WebRequest.SetRequestHeader("Cookie",Cookie)
+		}
+		if (Referer&lt;&gt;"")    ;设置Referer
+			WebRequest.SetRequestHeader("Referer",Referer)
+		if (UserAgent&lt;&gt;"")  ;设置User-Agent
+			WebRequest.SetRequestHeader("User-Agent",UserAgent)
+		WebRequest.Send()
+		WebRequest.WaitForResponse(Timeout) ;WaitForResponse方法确保获取的是完整的响应
+		if (Charset="") ;设置字符集
+			return,RegExReplace(WebRequest.ResponseText(),"^\s+|\s+$")
+		else
+		{
+			ADO:=ComObjCreate("adodb.stream")   ;使用 adodb.stream 编码返回值。参考 http://bbs.howtoadmin.com/ThRead-814-1-1.html
+			ADO.Type:=1 ;以二进制方式操作
+			ADO.Mode:=3 ;可同时进行读写
+			ADO.Open()  ;开启物件
+			ADO.Write(WebRequest.ResponseBody())    ;写入物件。注意 WebRequest.ResponseBody() 获取到的是无符号的bytes，通过 adodb.stream 转换成字符串string
+			ADO.Position:=0 ;从头开始
+			ADO.Type:=2 ;以文字模式操作
+			ADO.Charset:=Charset    ;设定编码方式
+			return,RegExReplace(ADO.ReadText(),"^\s+|\s+$")   ;将物件内的文字读出
+		}
+	}
+	DateAdd(time)
+	{
+		if (time = 0)
+			return 0
+		datetime := 19700101
+		datetime += time, s
+		FormatTime, OutputVar, datetime, yyyy-MM-dd HH:mm:ss
+		return OutputVar
+	}
+}
+Json_toObj(ByRef src, args*)
+{
+	static q := Chr(34)
+	key := "", is_key := false
+	stack := [ tree := [] ]
+	is_arr := { (tree): 1 }
+	next := q . "{[01234567890-tfn"
+	pos := 0
+	while ( (ch := SubStr(src, ++pos, 1)) != "" )
+	{
+		if InStr(" `t`n`r", ch)
+			continue
+		if !InStr(next, ch, true)
+		{
+			ln := ObjLength(StrSplit(SubStr(src, 1, pos), "`n"))
+			col := pos - InStr(src, "`n",, -(StrLen(src)-pos+1))
+			msg := Format("{}: line {} col {} (char {})"
+			,   (next == "")      ? ["Extra data", ch := SubStr(src, pos)][1]
+			  : (next == "'")     ? "Unterminated string starting at"
+			  : (next == "\")     ? "Invalid \escape"
+			  : (next == ":")     ? "Expecting ':' delimiter"
+			  : (next == q)       ? "Expecting object key enclosed in double quotes"
+			  : (next == q . "}") ? "Expecting object key enclosed in double quotes or object closing '}'"
+			  : (next == ",}")    ? "Expecting ',' delimiter or object closing '}'"
+			  : (next == ",]")    ? "Expecting ',' delimiter or array closing ']'"
+			  : [ "Expecting JSON value(string, number, [true, false, null], object or array)"
+			    , ch := SubStr(src, pos, (SubStr(src, pos)~="[\]\},\s]|$")-1) ][1]
+			, ln, col, pos)
+			throw Exception(msg, -1, ch)
+		}
+		is_array := is_arr[obj := stack[1]]
+		if i := InStr("{[", ch)
+		{
+			val := (proto := args[i]) ? new proto : {}
+			is_array? ObjPush(obj, val) : obj[key] := val
+			ObjInsertAt(stack, 1, val)
+			is_arr[val] := !(is_key := ch == "{")
+			next := q . (is_key ? "}" : "{[]0123456789-tfn")
+		}
+		else if InStr("}]", ch)
+		{
+			ObjRemoveAt(stack, 1)
+			next := stack[1]==tree ? "" : is_arr[stack[1]] ? ",]" : ",}"
+		}
+		else if InStr(",:", ch)
+		{
+			is_key := (!is_array &amp;&amp; ch == ",")
+			next := is_key ? q : q . "{[0123456789-tfn"
+		}
+		else ; string | number | true | false | null
+		{
+			if (ch == q) ; string
+			{
+				i := pos
+				while i := InStr(src, q,, i+1)
+				{
+					val := StrReplace(SubStr(src, pos+1, i-pos-1), "\\", "\u005C")
+					static end := A_AhkVersion&lt;"2" ? 0 : -1
+					if (SubStr(val, end) != "\")
+						break
+				}
+				if !i ? (pos--, next := "'") : 0
+					continue
+				pos := i ; update pos
+				  val := StrReplace(val,    "\/",  "/")
+				, val := StrReplace(val, "\" . q,    q)
+				, val := StrReplace(val,    "\b", "`b")
+				, val := StrReplace(val,    "\f", "`f")
+				, val := StrReplace(val,    "\n", "`n")
+				, val := StrReplace(val,    "\r", "`r")
+				, val := StrReplace(val,    "\t", "`t")
+				i := 0
+				while i := InStr(val, "\",, i+1)
+				{
+					if (SubStr(val, i+1, 1) != "u") ? (pos -= StrLen(SubStr(val, i)), next := "\") : 0
+						continue 2
+					; \uXXXX - JSON unicode escape sequence
+					xxxx := Abs("0x" . SubStr(val, i+2, 4))
+					if (A_IsUnicode || xxxx &lt; 0x100)
+						val := SubStr(val, 1, i-1) . Chr(xxxx) . SubStr(val, i+6)
+				}
+				if is_key
+				{
+					key := val, next := ":"
+					continue
+				}
+			}
+			else ; number | true | false | null
+			{
+				val := SubStr(src, pos, i := RegExMatch(src, "[\]\},\s]|$",, pos)-pos)
+				static null := "" ; for #Warn
+				if InStr(",true,false,null,", "," . val . ",", true) ; if var in
+					val := %val%
+				else if (Abs(val) == "") ? (pos--, next := "#") : 0
+					continue
+				val := val + 0, pos += i-1
+			}
+			is_array? ObjPush(obj, val) : obj[key] := val
+			next := obj==tree ? "" : is_array ? ",]" : ",}"
+		}
+	}
+	return tree[1]
+}</Item></Item></Item>
+	<Item name="@cpp" tv="552823792">
+		<Item name="帮助书册" tv="552820992"></Item>
+		<Item name="代码段" tv="552822560"></Item></Item>
+	<Item name="@rust" tv="552821552"></Item>
+	<Item name="@perl" tv="552818416"></Item>
+	<Item name="@mysql" tv="552821664"></Item>
 </Menu>
