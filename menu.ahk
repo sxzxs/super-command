@@ -80,10 +80,10 @@ if (cmds == "")
 SetCapsLockState,off
 switchime(0)
 Gui +LastFoundExist
-;if WinActive()
-;{
-    ;goto GuiEscape
-;}
+if WinActive()
+{
+    goto GuiEscape
+}
 Gui Destroy
 Gui, +HwndMyGuiHwnd
 Gui, Color,,0x000000
@@ -96,7 +96,6 @@ Gui, -Caption +AlwaysOnTop -DPIScale
 gosub Type
 ;Gui Show, X%pos_x% Y%pos_y%
 Gui Show, X200 Y0
-GuiControl Focus, Query
 return
 
 MenuHandler:
