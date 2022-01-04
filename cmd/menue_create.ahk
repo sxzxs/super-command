@@ -1,4 +1,5 @@
-﻿command_pid = %1%
+﻿#include <btt>
+command_pid = %1%
 reply2menu()
 OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 #SingleInstance,Force
@@ -143,7 +144,7 @@ class GUIKeep{
 		if(A_Gui!=1)
 			Gui,%A_Gui%:Destroy
 		else
-			MainWin.Exit()
+			;MainWin.Exit()
 		return 
 	}Exit(){
 		Exit:
@@ -631,9 +632,19 @@ Export(Return:=0){
 	Run,%FileName%
 }
 UpdateColor(){
-	Node:=GetNode()
-	Color:=SSN(Node,"Item")?SSN(Node,"@color").text:SSN(Node.ParentNode,"@color").text
-	GuiControl,% "1:+c" RGB(Color),% MainWin.GetCtrlXML("Progress")
+    global
+    CoordMode, ToolTip, Screen
+    if (A_GuiEvent != "s")  ; 即除了 "选择树中的新项目" 以外的其他操作.
+        return
+    Node:=GetNode()
+    Populate(1)
+    GuiControlGet, out, Pos, gui:1 TV
+    WinGetPos, X, Y, W, H, 超级命令添加工具
+    btt(Node.text, X + w, Y,,"Style2")
+
+	;Node:=GetNode()
+	;Color:=SSN(Node,"Item")?SSN(Node,"@color").text:SSN(Node.ParentNode,"@color").text
+	;GuiControl,% "1:+c" RGB(Color),% MainWin.GetCtrlXML("Progress")
 }
 ChangeRoot(){
 	Node:=MenuXML.SSN("//Menu"),Dlg_Color(Node,,MainWin.HWND)
@@ -892,3 +903,6 @@ Send_WM_COPYDATA(ByRef StringToSend, ByRef TargetScriptTitle)  ; 在这种情况
     SetTitleMatchMode %Prev_TitleMatchMode%         ; 同样.
     return ErrorLevel  ; 返回 SendMessage 的回复给我们的调用者.
 }
+~Esc::
+btt()
+return

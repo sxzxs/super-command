@@ -38,6 +38,8 @@ is_get_all_cmd := false
 cmds := ""
 my_xml := new xml("xml")
 menue_create_pid := 0
+gui_x := 200
+gui_y := 0
 
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
 {
@@ -60,7 +62,6 @@ return
 pos := GetCaretPos()
 pos_x := pos["x"]
 pos_y := pos["y"] 
-log.info(pos_x, pos_y)
 if(pos_x < 0 || pos_x = 0 || pos_y < 0 || pos_y = 0 || A_ThisHotkey == "!q")
 {
     pos_x := A_ScreenWidth / 2
@@ -79,10 +80,10 @@ if (cmds == "")
 SetCapsLockState,off
 switchime(0)
 Gui +LastFoundExist
-if WinActive()
-{
-    goto GuiEscape
-}
+;if WinActive()
+;{
+    ;goto GuiEscape
+;}
 Gui Destroy
 Gui, +HwndMyGuiHwnd
 Gui, Color,,0x000000
@@ -91,7 +92,7 @@ Gui Margin, 0, 0
 Gui, Font, s10 cLime, Consolas
 Gui Add, Edit, x0 w500 vQuery gType
 Gui Add, ListBox, x0 y+2 h20 w500  vCommand gSelect AltSubmit +Background0x000000 -HScroll
-Gui, -Caption +AlwaysOnTop
+Gui, -Caption +AlwaysOnTop -DPIScale
 gosub Type
 ;Gui Show, X%pos_x% Y%pos_y%
 Gui Show, X200 Y0
@@ -390,7 +391,7 @@ Class XML{
 preview_command(command)
 {
     CoordMode, ToolTip, Screen
-    global my_xml, menue_create_pid, log
+    global my_xml, menue_create_pid, log, gui_x, gui_y
     word_array := StrSplit(command, " >")
     pattern := ""
     for k,v in word_array
@@ -405,7 +406,9 @@ preview_command(command)
     }
     UnityPath:= my_xml.SSN(pattern).text
     Clipboard := UnityPath
-    btt(UnityPath, 820, 200,,"Style4")
+    GuiControlGet, out, Pos, Query
+    if(!WinExist("超级命令添加工具"))
+        btt(UnityPath, gui_x + outW, gui_y,,"Style2")
 }
 
 handle_command(command)
