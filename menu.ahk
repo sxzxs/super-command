@@ -1,6 +1,6 @@
 ﻿OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 OnMessage(0x100, "GuiKeyDown")
-OnMessage(0x6, "GuiActivate")
+;OnMessage(0x6, "GuiActivate")
 #SingleInstance force
 #include <py>
 #include <btt>
@@ -98,10 +98,6 @@ gosub Type
 Gui Show, X200 Y0
 return
 
-MenuHandler:
-msgbox,ok
-return
-
 Type:
 SetTimer Refresh, -10
 return
@@ -191,7 +187,9 @@ return
 GuiActivate(wParam)
 {
     if (A_Gui && wParam = 0)
+    {
         SetTimer GuiEscape, -5
+    }
 }
 
 GuiKeyDown(wParam, lParam)
