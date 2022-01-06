@@ -901,7 +901,7 @@ Send_WM_COPYDATA(ByRef StringToSend, ByRef TargetScriptTitle)  ; 在这种情况
     Prev_TitleMatchMode := A_TitleMatchMode
     DetectHiddenWindows On
     SetTitleMatchMode 2
-    TimeOutTime := 4000  ; 可选的. 等待 receiver.ahk 响应的毫秒数. 默认是 5000
+    TimeOutTime := 0  ; 可选的. 等待 receiver.ahk 响应的毫秒数. 默认是 5000
     ; 必须使用发送 SendMessage 而不是投递 PostMessage.
     SendMessage, 0x004A, 0, &CopyDataStruct,, %TargetScriptTitle%  ; 0x004A 为 WM_COPYDAT
     DetectHiddenWindows %Prev_DetectHiddenWindows%  ; 恢复调用者原来的设置.
