@@ -1,1 +1,1 @@
-﻿run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符片段转延续片段.ahk
+﻿run,www.baidu.com

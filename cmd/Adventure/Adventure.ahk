@@ -3927,6 +3927,10 @@ write2xml(command, data)
     TargetScriptTitle := "ahk_pid " command_pid " ahk_class AutoHotkey"
     StringToSend := "data"
     result := Send_WM_COPYDATA(StringToSend, TargetScriptTitle)
+    if(A_IsCompiled)
+        run, %A_ScriptDir%/../../menu.exe
+    else
+        run, %A_ScriptDir%/../../menu.ahk
 }
 
 Class XML{

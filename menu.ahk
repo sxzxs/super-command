@@ -1,6 +1,14 @@
-﻿OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
+﻿; 超级命令
+; Tested on AHK v1.1.33.02 Unicode 32/64-bit, Windows /10
+
+; Script compiler directives
+;@Ahk2Exe-SetMainIcon %A_ScriptDir%\Icons\Verifier.ico
+;@Ahk2Exe-SetVersion 0.1.0
+
+OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 OnMessage(0x100, "GuiKeyDown")
 ;OnMessage(0x6, "GuiActivate")
+;Menu, Tray, NoStandard                  ;删除自带托盘菜单
 #SingleInstance force
 #include <py>
 #include <btt>
@@ -40,6 +48,8 @@ my_xml := new xml("xml")
 menue_create_pid := 0
 gui_x := 200
 gui_y := 0
+g_curent_text := ""
+g_command := ""
 
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
 {
@@ -48,6 +58,49 @@ if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
 fileread, xml_file_content,% "*P65001 " A_ScriptDir "\cmd\Menus\超级命令.xml"
 my_xml.XML.LoadXML(xml_file_content)
 cmds := xml_parse(my_xml)
+
+
+Menu, Tray, Icon, %A_ScriptDir%\Icons\Verifier.ico
+Menu, Tray, NoStandard
+Menu, Tray, Add , Suspend, Sus
+Menu, Tray, Add , Reload, Rel
+Menu, Tray, Add , Exit, Exi
+Menu, Tray, Default, Exit
+Menu, Tray, Icon , %A_ScriptDir%\Icons\Verifier.ico,, 1
+Return
+
+Sus:
+Suspend, Toggle
+if (A_IsSuspended)
+Menu, Tray, Icon , %A_ScriptDir%\Icons\Structor.ico
+Else
+Menu, Tray, Icon , %A_ScriptDir%\Icons\Verifier.ico
+Return
+Exi:
+ExitApp
+Return
+Rel:
+Reload
+Return
+
+~*esc::
+    goto GuiEscape
+return
+
+~$^x::
+FileDelete,% A_ScriptDir "\cmd\tmp\tmp.ahk"
+FileAppend,% g_curent_text,% A_ScriptDir "\cmd\tmp\tmp.ahk",UTF-8
+tmp_path =
+(
+    "%g_command%"
+) 
+if(A_IsCompiled)
+    run,% A_ScriptDir "\cmd\Adventure\Adventure.exe  " tmp_path " " my_pid
+else
+    run,% A_ScriptDir "\cmd\Adventure\Adventure.ahk  " tmp_path " " my_pid
+goto GuiEscape
+return
+
 !c::
 Process Exist
 my_pid := ErrorLevel
@@ -388,7 +441,7 @@ Class XML{
 preview_command(command)
 {
     CoordMode, ToolTip, Screen
-    global my_xml, menue_create_pid, log, gui_x, gui_y
+    global my_xml, menue_create_pid, log, gui_x, gui_y, g_curent_text, g_command
     word_array := StrSplit(command, " >")
     pattern := ""
     for k,v in word_array
@@ -403,6 +456,8 @@ preview_command(command)
     }
     UnityPath:= my_xml.SSN(pattern).text
     Clipboard := UnityPath
+    g_command := command
+    g_curent_text := UnityPath
     GuiControlGet, out, Pos, Query
     if(!WinExist("超级命令添加工具"))
         btt(UnityPath, gui_x + outW, gui_y,,"Style2")

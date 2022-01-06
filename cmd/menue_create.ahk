@@ -1,4 +1,9 @@
-﻿#include <btt>
+﻿; Script compiler directives
+;@Ahk2Exe-SetMainIcon %A_ScriptDir%\Icons\AhkDirectives.ico
+;@Ahk2Exe-SetVersion 0.1.0
+Menu, Tray, Icon, %A_ScriptDir%\Icons\AhkDirectives.ico
+Menu, Tray, NoStandard
+#include <btt>
 command_pid = %1%
 reply2menu()
 OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
@@ -804,10 +809,10 @@ xml_reload()
     if(!xx.SSN("//*[not(Menu) or not(Item)]"))
         return m("XML Not compatible")
     MenuXML:=xx,Populate()
-    if(A_IsCompiled)
-        run, %A_ScriptDir%/../menu.exe
-    else
-        run, %A_ScriptDir%/../menu.ahk
+    ;if(A_IsCompiled)
+        ;run, %A_ScriptDir%/../menu.exe
+    ;else
+        ;run, %A_ScriptDir%/../menu.ahk
 }
 
 changeCmdfile()
