@@ -88,6 +88,8 @@ Return
 return
 
 ~$^x::
+if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
+    return
 FileDelete,% A_ScriptDir "\cmd\tmp\tmp.ahk"
 FileAppend,% g_curent_text,% A_ScriptDir "\cmd\tmp\tmp.ahk",UTF-8
 tmp_path =
@@ -111,6 +113,7 @@ else
 return
 +Enter::
 !q::
+g_command := ""
 /*
 pos := GetCaretPos()
 pos_x := pos["x"]
