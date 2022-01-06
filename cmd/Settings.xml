@@ -3,7 +3,7 @@
 	<Last file="G:\我的AHK程序\我的工程\超级命令\cmd/Menus/超级命令.xml"></Last>
 	<Confirm>1</Confirm>
 	<gui>
-		<position window="1">x215 y96 w388 h878</position>
+		<position window="1">x554 y30 w388 h878</position>
 	</gui>
 	<CustomColors Color1="0" Color2="0" Color3="0" Color4="0" Color5="0" Color6="0" Color7="0" Color8="0" Color9="0" Color10="0" Color11="0" Color12="0" Color13="0" Color14="0" Color15="0" Color16="0"></CustomColors>
 </Settings>

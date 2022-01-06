@@ -32,11 +32,14 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 
 help_string =
 (
-alt+c:  编辑命令
-alt+q  或者 shift+enter:  搜索命令
+v1.0.0
+ctrl+c: 复制当前文本
+alt+c: 编辑所有命令
+ctrl+x: 编辑当前命令
+shift+enter:  搜索命令
 )
 
-ToolTip,% help_string
+btt(help_string,,,1,"Style4")
 SetTimer, RemoveToolTip, -1000
 
 py.allspell_muti("ahk")
@@ -566,7 +569,7 @@ ExecScript(Script, Params := "", AhkPath := "") {
 }
 
 RemoveToolTip:
-ToolTip
+btt(,,,1)
 return
 
 Receive_WM_COPYDATA(wParam, lParam)
