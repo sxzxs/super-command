@@ -103,6 +103,12 @@ else
 goto GuiEscape
 return
 
+~$^c::
+if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
+    return
+Clipboard := g_curent_text
+return
+
 !c::
 Process Exist
 my_pid := ErrorLevel
@@ -458,7 +464,7 @@ preview_command(command)
         return
     }
     UnityPath:= my_xml.SSN(pattern).text
-    Clipboard := UnityPath
+    ;Clipboard := UnityPath
     g_command := command
     g_curent_text := UnityPath
     GuiControlGet, out, Pos, Query
