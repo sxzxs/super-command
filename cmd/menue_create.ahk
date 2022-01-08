@@ -642,11 +642,14 @@ UpdateColor(){
     if (A_GuiEvent != "s")  ; 即除了 "选择树中的新项目" 以外的其他操作.
         return
     Node:=GetNode()
+    first_child_name := SSN(Node, "Item/@name").text
     Populate(1)
     GuiControlGet, out, Pos, gui:1 TV
     WinGetPos, X, Y, W, H, 超级命令添加工具
-    btt(Node.text, X + w, Y,,"Style2")
-
+    if(first_child_name == "")
+        btt(Node.text, X + w, Y,,"Style2")
+    else
+        btt()
 	;Node:=GetNode()
 	;Color:=SSN(Node,"Item")?SSN(Node,"@color").text:SSN(Node.ParentNode,"@color").text
 	;GuiControl,% "1:+c" RGB(Color),% MainWin.GetCtrlXML("Progress")
