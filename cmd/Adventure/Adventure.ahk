@@ -229,7 +229,6 @@ If (!A_IsUnicode) {
     ExitApp
 }
 
-;Sci[n].SetText("", "hetong", 1)
 
 OpenFile(A_ScriptDir "\..\tmp\tmp.ahk")
 Return ; End of the auto-execute section.

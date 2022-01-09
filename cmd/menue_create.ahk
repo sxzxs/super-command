@@ -300,6 +300,7 @@ filter(command)
 editcmd()
 {  
     static
+    btt()
 	Node:=GetNode()
     first_child_name := SSN(Node, "Item/@name").text
     if(first_child_name != "")

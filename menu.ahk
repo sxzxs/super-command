@@ -12,7 +12,7 @@ OnMessage(0x100, "GuiKeyDown")
 #include <btt>
 #include <log4ahk>
 #Persistent
-
+CoordMode, ToolTip, Screen
 SetBatchLines -1
 ;管理员运行
 full_command_line := DllCall("GetCommandLine", "str")
@@ -31,14 +31,13 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 help_string =
 (
 v1.0.0
+shift+enter:  搜索命令
 ctrl+c: 复制当前文本
 alt+c: 编辑所有命令
 ctrl+x: 编辑当前命令
-shift+enter:  搜索命令
 )
-
-btt(help_string,,,1,"Style4")
-SetTimer, RemoveToolTip, -3000
+btt(help_string, A_ScreenWidth/2, A_ScreenHeight/2 , 1, "Style4")
+SetTimer, RemoveToolTip, -5000
 
 py.allspell_muti("ahk")
 begin := 1
