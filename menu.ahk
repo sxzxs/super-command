@@ -131,6 +131,8 @@ switchime(0)
 Gui +LastFoundExist
 if WinActive()
 {
+    if(g_curent_text != "")
+        Clipboard := g_curent_text
     goto GuiEscape
 }
 Gui Destroy
@@ -151,6 +153,7 @@ SetTimer Refresh, -10
 return
 
 Refresh:
+;btt()
 GuiControlGet Query
 r := cmds
 if (Query != "")
@@ -160,7 +163,9 @@ if (Query != "")
         r := Filter(r, q%A_Index%, c)
 }
 else
+{
     btt(,,,1)
+}
 rows := ""
 row_id := []
 Loop Parse, r, `n
@@ -183,9 +188,9 @@ GuiControlGet Command
 if !Command
     Command := 1
 Command := row_id[Command]
-    TargetScriptTitle := "ahk_pid " menue_create_pid " ahk_class AutoHotkey"
-    StringToSend := command
-    result := Send_WM_COPYDATA(StringToSend, TargetScriptTitle)
+TargetScriptTitle := "ahk_pid " menue_create_pid " ahk_class AutoHotkey"
+StringToSend := command
+result := Send_WM_COPYDATA(StringToSend, TargetScriptTitle)
 preview_command(command)
 if (A_GuiEvent != "DoubleClick")
 {
@@ -452,12 +457,13 @@ preview_command(command)
         return
     }
     UnityPath:= my_xml.SSN(pattern).text
-    ;Clipboard := UnityPath
     g_command := command
     g_curent_text := UnityPath
     GuiControlGet, out, Pos, Query
     if(!WinExist("超级命令添加工具"))
+    {
         btt(UnityPath, gui_x + outW, gui_y,,"Style2")
+    }
 }
 
 handle_command(command)
@@ -613,4 +619,16 @@ GetCaretPos(Byacc:=1)
         	Return {x:Caretx,y:Carety,h:Max(Careth,30),t:"Acc",Hwnd:Hwnd}
     } Else
         Return {x:A_CaretX,y:A_CaretY,h:30,t:"Caret",Hwnd:Hwnd}
+}
+TipGuiEscape:
+Gui, Tip:Destroy
+Return
+
+tip(ttext := "", x := 0, y := 0) {
+ If (ttext > "") {
+  Gui, Tip:New, +ToolWindow -Caption +AlwaysOnTop
+  Gui, Margin, 1, 1
+  Gui, Add, Edit, r30  ReadOnly Multi, %ttext%
+  Gui, Show, X%x% Y%y% NoActivate  AutoSize
+ } Else Gui, Tip:Destroy
 }
