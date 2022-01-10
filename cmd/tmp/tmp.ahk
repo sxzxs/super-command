@@ -1,147 +1,47 @@
-﻿;------------------------------
-;  JSon.ahk - v2.1  By FeiYue
-;------------------------------
-
-
-json_toobj(s)  ; JSon字符串转AHK对象
-{
-  static rep:=[ ["\\","\u005c"], ["\""",""""], ["\/","/"]
-    , ["\r","`r"], ["\n","`n"], ["\t","`t"]
-    , ["\b","`b"], ["\f","`f"] ]
-  if !(p:=RegExMatch(s, "[\{\[]", r))
-    return
-  SetBatchLines, % (bch:=A_BatchLines)?"-1":"-1"
-  stack:=[], obj:=arr:=[], is_arr:=(r="[")
-  , key:=(is_arr ? 1:""), keyok:=0
-  While p:=RegExMatch(s, "\S", r, p+StrLen(r))
-  {
-    if (r="{" or r="[")  ; 如果是 左括号
-    {
-      stack.Push(is_arr, arr), arr[key]:=[], arr:=arr[key]
-      , is_arr:=(r="["), key:=(is_arr ? 1:""), keyok:=0
-    }
-    else if (r="}" or r="]")  ; 如果是 右括号
-    {
-      if !stack.Length()
-        Break
-      arr:=stack.Pop(), is_arr:=stack.Pop()
-      , key:=(is_arr ? arr.Length():""), keyok:=0
-    }
-    else if (r=",")  ; 如果是 逗号
-    {
-      key:=(is_arr ? Floor(key)+1:""), keyok:=0
-    }
-    else if (r="""")  ; 如果是 双引号
-    {
-      if RegExMatch(s, """((?:[^""\\]|\\[\s\S])*)""", r, p)!=p
-        Break
-      if InStr(r1, "\")
-      {
-        For k,v in rep
-          r1:=StrReplace(r1, v[1], v[2])
-        v:="", k:=1
-        While i:=RegExMatch(r1, "\\u[0-9A-Fa-f]{4}",, k)
-          v.=SubStr(r1,k,i-k) . Chr("0x" SubStr(r1,i+2,4)), k:=i+6
-        r1:=v . SubStr(r1,k)
-      }
-      if (!is_arr and keyok=0)
-      {
-        p+=StrLen(r)
-        if RegExMatch(s, "\s*:", r, p)!=p
-          Break
-        key:=r1, keyok:=1
-      }
-      else arr[key]:=r1
-    }
-    else  ; 如果是 true、false、null、数字
-    {
-      if RegExMatch(s, "[\w\+\-\.]+", r, p)!=p
-        Break
-      arr[key]:=(r=="true" ? 1:r=="false" ? 0:r=="null" ? "":r+0)
-    }
-  }
-  SetBatchLines, %bch%
-  return obj
-}
-
-json_fromobj(obj, space:="")  ; AHK对象转JSon字符串
-{
-  ;-------------------
-  ; 默认不替换 "/-->\/" 与 特殊html字符<、>、&
-  ;-------------------
-  static rep:=[ ["\\","\"], ["\""",""""]  ; , ["\/","/"]
-    ; , ["\\u003c","<"], ["\\u003e",">"], ["\\u0026","&"]
-    , ["\r","`r"], ["\n","`n"], ["\t","`t"]
-    , ["\b","`b"], ["\f","`f"] ]
-  if !IsObject(obj)
-  {
-    if obj is Number  ; thanks lexikos
-      return ([obj].GetCapacity(1) ? """" obj """" : obj)
-    ;-------------------
-    ; 布尔值在AHK中转为数字了
-    ; if (obj=="true" or obj=="false" or obj=="null")
-    ;   return obj
-    ;-------------------
-    For k,v in rep
-      obj:=StrReplace(obj, v[2], v[1])
-    ;-------------------
-    ; 默认不替换 "Unicode字符-->\uXXXX"
-    ; While RegExMatch(obj, "[^\x20-\x7e]", k)
-    ;   obj:=StrReplace(obj, k, Format("\u{:04x}",Ord(k)))
-    ;-------------------
-    return """" obj """"
-  }
-  is_arr:=1  ; 是简单数组
-  For k,v in obj
-    if (k!=A_Index) and !(is_arr:=0)
-      Break
-  s:="", space2:=space . "    ", f:=A_ThisFunc
-  For k,v in obj
-    s.= "`r`n" space2
-    . (is_arr ? "" : """" Trim(%f%(k ""),"""") """: ")
-    . %f%(v,space2) . ","
-  return (is_arr?"[":"{") . Trim(s,",")
-    . "`r`n" space . (is_arr?"]":"}")
-}
-
-
-s=
-(
-
-{
-    "name": "BeJson",
-    "url": "http://www.bejson.com",
-    "page": 88,
-    "page2": "88",
-    "isNonProfit": true,
-    "address": {
-        "street": "科技园路",
-        "city": "江苏苏州",
-        "country": "中国"
-    },
-    "links": [
-        {
-            "name": "Google",
-            "url": "http://www.google.com"
-        },
-        {
-            "name": "Baidu",
-            "url": "http://www.baidu.com"
-        },
-        {
-            "name": "SoSo",
-            "url": "http://www.SoSo.com"
-        }
-    ]
-}
-
+﻿text = 
+(%
+UpdateText(hTooltip, TextArray) {
+   static TTM_UPDATETIPTEXT := A_IsUnicode ? 0x439 : 0x40C
+   text := TextArray.Pop()
+   VarSetCapacity(TOOLINFO, sz := 24 + A_PtrSize*6, 0)
+   NumPut(sz, TOOLINFO)
+   NumPut(&text, TOOLINFO, 24 + A_PtrSize*3)
+   SendMessage, TTM_UPDATETIPTEXT,, &TOOLINFO,, ahk_id %hTooltip%
+   if (TextArray[1] = "")
+      SetTimer,, Delete
 )
+#NoEnv
+OnMessage(0x201, "WM_LBUTTONDOWN")
 
-Goto, F1
+Global tClass:="SysShadow,Alternate Owner,tooltips_class32,DummyDWMListenerWindow,EdgeUiInputTopWndClass,ApplicationFrameWindow,TaskManagerWindow,Qt5QWindowIcon,Windows.UI.Core.CoreWindow,WorkerW,Progman,Internet Explorer_Hidden,Shell_TrayWnd" ; HH Parent
 
-F1::
-t1:=A_TickCount
-s:=json_fromobj(json_toobj(s))
-t1:=A_TickCount-t1
-MsgBox, 4096, %t1% ms, % SubStr(s,1,1000)
+WinGetActiveTitle, aWin
+ToolTip,% text, 0, 0
 return
+
+WM_LBUTTONDOWN(wParam, lParam, msg, hwnd) {
+	PostMessage, 0xA1, 2 ; WM_NCLBUTTONDOWN
+	KeyWait, LButton, U
+	Loop { ; adapted from https://autohotkey.com/board/topic/32171-how-to-get-the-id-of-the-next-or-previous-window-in-z-order/
+        ; GetWindow() returns a decimal value, so we have to convert it to hex
+        ; GetWindow() processes even hidden windows, so we move down the z oder until the next visible window is found
+        hwnd := Format("0x{:x}", DllCall("GetWindow", UPtr,hwnd, UInt,2) ) ; 2 = GW_HWNDNEXT
+        if DllCall("IsWindowVisible", UPtr,hwnd) {
+            WinGet, Ex, ExStyle, ahk_id %hwnd%
+            ;if ( IsWindowCloaked(hwnd) || Ex & (0x8 | 0x80 | 0x8000000) ) ;WS_EX_TOPMOST, WS_EX_TOOLWINDOW, WS_EX_NOACTIVATE
+            if (IsWindowCloaked(hwnd) || Ex & 0x8000088) ;WS_EX_TOPMOST, WS_EX_TOOLWINDOW, WS_EX_NOACTIVATE
+		Continue
+            WinGetClass, cClass, ahk_id %hwnd%
+            if InStr(tClass, cClass, 1) ; if cClass in %tClass%
+                Continue
+            else break
+        }
+    }   WinActivate, ahk_id %hwnd%
+}
+
+IsWindowCloaked(hwnd) {
+    return DllCall("dwmapi\DwmGetWindowAttribute", "ptr",hwnd, "int",14, "int*",cloaked, "int",4) >= 0
+        && cloaked
+}
+
+Esc::exitapp
