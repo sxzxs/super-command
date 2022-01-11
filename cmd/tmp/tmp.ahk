@@ -1,47 +1,54 @@
-﻿text = 
-(%
-UpdateText(hTooltip, TextArray) {
-   static TTM_UPDATETIPTEXT := A_IsUnicode ? 0x439 : 0x40C
-   text := TextArray.Pop()
-   VarSetCapacity(TOOLINFO, sz := 24 + A_PtrSize*6, 0)
-   NumPut(sz, TOOLINFO)
-   NumPut(&text, TOOLINFO, 24 + A_PtrSize*3)
-   SendMessage, TTM_UPDATETIPTEXT,, &TOOLINFO,, ahk_id %hTooltip%
-   if (TextArray[1] = "")
-      SetTimer,, Delete
-)
-#NoEnv
-OnMessage(0x201, "WM_LBUTTONDOWN")
-
-Global tClass:="SysShadow,Alternate Owner,tooltips_class32,DummyDWMListenerWindow,EdgeUiInputTopWndClass,ApplicationFrameWindow,TaskManagerWindow,Qt5QWindowIcon,Windows.UI.Core.CoreWindow,WorkerW,Progman,Internet Explorer_Hidden,Shell_TrayWnd" ; HH Parent
-
-WinGetActiveTitle, aWin
-ToolTip,% text, 0, 0
-return
-
-WM_LBUTTONDOWN(wParam, lParam, msg, hwnd) {
-	PostMessage, 0xA1, 2 ; WM_NCLBUTTONDOWN
-	KeyWait, LButton, U
-	Loop { ; adapted from https://autohotkey.com/board/topic/32171-how-to-get-the-id-of-the-next-or-previous-window-in-z-order/
-        ; GetWindow() returns a decimal value, so we have to convert it to hex
-        ; GetWindow() processes even hidden windows, so we move down the z oder until the next visible window is found
-        hwnd := Format("0x{:x}", DllCall("GetWindow", UPtr,hwnd, UInt,2) ) ; 2 = GW_HWNDNEXT
-        if DllCall("IsWindowVisible", UPtr,hwnd) {
-            WinGet, Ex, ExStyle, ahk_id %hwnd%
-            ;if ( IsWindowCloaked(hwnd) || Ex & (0x8 | 0x80 | 0x8000000) ) ;WS_EX_TOPMOST, WS_EX_TOOLWINDOW, WS_EX_NOACTIVATE
-            if (IsWindowCloaked(hwnd) || Ex & 0x8000088) ;WS_EX_TOPMOST, WS_EX_TOOLWINDOW, WS_EX_NOACTIVATE
-		Continue
-            WinGetClass, cClass, ahk_id %hwnd%
-            if InStr(tClass, cClass, 1) ; if cClass in %tClass%
-                Continue
-            else break
-        }
-    }   WinActivate, ahk_id %hwnd%
+﻿#NoEnv
+Gui, Margin, 20, 20
+Gui, Font, s12
+Gui, Add, Edit, w200 Center hwndHED1, Edit 1
+CtlColor_Edit(HED1, 0x0091FF, 0x00FF91)
+Gui, Add, Edit, xm wp hp Center hwndHED2, Edit 2
+CtlColor_Edit(HED2, 0x00FF91, 0xFF0091)
+Gui, Add, Edit, xm wp hp Center hwndHED3, Edit 3
+CtlColor_Edit(HED3, 0xFF0091, 0x0091FF)
+Gui, Add, Edit, xm wp hp Center hwndHED4, Edit 4
+Gui, Show, , CtlColor_Edit()
+Return
+; ======================================================================================================================
+GuiClose:
+GuiEscape:
+ExitApp
+; ======================================================================================================================
+; WM_CTLCOLOREDIT = 0x0133 <- msdn.microsoft.com/en-us/library/windows/desktop/bb761691(v=vs.85).aspx
+; An edit control that is not read-only or disabled sends the WM_CTLCOLOREDIT message to its parent window
+; when the control is about to be drawn.
+; ======================================================================================================================
+CtlColor_Edit(Param1, Param2 := "", Param3 := "") {
+   Static Init := OnMessage(0x0133, "CtlColor_Edit")
+   Static DCBrush := DllCall("Gdi32.dll\GetStockObject", "UInt", 18, "UPtr") ; DC_BRUSH = 18
+   Static Controls := []
+   ; If Param1 contains a valid window handle, the function has been called by the user ---------------------------------
+   ; Param1 = HWND, Param2 = BackgroundColor, Param3 = TextColor
+   If DllCall("IsWindow", "Ptr", Param1, "UInt") {
+      Controls.Delete(Param1)
+      If (Param2 <> "") {
+         Controls[Param1, "BkColor"] := CtlColor_BGR(Param2)
+         If (Param3 <> "")
+            Controls[Param1, "TxColor"] := CtlColor_BGR(Param3)
+      }
+   }
+   ; Function has been called as message handler -----------------------------------------------------------------------
+   ; Param1 (wParam) = HDC, Param2 (lParam) = HWND
+   Else If (((BC := Controls[Param2, "BkColor"]) . (TC := Controls[Param2, "TxColor"])) <> "") {
+      If (TC <> "")
+         DllCall("SetTextColor", "Ptr", Param1, "UInt", TC)
+      DllCall("SetBkColor", "Ptr", Param1, "UInt", BC)
+      DllCall("SetDCBrushColor", "Ptr", Param1, "UInt", BC)
+      Return DCBrush
+   }
 }
-
-IsWindowCloaked(hwnd) {
-    return DllCall("dwmapi\DwmGetWindowAttribute", "ptr",hwnd, "int",14, "int*",cloaked, "int",4) >= 0
-        && cloaked
+; ======================================================================================================================
+; Color values must be passed as BGR to GDI functions, this function does the conversion from RGB
+; ======================================================================================================================
+CtlColor_BGR(RGB) {
+   Static HTML := {AQUA: 0xFFFF00, BLACK: 0x000000, BLUE: 0xFF0000, FUCHSIA: 0xFF00FF, GRAY: 0x808080, GREEN: 0x008000
+                 , LIME: 0x00FF00, MAROON: 0x000080, NAVY: 0x800000, OLIVE: 0x008080, PURPLE: 0x800080, RED: 0x0000FF
+                 , SILVER: 0xC0C0C0, TEAL: 0x808000, WHITE: 0xFFFFFF, YELLOW: 0x00FFFF}
+   Return (HTML.HasKey(RGB) ? HTML[RGB] : ((RGB >> 16) & 0x0000FF) + (RGB & 0x00FF00) + ((RGB & 0x0000FF) << 16))
 }
-
-Esc::exitapp

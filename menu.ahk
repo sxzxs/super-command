@@ -137,12 +137,10 @@ if WinActive()
 }
 Gui Destroy
 Gui, +HwndMyGuiHwnd
-Gui, Color,,0x000000
-Gui Font, s11
 Gui Margin, 0, 0
-Gui, Font, s10 cLime, Consolas
-Gui Add, Edit, x0 w500 vQuery gType
-Gui Add, ListBox, x0 y+2 h20 w500  vCommand gSelect AltSubmit +Background0x000000 -HScroll
+Gui, Font, s14, Consolas
+Gui Add, Edit, hwndEDIT x0 w500 vQuery gType
+Gui Add, ListBox, hwndLIST x0 y+2 h20 w500  vCommand gSelect AltSubmit -HScroll
 Gui, -Caption +AlwaysOnTop -DPIScale
 gosub Type
 Gui Show, X200 Y0
@@ -177,7 +175,7 @@ GuiControl,, Command, % rows ? rows : "|"
 if (Query = "")
     c := row_id.MaxIndex()
 total_command := c
-GuiControl, Move, Command, % "h" 4 + 15 * (total_command > 20 ? 22 : total_command + 2)
+GuiControl, Move, Command, % "h" 33 * (total_command > 20 ? 22 : total_command)
 GuiControl, % (total_command && Query != "") ? "Show" : "Hide", Command
 HighlightedCommand := 1
 GuiControl, Choose, Command, 1
