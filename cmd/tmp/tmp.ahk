@@ -1,4 +1,5 @@
-﻿#NoEnv
+﻿;https://www.autohotkey.com/boards/viewtopic.php?f=6&t=2197&hilit=CtlColor_Edit
+#NoEnv
 OnExit, GuiClose
 ; ----------------------------------------------------------------------------------------------------------------------
 SysGet, SGW, 71 ; SM_CXMENUCHECK

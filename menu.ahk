@@ -46,7 +46,7 @@ is_get_all_cmd := false
 cmds := ""
 my_xml := new xml("xml")
 menue_create_pid := 0
-gui_x := 200
+gui_x := 0
 gui_y := 0
 g_curent_text := ""
 g_command := ""
@@ -142,12 +142,12 @@ Gui, +HwndMyGuiHwnd
 Gui Margin, 0, 0
 Gui, Font, s14, Consolas
 Gui Add, Edit, hwndEDIT x0 w500 vQuery gType
-CtlColors.Attach(EDIT, BackgroundColor, TextColor)
 Gui Add, ListBox, hwndLIST x0 y+0 h20 w500  vCommand gSelect AltSubmit -HScroll
-CtlColors.Attach(LIST, BackgroundColor, TextColor)
 Gui, -Caption +AlwaysOnTop -DPIScale
 gosub Type
-Gui Show, X200 Y0
+CtlColors.Attach(LIST, BackgroundColor, TextColor)
+CtlColors.Attach(EDIT, BackgroundColor, TextColor)
+Gui Show, X%gui_x% Y%gui_y%
 return
 
 Type:
@@ -155,7 +155,6 @@ SetTimer Refresh, -10
 return
 
 Refresh:
-;btt()
 GuiControlGet Query
 r := cmds
 if (Query != "")

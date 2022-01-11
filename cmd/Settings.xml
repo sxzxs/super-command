@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <Settings>
-	<Last file="G:\我的AHK程序\我的工程\超级命令\cmd\Menus\超级命令.xml"></Last>
+	<Last file="G:\我的AHK程序\我的工程\超级命令\cmd/Menus/超级命令.xml"></Last>
 	<Confirm>1</Confirm>
 	<gui>
 		<position window="1">x31 y8 w388 h878</position>
