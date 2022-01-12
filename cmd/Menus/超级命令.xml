@@ -1,56 +1,56 @@
 ﻿<?xml version="1.0"?>
 <Menu>
-	<Item name="@网站文件夹" tv="1664832">
-		<Item name="百度" tv="1662032">run,www.baidu.com</Item>
-		<Item name="虎牙" tv="1662592">run,www.huya.com</Item>
-		<Item name="斗鱼" tv="1662928">run, www.douyu.com</Item>
-		<Item name="ahk中文论坛autoahk" tv="1661360">run,www.autoahk.com</Item>
-		<Item name="ahk官网论坛autohotkey" tv="1662256">run, www.autohotkey.com</Item>
-		<Item name="github" tv="1664608">run,https:github.com</Item>
-		<Item name="卡牌card目录" tv="1663040">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
-		<Item name="云顶之奕" tv="1664272">run,G:\我的AHK程序\游戏脚本\HX云顶之奕挂机脚本</Item>
-		<Item name="我的ahk工程" tv="1664944">run,G:\我的AHK程序\我的工程</Item>
-		<Item name="超级命令目录" tv="1661472">run,G:\我的AHK程序\我的工程\超级命令</Item>
-		<Item name="gitee" tv="1664384">run, https://gitee.com/</Item>
-		<Item name="必应" tv="1663936">run,https://cn.bing.com/</Item>
-		<Item name="bilibilib站" tv="1664496">run,https://www.bilibili.com/</Item>
-		<Item name="打字练习网站" tv="1665056">run,https://dazi.kukuw.com/
+	<Item name="@网站文件夹" tv="1180864">
+		<Item name="百度" tv="1179184">run,www.baidu.com</Item>
+		<Item name="虎牙" tv="1180080">run,www.huya.com</Item>
+		<Item name="斗鱼" tv="1180192">run, www.douyu.com</Item>
+		<Item name="ahk中文论坛autoahk" tv="1181872">run,www.autoahk.com</Item>
+		<Item name="ahk官网论坛autohotkey" tv="1180976">run, www.autohotkey.com</Item>
+		<Item name="github" tv="1181312">run,https:github.com</Item>
+		<Item name="卡牌card目录" tv="1179520">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
+		<Item name="云顶之奕" tv="1181984">run,G:\我的AHK程序\游戏脚本\HX云顶之奕挂机脚本</Item>
+		<Item name="我的ahk工程" tv="1179856">run,G:\我的AHK程序\我的工程</Item>
+		<Item name="超级命令目录" tv="1180304">run,G:\我的AHK程序\我的工程\超级命令</Item>
+		<Item name="gitee" tv="1181088">run, https://gitee.com/</Item>
+		<Item name="必应" tv="1178736">run,https://cn.bing.com/</Item>
+		<Item name="bilibilib站" tv="1179072">run,https://www.bilibili.com/</Item>
+		<Item name="打字练习网站" tv="1180528">run,https://dazi.kukuw.com/
 run,https://www.bilibili.com/video/av57373164?from=search&amp;seid=7505871621684040908</Item>
-		<Item name="正则表达式帮助" tv="1661696">run,C:\Users\hetong\Documents\Tencent Files\2397633100\FileRecv\55分钟学会正则表达式.DOC</Item>
-		<Item name="c++中文网" tv="1663152">run,http://c.biancheng.net/view/151.html</Item>
-		<Item name="c++chm" tv="1662144">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
-		<Item name="leedcode" tv="1662480">run,https://leetcode-cn.com</Item>
-		<Item name="linux命令大全" tv="1664720">run,https://man.linuxde.net/</Item>
-		<Item name="google" tv="1663264">run,www.google.com</Item>
-		<Item name="goo" tv="1663376"></Item>
-		<Item name="autohotkey目录" tv="1664048">run,C:\Program Files\AutoHotkey</Item>
-		<Item name="嗨正则" tv="1498464">run,https://hiregex.com/</Item>
-		<Item name="音乐" tv="1498016">run,http://tool.liumingye.cn/music/?page=searchPage</Item>
-		<Item name="thqby gitee" tv="1496896">run,https://gitee.com/barbarla/AHK_Lib/tree/master</Item>
-		<Item name="电影" tv="1497344">run,https://lab.liumingye.cn/vodplay/67631-1-1.html</Item>
-		<Item name="小众软件" tv="1498912">run,https://www.appinn.com/</Item></Item>
-	<Item name="@软件" tv="1497456">
-		<Item name="词典" tv="1498240">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
-		<Item name="音乐" tv="1499136">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
-		<Item name="cherry笔记" tv="1498576">run,G:\CherryTree\bin\cherrytree.exe</Item>
-		<Item name="搜索" tv="1496560">Run, everything, F:\everything,</Item>
-		<Item name="画图可汗" tv="1498800">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
-		<Item name="tgp" tv="1495776">Run,*RunAs WeGame,E:\wegeme,</Item>
-		<Item name="录制" tv="1496336">run,bdcam.exe,F:\Bandicam</Item>
-		<Item name="百度网盘" tv="1497008">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
-		<Item name="截图" tv="1497568">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
+		<Item name="正则表达式帮助" tv="1182208">run,C:\Users\hetong\Documents\Tencent Files\2397633100\FileRecv\55分钟学会正则表达式.DOC</Item>
+		<Item name="c++中文网" tv="1179744">run,http://c.biancheng.net/view/151.html</Item>
+		<Item name="c++chm" tv="1178400">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
+		<Item name="leedcode" tv="1178512">run,https://leetcode-cn.com</Item>
+		<Item name="linux命令大全" tv="1179296">run,https://man.linuxde.net/</Item>
+		<Item name="google" tv="1182096">run,www.google.com</Item>
+		<Item name="goo" tv="1178624"></Item>
+		<Item name="autohotkey目录" tv="1180416">run,C:\Program Files\AutoHotkey</Item>
+		<Item name="嗨正则" tv="1181200">run,https://hiregex.com/</Item>
+		<Item name="音乐" tv="1180640">run,http://tool.liumingye.cn/music/?page=searchPage</Item>
+		<Item name="thqby gitee" tv="1181648">run,https://gitee.com/barbarla/AHK_Lib/tree/master</Item>
+		<Item name="电影" tv="1181424">run,https://lab.liumingye.cn/vodplay/67631-1-1.html</Item>
+		<Item name="小众软件" tv="1178848">run,https://www.appinn.com/</Item></Item>
+	<Item name="@软件" tv="1179408">
+		<Item name="词典" tv="1181536">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
+		<Item name="音乐" tv="1181760">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
+		<Item name="cherry笔记" tv="1183072">run,G:\CherryTree\bin\cherrytree.exe</Item>
+		<Item name="搜索" tv="1185088">Run, everything, F:\everything,</Item>
+		<Item name="画图可汗" tv="1183408">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
+		<Item name="tgp" tv="1184416">Run,*RunAs WeGame,E:\wegeme,</Item>
+		<Item name="录制" tv="1184528">run,bdcam.exe,F:\Bandicam</Item>
+		<Item name="百度网盘" tv="1182624">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
+		<Item name="截图" tv="1185536">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
 </Item>
-		<Item name="秒表" tv="1498352">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item>
-		<Item name="gif录屏" tv="1498688">run,F:\gif\屏幕录制ScreenToGif 2.34.1.exe</Item>
-		<Item name="正则表达式ahk" tv="1499024">run,C:\Users\hetong\Desktop\我的AHK程序\Adventure\Tools\Expressive\Expressive.ahk</Item>
-		<Item name="正则表达式buddy" tv="1499248">run, F:\正则表达式\RegexBuddy4.9.exe</Item>
-		<Item name="按键显示" tv="1496000">run,G:\我的AHK程序\我的工程\KeyPress-OSD-master（按键显示工具）\keycastow\keycastow.exe</Item></Item>
-	<Item name="@命令" tv="1496672">
-		<Item name="关机" tv="1496112">msgbox, no this command</Item>
-		<Item name="窗口置顶" tv="1307168">MouseGetPos, MouseX, MouseY, MouseWin
+		<Item name="秒表" tv="1184640">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item>
+		<Item name="gif录屏" tv="1183184">run,F:\gif\屏幕录制ScreenToGif 2.34.1.exe</Item>
+		<Item name="正则表达式ahk" tv="1185200">run,C:\Users\hetong\Desktop\我的AHK程序\Adventure\Tools\Expressive\Expressive.ahk</Item>
+		<Item name="正则表达式buddy" tv="1183520">run, F:\正则表达式\RegexBuddy4.9.exe</Item>
+		<Item name="按键显示" tv="1183856">run,G:\我的AHK程序\我的工程\KeyPress-OSD-master（按键显示工具）\keycastow\keycastow.exe</Item></Item>
+	<Item name="@命令" tv="1185312">
+		<Item name="关机" tv="1185648">msgbox, no this command</Item>
+		<Item name="窗口置顶" tv="903904">MouseGetPos, MouseX, MouseY, MouseWin
 ; 似乎有必要首先关闭任何现有的透明度:
 WinSet, AlwaysOnTop, TOGGLE , ahk_id %MouseWin%</Item>
-		<Item name="vim操作说明" tv="1307616">CommandText =
+		<Item name="vim操作说明" tv="904352">CommandText =
     (% 
 重要的概念
 	增：
@@ -160,25 +160,25 @@ TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, I
 
     Return {1: "OK", 2: "Cancel", 4: "Retry", 6: "Yes", 7: "No", 8: "Close"}[Ret]
 }</Item>
-		<Item name="ipconfig" tv="1307280">#include &lt;runcmd&gt;
+		<Item name="ipconfig" tv="904128">#include &lt;runcmd&gt;
 #include &lt;log4ahk&gt;
 rtn := cmd.run("ifconfig")
 log.info(rtn)</Item>
-		<Item name="test" tv="1308512">#include &lt;log4ahk&gt;
+		<Item name="test" tv="904464">#include &lt;log4ahk&gt;
 log.info("a")
 ExitApp</Item>
-		<Item name="test2" tv="1308624">msgbox,test2</Item>
-		<Item name="mathematica" tv="1308176">
-			<Item name="转换为c语言" tv="1308400">
+		<Item name="test2" tv="905136">msgbox,test2</Item>
+		<Item name="mathematica" tv="903680">
+			<Item name="转换为c语言" tv="904688">
 inputvar = 
 (
 CForm[expr]
 )
 	clipboard:=inputvar </Item>
-			<Item name="yy" tv="1308736"></Item></Item></Item>
-	<Item name="@ahk" tv="1308848">
-		<Item name="帮助手册" tv="1307728">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item>
-		<Item name="开头设置" tv="1595072">#NoEnv
+			<Item name="yy" tv="905024"></Item></Item></Item>
+	<Item name="@ahk" tv="904800">
+		<Item name="帮助手册" tv="904912">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item>
+		<Item name="开头设置" tv="1095408">#NoEnv
 #KeyHistory 0
 #MaxThreads 255
 #MaxMem 4095
@@ -220,7 +220,7 @@ SetDefaultMouseSpeed, 0
 CoordMode, ToolTip , Screen 
     )    
 clipboard:=CommandText</Item>
-		<Item name="快捷输入模板" tv="1593840">CommandText =
+		<Item name="快捷输入模板" tv="1095296">CommandText =
 (%
 CommandText =
 `(%
@@ -229,15 +229,15 @@ CommandText =
 clipboard:=CommandText
 )    
 clipboard:=CommandText</Item>
-		<Item name="include库" tv="1596080">CommandText =
+		<Item name="include库" tv="1095520">CommandText =
 (%
 #Include &lt;log4ahk&gt;
 #Include &lt;my_lib&gt;
 )
 clipboard:=CommandText</Item>
-		<Item name="字符串转双引号其他语言" tv="1595520">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符串转双引号.ahk</Item>
-		<Item name="字符串转延续片段" tv="1596304">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符片段转延续片段.ahk</Item>
-		<Item name="dialog" tv="1596752">c=
+		<Item name="字符串转双引号其他语言" tv="1095072">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符串转双引号.ahk</Item>
+		<Item name="字符串转延续片段" tv="1095632" last="1">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符片段转延续片段.ahk</Item>
+		<Item name="dialog" tv="1094960">c=
 (%
 Clipboard := c
 TaskDialog(Clipboard, "", "", 0x1, 0)
@@ -301,8 +301,8 @@ TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, I
 	Return {1: "OK", 2: "Cancel", 4: "Retry", 6: "Yes", 7: "No", 8: "Close"}[Ret]
 }
 </Item>
-		<Item name="脚本库" tv="1594512">
-			<Item name="json_feiyue_源码" tv="1595408">;------------------------------
+		<Item name="脚本库" tv="1097760">
+			<Item name="json_feiyue_源码" tv="1095744">;------------------------------
 ;  JSon.ahk - v2.1  By FeiYue
 ;------------------------------
 
@@ -449,7 +449,7 @@ s:=json_fromobj(json_toobj(s))
 t1:=A_TickCount-t1
 MsgBox, 4096, %t1% ms, % SubStr(s,1,1000)
 return</Item>
-			<Item name="win_ocr" tv="1597088">#NoEnv
+			<Item name="win_ocr" tv="1095184">#NoEnv
 SetBatchLines, -1
 Return
 
@@ -773,7 +773,7 @@ WaitForAsync(ByRef Object)
    ObjRelease(Object)
    Object := ObjectResult
 }</Item>
-			<Item name="capture" tv="1594624">run,G:\我的AHK程序\我的工程\dxgi_pixelgetcolor
+			<Item name="capture" tv="1095856">run,G:\我的AHK程序\我的工程\dxgi_pixelgetcolor
 c =
 (%
 #include &lt;my_lib&gt;
@@ -869,7 +869,7 @@ Show(hwnd, hBM, x1, y1, x2, y2) {
 }
 )
 Clipboard := c</Item>
-			<Item name="右键选择范围feiyue" tv="1597536">;------------------------------
+			<Item name="右键选择范围feiyue" tv="1096864">;------------------------------
 ; 右键选择屏幕范围   By FeiYue
 ;------------------------------
 
@@ -938,7 +938,7 @@ F1:: MsgBox, 4096,, % "选择的范围是：" 右键选择屏幕范围(x1,y1,x2,
   return (x1 "," y1 "," x2 "," y2)
 }
 </Item>
-			<Item name="外框高亮线条" tv="1594176">Outline := []
+			<Item name="外框高亮线条" tv="1096080">Outline := []
 Outline[1] := new HighlightOutline("Blue", 128)
 Outline[1].show(0, 0, 200, 200)
 Outline[1].Destroy()
@@ -975,7 +975,7 @@ class HighlightOutline {
 			Try Gui % this[A_Index] ": Destroy"
 	}
 }</Item>
-			<Item name="进程间通信feiyue" tv="1597200">/*
+			<Item name="进程间通信feiyue" tv="1097648">/*
 ====================================
   talk v1.2 - by Avi Aryan, FeiYue
 
@@ -1198,7 +1198,7 @@ talk_exec(script, title:="") {
     exec.StdIn.Close()
 }
 </Item>
-			<Item name="单进程运行函数feiyue" tv="1597312">;-----------------------------
+			<Item name="单进程运行函数feiyue" tv="1095968">;-----------------------------
 ;  单进程运行函数  By FeiYue
 ;
 ;  用法：把本函数丢到任何脚本中，设定标记即可（修改001）
@@ -1232,7 +1232,7 @@ OnlyOne(flag="") {
   DetectHiddenWindows, %bak%
 }
 </Item>
-			<Item name="获取IP板卡等" tv="1596864">obj:=[],result:=""
+			<Item name="获取IP板卡等" tv="1094400">obj:=[],result:=""
 obj.InsertAt(1,ComInfo.GetIPAPI_2(),ComInfo.GetMacAddress_1(),ComInfo.GetIPAddress_1(),ComInfo.GetSNCode(),[ComInfo.GetCpuID_3()])
 for Section,element In obj
 {
@@ -1631,9 +1631,9 @@ Json_toObj(ByRef src, args*)
 	}
 	return tree[1]
 }</Item></Item>
-		<Item name="例子" tv="1596976">
-			<Item name="scp顺序更新" tv="1595856" last="1">噜啦噜啦嘞</Item>
-			<Item name="customtooltip" tv="1593728">title := "Hello,"
+		<Item name="例子" tv="1096192">
+			<Item name="scp顺序更新" tv="1096752">噜啦噜啦嘞</Item>
+			<Item name="customtooltip" tv="1097200">title := "Hello,"
 text := "This is my custom ToolTip!`nIt will disappear in five seconds."
 
 hToolTip := CustomToolTip(text,,, title, 1, true, 0xFFC141, 0x50669F, "Calibri", "s18", true, 5000)
@@ -1717,7 +1717,7 @@ UpdateText(hTooltip, TextArray) {
    if (TextArray[1] = "")
       SetTimer,, Delete
 }</Item>
-			<Item name="tooltip编辑框edit" tv="1597424">TipGuiEscape:
+			<Item name="tooltip编辑框edit" tv="1096304">TipGuiEscape:
 Gui, Tip:Destroy
 Return
 
@@ -1729,7 +1729,7 @@ tip(ttext := "", x := 0, y := 0) {
   Gui, Show, X%x% Y%y% NoActivate  AutoSize
  } Else Gui, Tip:Destroy
 }</Item>
-			<Item name="提示框tooltip" tv="1594736">PleasantNotify("PleasantNotify", "position t hc" , 600, 210, "t hc", "3")
+			<Item name="提示框tooltip" tv="1094064">PleasantNotify("PleasantNotify", "position t hc" , 600, 210, "t hc", "3")
 Sleep, 3000
 PleasantNotify("PleasantNotify", "position b hc" , 600, 210, "b hc", "3")
 Sleep, 3000
@@ -1813,7 +1813,7 @@ winfade(w:="",t:=128,i:=1,d:=10) {
         sleep %d%
     }
 }</Item>
-			<Item name="可移动movetooltip" tv="1593952">text = 
+			<Item name="可移动movetooltip" tv="1097312">text = 
 (%
 UpdateText(hTooltip, TextArray) {
    static TTM_UPDATETIPTEXT := A_IsUnicode ? 0x439 : 0x40C
@@ -1860,7 +1860,7 @@ IsWindowCloaked(hwnd) {
 }
 
 Esc::exitapp</Item>
-			<Item name="控件颜色修改" tv="1594064">;https://www.autohotkey.com/boards/viewtopic.php?f=6&amp;t=2197&amp;hilit=CtlColor_Edit
+			<Item name="控件颜色修改" tv="1094176">;https://www.autohotkey.com/boards/viewtopic.php?f=6&amp;t=2197&amp;hilit=CtlColor_Edit
 #NoEnv
 OnExit, GuiClose
 ; ----------------------------------------------------------------------------------------------------------------------
@@ -2272,12 +2272,31 @@ CtlColors_OnMessage(HDC, HWND) {
          DllCall("Gdi32.dll\SetBkColor", "Ptr", HDC, "UInt", CTL.BkColor)
       Return CTL.Brush
    }
+}</Item>
+			<Item name="json作为配置文件" tv="1097872">#include C:\Users\ahker\Desktop\我的AHK程序\库\v1\json.ahk
+
+json_path := A_ScriptDir . "/json.json"
+config := {}
+loadconfig(config, json_path)
+config.parameter1 := "ahk2"
+saveconfig(config, json_path)
+loadconfig(ByRef config, json_path)
+{
+    FileRead, OutputVar,% json_path
+    config := json_toobj(outputvar)
+}
+
+saveconfig(config, json_path)
+{
+    str := json_fromobj(config)
+    FileDelete, % json_path
+    FileAppend,% str,% json_path
 }</Item></Item>
-		<Item name="代码美化pretty" tv="1594288">run,http://sl5.it/SL5_preg_contentFinder/examples/AutoHotKey/converts_your_autohotkey_code_into_pretty_indented_source_code.php</Item></Item>
-	<Item name="@cpp" tv="1594400">
-		<Item name="帮助书册" tv="1594848"></Item>
-		<Item name="代码段" tv="1594960"></Item></Item>
-	<Item name="@rust" tv="1595184"></Item>
-	<Item name="@perl" tv="1595296"></Item>
-	<Item name="@mysql" tv="1595632"></Item>
+		<Item name="代码美化pretty" tv="1096640">run,http://sl5.it/SL5_preg_contentFinder/examples/AutoHotKey/converts_your_autohotkey_code_into_pretty_indented_source_code.php</Item></Item>
+	<Item name="@cpp" tv="1097088">
+		<Item name="帮助书册" tv="1096416"></Item>
+		<Item name="代码段" tv="1094288"></Item></Item>
+	<Item name="@rust" tv="1094512"></Item>
+	<Item name="@perl" tv="1094624"></Item>
+	<Item name="@mysql" tv="1096528"></Item>
 </Menu>

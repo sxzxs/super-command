@@ -143,7 +143,7 @@ Gui Margin, 0, 0
 Gui, Font, s14, Consolas
 Gui Add, Edit, hwndEDIT x0 w500 vQuery gType
 Gui Add, ListBox, hwndLIST x0 y+0 h20 w500  vCommand gSelect AltSubmit -HScroll
-Gui, -Caption +AlwaysOnTop -DPIScale
+Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow
 gosub Type
 CtlColors.Attach(LIST, BackgroundColor, TextColor)
 CtlColors.Attach(EDIT, BackgroundColor, TextColor)

@@ -52,7 +52,7 @@ class GUIKeep{
 		this.All:=[],this.gui:=[],this.hwnd:=hwnd,this.con:=[],this.XML:=new XML("GUI"),this.ahkid:=this.id:="ahk_id" hwnd,this.win:=win,this.Table[win]:=this,this.var:=[],this.Radio:=[],this.Static:=[]
 		for a,b in {border:A_OSVersion~="^10"?3:0,caption:DllCall("GetSystemMetrics",int,4,"int")}
 			this[a]:=b
-		Gui,%win%:+LabelGUIKeep. +AlwaysOnTop
+		Gui,%win%:+LabelGUIKeep. +AlwaysOnTop +ToolWindow
 		Gui,%win%:Default
 		return this
 	}Add(info*){
