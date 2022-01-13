@@ -316,6 +316,7 @@ editcmd()
     ;gui,2:show, AutoSize
 
     node_path := node_get_path(Node)
+    node_path := StrReplace(node_path, "$")
     Process Exist
     my_pid := ErrorLevel
 
@@ -857,6 +858,7 @@ reply2menu()
 }
 handle_filer(command)
 {
+    command := StrReplace(command, "$")
     ItemID := 0  ; 这样使得首次循环从树的顶部开始搜索.
     Loop
     {

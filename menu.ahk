@@ -94,6 +94,7 @@ if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
     return
 FileDelete,% A_ScriptDir "\cmd\tmp\tmp.ahk"
 FileAppend,% g_curent_text,% A_ScriptDir "\cmd\tmp\tmp.ahk",UTF-8
+g_command := StrReplace(g_command, "$")
 tmp_path =
 (
     "%g_command%"
@@ -443,6 +444,7 @@ Class XML{
 
 preview_command(command)
 {
+    command := StrReplace(command, "$")
     CoordMode, ToolTip, Screen
     global my_xml, menue_create_pid, log, gui_x, gui_y, g_curent_text, g_command
     word_array := StrSplit(command, " >")
@@ -470,6 +472,7 @@ preview_command(command)
 handle_command(command)
 {
     global my_xml, menue_create_pid, log
+    command := StrReplace(command, "$")
     word_array := StrSplit(command, " >")
     pattern := ""
     for k,v in word_array
@@ -506,10 +509,10 @@ xml_parse(xml)
             if(c_parent_name == "")
                 break
             else
-                ParentName := c_parent_name " >" parentname
+                ParentName := c_parent_name "$" " >" parentname
             c := p
         }
-        Script .= ParentName  ea.Name "`r`n"
+        Script .= ParentName  ea.Name "$" "`r`n"
     }
     return script
 }
