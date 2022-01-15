@@ -50,6 +50,8 @@ gui_x := 0
 gui_y := 0
 g_curent_text := ""
 g_command := ""
+g_exe_name := ""
+g_exe_id := ""
 BackgroundColor := "3e3d45"
 TextColor := "f4f4f4"
 
@@ -122,6 +124,8 @@ else
 return
 +Enter::
 !q::
+WinGet, g_exe_name, ProcessName, A
+WinGet, g_exe_id, ID , A
 g_command := ""
 if (cmds == "")
 {
@@ -149,6 +153,10 @@ Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow
 gosub Type
 CtlColors.Attach(LIST, BackgroundColor, TextColor)
 Gui Show, X%gui_x% Y%gui_y%
+if(A_ThisHotkey == "!q")
+{
+    GuiControl,,% EDIT ,% " " g_exe_name
+}
 return
 
 Type:
