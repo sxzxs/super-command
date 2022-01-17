@@ -151,7 +151,7 @@ ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 Gui Add, ListBox, hwndLIST x0 y+0 h20 w500  vCommand gSelect AltSubmit -HScroll
 Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow
 gosub Type
-CtlColors.Attach(LIST, BackgroundColor, TextColor)
+ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 Gui Show, X%gui_x% Y%gui_y%
 if(A_ThisHotkey == "!q")
 {
