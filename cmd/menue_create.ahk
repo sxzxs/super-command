@@ -645,7 +645,7 @@ UpdateColor(){
         return
     Node:=GetNode()
     first_child_name := SSN(Node, "Item/@name").text
-    Populate(1)
+    ;Populate(1)
     GuiControlGet, out, Pos, gui:1 TV
     WinGetPos, X, Y, W, H, 超级命令添加工具
     if(first_child_name == "")
