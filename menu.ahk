@@ -7,6 +7,11 @@
 
 OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 OnMessage(0x100, "GuiKeyDown")
+OD_LB  := "+0x0050" ; LBS_OWNERDRAWFIXED = 0x0010, LBS_HASSTRINGS = 0x0040
+ODLB_SetItemHeight("s14 Normal", "MS Shell Dlg 2")
+ODLB_SetHiLiteColors(0xDEDEDE, 0x000000)
+OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
+OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 #SingleInstance force
 #include <py>
 #include <btt>
@@ -148,7 +153,7 @@ Gui Margin, 0, 0
 Gui, Font, s14, Consolas
 Gui Add, Edit, hwndEDIT x0 w500 C0x%BackgroundColor% vQuery gType
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
-Gui Add, ListBox, hwndLIST x0 y+0 h20 w500  vCommand gSelect AltSubmit -HScroll
+Gui Add, ListBox, hwndLIST x0 y+0 h20 w500  vCommand gSelect AltSubmit -HScroll %OD_LB%
 Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow
 gosub Type
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
@@ -997,4 +1002,87 @@ CC_WindowProc(hWnd, uMsg, wParam, lParam) {
     }
 
     Return DllCall("CallWindowProc", "Ptr", Win[hWnd, "WindowProcOld"], "Ptr", hWnd, "UInt", uMsg, "Ptr", wParam, "Ptr", lParam, "Ptr")
+}
+; ======================================================================================================================
+ODLB_DrawItem(wParam, lParam, Msg, Hwnd) {
+   ; lParam / DRAWITEMSTRUCT offsets
+   Static offItem := 8, offAction := offItem + 4, offState := offAction + 4, offHWND := offState + A_PtrSize
+        , offDC := offHWND + A_PtrSize, offRECT := offDC + A_PtrSize, offData := offRECT + 16
+   ; Owner Draw Type
+   Static ODT := {2: "LISTBOX", 3: "COMBOBOX"}
+   ; Owner Draw Action
+   Static ODA_DRAWENTIRE := 0x0001, ODA_SELECT := 0x0002, ODA_FOCUS := 0x0004
+   ; Owner Draw State
+   Static ODS_SELECTED := 0x0001, ODS_FOCUS := 0x0010
+   ; Draw text format flags
+   Static DT_Flags := 0x24 ; DT_SINGLELINE = 0x20, DT_VCENTER = 0x04
+   ; -------------------------------------------------------------------------------------------------------------------
+   Critical ; may help in case of drawing issues
+   If (Numget(lParam + 0, 0, "UInt") <> 2) ; ODT_LISTBOX
+      Return
+   HWND := NumGet(lParam + offHWND, 0, "UPtr")
+   Item := NumGet(lParam + offItem, 0, "Int")
+   Action := NumGet(lParam + offAction, 0, "UInt")
+   State := NumGet(lParam + offState, 0, "UInt")
+   HDC := NumGet(lParam + offDC, 0, "UPtr")
+   RECT := lParam + offRECT
+   If (Action = ODA_FOCUS)
+      Return True
+   BgC := CtrlBgC := DllCall("Gdi32.dll\GetBkColor", "Ptr", HDC, "UInt")
+   TxC := CtrlTxC := DllCall("Gdi32.dll\GetTextColor", "Ptr", HDC, "UInt")
+   If (State & ODS_SELECTED) {
+      C := ODLB_SetHiLiteColors("!GET!")
+      BgC := C.HC, TxC := C.TC
+   }
+   Brush := DllCall("Gdi32.dll\CreateSolidBrush", "UInt", BgC, "UPtr")
+   DllCall("User32.dll\FillRect", "Ptr", HDC, "Ptr", RECT, "Ptr", Brush)
+   DllCall("Gdi32.dll\DeleteObject", "Ptr", Brush)
+   NumPut(NumGet(RECT + 0, 0, "Int") + 2, RECT + 0, 0, "Int")
+   SendMessage, 0x018A, % Item, 0, , ahk_id %HWND% ; LB_GETTEXTLEN
+   VarSetCapacity(Txt, ErrorLevel << !!A_IsUnicode, 0)
+   SendMessage, 0x0189, % Item, % &Txt, , ahk_id %HWND% ; LB_GETTEXT
+   VarSetCapacity(Txt, -1)
+   DllCall("Gdi32.dll\SetBkMode", "Ptr", HDC, "Int", 1) ; TRANSPARENT
+   DllCall("Gdi32.dll\SetTextColor", "Ptr", HDC, "UInt", TxC)
+   DllCall("User32.dll\DrawText", "Ptr", HDC, "Ptr", &Txt, "Int", -1, "Ptr", RECT, "UInt", 0x24)
+   NumPut(NumGet(RECT + 0, 0, "Int") - 2, RECT + 0, 0, "Int")
+   DllCall("Gdi32.dll\SetTextColor", "Ptr", HDC, "UInt", CtrlTxC)
+   Return True
+}
+; ======================================================================================================================
+ODLB_MeasureItem(wParam, lParam, Msg, Hwnd) {
+   ; lParam -> MEASUREITEMSTRUCT offsets
+   Static offHeight := 16
+   ; -------------------------------------------------------------------------------------------------------------------
+   NumPut(ODLB_SetItemHeight("!GET!"), lParam + 0, offHeight, "Int")
+   Return True
+}
+; ======================================================================================================================
+ODLB_SetItemHeight(FontOptions := "", FontName := "") {
+   Static ItemHeight := 0
+   If (FontOptions <> "!GET!") {
+      Gui, ODLB_SetItemHeight:Font, %FontOptions%, %FontName%
+      Gui, ODLB_SetItemHeight:Add, Text, 0x200 hwndHTX, Dummy
+      VarSetCapacity(RECT, 16, 0)
+      DllCall("User32.dll\GetClientRect", "Ptr", HTX, "Ptr", &RECT)
+      Gui, ODLB_SetItemHeight:Destroy
+      ItemHeight := NumGet(RECT, 12, "Int")
+   }
+   Return ItemHeight
+}
+; ======================================================================================================================
+ODLB_SetHiLiteColors(HiLite := "", Text := "") {
+   Static HC := DllCall("User32.dll\GetSysColor", "Int", 13, "UInt") ; COLOR_HIGHLIGHT
+   Static TC := DllCall("User32.dll\GetSysColor", "Int", 14, "UInt") ; COLOR_HIGHLIGHTTEXT
+   If (HiLite <> "!GET!") {
+      If (HiLite = "")
+         HC := DllCall("User32.dll\GetSysColor", "Int", 13, "UInt")
+      Else
+         HC := ((HiLite >> 16) & 0xFF) | (HiLite & 0x00FF00) | ((HiLite & 0xFF) << 16)
+      If (Text = "")
+         TC := DllCall("User32.dll\GetSysColor", "Int", 14, "UInt")
+      Else
+         TC := ((Text >> 16) & 0xFF) | (Text & 0x00FF00) | ((Text & 0xFF) << 16)
+   }
+   Return {HC: HC, TC: TC}
 }
