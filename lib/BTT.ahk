@@ -4,7 +4,7 @@ https://github.com/telppa/BeautifulToolTip
 If you want to add your own style to the built-in style, you can add it directly in btt().
 
 version:
-2021.10.03
+2021.10.4
 
 changelog:
 2021.10.03
@@ -107,7 +107,7 @@ btt(Text:="", X:="", Y:="", WhichToolTip:="", BulitInStyleOrStyles:="", BulitInO
                   , FontSize:14}
 
        , Style2 := {Border:1
-                  , Rounded:8
+                  , Rounded:0
                   , TextColor:0xfff4f4f4
                   , BackgroundColor:0xaa3e3d45
                   , FontSize:14}
