@@ -148,15 +148,14 @@ if WinActive()
     goto GuiEscape
 }
 Gui Destroy
-Gui, +HwndMyGuiHwnd
 Gui Margin, 0, 0
 Gui, Font, s14, Consolas
+Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd
 Gui Add, Edit, hwndEDIT x0 w500 C0x%BackgroundColor% vQuery gType
-ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 Gui Add, ListBox, hwndLIST x0 y+0 h20 w500  vCommand gSelect AltSubmit -HScroll %OD_LB%
-Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow
-gosub Type
+ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
+gosub Type
 Gui Show, X%gui_x% Y%gui_y%
 if(A_ThisHotkey == "!q")
 {
@@ -501,7 +500,7 @@ handle_command(command)
     UnityPath:= my_xml.SSN(pattern).text
 
 
-    ExecScript(UnityPath)
+    ExecScript(UnityPath, "",A_ScriptDir "\AutoHotkey.exe")
 }
 
 xml_parse(xml)
