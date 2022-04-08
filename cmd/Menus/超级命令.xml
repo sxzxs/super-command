@@ -1,38 +1,55 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <Menu>
-	<Item name="@网站文件夹" tv="1268688">
-		<Item name="百度" tv="1267680">run,www.baidu.com</Item>
-		<Item name="虎牙" tv="1265664">run,www.huya.com</Item>
-		<Item name="斗鱼" tv="1266112">run, www.douyu.com</Item>
-		<Item name="ahk中文论坛autoahk" tv="1268800">run,www.autoahk.com</Item>
-		<Item name="ahk官网论坛autohotkey" tv="1265552">run, www.autohotkey.com</Item>
-		<Item name="github" tv="1267232">run,https:github.com</Item>
-		<Item name="github镜像" tv="1266224">run,https://hub.fastgit.org/</Item>
-		<Item name="卡牌card目录" tv="1267904">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
-		<Item name="云顶之奕" tv="1265888">run,G:\我的AHK程序\游戏脚本\HX云顶之奕挂机脚本</Item>
-		<Item name="我的ahk工程" tv="1266336">run,G:\我的AHK程序\我的工程</Item>
-		<Item name="超级命令目录" tv="1268912">run,G:\我的AHK程序\我的工程\超级命令</Item>
-		<Item name="gitee" tv="1265776">run, https://gitee.com/</Item>
-		<Item name="必应" tv="1267456">run,https://cn.bing.com/</Item>
-		<Item name="必应图片" tv="1266448">run,https://cn.bing.com/images/trending?form=Z9LH</Item>
-		<Item name="google" tv="1266896" last="1">run, www.google.com</Item>
-		<Item name="bilibilib站" tv="1266000">run,https://www.bilibili.com/</Item>
-		<Item name="打字练习网站" tv="1267120">run,https://dazi.kukuw.com/
-run,https://www.bilibili.com/video/av57373164?from=search&amp;seid=7505871621684040908</Item>
-		<Item name="正则表达式帮助" tv="1267568">run,C:\Users\hetong\Documents\Tencent Files\2397633100\FileRecv\55分钟学会正则表达式.DOC</Item>
-		<Item name="c++中文网" tv="1266672">run,http://c.biancheng.net/view/151.html</Item>
-		<Item name="c++chm" tv="1267792">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
-		<Item name="leedcode" tv="1266784">run,https://leetcode-cn.com</Item>
-		<Item name="linux命令大全" tv="1267008">run,https://man.linuxde.net/</Item>
-		<Item name="goo" tv="1267344"></Item>
-		<Item name="autohotkey目录" tv="1268016">run,C:\Program Files\AutoHotkey</Item>
-		<Item name="嗨正则" tv="1268128">run,https://hiregex.com/</Item>
-		<Item name="音乐" tv="1268240">run,http://tool.liumingye.cn/music/?page=searchPage</Item>
-		<Item name="thqby gitee" tv="1333936">run,https://gitee.com/barbarla/AHK_Lib/tree/master</Item>
-		<Item name="电影" tv="1331584">run,https://lab.liumingye.cn/vodplay/67631-1-1.html</Item>
-		<Item name="小众软件" tv="1332592">run,https://www.appinn.com/</Item></Item>
-	<Item name="@命令" tv="1334048">
-		<Item name="vim操作说明" tv="1330688">CommandText =
+	<Item name="网站文件夹" tv="1156576">
+		<Item name="百度" tv="1155680">run,www.baidu.com</Item>
+		<Item name="虎牙" tv="1156688">run,www.huya.com</Item>
+		<Item name="斗鱼" tv="1155792">run, www.douyu.com</Item>
+		<Item name="plantuml帮助网站" tv="1156128">run, https://plantuml.com/zh/guide</Item>
+		<Item name="ahk中文论坛autoahk" tv="1156016">run,www.autoahk.com</Item>
+		<Item name="ahk官网论坛autohotkey" tv="1156800">run, www.autohotkey.com</Item>
+		<Item name="github" tv="1157360">run,https:github.com</Item>
+		<Item name="github加速" tv="1156352">run,F:\github\dev-sidecar\dev-sidecar.exe</Item>
+		<Item name="github镜像" tv="1156240">run,https://hub.fastgit.org/</Item>
+		<Item name="书籍下载" tv="1344336">run,https://zh.ng1lib.org</Item>
+		<Item name="cpp2ahk" tv="1343888">run,G:\c++学习\vsproject\repos\cpp2ahk\cpp2ahk</Item>
+		<Item name="书籍目录" tv="1345344">run,G:\书籍</Item>
+		<Item name="文档软件" tv="1343664">run, https://zealdocs.org/download.html#windows
+run,https://www.jianshu.com/p/598f18ca6963
+run,F:\zoo文档软件\zeal-portable-0.6.1-windows-x64\zeal.exe</Item>
+		<Item name="卡牌card目录" tv="1344560">run,G:\我的AHK程序\游戏脚本\lol脚本集合\HX英雄联盟卡牌极速切牌</Item>
+		<Item name="云顶之奕" tv="1344896">run,G:\我的AHK程序\游戏脚本\HX云顶之奕挂机脚本</Item>
+		<Item name="我的ahk工程" tv="1345120">run,G:\我的AHK程序\我的工程</Item>
+		<Item name="超级命令目录" tv="1344224">run,G:\我的AHK程序\我的工程\超级命令</Item>
+		<Item name="gitee" tv="1344672">run, https://gitee.com/</Item>
+		<Item name="必应" tv="1345568">run,https://cn.bing.com/</Item>
+		<Item name="必应图片" tv="1345456" last="1">run,https://cn.bing.com/images/trending?form=Z9LH</Item>
+		<Item name="google谷歌" tv="1344784">run, www.google.com</Item>
+		<Item name="bilibilib站" tv="1346800">run,https://www.bilibili.com/</Item>
+		<Item name="打字练习网站" tv="1345008">run,https://dazi.kukuw.com/
+run,https://www.bilibili.com/video/av57373164?from=search&amp;seid=7505871621684040908
+run,https://www.bilibili.com/video/BV1754y127N6?spm_id_from=333.337.search-card.all.click
+run,https://10fastfingers.com/
+run,https://www.typingtest.com/
+run,https://www.keybr.com/</Item>
+		<Item name="正则表达式帮助" tv="1346016">run,C:\Users\kzf\Documents\Tencent Files\FileRecv\55分钟学会正则表达式.DOC</Item>
+		<Item name="c++中文网" tv="1346352">run,http://c.biancheng.net/view/151.html</Item>
+		<Item name="c++chm" tv="1345232">run,G:\书籍\C++手册\cppreference-zh-20191207.chm</Item>
+		<Item name="leedcode" tv="1344448">run,https://leetcode-cn.com</Item>
+		<Item name="linux命令大全" tv="1345680">run,https://man.linuxde.net/</Item>
+		<Item name="goo" tv="1343776"></Item>
+		<Item name="autohotkey目录" tv="1344000">run,C:\Program Files\AutoHotkey</Item>
+		<Item name="嗨正则" tv="1346912">run,https://hiregex.com/</Item>
+		<Item name="计时器" tv="1347248">run,https://cn.easycattimer.com/</Item>
+		<Item name="音乐" tv="1346128">run,http://tool.liumingye.cn/music/?page=searchPage</Item>
+		<Item name="thqby gitee" tv="1344112">run,https://gitee.com/barbarla/AHK_Lib/tree/master</Item>
+		<Item name="电影" tv="1345904">run,https://lab.liumingye.cn/vodplay/67631-1-1.html</Item>
+		<Item name="小众软件" tv="1345792">run,https://www.appinn.com/</Item>
+		<Item name="vscode笔记" tv="1346240">run,G:\vs code\Microsoft VS Code\Code.exe G:\vscode笔记\note</Item>
+		<Item name="opencv文档" tv="1346464">run, https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#ga606feabe3b50ab6838f1ba89727aa07a
+run,https://docs.opencv.org/</Item>
+		<Item name="软件工具" tv="1347360">run,https://www.nirsoft.net/utils/index.html</Item></Item>
+	<Item name="@命令" tv="1346576">
+		<Item name="vim操作说明" tv="1347136">CommandText =
     (% 
 重要的概念
 	增：
@@ -111,7 +128,7 @@ run,https://www.bilibili.com/video/av57373164?from=search&amp;seid=7505871621684
 Instruction := CommandText
 Content := ""
 TaskDialog(Instruction, Content, "", 0x1, 0)
-run,C:\Users\hetong\Desktop\我的AHK程序\自动化办公\vim.png 
+run,C:\Users\kzf\Desktop\我的AHK程序\自动化办公\vim.png 
 
 
 TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, IconRes := "", Owner := 0x10010) {
@@ -142,53 +159,59 @@ TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, I
 
     Return {1: "OK", 2: "Cancel", 4: "Retry", 6: "Yes", 7: "No", 8: "Close"}[Ret]
 }</Item>
-		<Item name="关机" tv="1332256">msgbox, no this command</Item>
-		<Item name="窗口置顶" tv="1333152">MouseGetPos, MouseX, MouseY, MouseWin
+		<Item name="关机" tv="1347024">msgbox, no this command</Item>
+		<Item name="窗口置顶" tv="1347472">MouseGetPos, MouseX, MouseY, MouseWin
 ; 似乎有必要首先关闭任何现有的透明度:
 WinSet, AlwaysOnTop, TOGGLE , ahk_id %MouseWin%</Item>
-		<Item name="ipconfig" tv="1333040">#include &lt;runcmd&gt;
+		<Item name="ipconfig" tv="1346688">#include &lt;runcmd&gt;
 #include &lt;log4ahk&gt;
 rtn := cmd.run("ifconfig")
 log.info(rtn)</Item>
-		<Item name="test" tv="1332480">#include &lt;log4ahk&gt;
-log.info("a")
-ExitApp</Item>
-		<Item name="test2" tv="1332368">#include &lt;log4ahk&gt;
+		<Item name="test" tv="1349264">#include &lt;log4ahk&gt;
+log.info("ahk")
+log.info("qiu dei madou qiu diu madou qiu dei madou qiu dei madou")
+log.info("qiu dei madou")
+log.info("qiu dei mad dou ")</Item>
+		<Item name="test2" tv="1352176">#include &lt;log4ahk&gt;
 log.info("aaa")</Item>
-		<Item name="mathematica" tv="1332704">
-			<Item name="转换为c语言" tv="1333488">
+		<Item name="mathematica" tv="1349600">
+			<Item name="转换为c语言" tv="1349488">
 inputvar = 
 (
 CForm[expr]
 )
-	clipboard:=inputvar </Item>
-			<Item name="yy" tv="1333600"></Item></Item></Item>
-	<Item name="vnote.exe" tv="1333712">
-		<Item name="搜索" tv="1330240">WinActivate, ahk_exe vnote.exe
+	clipboard:=inputvar </Item></Item></Item>
+	<Item name="vnote.exe" tv="1352512">
+		<Item name="搜索" tv="1349712">WinActivate, ahk_exe vnote.exe
 SendInput,{ctrl down}{alt down}f{alt up}{ctrl up}</Item></Item>
-	<Item name="@笔记" tv="1330352">
-		<Item name="vscode" tv="1330464">
-			<Item name="快捷键" tv="1330576">alt+m 主界面</Item></Item></Item>
-	<Item name="@软件" tv="960928">
-		<Item name="vnote" tv="960256">run, G:\书籍\vnote_releases\vnote.exe</Item>
-		<Item name="词典" tv="959360">run,C:\Users\hetong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
-		<Item name="音乐" tv="959472">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
-		<Item name="cherry笔记" tv="960592">run,C:\Program Files\CherryTree\mingw64\bin\cherrytree.exe</Item>
-		<Item name="搜索" tv="959808">Run, everything, F:\everything,</Item>
-		<Item name="tgp" tv="960144">Run,*RunAs WeGame,E:\wegeme,</Item>
-		<Item name="录制" tv="961040">run,bdcam.exe,F:\Bandicam</Item>
-		<Item name="百度网盘" tv="960032">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
-		<Item name="截图" tv="961152">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
+	<Item name="@笔记" tv="1351840">
+		<Item name="vscode" tv="1349376">
+			<Item name="快捷键" tv="1349824">alt+m 主界面</Item></Item>
+		<Item name="picgo" tv="1351280">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</Item></Item>
+	<Item name="@软件" tv="1348816">
+		<Item name="vnote" tv="1350720">run, G:\书籍\vnote_releases\vnote.exe</Item>
+		<Item name="com dll查看" tv="1350160">run,G:\我的AHK程序\我的工程\com dll查看\Dll&amp;COM Viewer.exe</Item>
+		<Item name="词典" tv="1351616">run,C:\Users\kzf\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\网易有道词典.lnk</Item>
+		<Item name="音乐" tv="1350496">run,C:\ProgramData\Microsoft\Windows\Start Menu\Programs\网易云音乐.lnk</Item>
+		<Item name="cherry笔记" tv="1352624">run,C:\Program Files\CherryTree\mingw64\bin\cherrytree.exe</Item>
+		<Item name="搜索" tv="1351728">Run, everything, F:\everything,</Item>
+		<Item name="tgp" tv="1348928">Run,*RunAs WeGame,E:\wegeme,</Item>
+		<Item name="录制" tv="1349936">run,bdcam.exe,F:\Bandicam</Item>
+		<Item name="百度网盘" tv="1351952">run,baidunetdisk.exe,F:\BaiduNetdisk</Item>
+		<Item name="截图" tv="1350048">run,FSCapture.exe,C:\Program Files (x86)\FastStone Capture\
 </Item>
-		<Item name="秒表" tv="1254192">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item>
-		<Item name="gif录屏" tv="1255536">run,F:\gif\屏幕录制ScreenToGif 2.34.1.exe</Item>
-		<Item name="画图可汗" tv="1256432">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
-		<Item name="正则表达式ahk" tv="1253520">run,C:\Users\hetong\Desktop\我的AHK程序\Adventure\Tools\Expressive\Expressive.ahk</Item>
-		<Item name="正则表达式buddy" tv="1254416">run, F:\正则表达式\RegexBuddy4.9.exe</Item>
-		<Item name="按键显示" tv="1253968">run,G:\我的AHK程序\我的工程\KeyPress-OSD-master（按键显示工具）\keycastow\keycastow.exe</Item></Item>
-	<Item name="@ahk" tv="1254640">
-		<Item name="帮助手册" tv="1255872">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item>
-		<Item name="开头设置" tv="1254752">#NoEnv
+		<Item name="秒表" tv="1350272">run,G:\我的AHK程序\脚本范例\ahkexample\各种脚本\其他合集\AHK 快餐店文中脚本\4.1-4.2计时器_闹钟 13秒表\13.秒表.ahk</Item>
+		<Item name="gif录屏" tv="1352064">run,F:\gif\屏幕录制ScreenToGif 2.34.1.exe</Item>
+		<Item name="画图可汗" tv="1352288">run,F:\绘图软件\SmoothDraw\SmoothDraw4.exe F:\绘图软件\模板.sddoc</Item>
+		<Item name="正则表达式ahk" tv="1349040">run,C:\Users\kzf\Desktop\我的AHK程序\Adventure\Tools\Expressive\Expressive.ahk</Item>
+		<Item name="正则表达式buddy" tv="1352400">run, F:\正则表达式\RegexBuddy4.9.exe</Item>
+		<Item name="按键显示" tv="1350384">run,G:\我的AHK程序\我的工程\KeyPress-OSD-master（按键显示工具）\keycastow\keycastow.exe</Item>
+		<Item name="vsvim" tv="1350608">run,https://blog.csdn.net/yanchezuo/article/details/78790961</Item></Item>
+	<Item name="@ahk" tv="1349152">
+		<Item name="帮助手册" tv="1350832">run,https://www.autoahk.com/help/autohotkey/zh-cn/docs/AutoHotkey.htm</Item>
+		<Item name="库目录" tv="1350944">run,https://github.com/HotKeyIt/awesome-AutoHotkey#memory</Item>
+		<Item name="算法" tv="1351056">run,https://rosettacode.org/wiki/Category:AutoHotkey</Item>
+		<Item name="开头设置" tv="1351168">#NoEnv
 #KeyHistory 0
 #MaxThreads 255
 #MaxMem 4095
@@ -230,7 +253,7 @@ SetDefaultMouseSpeed, 0
 CoordMode, ToolTip , Screen 
     )    
 clipboard:=CommandText</Item>
-		<Item name="快捷输入模板" tv="1254528">CommandText =
+		<Item name="快捷输入模板" tv="1351392">CommandText =
 (%
 CommandText =
 `(%
@@ -239,15 +262,15 @@ CommandText =
 clipboard:=CommandText
 )    
 clipboard:=CommandText</Item>
-		<Item name="include库" tv="1254864">CommandText =
+		<Item name="include库" tv="1351504">CommandText =
 (%
 #Include &lt;log4ahk&gt;
 #Include &lt;my_lib&gt;
 )
 clipboard:=CommandText</Item>
-		<Item name="字符串转双引号其他语言" tv="1255648">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符串转双引号.ahk</Item>
-		<Item name="字符串转延续片段" tv="1253072">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符片段转延续片段.ahk</Item>
-		<Item name="dialog" tv="1255760">c=
+		<Item name="字符串转双引号其他语言" tv="1447936">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符串转双引号.ahk</Item>
+		<Item name="字符串转延续片段" tv="1451184">run,G:\我的AHK程序\我的工程\字符片段转延续片段\字符片段转延续片段.ahk</Item>
+		<Item name="dialog" tv="1449504">c=
 (%
 Clipboard := c
 TaskDialog(Clipboard, "", "", 0x1, 0)
@@ -311,8 +334,8 @@ TaskDialog(Instruction, Content := "", Title := "", Buttons := 1, IconID := 0, I
 	Return {1: "OK", 2: "Cancel", 4: "Retry", 6: "Yes", 7: "No", 8: "Close"}[Ret]
 }
 </Item>
-		<Item name="脚本库" tv="1252736">
-			<Item name="json_feiyue_源码" tv="1252848">;------------------------------
+		<Item name="脚本库" tv="1448048">
+			<Item name="json_feiyue_源码" tv="1448384">;------------------------------
 ;  JSon.ahk - v2.1  By FeiYue
 ;------------------------------
 
@@ -450,7 +473,588 @@ s=
 }
 
 )</Item>
-			<Item name="win_ocr" tv="1253184">#NoEnv
+			<Item name="vscode调试launch" tv="1448944">{
+    "configurations": [
+        {
+            "name": "AutoHotkey Debug U64",
+            "runtimeArgs": [
+                "/CP65001",
+                "/ErrorStdOut",
+            ],
+            "program": "${file}",
+            "request": "launch",
+            "runtime_v1": "C:/Program Files/AutoHotkey/AutoHotkey.exe",
+            "runtime_v2": "C:/Program Files/AutoHotkey_V2/AutoHotkey64.exe",
+            "type": "autohotkey",
+            "port": "9002-9010",
+            "console": "internalConsole",
+            "useOutputDebug": {
+                "useTrailingLinebreak": true
+            },
+            "useAutoJumpToError": true,
+            "usePerfTips": {
+                "fontColor": "red",
+                "format": "{{elapsedTime_ms}} ms {{hitCount}} hit"
+            },
+            "useDebugDirective": true
+        },
+        {
+            "name": "AutoHotkey Debug U32",
+            "runtimeArgs": [
+                "/CP65001",
+                "/ErrorStdOut"
+            ],
+            "program": "${file}",
+            "request": "launch",
+            "runtime_v1": "D:/AutoHotkey/AutoHotkey32.exe",
+            "runtime_v2": "D:/AutoHotkey2/AutoHotkey32.exe",
+            "type": "autohotkey",
+            "port": "9002-9010",
+            "useOutputDebug": {
+                "useTrailingLinebreak": true
+            },
+            "useAutoJumpToError": true,
+            "usePerfTips": {
+                "fontColor": "red",
+                "format": "{{elapsedTime_ms}} ms {{hitCount}} hit"
+            },
+            "useDebugDirective": true
+        }
+    ]
+}</Item>
+			<Item name="数字区间正则" tv="1449952">gen(a, b, q := '') {
+    if !q {
+        a := String(Integer(a))
+        b := String(Integer(b))
+    }
+    la := StrLen(a), lb := StrLen(b), s := ''
+    if (la &lt; lb) {
+        loop (t := '', la)
+            t .= '9'
+        s := gen(a, t, q)
+        return s '|' gen('' t + 1, b, q)
+    } else if (la == 1) {
+        return q (a == b ? a : a = '0' &amp;&amp; b = '9' ? '\d' : '[' a '-' b ']')
+    } else {
+        sa := SubStr(a, 1, 1) + 0, sb := SubStr(b, 1, 1) + 0
+        ua := SubStr(a, 2) + 0 ? sa + 1 : sa
+        if (sa == sb) {
+            return gen(SubStr(a, 2), SubStr(b, 2), q sa)
+        } else if (ua &lt; sb) {
+            if ua &amp;&amp; !(a ~= '^10*$')
+                s .= '|' gen(a, '' ua * (10 ** (la - 1)) - 1, q)
+            if (b ~= '^9+$')
+                s .= '|' q (ua = 9 ? '9' : '[' ua '-9]') (lb &gt; 2 ? '\d{' (lb - 1) '}' : '\d')
+            else {
+                db := sb - 1
+                s .= '|' q (db == ua ? ua : ua = '0' &amp;&amp; db = '9' ? '\d' : '[' ua '-' db ']') '\d' (lb &gt; 2 ? '{' (lb - 1) '}' : '')
+                s .= SubStr(b, 2) + 0 ? '|' gen('' sb * (10 ** (lb - 1)), b, q) : '|' q b
+            }
+        } else if (ua == sb) {
+            if ua
+                s .= '|' gen(a, '' ua * (10 ** (la - 1)) - 1, q)
+            s .= SubStr(b, 2) + 0 ? '|' gen('' sb * (10 ** (lb - 1)), b, q) : '|' q b
+        } else {
+
+        }
+    }
+    return LTrim(s, '|')
+}</Item>
+			<Item name="数字区间转正则v1" tv="1450848">gen(a, b, q := "") {
+    if !q {
+        a := Format("{:d}", a)
+        b := Format("{:d}", b)
+    }
+    la := StrLen(a), lb := StrLen(b), s := ""
+    if (la &lt; lb) {
+        t := ""
+        loop,% la
+            t .= "9"
+        s := gen(a, t, q)
+        return s "|" gen("" t + 1, b, q)
+    } else if (la == 1) {
+        return q (a == b ? a : a = "0" &amp;&amp; b = "9" ? "\d" : "[" a "-" b "]")
+    } else {
+        sa := SubStr(a, 1, 1) + 0, sb := SubStr(b, 1, 1) + 0
+        ua := SubStr(a, 2) + 0 ? sa + 1 : sa
+        if (sa == sb) {
+            return gen(SubStr(a, 2), SubStr(b, 2), q sa)
+        } else if (ua &lt; sb) {
+            if ua &amp;&amp; !(a ~= "^10*$")
+                s .= "|" gen(a, "" ua * (10 ** (la - 1)) - 1, q)
+            if (b ~= "^9+$")
+                s .= "|" q (ua = 9 ? "9" : "[" ua "-9]") (lb &gt; 2 ? "\d{" (lb - 1) "}" : "\d")
+            else {
+                db := sb - 1
+                s .= "|" q (db == ua ? ua : ua = "0" &amp;&amp; db = "9" ? "\d" : "[" ua "-" db "]") "\d" (lb &gt; 2 ? "{" (lb - 1) "}" : "")
+                s .= SubStr(b, 2) + 0 ? "|" gen("" sb * (10 ** (lb - 1)), b, q) : "|" q b
+            }
+        } else if (ua == sb) {
+            if ua
+                s .= "|" gen(a, "" ua * (10 ** (la - 1)) - 1, q)
+            s .= SubStr(b, 2) + 0 ? "|" gen("" sb * (10 ** (lb - 1)), b, q) : "|" q b
+        } else {
+
+        }
+    }
+    return LTrim(s, "|")
+}</Item>
+			<Item name="内存编码" tv="1449056">#include &lt;log4ahk&gt;
+#include &lt;log4ahk&gt;
+BufGet(Ptr, Bytes)
+{
+    Local Buf :=  Buffer(Bytes)
+    Try DllCall("Kernel32\RtlMoveMemory", "ptr",Buf, "ptr",Ptr, "ptr",Bytes)
+    Return Buf
+}
+Bin  :=  BufGet( StrPtr("abc"), 40 )
+ListBuffer(&amp;Bin)
+
+ListBuffer(&amp;Bin, Title := "", *)                            ; v0.28 by SKAN for ah2 on D52L/D533 @ autohotkey.com/r?t=101121
+{
+    Static hMod1,  hMod2,  hMod3
+
+    hMod1  :=  DllCall("Kernel32\LoadLibrary", "str","RichEd20.dll", "ptr")
+    hMod2  :=  DllCall("Kernel32\LoadLibrary", "str","Shlwapi.dll",  "ptr")
+    hMod3  :=  DllCall("Kernel32\LoadLibrary", "str","Crypt32.dll",  "ptr")
+
+    Local  Loading        :=  True
+        ,  ReverseSearch  :=  0
+        ,  Bytes          :=  0
+        ,  TickCount      :=  A_TickCount
+
+    Local  MyGui
+        ,  ChkB1,  ChkB2
+        ,  Edit1,  Edit2,  Edit3
+        ,  UpDn1
+        ,  Text1,  Text2,  Text3
+        ,  Rich1
+        ,  Push1
+        ,  MySB
+
+    MyGui   :=   Gui("+DpiScale +AlwaysOnTop", "ListBuffer" . (Strlen(Title) ? " - " : "") . Title)
+                 MyGui.MarginX  :=  20
+                 MyGui.MarginY  :=  16
+
+                    GetSysColor(n)
+                    {
+                        Return  Format( "{5:}{6:}{3:}{4:}{1:}{2:}", StrSplit(Format("{:06X}"
+                                      , DllCall("User32\GetSysColor", "int",n)))* )
+                    }
+
+    Local  ColorOption := "c" GetSysColor(8) " Background" GetSysColor(5)
+        ,  X, Y, W,  BigE := 0
+
+                 MyGui.SetFont("s11", "Courier New")
+    Edit1   :=   MyGui.AddEdit("xm ym 0x200000 R4 +ReadOnly -Tabstop " ColorOption, Format("{:48}",""))
+                 Edit1.GetPos(,,&amp;W)
+                 Edit1.Text  :=  ""
+
+                 MyGui.SetFont("s10", "Segoe UI")
+                 MyGui.AddText("xm y8", "Offset")
+                 MyGui.AddText("x160 yp w80", "Search")
+    ChkB1   :=   MyGui.AddCheckbox("x240 yp -Tabstop Right w" w - 240 + MyGui.MarginX, "&amp;Reverse")
+                 ChkB1.OnEvent("Click", (*) =&gt; ReverseSearch := not ReverseSearch)
+
+    Push1   :=   MyGui.AddButton("x+0 yp w0 hp -Tabstop Default", "&amp;Go")
+                 Push1.OnEvent("Click", Search)
+
+                 MyGui.SetFont("s11", "Consolas")
+    Edit2   :=   MyGui.AddEdit("xm y+4 w124 Number Right", 0)
+                 Edit2.OnEvent("Change", SelectByte)
+
+    UpDn1   :=   MyGui.AddUpDown("Left Wrap 0x80 Range0-" Bin.Size-1)
+    Edit3   :=   MyGui.AddEdit("x160 yp vSearch w" w - 160 + MyGui.MarginX)
+
+                 MyGui.SetFont("s10", "Segoe UI")
+    Text1   :=   MyGui.AddText("xm y+8", "Hex " Bin.Size " bytes")
+    Text2   :=   MyGui.AddText("x160 yp Right w" w - 160 + MyGui.MarginX, (A_PtrSize=8 ? "x64" : "x86") " @ " Bin.Ptr)
+
+    Local  CHARRANGE
+        ,  Rich1_Min     :=  0
+        ,  Rich1_Max     :=  0
+        ,  Rich1_Options :=  ( 0x200000    ;  WS_VSCROLL
+                             | 0x000100    ;  ES_NOHIDESEL
+                             | 0x000800    ;  ES_READONLY
+                             | 0x008000 )  ;  ES_SAVESEL
+                          .  " E0x20000 "  ;  WS_EX_STATICEDGE
+                          .  " w" W
+
+                 MyGui.SetFont("s11", "Courier New")
+    Rich1   :=   MyGui.AddCustom("ClassRichEdit20A xm y+4 R8 " Rich1_Options)
+                 RichEdit_SetPropertyBits(Rich1.Hwnd)
+                 DllCall("User32\ShowScrollBar", "ptr",Rich1.Hwnd, "int",1, "int",True) ; SB_VERT 1
+
+                 MyGui.SetFont("s10", "Segoe UI")
+                 MyGui.AddText("xm y+8", "Text")
+                 MyGui.SetFont("s11", "Courier New")
+                 MyGui.AddText("r5 y+4 Center E0x20000 w" W)
+    Text3   :=   MyGui.AddText("xp+16 yp+8 r4 w" W-20)
+
+    Local  EditMargins  :=  Format("0x{1:04X}{1:04X}", 8*(A_ScreenDPI/96))
+
+                 SendMessage(0xD3, 0x3, EditMargins, Edit1.Hwnd)                 ;  EM_SETMARGINS 0xD3
+                 SendMessage(0xD3, 0x3, EditMargins, Edit2.Hwnd)
+                 SendMessage(0xD3, 0x3, EditMargins, Edit3.Hwnd)
+                 SendMessage(0xD3, 0x3, EditMargins, Rich1.Hwnd)
+
+                 MyGui.SetFont("s10", "Segoe UI")
+                 MyGui.AddText("xm y+16", "Values")
+    ChkB2   :=   MyGui.AddCheckbox("x160 yp -Tabstop Right w" w - 160 + MyGui.MarginX, "&amp;BigEndian")
+                 ChkB2.OnEvent("Click", ToggleEndian)
+
+    MyGui.AddText("xm y+4 w0 h0").GetPos(&amp;X, &amp;Y)
+    MyGui.AddButton("xp yp wp hp -Tabstop", "&amp;Values").OnEvent("Click", (*) =&gt; Edit1.Focus())
+    MyGui.AddButton("xp yp wp hp -Tabstop", "&amp;Offset").OnEvent("Click", (*) =&gt; Edit2.Focus())
+    MyGui.AddButton("xp yp wp hp -Tabstop", "&amp;Search").OnEvent("Click", (*) =&gt; Edit3.Focus())
+    MyGui.AddButton("xp yp wp hp -Tabstop", "&amp;Hex"   ).OnEvent("Click", (*) =&gt; Rich1.Focus())
+    Edit1.Move(X, Y)
+
+    MySB    :=   MyGui.AddStatusBar()
+                 MySB.SetParts(MyGui.MarginX, W, MyGui.MarginX)
+
+    Local  Hex  :=  BufferToSHex(&amp;Bin)
+
+                    GuiClose(*)
+                    {
+                        If  Loading
+                            Return 0
+
+                        MyGui.Destroy()
+                        hMod1 := not  DllCall("Kernel32\FreeLibrary", "ptr",hMod1)
+                        hMod2 := not  DllCall("Kernel32\FreeLibrary", "ptr",hMod2)
+                        hMod2 := not  DllCall("Kernel32\FreeLibrary", "ptr",hMod3)
+                        Return
+                    }
+
+    MyGui.OnEvent("Close",  GuiClose)
+    MyGui.OnEvent("Escape", GuiClose)
+
+    MyGui.Show("AutoSize Hide")
+    MyGui.Show()
+
+                    MySB_Tip(Text, TimeOut := 2000)
+                    {
+                        Try MySB.SetText(RTrim( A_Space Text, A_Space), 2)
+                        If  TimeOut
+                            SetTimer((*) =&gt; MySB_Tip("", 0), 0 - Abs(Timeout))
+                    }
+
+    MySB_Tip("Loading ..", 0)
+    DllCall("User32\SetWindowTextA", "ptr",Rich1.Hwnd, "ptr",Hex)
+
+    SendMessage(0xB1, Hex.Size, Hex.Size, Rich1.Hwnd)                            ;  EM_SETSEL
+    SendMessage(0x445, 0, 0x90000|0x20000, Rich1.Hwnd)                           ;  EM_SETEVENTMASK
+
+    Rich1.OnNotify(0x700, EN_MSGFILTER, 1)
+    Rich1.OnNotify(0x702, EN_SELCHANGE, 1)
+
+    PostMessage(0xB1, 0, 0, Rich1.Hwnd)
+    ControlSetText(0, Edit2.Hwnd)
+
+    TickCount  :=  Format("{:.15g}", (A_TickCount-TickCount)/1000)
+    Loading    :=  False
+    MySB_Tip("Loading completed in " TickCount "s")
+    Edit2.Focus()
+
+    WinWaitClose(MyGui.Hwnd)
+    Return 1
+    ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                    ToggleEndian(*)
+                    {
+                        BigE   :=  ChkB2.Value
+                        Bytes  :=  Bin.Size - UpDn1.Value
+                        Bytes  :=  Bytes &gt; 191 ? 192 : Bytes
+                        NumValues(Bin.Ptr + UpDn1.Value, Bytes)
+                    }
+
+
+                    SelectByte(*)
+                    {
+                        PostMessage(0xB1, UpDn1.Value*3, UpDn1.Value*3+3, Rich1.Hwnd)
+                    }
+
+
+                    EN_SELCHANGE(GuiControl, lParam)
+                    {
+                        CHARRANGE  :=  lParam+(A_PtrSize*3)
+                        Rich1_Min  :=  NumGet(CHARRANGE, 0, "uint")
+                        Rich1_Max  :=  NumGet(CHARRANGE, 4, "uint")
+
+                        Edit2.OnEvent("Change", SelectByte, 0)
+                        UpDn1.Value := Rich1_Min//3
+                        Edit2.OnEvent("Change", SelectByte, 1)
+
+                        Bytes  :=  Bin.Size - UpDn1.Value
+                        Bytes  :=  Bytes &gt; 191 ? 192 : Bytes
+
+                        Text3.Text  :=  BinToTxt(Bin.Ptr + UpDn1.Value, Bytes)
+                        NumValues(Bin.Ptr + UpDn1.Value, Bytes)
+                    }
+
+
+                    EN_MSGFILTER(GuiControl, Param)
+                    {
+                        Local  Offset  :=  Param+(A_PtrSize*3)
+                            ,  Msg     :=  NumGet(Offset, "uint")
+                            ,  wParam  :=  NumGet(Offset+4, A_PtrSize*0, "ptr")
+                            ,  Key
+
+                         If  Msg = 0x101                                         ; WM_KEYUP := 0x101
+                        and  IsNumber( Key := Chr(wparam) )
+                        and  Key&gt;0 and Key&lt;9
+                             UpDn1.Value  +=  GetKeyState("Shift", "P")
+                                           ?  0 - Integer(Key)
+                                           :  Integer(Key)
+                    }
+
+
+                    NumValues(Offset, Bytes)
+                    {
+                        Static Buf  :=  Buffer(8)
+                        Local  Num
+                            ,  Double := 0
+                            ,  Float := 0
+                            ,  NumType  :=  Bytes&gt;7 ? "uint64" : Bytes&gt;3 ? "uint" : Bytes&gt;1 ? "ushort" : "uchar"
+
+                        Num  :=  Format("{:016X}", NumGet(offset, NumType))
+                     ,  Num  :=  BigE
+
+                             ?  Format("0x{15:}{16:}|0x{15:}{16:}{13:}{14:}|0x{15:}{16:}{13:}{14:}{11:}{12:}{09:}{10:}"
+                                     . "|0x{15:}{16:}{13:}{14:}{11:}{12:}{09:}{10:}{07:}{08:}{05:}{06:}{03:}{04:}{01:}{02:}"
+                                     ,  StrSplit(Num)*)
+
+                             :  Format("0x{15:}{16:}|0x{13:}{14:}{15:}{16:}|0x{09:}{10:}{11:}{12:}{13:}{14:}{15:}{16:}"
+                                     . "|0x{01:}{02:}{03:}{04:}{05:}{06:}{07:}{08:}{09:}{10:}{11:}{12:}{13:}{14:}{15:}{16:}"
+                                     ,  StrSplit(Num)*)
+
+                     ,  Num  :=  StrSplit(Num, "|")
+
+                        Double  :=  NumGet(NumPut("int64", Num[4], Buf, ) - 8, "double")
+                     ,  Double  :=  Format("{:.15g}", Double)
+                     ,  Double  :=  StrLen(Double) &gt; 16 ? "" : Double
+
+                        Float   :=  NumGet(NumPut("uint", Num[3], Buf) - 4, "float")
+                     ,  Float   :=  Format("{:.7g}", Float)
+
+                        Edit1.Text := Format( "Char  {1:11} {2:11}             Float`r`n"
+                                            . "Short {3:11} {4:11}  {5:16}`r`n"
+                                            . "Int   {6:11} {7:11}            Double`r`n"
+                                            . "Int64 {8:23}  {9:16}"
+                                            , NumGet( NumPut("uchar",  Num[1], Buf)-1, "uchar" )
+                                            , NumGet( NumPut("char",   Num[1], Buf)-1, "char"  )
+                                            , NumGet( NumPut("ushort", Num[2], Buf)-2, "ushort")
+                                            , NumGet( NumPut("short",  Num[2], Buf)-2, "short" )
+                                            , Float
+                                            , NumGet( NumPut("uint",   Num[3], Buf)-4, "uint"  )
+                                            , NumGet( NumPut("int",    Num[3], Buf)-4, "int"   )
+                                            , NumGet( NumPut("int64",  Num[4], Buf)-8, "int64" )
+                                            , Double
+                                            )
+                    }
+
+
+                    RichEdit_SetPropertyBits(hRich)
+                    {
+                        Local  OnTxPropertyBitsChange  :=  19               ; &lt;= Thanks swagfag @ autohotkey.com/r/?p=402594
+                            ,  Unknown
+                            ,  pUnknown
+                            ,  TxtSrv
+                            ,  IID_ITextServices       :=  "{8D33F740-CF58-11CE-A89D-00AA006CADC5}"
+
+                        SendMessage(0x43C, 0, Unknown  :=  Buffer(8), hRich)     ; EM_GETOLEINTERFACE
+                        pUnknown  :=  NumGet(Unknown, "ptr")
+                        TxtSrv    :=  ComObjQuery(pUnknown, IID_ITextServices)
+                        ObjRelease(pUnknown)
+
+                        If  A_Ptrsize = 8
+                        {
+                            ComCall(OnTxPropertyBitsChange, TxtSrv, "int",0x802, "int",0x2)  
+                            TxtSrv :=  ""
+                            Return
+                        }
+                                                                               ; Thanks lexikos @ autohotkey.com/r/?p=402798
+
+                        Local  vtbl                    :=  NumGet(TxtSrv.Ptr, "ptr")
+                            ,  pOnTxPropertyBitsChange :=  NumGet(vtbl + (19 * A_PtrSize), "ptr")
+                            ,  thiscall_thunk          :=  Buffer(8)
+
+                        NumPut("int64", 0xE2FF50595A58, thiscall_thunk)
+                        DllCall("Kernel32\VirtualProtect", "ptr",thiscall_thunk, "ptr",8, "int",0x40, "uint*",0)
+                        DllCall(thiscall_thunk, "ptr",pOnTxPropertyBitsChange, "ptr",TxtSrv, "int",0x802, "int",0x2)
+                        TxtSrv  :=  ""
+                    }
+
+
+                    BufferToSHex(&amp;Buf)
+                    {
+                        Static mCode
+                        Local  mSz, Hex
+
+                        If  not IsSet(mCode)
+                            mSz := A_PtrSize=8 ? 128 : 105
+                         ,  mcode := Buffer(mSz)
+                         ,  DllCall("Kernel32\VirtualProtect", "ptr",mcode, "ptr",mSz, "int",0x40, "int*",0)
+                         ,  DllCall("Crypt32\CryptStringToBinary"
+                                  , "str",A_PtrSize=8
+
+                                  ? "U1ZFhcB2djHARTHJDx9AAEGJwkYPthQRRYnTQcHrBESI20GD+wlAD5fWQPbeQIDmB0CAxjBAAPNEic6IHDJFid"
+                                  . "NBg+MPRYjaQYP7CUEPl9NB9ttBgOMHQYDDMEUA2mdFjVkBRogUGmdFjVECQsYEEiBBg8EDg8ABRDnAcpNeW8M="
+
+                                  : "VYnlg+wEU1ZXi30Mg30QAHZQMfYx24tNCA+2DDGJTfzB6QSIyoP5CQ+X0PbYJAcEMADCiBQfi1X8idGD4Q+Iyo"
+                                  . "P5CQ+X0fbZgOEHgMEwAMqIVB8BxkQfAiCDwwNGO3UQcrRfXluJ7F3D"
+
+                                  , "int",A_PtrSize=8 ? 172 : 140, "int",0x1, "ptr",mCode, "int*",mSz, "int",0, "int",0)
+
+                        Hex := Buffer((Buf.Size*3) + 2)                                     ; put a trailing null terminator
+                        NumPut("ushort", 0, Hex, Hex.Size-2)
+                        DllCall(mCode, "ptr",Buf, "ptr",Hex, "int",Buf.Size, "cdecl")
+
+                        Return Hex
+                    }
+
+
+                    BinToTxt(pBin, Bytes:=192)
+                    {
+                        Static mCode
+                        Local  mSz, Txt, LF := Chr(10)
+
+                        If  not IsSet(mCode)
+                            mSz := A_PtrSize=8 ? 100 : 86
+                         ,  mcode := Buffer(mSz)
+                         ,  DllCall("Kernel32\VirtualProtect", "ptr",mcode, "ptr",mSz, "int",0x40, "int*",0)
+                         ,  DllCall("Crypt32\CryptStringToBinary"
+                                  , "str",A_PtrSize=8
+
+                                  ? "U1ZFhcB2WjHARTHJQYnCRg+2HBFBg/sgcwe7LgAAAOsqQbouAAAAQYH7rQAAAEEPRfNBD0TyQbouAAAAQYPrf0"
+                                  . "GD+yFBD0baD0feRYnKQYjbRogcEkGDwQGDwAFEOcByq15bww=="
+
+                                  : "U1ZXg3wkGAB2SDHAMdKLTCQQD7YMAYP5IHMHvi4AAADrH78uAAAAgfmtAAAAD0X5uy4AAACD6X+D+SEPRvMPR/"
+                                  . "eLTCQUifOIHBFCQDtEJBhyvF9eW8M="
+
+                                  , "int",A_PtrSize=8 ? 136 : 116, "int",0x1, "ptr",mCode, "int*",mSz, "int",0, "int",0)
+
+                        Txt := Buffer(Bytes, 0)
+                        DllCall(mCode, "ptr",pBin, "ptr",Txt, "int",Bytes, "cdecl")
+                        Txt := StrGet(Txt, "cp0")
+
+                        Return SubStr(Txt,  1,48) LF SubStr(Txt,  49,48) LF
+                             . SubStr(Txt, 97,48) LF SubStr(Txt, 145,48)
+                    }
+
+
+                    Search(*)
+                    {
+                        Local  Val  :=  Edit3.Text
+                             , Pos  :=  0
+
+                        If  not InStr(Val, ":")
+                            Return
+
+                        Try  Pos  :=  InBinary(&amp;Bin, Val)
+
+                        If   ReverseSearch = 0 and UpDn1.Value = Pos-1
+                             Try  UpDn1.Value += 1
+                               ,  Pos  :=  InBinary(&amp;Bin, Val)
+                               ,  UpDn1.Value += Pos ? 0 : -1
+
+                        If   ReverseSearch = 1 and UpDn1.Value = Pos-1
+                             Try  UpDn1.Value -= 1
+                               ,  Pos  :=  InBinary(&amp;Bin, Val)
+                               ,  UpDn1.Value += Pos ? 0 : +1
+
+                        If not Pos
+                           Return MySB_Tip("Not found " Val)
+
+                        UpDn1.Value := Pos-1
+                    }
+
+
+                    InBinary(&amp;HayBuffer, Val)
+                    {
+                        Val  :=  StrSplit(Val, ":",, 2)
+
+                        Local  valtype      :=  Val[1]
+                             , value        :=  Val[2]
+                             , Needle
+                             , Len
+                             , Bytes        :=  0
+                             , Unicode      :=  0
+                             , StartingPos  
+                             , Buf          :=  Buffer(8, 0)
+
+                        Local NumTypes := { double:8,float:4,uint64:8,int64:8,uint:4,int:4,ushort:2
+                                          , short:2,uptr:8,ptr:8,uchar:1,char:1 }
+
+                          If  IsNumber(valtype) and (valtype&gt;0 and valtype&lt;9)
+                              NumPut("uint64", value, Buf)
+                           ,  Needle := Buffer(valtype)
+                           ,  DllCall("Kernel32\RtlMoveMemory", "ptr",Needle, "ptr",Buf, "ptr",valtype)
+
+                        Else
+
+                          If  valtype  =   ""
+                              value    :=  StrReplace(value, A_Space)
+                           ,  Len      :=  StrLen(value)
+                           ,  Bytes    :=  Ceil(Len/2)
+                           ,  Needle   :=  Buffer(Bytes)
+                           ,  DllCall("Crypt32\CryptStringToBinary"
+                                    , "str",value, "int",Len, "int",12, "ptr",Needle, "uintp",Bytes, "int",0, "int",0)
+
+                        Else
+
+                          If  HasProp( NumTypes, valtype)
+                              Needle := Buffer(NumTypes.%valtype%)
+                           ,  NumPut(valtype, value, Needle)
+
+                        Else
+
+                        Try   Needle  :=  Buffer(StrPut(Value,valtype))
+                           ,  Bytes   :=  StrPut(Value, Needle, valtype)
+                           ,  Unicode :=  NumGet(Needle, Needle.Size-2, "ushort") = 0
+                           ,  Needle  :=  Buffer( Bytes-1-Unicode)
+                           ,  StrPut(Value, Needle, valtype)
+
+                        StartingPos := ReverseSearch = 0 ? UpDn1.Value + 1 : UpDn1.Value - HayBuffer.Size + Needle.Size
+                        If  ReverseSearch and StartingPos&gt;0
+                            StartingPos := 0
+
+                        Return InBuffer(&amp;HayBuffer, &amp;Needle, StartingPos)
+                    }
+
+
+                    InBuffer(&amp;HayBuffer, &amp;NeedleBuffer, StartingPos)
+                    {
+                        Static mCode
+                        Local  mSz, Hex, Pos := 0
+
+                        If  not IsSet(mCode)
+                            mSz := A_PtrSize=8 ? 183 : 180
+                         ,  mcode := Buffer(mSz)
+                         ,  DllCall("Kernel32\VirtualProtect", "ptr",mcode, "ptr",mSz, "int",0x40, "int*",0)
+                         ,  DllCall("Crypt32\CryptStringToBinary"
+                                  , "str",A_PtrSize=8
+
+                                  ? "U1ZXQVSLRCRIRItcJFCJ00Qpy4XAvgEAAABBuv////9BD07yhcB+B2dEjVD/6wgBwkGJ0kUpykSJ0kGD6QE52n"
+                                  . "dnMcBBidJBijhCODwRdU9FicpHihQQZ0KNPApEOBQ5dT1Bg/kCci9BugEAAABBg/kBdh5EiddBijw4Z0aNJBJF"
+                                  . "ieRCODwhdQlBg8IBRTnKcuJFOcp1A4PAAUQ52HQOAfKF0nIEOdp2mzHA6wRnjUIBQVxfXlvD"
+
+                                  : "VYnlg+wMU1ZXi1UUi0UMKdCJRfQxwIN9GAAPntD32IPg/kCJRfiDfRgAfgmLRRhIiUX86wuLRQwDRRgp0IlF/I"
+                                  . "tF/InBSjtN9HdbMcCLdQiKHA6LdRA6HnVAjTQRi30Iihw3i3UQOhwWdS+D+gJyJL4BAAAAg/oBdhaNPDGLXQiK"
+                                  . "HDuLfRA6HDd1BUY51nLqOdZ1AUA7RRx0EANN+IXJcgU7TfR2pzHA6wONQQFfXluJ7F3D"
+
+                                  , "int",A_PtrSize=8 ? 244 : 240, "int",0x1, "ptr",mCode, "int*",mSz, "int",0, "int",0)
+
+                        Try  Pos := DllCall(mCode, "ptr",HayBuffer,      "int",HayBuffer.Size
+                                                 , "ptr",NeedleBuffer, "short",NeedleBuffer.Size
+                                                 , "int",StartingPos,    "int",1
+                                                 , "cdecl uint")
+
+                        Return Pos
+                    }
+} ; ________________________________________________________________________________________________________________________</Item>
+			<Item name="win_ocr" tv="1447824">#NoEnv
 SetBatchLines, -1
 Return
 
@@ -774,7 +1378,8 @@ WaitForAsync(ByRef Object)
    ObjRelease(Object)
    Object := ObjectResult
 }</Item>
-			<Item name="capture" tv="1254304">run,G:\我的AHK程序\我的工程\dxgi_pixelgetcolor
+			<Item name="data dump" tv="1448720">run, https://www.autohotkey.com/boards/viewtopic.php?t=3573</Item>
+			<Item name="capture" tv="1449168">run,G:\我的AHK程序\我的工程\dxgi_pixelgetcolor
 c =
 (%
 #include &lt;my_lib&gt;
@@ -870,7 +1475,7 @@ Show(hwnd, hBM, x1, y1, x2, y2) {
 }
 )
 Clipboard := c</Item>
-			<Item name="右键选择范围feiyue" tv="1255984">;------------------------------
+			<Item name="右键选择范围feiyue" tv="1448832">;------------------------------
 ; 右键选择屏幕范围   By FeiYue
 ;------------------------------
 
@@ -939,7 +1544,7 @@ F1:: MsgBox, 4096,, % "选择的范围是：" 右键选择屏幕范围(x1,y1,x2,
   return (x1 "," y1 "," x2 "," y2)
 }
 </Item>
-			<Item name="外框高亮线条" tv="1253296">Outline := []
+			<Item name="外框高亮线条" tv="1448160">Outline := []
 Outline[1] := new HighlightOutline("Blue", 128)
 Outline[1].show(0, 0, 200, 200)
 Outline[1].Destroy()
@@ -976,7 +1581,7 @@ class HighlightOutline {
 			Try Gui % this[A_Index] ": Destroy"
 	}
 }</Item>
-			<Item name="进程间通信feiyue" tv="1254976">/*
+			<Item name="进程间通信feiyue" tv="1449280">/*
 ====================================
   talk v1.2 - by Avi Aryan, FeiYue
 
@@ -1199,7 +1804,7 @@ talk_exec(script, title:="") {
     exec.StdIn.Close()
 }
 </Item>
-			<Item name="单进程运行函数feiyue" tv="1253408">;-----------------------------
+			<Item name="单进程运行函数feiyue" tv="1450176">;-----------------------------
 ;  单进程运行函数  By FeiYue
 ;
 ;  用法：把本函数丢到任何脚本中，设定标记即可（修改001）
@@ -1233,7 +1838,7 @@ OnlyOne(flag="") {
   DetectHiddenWindows, %bak%
 }
 </Item>
-			<Item name="获取IP板卡等" tv="1253632">obj:=[],result:=""
+			<Item name="获取IP板卡等" tv="1451072">obj:=[],result:=""
 obj.InsertAt(1,ComInfo.GetIPAPI_2(),ComInfo.GetMacAddress_1(),ComInfo.GetIPAddress_1(),ComInfo.GetSNCode(),[ComInfo.GetCpuID_3()])
 for Section,element In obj
 {
@@ -1632,7 +2237,7 @@ Json_toObj(ByRef src, args*)
 	}
 	return tree[1]
 }</Item>
-			<Item name="脚本通讯feiyue" tv="1255088">;---------------------------------------
+			<Item name="脚本通讯feiyue" tv="1449728">;---------------------------------------
 ; 多个脚本间的简单通讯 v1.0  By FeiYue
 ;
 ; 使用方法：
@@ -1872,11 +2477,10 @@ Class Thread {
     SetTimer,, Off
   }
 }
-</Item>
-			<Item name="飞龙" tv="1256096">feilong nb</Item></Item>
-		<Item name="例子" tv="1253744">
-			<Item name="scp顺序更新" tv="1255200">噜啦噜啦嘞</Item>
-			<Item name="customtooltip" tv="1253856">title := "Hello,"
+</Item></Item>
+		<Item name="例子" tv="1450512">
+			<Item name="scp顺序更新" tv="1450960">噜啦噜啦嘞</Item>
+			<Item name="customtooltip" tv="1447488">title := "Hello,"
 text := "This is my custom ToolTip!`nIt will disappear in five seconds."
 
 hToolTip := CustomToolTip(text,,, title, 1, true, 0xFFC141, 0x50669F, "Calibri", "s18", true, 5000)
@@ -1960,7 +2564,7 @@ UpdateText(hTooltip, TextArray) {
    if (TextArray[1] = "")
       SetTimer,, Delete
 }</Item>
-			<Item name="tooltip编辑框edit" tv="1254080">TipGuiEscape:
+			<Item name="tooltip编辑框edit" tv="1449392">TipGuiEscape:
 Gui, Tip:Destroy
 Return
 
@@ -1972,7 +2576,7 @@ tip(ttext := "", x := 0, y := 0) {
   Gui, Show, X%x% Y%y% NoActivate  AutoSize
  } Else Gui, Tip:Destroy
 }</Item>
-			<Item name="提示框tooltip" tv="1256208">PleasantNotify("PleasantNotify", "position t hc" , 600, 210, "t hc", "3")
+			<Item name="提示框tooltip" tv="1449616">PleasantNotify("PleasantNotify", "position t hc" , 600, 210, "t hc", "3")
 Sleep, 3000
 PleasantNotify("PleasantNotify", "position b hc" , 600, 210, "b hc", "3")
 Sleep, 3000
@@ -2056,7 +2660,7 @@ winfade(w:="",t:=128,i:=1,d:=10) {
         sleep %d%
     }
 }</Item>
-			<Item name="可移动movetooltip" tv="1255312">text = 
+			<Item name="可移动movetooltip" tv="1450288">text = 
 (%
 UpdateText(hTooltip, TextArray) {
    static TTM_UPDATETIPTEXT := A_IsUnicode ? 0x439 : 0x40C
@@ -2103,7 +2707,7 @@ IsWindowCloaked(hwnd) {
 }
 
 Esc::exitapp</Item>
-			<Item name="控件颜色修改" tv="1252960">;https://www.autohotkey.com/boards/viewtopic.php?f=6&amp;t=2197&amp;hilit=CtlColor_Edit
+			<Item name="控件颜色修改" tv="1449840">;https://www.autohotkey.com/boards/viewtopic.php?f=6&amp;t=2197&amp;hilit=CtlColor_Edit
 #NoEnv
 OnExit, GuiClose
 ; ----------------------------------------------------------------------------------------------------------------------
@@ -2516,7 +3120,7 @@ CtlColors_OnMessage(HDC, HWND) {
       Return CTL.Brush
    }
 }</Item>
-			<Item name="json作为配置文件" tv="1256544">#include C:\Users\ahker\Desktop\我的AHK程序\库\v1\json.ahk
+			<Item name="json作为配置文件" tv="1450064">#include C:\Users\ahker\Desktop\我的AHK程序\库\v1\json.ahk
 
 json_path := A_ScriptDir . "/json.json"
 config := {}
@@ -2535,30 +3139,53 @@ saveconfig(config, json_path)
     FileDelete, % json_path
     FileAppend,% str,% json_path
 }</Item></Item>
-		<Item name="代码美化pretty" tv="1255424">run,http://sl5.it/SL5_preg_contentFinder/examples/AutoHotKey/converts_your_autohotkey_code_into_pretty_indented_source_code.php</Item></Item>
-	<Item name="@cpp" tv="1256320">
-		<Item name="帮助书册" tv="1262064"></Item>
-		<Item name="代码段" tv="1259600"></Item></Item>
-	<Item name="code.exe" tv="1259264">
-		<Item name="搜索" tv="1262176">WinActivate, ahk_exe code.exe
+		<Item name="代码美化pretty" tv="1450400">run,http://sl5.it/SL5_preg_contentFinder/examples/AutoHotKey/converts_your_autohotkey_code_into_pretty_indented_source_code.php</Item></Item>
+	<Item name="@cpp" tv="1448272">
+		<Item name="帮助书册" tv="1450624"></Item>
+		<Item name="代码段" tv="1450736">
+			<Item name="字符串转换" tv="1448496">std::string wstr_utf8(const std::wstring&amp; str)
+{
+    std::wstring_convert&lt;std::codecvt_utf8&lt;wchar_t&gt;&gt; myconv;
+    return myconv.to_bytes(str);
+}
+std::wstring utf8_wstr(const std::string&amp; str)
+{
+    std::wstring_convert&lt;std::codecvt_utf8&lt;wchar_t&gt;&gt; myconv;
+    return myconv.from_bytes(str);
+}
+</Item>
+			<Item name="读取字符串到string" tv="1448608">fstream myFile;
+myFile.open("kzf.txt");
+istreambuf_iterator&lt;char&gt; begin(myFile), end;
+string fileDate(begin, end);</Item></Item>
+		<Item name="库" tv="1451296">run,https://github.com/CuPidev/awesome-cpp#json</Item></Item>
+	<Item name="code.exe" tv="1447600">
+		<Item name="搜索" tv="1447712">WinActivate, ahk_exe code.exe
 ControlSend,,{ctrl down}{shift down}f{shift up}{ctrl up}, ahk_exe code.exe</Item>
-		<Item name="高亮" tv="1260720">WinActivate, ahk_exe code.exe
+		<Item name="高亮" tv="1455296">WinActivate, ahk_exe code.exe
 ControlSend,,{alt down}1{alt up}, ahk_exe code.exe</Item>
-		<Item name="大纲" tv="1261952">WinActivate, ahk_exe code.exe
+		<Item name="大纲" tv="1454288">WinActivate, ahk_exe code.exe
 ControlSend,,{alt down}f{alt up}, ahk_exe code.exe</Item>
-		<Item name="资源" tv="1262288">WinActivate, ahk_exe code.exe
+		<Item name="资源" tv="1453168">WinActivate, ahk_exe code.exe
 ControlSend,,{ctrl down}{shift down}e{shift up}{ctrl up}, ahk_exe code.exe</Item>
-		<Item name="放大" tv="1259376">WinMaximize, ahk_exe code.exe</Item>
-		<Item name="终端" tv="1260608">WinActivate, ahk_exe code.exe
+		<Item name="放大" tv="1454176">WinMaximize, ahk_exe code.exe</Item>
+		<Item name="终端" tv="1452720">WinActivate, ahk_exe code.exe
 ControlSend,,{alt down}3{alt up}, ahk_exe code.exe</Item>
-		<Item name="文件" tv="1262624">WinActivate, ahk_exe code.exe
+		<Item name="文件" tv="1455184">WinActivate, ahk_exe code.exe
 ControlSend,,{shift down}{alt down}r{shift up}{alt up}, ahk_exe code.exe</Item></Item>
-	<Item name="devenv.exe" tv="1261728">
-		<Item name="类图" tv="1259040">sendinput,{ctrl down}{alt down}c{alt up}{ctrl up}</Item>
-		<Item name="va outline" tv="1259488">sendinput,{alt down}f{alt up}</Item></Item>
-	<Item name="@待办" tv="1259712">
-		<Item name="设计模式" tv="1262400">hhhhhhhhhhhhhh</Item></Item>
-	<Item name="@rust" tv="1258928"></Item>
-	<Item name="@perl" tv="1259152"></Item>
-	<Item name="@mysql" tv="1260944"></Item>
+	<Item name="devenv.exe" tv="1455408">
+		<Item name="类图" tv="1454400">sendinput,{ctrl down}{alt down}c{alt up}{ctrl up}</Item>
+		<Item name="va outline" tv="1453728">sendinput,{alt down}f{alt up}</Item>
+		<Item name="注释" tv="1452608">sendinput,{ctrl down}k{ctrl up}
+sendinput,{ctrl down}c{ctrl up}</Item>
+		<Item name="取消注释" tv="1454064">sendinput,{ctrl down}k{ctrl up}
+sendinput,{ctrl down}u{ctrl up}</Item></Item>
+	<Item name="@待办" tv="1451600">
+		<Item name="设计模式" tv="1453504">hhhhhhhhhhhhhh</Item></Item>
+	<Item name="msedge.exe" tv="1451712">
+		<Item name="控制台" tv="1453280">WinActivate, ahk_exe msedge.exe
+ControlSend,,{f12}, ahk_exe msedge.exe</Item>
+		<Item name="最大" tv="1454512"></Item>
+		<Item name="最小" tv="1454736"></Item>
+		<Item name="下一页" tv="1453056"></Item></Item>
 </Menu>
