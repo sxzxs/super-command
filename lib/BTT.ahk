@@ -96,17 +96,18 @@ btt(Text:="", X:="", Y:="", WhichToolTip:="", BulitInStyleOrStyles:="", BulitInO
 
        , Option99 := {TargetHWND:""                                  ; If omitted, active window will be used.
                     , CoordMode:"Screen Relative Window Client"      ; If omitted, A_CoordModeToolTip will be used.
-                    , Transparent:""                                 ; If omitted, 255 will be used.
+                    , Transparent:"50"                                 ; If omitted, 255 will be used.
                     , MouseNeverCoverToolTip:""                      ; If omitted, 1 will be used.
                     , DistanceBetweenMouseXAndToolTip:""             ; If omitted, 16 will be used. This value can be negative.
                     , DistanceBetweenMouseYAndToolTip:""             ; If omitted, 16 will be used. This value can be negative.
                     , JustCalculateSize:""}                          ; Set to 1, no content will be displayed, just calculate size and return.
 
        , Style1 := {TextColor:0xffeef8f6
+                  , Transparent:50                                 ; If omitted, 255 will be used.
                   , BackgroundColor:0xff1b8dff
                   , FontSize:14}
 
-       , Style2 := {Border:1
+       , Style2 := {Border:5
                   , Rounded:0
                   , TextColor:0xfff4f4f4
                   , BackgroundColor:0xaa3e3d45

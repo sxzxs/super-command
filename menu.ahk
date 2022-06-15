@@ -51,8 +51,9 @@ is_get_all_cmd := false
 cmds := ""
 my_xml := new xml("xml")
 menue_create_pid := 0
-gui_x := 0
-gui_y := 0
+
+global gui_x := A_ScreenWidth / 2 - 500
+global gui_y := 100
 g_curent_text := ""
 g_command := ""
 g_exe_name := ""
@@ -477,7 +478,8 @@ preview_command(command)
     GuiControlGet, out, Pos, Query
     if(!WinExist("超级命令添加工具"))
     {
-        btt(UnityPath, gui_x + outW, gui_y,,"Style2")
+        ;btt(UnityPath, gui_x + outW, gui_y + 150,,"Style2", {Transparent : 200})
+        btt(UnityPath, gui_x + outW, A_ScreenHeight/2,,"Style2", {Transparent : 200})
     }
 }
 
@@ -636,18 +638,7 @@ GetCaretPos(Byacc:=1)
     } Else
         Return {x:A_CaretX,y:A_CaretY,h:30,t:"Caret",Hwnd:Hwnd}
 }
-TipGuiEscape:
-Gui, Tip:Destroy
-Return
 
-tip(ttext := "", x := 0, y := 0) {
- If (ttext > "") {
-  Gui, Tip:New, +ToolWindow -Caption +AlwaysOnTop
-  Gui, Margin, 1, 1
-  Gui, Add, Edit, r30  ReadOnly Multi, %ttext%
-  Gui, Show, X%x% Y%y% NoActivate  AutoSize
- } Else Gui, Tip:Destroy
-}
 ; AHK 1.1+
 ; ======================================================================================================================
 ; Function:          Auxiliary object to color controls on WM_CTLCOLOR... notifications.
@@ -1085,3 +1076,19 @@ ODLB_SetHiLiteColors(HiLite := "", Text := "") {
    }
    Return {HC: HC, TC: TC}
 }
+tip(ttext := "") 
+{
+    If (ttext > "") 
+    {
+        Gui, Tip:New, +ToolWindow -Caption +AlwaysOnTop
+        Gui, Margin, 1, 1
+        Gui, Add, Edit, w300 r30 ReadOnly, %ttext%
+        Gui, Show, NoActivate
+    } 
+    Else 
+        Gui, Tip:Destroy
+}
+
+TipGuiEscape:
+Gui, Tip:Destroy
+Return

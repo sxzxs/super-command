@@ -1066,7 +1066,6 @@ SaveFile(n) {
     FullPath := Sci[n].FullName
     Encoding := GetSaveEncoding(n)
 
-
     write2xml(xml_path, SciText)
 
     ; Backup the file before saving
