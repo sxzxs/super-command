@@ -501,8 +501,10 @@ handle_command(command)
     }
     UnityPath:= my_xml.SSN(pattern).text
 
-
-    ExecScript(UnityPath, "",A_ScriptDir "\AutoHotkey.exe")
+    if(SubStr(UnityPath, 1, 3) == ";v2")
+        ExecScript(UnityPath, "",A_ScriptDir "\v2\AutoHotkey.exe")
+    else
+        ExecScript(UnityPath, "",A_ScriptDir "\AutoHotkey.exe")
 }
 
 xml_parse(xml)
