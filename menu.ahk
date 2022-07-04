@@ -485,7 +485,7 @@ preview_command(command)
     {
         ;btt(UnityPath, gui_x + outW, gui_y + 150,,"Style2", {Transparent : 200})
         ;btt(UnityPath, gui_x + outW, A_ScreenHeight/2,,"Style2", {Transparent : 200})
-        g_text_rendor.Render(UnityPath, "x:left y:top pt:2", "s:15")
+        g_text_rendor.Render(UnityPath, "x:left y:top", "s:15 j:left")
     }
 }
 
