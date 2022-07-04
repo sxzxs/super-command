@@ -16,6 +16,7 @@ OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 #include <py>
 #include <btt>
 #include <log4ahk>
+#include <TextRender>
 #Persistent
 CoordMode, ToolTip, Screen
 SetBatchLines -1
@@ -41,8 +42,8 @@ ctrl+c: 复制当前文本
 alt+c: 编辑所有命令
 ctrl+x: 编辑当前命令
 )
-btt(help_string, A_ScreenWidth/2, A_ScreenHeight/2 , 1, "Style4")
-SetTimer, RemoveToolTip, -5000
+;btt(help_string, A_ScreenWidth/2, A_ScreenHeight/2 , 1, "Style4")
+;SetTimer, RemoveToolTip, -5000
 
 py.allspell_muti("ahk")
 begin := 1
@@ -60,6 +61,8 @@ g_exe_name := ""
 g_exe_id := ""
 BackgroundColor := "3e3d45"
 TextColor := "f4f4f4"
+global g_text_rendor := TextRender()
+g_text_rendor.Render(help_string, "t: 3seconds x:left y:top pt:2", "s:15")
 
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
 {
@@ -179,7 +182,8 @@ if (Query != "")
 }
 else
 {
-    btt(,,,1)
+    ;btt(,,,1)
+    g_text_rendor.Render("")
 }
 rows := ""
 row_id := []
@@ -227,6 +231,7 @@ return
 GuiEscape:
 Gui,Hide
 btt()
+g_text_rendor.Render("")
 return
 
 #IfWinActive, menu ahk_class AutoHotkeyGUI
@@ -479,7 +484,8 @@ preview_command(command)
     if(!WinExist("超级命令添加工具"))
     {
         ;btt(UnityPath, gui_x + outW, gui_y + 150,,"Style2", {Transparent : 200})
-        btt(UnityPath, gui_x + outW, A_ScreenHeight/2,,"Style2", {Transparent : 200})
+        ;btt(UnityPath, gui_x + outW, A_ScreenHeight/2,,"Style2", {Transparent : 200})
+        g_text_rendor.Render(UnityPath, "x:left y:top pt:2", "s:15")
     }
 }
 
@@ -580,7 +586,8 @@ ExecScript(Script, Params := "", AhkPath := "") {
 }
 
 RemoveToolTip:
-btt(,,,1)
+;btt(,,,1)
+g_text_rendor.Render("")
 return
 
 Receive_WM_COPYDATA(wParam, lParam)
