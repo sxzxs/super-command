@@ -1,6 +1,5 @@
 ﻿; 超级命令
 ; Tested on AHK v1.1.33.02 Unicode 32/64-bit, Windows /10
-
 ; Script compiler directives
 ;@Ahk2Exe-SetMainIcon %A_ScriptDir%\Icons\Verifier.ico
 ;@Ahk2Exe-SetVersion 0.1.0
@@ -42,9 +41,6 @@ ctrl+c: 复制当前文本
 alt+c: 编辑所有命令
 ctrl+x: 编辑当前命令
 )
-;btt(help_string, A_ScreenWidth/2, A_ScreenHeight/2 , 1, "Style4")
-;SetTimer, RemoveToolTip, -5000
-
 py.allspell_muti("ahk")
 begin := 1
 total_command := 0 ;总命令个数
@@ -53,8 +49,6 @@ cmds := ""
 my_xml := new xml("xml")
 menue_create_pid := 0
 
-global gui_x := A_ScreenWidth / 2 - 500
-global gui_y := 100
 g_curent_text := ""
 g_command := ""
 g_exe_name := ""
@@ -160,6 +154,9 @@ Gui Add, ListBox, hwndLIST x0 y+0 h20 w500  vCommand gSelect AltSubmit -HScroll 
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 gosub Type
+
+gui_x := A_ScreenWidth / 2 - 500
+gui_y := 100
 Gui Show, X%gui_x% Y%gui_y%
 if(A_ThisHotkey == "!q")
 {
@@ -212,9 +209,7 @@ StringToSend := command
 result := Send_WM_COPYDATA(StringToSend, TargetScriptTitle)
 preview_command(command)
 if (A_GuiEvent != "DoubleClick")
-{
     return
-}
 
 Confirm:
 GuiControlGet Command
@@ -222,9 +217,7 @@ if !Command
     Command := 1
 Command := row_id[Command]
 if !GetKeyState("Shift")
-{
     gosub GuiEscape
-}
 handle_command(Command)
 return
 
@@ -262,9 +255,7 @@ return
 GuiActivate(wParam)
 {
     if (A_Gui && wParam = 0)
-    {
         SetTimer GuiEscape, -5
-    }
 }
 
 GuiKeyDown(wParam, lParam)
@@ -273,7 +264,6 @@ GuiKeyDown(wParam, lParam)
         return
     if (wParam = GetKeyVK("Enter"))
     {
-
         gosub Confirm
         return 0
     }
@@ -300,8 +290,7 @@ GuiKeyDown(wParam, lParam)
         gosub Select
         return 0
     }
-    if (wParam = GetKeyVK(key := "PgUp")
-     || wParam = GetKeyVK(key := "PgDn"))
+    if (wParam = GetKeyVK(key := "PgUp") || wParam = GetKeyVK(key := "PgDn"))
     {
         GuiControl Focus, Command
         Send {%key%}
@@ -482,11 +471,7 @@ preview_command(command)
     g_curent_text := UnityPath
     GuiControlGet, out, Pos, Query
     if(!WinExist("超级命令添加工具"))
-    {
-        ;btt(UnityPath, gui_x + outW, gui_y + 150,,"Style2", {Transparent : 200})
-        ;btt(UnityPath, gui_x + outW, A_ScreenHeight/2,,"Style2", {Transparent : 200})
         g_text_rendor.Render(UnityPath, "x:left y:top", "s:15 j:left")
-    }
 }
 
 handle_command(command)
@@ -502,9 +487,7 @@ handle_command(command)
     pattern := "//Menu" . pattern
     first_child_name := SSN(my_xml.SSN(pattern), "Item/@name").text
     if(first_child_name != "")
-    {
         return
-    }
     UnityPath:= my_xml.SSN(pattern).text
 
     if(SubStr(UnityPath, 1, 3) == ";v2")
