@@ -153,15 +153,16 @@ Gui Add, Edit, hwndEDIT x0 w500 C0x%BackgroundColor% vQuery gType
 Gui Add, ListBox, hwndLIST x0 y+0 h20 w500  vCommand gSelect AltSubmit -HScroll %OD_LB%
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
-gosub Type
+;gosub Type
 
 gui_x := A_ScreenWidth / 2 - 500
 gui_y := 100
 Gui Show, X%gui_x% Y%gui_y%
+GuiControl, % "Hide", Command
+Gui, Show, AutoSize
+
 if(A_ThisHotkey == "!q")
-{
     GuiControl,,% EDIT ,% " " g_exe_name
-}
 return
 
 Type:
