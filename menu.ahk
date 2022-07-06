@@ -155,9 +155,7 @@ ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ;gosub Type
 
-gui_x := A_ScreenWidth / 2 - 500
-gui_y := 100
-Gui Show, X%gui_x% Y%gui_y%
+Gui Show, Xcenter Y20
 GuiControl, % "Hide", Command
 Gui, Show, AutoSize
 
