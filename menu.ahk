@@ -16,6 +16,7 @@ OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 #include <btt>
 #include <log4ahk>
 #include <TextRender>
+#include <fuzz>
 #Persistent
 CoordMode, ToolTip, Screen
 SetBatchLines -1
@@ -172,9 +173,7 @@ GuiControlGet Query
 r := cmds
 if (Query != "")
 {
-    StringSplit q, Query, %A_Space%
-    Loop % q0
-        r := Filter(r, q%A_Index%, c)
+    r := filter_fuzz(r, Query, c)
 }
 else
 {
@@ -314,6 +313,7 @@ keyValueFind(haystack,needle)
 	}
 	return findSign
 }
+
 Filter(s, q, ByRef count)
 {
     ;建立数组 [{“a" : "原始值", "b" : "首字母"}]
@@ -331,6 +331,41 @@ Filter(s, q, ByRef count)
             result .= v "`n"
             count += 1
         }
+    }
+    return SubStr(result, 1, -1)
+}
+/*
+* @param s 所有字符串, \n分割
+* @param q 输入字符串，空格分割
+*/
+filter_fuzz(s, q, ByRef count)
+{
+    ;建立数组 [{“a" : "原始值", "b" : "首字母"}]
+    ;匹配
+    s := StrSplit(s, ["`r","`n"])
+    result := ""
+    result := ""
+    VarSetCapacity(result,0)
+    VarSetCapacity(result,40000)
+    count := 0
+
+    init_result_array := []
+    for k,v in s
+    {
+        string := v py.allspell_muti(v) py.initials_muti(v)
+        StringLower, string, string
+        score := fuzz.match(q, string)
+        if(score > 80)
+        {
+            init_result_array.Push([v, score])
+            count++
+        }
+    }
+    bubble_sort(init_result_array, 1, init_result_array.MaxIndex(), "ok")
+
+    for k,v in init_result_array
+    {
+        result .= v[1] "`n"
     }
     return SubStr(result, 1, -1)
 }
@@ -1083,3 +1118,32 @@ tip(ttext := "")
 TipGuiEscape:
 Gui, Tip:Destroy
 Return
+
+;冒泡排序
+bubble_sort(arr, l, h, compare := "")
+{
+    while(l < h)
+    {
+        j := l
+        while(j < h)
+        {
+            if(compare != "")
+            {
+                if(my_compare(arr[j], arr[j+1]))
+                    tmp := arr[j+1] , arr[j+1] := arr[j] ,arr[j] := tmp
+            }
+            else
+            {
+                if(arr[j] < arr[j+1])
+                    tmp := arr[j+1] , arr[j+1] := arr[j] ,arr[j] := tmp
+            }
+            j++
+        }
+        h--
+    }
+    return arr
+}
+my_compare(a, b)
+{
+    return a[2] < b[2] ? true : false
+}
