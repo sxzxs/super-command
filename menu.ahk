@@ -149,8 +149,9 @@ Gui Destroy
 Gui Margin, 0, 0
 Gui, Font, s14, Consolas
 Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd
-Gui Add, Edit, hwndEDIT x0 w500 C0x%BackgroundColor% vQuery gType
-Gui Add, ListBox, hwndLIST x0 y+0 h20 w500  vCommand gSelect AltSubmit -HScroll %OD_LB%
+Gui Add, Edit, hwndEDIT x0 w600 C0x%BackgroundColor% vQuery gType
+SetEditCueBanner(EDIT, "SHIFT+ENTER COPY, CTRL+X EDIT, ALT+C ADD")
+Gui Add, ListBox, hwndLIST x0 y+0 h20 w600  vCommand gSelect AltSubmit -HScroll %OD_LB%
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ;gosub Type
@@ -1083,3 +1084,8 @@ tip(ttext := "")
 TipGuiEscape:
 Gui, Tip:Destroy
 Return
+
+SetEditCueBanner(HWND, Cue) {  ; requires AHL_L
+   Static EM_SETCUEBANNER := (0x1500 + 1)
+   Return DllCall("User32.dll\SendMessageW", "Ptr", HWND, "Uint", EM_SETCUEBANNER, "Ptr", True, "WStr", Cue)
+}
