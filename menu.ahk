@@ -156,7 +156,7 @@ ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ;gosub Type
 
-Gui Show, Xcenter Y20
+Gui Show, Xcenter Y0
 GuiControl, % "Hide", Command
 Gui, Show, AutoSize
 
@@ -471,7 +471,10 @@ preview_command(command)
     g_curent_text := UnityPath
     GuiControlGet, out, Pos, Query
     if(!WinExist("超级命令添加工具"))
-        g_text_rendor.Render(UnityPath, "x:left y:top", "s:15 j:left")
+    {
+        x := A_ScreenWidth / 2 + (600 / 2) + 10
+        g_text_rendor.Render(UnityPath, "x:" x " y:top color:Random", "s:15 j:left ")
+    }
 }
 
 handle_command(command)
