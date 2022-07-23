@@ -42,6 +42,7 @@ alt+c: 编辑所有命令
 ctrl+x: 编辑当前命令
 )
 py.allspell_muti("ahk")
+log.is_log_open := false
 begin := 1
 total_command := 0 ;总命令个数
 is_get_all_cmd := false
@@ -141,7 +142,9 @@ switchime(0)
 Gui +LastFoundExist
 if WinActive()
 {
-    if(g_curent_text != "")
+    log.info(A_ThisHotkey)
+    log.info(g_curent_text)
+    if(g_curent_text != "" && A_ThisHotkey == "+Enter")
         Clipboard := g_curent_text
     goto GuiEscape
 }
@@ -149,9 +152,9 @@ Gui Destroy
 Gui Margin, 0, 0
 Gui, Font, s14, Consolas
 Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd
-Gui Add, Edit, hwndEDIT x0 w600 C0x%BackgroundColor% vQuery gType
-SetEditCueBanner(EDIT, "SHIFT+ENTER COPY, CTRL+X EDIT, ALT+C ADD")
-Gui Add, ListBox, hwndLIST x0 y+0 h20 w600  vCommand gSelect AltSubmit -HScroll %OD_LB%
+Gui Add, Edit, hwndEDIT x0 w750 C0x%BackgroundColor% vQuery gType
+SetEditCueBanner(EDIT, "CTRL+ENTER SEND, SHIFT+ENTER COPY, CTRL+X EDIT, ALT+C ADD")
+Gui Add, ListBox, hwndLIST x0 y+0 h20 w750  vCommand gSelect AltSubmit -HScroll %OD_LB%
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ;gosub Type
@@ -221,6 +224,15 @@ if !GetKeyState("Shift")
 handle_command(Command)
 return
 
+label_send_command:
+GuiControlGet Command
+if !Command
+    Command := 1
+Command := row_id[Command]
+gosub GuiEscape
+send_command(Command)
+return
+
 GuiEscape:
 Gui,Hide
 btt()
@@ -262,9 +274,14 @@ GuiKeyDown(wParam, lParam)
 {
     if !A_Gui
         return
-    if (wParam = GetKeyVK("Enter"))
+    if (wParam = GetKeyVK("Enter") && !GetKeyState("LCtrl"))
     {
         gosub Confirm
+        return 0
+    }
+    if (wParam = GetKeyVK("Enter") && GetKeyState("LCtrl"))
+    {
+        gosub label_send_command
         return 0
     }
     if (wParam = GetKeyVK(key := "Down")
@@ -472,9 +489,39 @@ preview_command(command)
     GuiControlGet, out, Pos, Query
     if(!WinExist("超级命令添加工具"))
     {
-        x := A_ScreenWidth / 2 + (600 / 2) + 10
+        x := A_ScreenWidth / 2 + (750 / 2) + 10
         g_text_rendor.Render(UnityPath, "x:" x " y:top color:Random", "s:15 j:left ")
     }
+}
+
+send_command(command)
+{
+    global my_xml, menue_create_pid, log
+    command := StrReplace(command, "$")
+    word_array := StrSplit(command, " >")
+    pattern := ""
+    for k,v in word_array
+    {
+        pattern .= "/*[@name='" v "']"
+    }
+    pattern := "//Menu" . pattern
+    first_child_name := SSN(my_xml.SSN(pattern), "Item/@name").text
+    if(first_child_name != "")
+        return
+    UnityPath:= my_xml.SSN(pattern).text
+
+    old_str := Clipboard
+    clipboard := "" ; 清空剪贴板
+    Clipboard := UnityPath
+    ClipWait, 2
+    if ErrorLevel
+    {
+        Clipboard := old_str
+        return
+    }
+    SendInput, {RShift Down}{Insert}{RShift Up}
+    sleep,500
+    Clipboard := old_str
 }
 
 handle_command(command)
