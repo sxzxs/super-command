@@ -11,3 +11,5 @@
 * ctrl+enter 发送文本到窗口
 * alt+x 编辑该条命令
 ![](https://raw.githubusercontent.com/kazhafeizhale/pic/master/20220408125655.png)
+
+【ahk代码片段管理软件】：https://jq.qq.com/?_wv=1027&k=sxkummKG
