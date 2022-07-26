@@ -350,9 +350,8 @@ Filter(s, q, ByRef count)
     ;匹配
     s := StrSplit(s, ["`r","`n"])
     result := ""
-    result := ""
-    VarSetCapacity(result,0)
-    VarSetCapacity(result,4000)
+    VarSetCapacity(result, 0)
+    VarSetCapacity(result, 90000)
     count := 0
     for k,v in s
     {
