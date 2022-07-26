@@ -36,10 +36,10 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 help_string =
 (
 v2.0
+shift+enter:  打开当前搜索框，再次按下shift+enter 复制文本到粘贴板
 esc: 取消窗口
 enter :执行命令
 ctrl+enter : 发送命令到窗口
-shift+enter:  打开当前搜索框，再次按下shift+enter 复制文本到粘贴板
 ctrl+c: 复制当前文本
 alt+c: 编辑所有命令
 ctrl+x: 编辑当前命令
@@ -134,7 +134,9 @@ else
 return
 +Enter::
 !q::
-g_text_rendor.Render(help_string, "t: 20seconds x:left y:top pt:2", "s:15  j:left ")
+x := A_ScreenWidth / 2 + (750 / 2) + 10
+g_text_rendor.Render(help_string, "x:" x " y:top color:Random", "s:15 j:left ")
+
 WinGet, g_exe_name, ProcessName, A
 WinGet, g_exe_id, ID , A
 g_command := ""
