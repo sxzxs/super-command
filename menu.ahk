@@ -6,9 +6,11 @@
 
 OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 OnMessage(0x100, "GuiKeyDown")
+;https://www.autohotkey.com/boards/viewtopic.php?t=3938
 OD_LB  := "+0x0050" ; LBS_OWNERDRAWFIXED = 0x0010, LBS_HASSTRINGS = 0x0040
 ODLB_SetItemHeight("s14 Normal", "MS Shell Dlg 2")
-ODLB_SetHiLiteColors(0xDEDEDE, 0x000000)
+ODLB_SetHiLiteColors(0x313131  , 0x959595)
+;15486A
 OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
 OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 #SingleInstance force
@@ -57,8 +59,8 @@ g_curent_text := ""
 g_command := ""
 g_exe_name := ""
 g_exe_id := ""
-BackgroundColor := "3e3d45"
-TextColor := "f4f4f4"
+BackgroundColor := "1d1d1d"
+TextColor := "999999"
 global g_text_rendor := TextRender()
 global g_text_rendor_clip := TextRender()
 g_text_rendor.Render(help_string, "t: 20seconds x:left y:top pt:2", "s:15 j:left ")
@@ -164,9 +166,10 @@ Gui Destroy
 Gui Margin, 0, 0
 Gui, Font, s14, Consolas
 Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd
-Gui Add, Edit, hwndEDIT x0 w750 C0x%BackgroundColor% vQuery gType
+Gui Add, Edit, hwndEDIT x0 w750 C0x%BackgroundColor% vQuery gType -E0x200
 SetEditCueBanner(EDIT, "CTRL+ENTER SEND, SHIFT+ENTER COPY, CTRL+X EDIT, ALT+C ADD")
-Gui Add, ListBox, hwndLIST x0 y+0 h20 w750  vCommand gSelect AltSubmit -HScroll %OD_LB%
+Gui, Font, s10, Consolas
+Gui Add, ListBox, hwndLIST x0 y+0 h20 w750  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ;gosub Type
