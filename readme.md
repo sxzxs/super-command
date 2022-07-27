@@ -10,6 +10,8 @@
 * 再次执行shift+enter 复制结果
 * ctrl+enter 发送文本到窗口
 * alt+x 编辑该条命令
+![jks](https://user-images.githubusercontent.com/26515268/181264528-0d49dc1e-5440-46be-a3de-525999e783f8.gif)
+
 ![](https://raw.githubusercontent.com/kazhafeizhale/pic/master/20220408125655.png)
 
 【ahk代码片段管理软件】：https://jq.qq.com/?_wv=1027&k=sxkummKG
