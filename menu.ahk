@@ -19,6 +19,11 @@ OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 #include <log4ahk>
 #include <TextRender>
 #Persistent
+
+
+;设置圆角
+SetTimer set_region, 10
+
 CoordMode, ToolTip, Screen
 SetBatchLines -1
 ;管理员运行
@@ -505,7 +510,7 @@ preview_command(command)
     if(!WinExist("超级命令添加工具"))
     {
         x := A_ScreenWidth / 2 + (750 / 2) + 10
-        g_text_rendor.Render(UnityPath, "x:" x " y:top color:Random", "s:15 j:left ")
+        g_text_rendor.Render(UnityPath, "x:" x " y:top color:Random r:5%", "s:15 j:left ")
     }
 }
 
@@ -1154,3 +1159,8 @@ SetEditCueBanner(HWND, Cue) {  ; requires AHL_L
    Static EM_SETCUEBANNER := (0x1500 + 1)
    Return DllCall("User32.dll\SendMessageW", "Ptr", HWND, "Uint", EM_SETCUEBANNER, "Ptr", True, "WStr", Cue)
 }
+
+set_region:
+WinGetPos, X, Y, W, H, ahk_id %MyGuiHwnd%
+WinSet, Region, 0-0 W%W% H%H% R10-10, ahk_id %MyGuiHwnd%
+return
