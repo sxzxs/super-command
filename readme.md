@@ -3,7 +3,7 @@
 * 通过设置关键字检索文本，文本可以预览并复制到粘贴板。如果文本是ahk脚本则可以执行
 * 检索支持拼音首字母、全拼等
 
-![](https://raw.githubusercontent.com/kazhafeizhale/pic/master/20220408125406.png)
+![image](https://user-images.githubusercontent.com/26515268/181262236-35d2d780-88bf-4b05-8cad-3f85d3537ef0.png)
 # 使用说明
 * shift+enter 执行搜索命令
 * alt+c 添加命令并编辑
