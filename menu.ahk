@@ -1162,5 +1162,5 @@ SetEditCueBanner(HWND, Cue) {  ; requires AHL_L
 
 set_region:
 WinGetPos, X, Y, W, H, ahk_id %MyGuiHwnd%
-WinSet, Region, 0-0 W%W% H%H% R10-10, ahk_id %MyGuiHwnd%
+WinSet, Region, 0-0 W%W% H%H% R5-5, ahk_id %MyGuiHwnd%
 return
