@@ -164,6 +164,7 @@ if WinActive()
 }
 Gui Destroy
 Gui Margin, 0, 0
+Gui, Color, %BackgroundColor%, %BackgroundColor%
 Gui, Font, s14, Consolas
 Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd
 Gui Add, Edit, hwndEDIT x0 w750 C0x%BackgroundColor% vQuery gType -E0x200
