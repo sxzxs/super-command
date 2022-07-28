@@ -170,11 +170,11 @@ if WinActive()
 Gui Destroy
 Gui Margin, 0, 0
 Gui, Color, %BackgroundColor%, %BackgroundColor%
-Gui, Font, s14, Consolas
+Gui, Font, s16, Consolas
 Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd
 Gui Add, Edit, hwndEDIT x0 w750 C0x%BackgroundColor% vQuery gType -E0x200
 SetEditCueBanner(EDIT, "CTRL+ENTER SEND, SHIFT+ENTER COPY, CTRL+X EDIT, ALT+C ADD")
-Gui, Font, s10, Consolas
+Gui, Font, s14, Consolas
 Gui Add, ListBox, hwndLIST x0 y+0 h20 w750  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
@@ -193,6 +193,15 @@ SetTimer Refresh, -10
 return
 
 Refresh:
+;关闭重绘
+DllCall("dwmapi\DwmSetWindowAttribute", "ptr", myguihwnd
+  , "uint", DWMWA_NCRENDERING_POLICY := 2, "int*", DWMNCRP_DISABLED := 1, "uint", 4)
+
+Gui +LastFound 
+SendMessage, 0xB, false ; Turn off redrawing. 0xB is WM_SETREDRAW.
+GuiControl, -Redraw, Command
+GuiControl, -Redraw, Query
+
 GuiControlGet Query
 r := cmds
 if (Query != "")
@@ -221,7 +230,17 @@ GuiControl, Move, Command, % "h" 33 * (total_command > 20 ? 22 : total_command)
 GuiControl, % (total_command && Query != "") ? "Show" : "Hide", Command
 HighlightedCommand := 1
 GuiControl, Choose, Command, 1
+
+;开启重绘
+Gui +LastFound 
+SendMessage, 0xB, true  ; Turn redrawing back on.
+WinSet Redraw  ; Force the window to repaint
+
+GuiControl, +Redraw, Command
+GuiControl, +Redraw, Query
+
 Gui, Show, AutoSize
+
 
 Select:
 GuiControlGet Command
