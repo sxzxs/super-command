@@ -173,7 +173,7 @@ Gui, Color, %BackgroundColor%, %BackgroundColor%
 Gui, Font, s16, Consolas
 Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd
 Gui Add, Edit, hwndEDIT x0 w750 C0x%BackgroundColor% vQuery gType -E0x200
-SetEditCueBanner(EDIT, "CTRL+ENTER SEND, SHIFT+ENTER COPY, CTRL+X EDIT, ALT+C ADD")
+SetEditCueBanner(EDIT, "INPUT COMMAND, Example: bd")
 Gui, Font, s14, Consolas
 Gui Add, ListBox, hwndLIST x0 y+0 h20 w750  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
