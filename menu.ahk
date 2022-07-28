@@ -170,9 +170,9 @@ Gui Destroy
 Gui Margin, 0, 0
 Gui, Color, %BackgroundColor%, %BackgroundColor%
 Gui, Font, s16 Q5, Consolas
-Gui, -0x400000 +Border ;WS_DLGFRAME WS_BORDER(细边框)  caption(标题栏和粗边框) = WS_DLGFRAME+WS_BORDER  一定要有WS_DLGFRAME否则没法双缓冲
-Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
-Gui Add, Edit, hwndEDIT x0 w750  vQuery gType -E0x200
+Gui, -0x400000 +Border ;WS_DLGFRAME WS_BORDER(细边框)  caption(标题栏和粗边框) = WS_DLGFRAME+WS_BORDER  一定要有WS_BORDER否则没法双缓冲
+Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd  +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
+Gui Add, Edit, hwndEDIT x0 y10 w750  vQuery gType -E0x200
 SetEditCueBanner(EDIT, "INPUT COMMAND, Example: bd")
 Gui, Font, s14, Consolas
 Gui Add, ListBox, hwndLIST x0 y+0 h20 w750  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
@@ -1184,5 +1184,8 @@ SetEditCueBanner(HWND, Cue) {  ; requires AHL_L
 
 set_region:
 WinGetPos, X, Y, W, H, ahk_id %MyGuiHwnd%
-WinSet, Region, 0-0 W%W% H%H% R5-5, ahk_id %MyGuiHwnd%
+WinSet, Region, 1-1 W%W% H%H% R5-5, ahk_id %MyGuiHwnd%
+
+DllCall("dwmapi\DwmSetWindowAttribute", "ptr", myguihwnd
+  , "uint", DWMWA_NCRENDERING_POLICY := 2, "int*", DWMNCRP_DISABLED := 1, "uint", 4)
 return
