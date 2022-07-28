@@ -10,7 +10,6 @@ OnMessage(0x100, "GuiKeyDown")
 OD_LB  := "+0x0050" ; LBS_OWNERDRAWFIXED = 0x0010, LBS_HASSTRINGS = 0x0040
 ODLB_SetItemHeight("s14 Normal", "MS Shell Dlg 2")
 ODLB_SetHiLiteColors(0x313131  , 0x959595)
-;15486A
 OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
 OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 #SingleInstance force
@@ -141,7 +140,7 @@ else
 return
 +Enter::
 !q::
-x := A_ScreenWidth / 2 + (750 / 2) + 10
+x := A_ScreenWidth / 2 + (750 / 2) + 12
 g_text_rendor.Render(help_string, "x:" x " y:top color:Random", "s:15 j:left ")
 
 WinGet, g_exe_name, ProcessName, A
@@ -170,15 +169,15 @@ if WinActive()
 Gui Destroy
 Gui Margin, 0, 0
 Gui, Color, %BackgroundColor%, %BackgroundColor%
-Gui, Font, s16, Consolas
-Gui, -Caption +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd
-Gui Add, Edit, hwndEDIT x0 w750 C0x%BackgroundColor% vQuery gType -E0x200
+Gui, Font, s16 Q5, Consolas
+Gui, -0x400000 +Border ;WS_DLGFRAME WS_BORDER(细边框)  caption(标题栏和粗边框) = WS_DLGFRAME+WS_BORDER  一定要有WS_DLGFRAME否则没法双缓冲
+Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
+Gui Add, Edit, hwndEDIT x0 w750  vQuery gType -E0x200
 SetEditCueBanner(EDIT, "INPUT COMMAND, Example: bd")
 Gui, Font, s14, Consolas
 Gui Add, ListBox, hwndLIST x0 y+0 h20 w750  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
-;gosub Type
 
 Gui Show, Xcenter Y0
 GuiControl, % "Hide", Command
@@ -194,6 +193,7 @@ return
 
 Refresh:
 ;关闭重绘
+/*
 DllCall("dwmapi\DwmSetWindowAttribute", "ptr", myguihwnd
   , "uint", DWMWA_NCRENDERING_POLICY := 2, "int*", DWMNCRP_DISABLED := 1, "uint", 4)
 
@@ -201,6 +201,7 @@ Gui +LastFound
 SendMessage, 0xB, false ; Turn off redrawing. 0xB is WM_SETREDRAW.
 GuiControl, -Redraw, Command
 GuiControl, -Redraw, Query
+*/
 
 GuiControlGet Query
 r := cmds
@@ -232,12 +233,14 @@ HighlightedCommand := 1
 GuiControl, Choose, Command, 1
 
 ;开启重绘
+/*
 Gui +LastFound 
 SendMessage, 0xB, true  ; Turn redrawing back on.
 WinSet Redraw  ; Force the window to repaint
 
 GuiControl, +Redraw, Command
 GuiControl, +Redraw, Query
+*/
 
 Gui, Show, AutoSize
 
@@ -528,7 +531,7 @@ preview_command(command)
     GuiControlGet, out, Pos, Query
     if(!WinExist("超级命令添加工具"))
     {
-        x := A_ScreenWidth / 2 + (750 / 2) + 10
+        x := A_ScreenWidth / 2 + (750 / 2) + 12
         g_text_rendor.Render(UnityPath, "x:" x " y:top color:Random r:5%", "s:15 j:left ")
     }
 }
