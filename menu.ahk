@@ -21,7 +21,7 @@ OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 
 
 ;设置圆角
-SetTimer set_region, 10
+;SetTimer set_region, 10
 
 CoordMode, ToolTip, Screen
 SetBatchLines -1
@@ -1184,7 +1184,8 @@ SetEditCueBanner(HWND, Cue) {  ; requires AHL_L
 
 set_region:
 WinGetPos, X, Y, W, H, ahk_id %MyGuiHwnd%
-WinSet, Region, 1-1 W%W% H%H% R5-5, ahk_id %MyGuiHwnd%
+H -= 1
+WinSet, Region, 1-0 W%W% H%H% R5-5, ahk_id %MyGuiHwnd%
 
 DllCall("dwmapi\DwmSetWindowAttribute", "ptr", myguihwnd
   , "uint", DWMWA_NCRENDERING_POLICY := 2, "int*", DWMNCRP_DISABLED := 1, "uint", 4)
