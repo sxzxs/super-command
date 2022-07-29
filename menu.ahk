@@ -218,10 +218,15 @@ else
 }
 rows := ""
 row_id := []
+real_index := 1
 Loop Parse, r, `n
 {
-    row_id[A_Index] := A_LoopField
-    rows .= "|"  A_LoopField
+    if(A_LoopField != "")
+    {
+        row_id[real_index] := A_LoopField
+        rows .= "|"  real_index " "  A_LoopField
+        real_index++
+    }
 }
 GuiControl,, Command, % rows ? rows : "|"
 if (Query = "")
