@@ -200,11 +200,11 @@ Gui, Color, %BackgroundColor%, %BackgroundColor%
 Gui, Font, s16 Q5, Consolas
 Gui, -0x400000 +Border ;WS_DLGFRAME WS_BORDER(细边框)  caption(标题栏和粗边框) = WS_DLGFRAME+WS_BORDER  一定要有WS_BORDER否则没法双缓冲
 Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd  +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
-;Gui, Add, Button, xm       w100 h200   vMove, Move
-Gui Add, Edit, hwndEDIT x0 y10 w750  vQuery gType -E0x200
+w := g_config.win_w
+Gui Add, Edit, hwndEDIT x0 y10 w%w%  vQuery gType -E0x200
 SetEditCueBanner(EDIT, "🔍  🙇⌨🛐📜▪例➡🅱󠁁🇩  🚀🚀🚀🚀🚀")
 Gui, Font, s14, Consolas
-Gui Add, ListBox, hwndLIST x0 y+0 h20 w750  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
+Gui Add, ListBox, hwndLIST x0 y+0 h20 w%w%  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 
