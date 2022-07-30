@@ -3,6 +3,7 @@
 ; Script compiler directives
 ;@Ahk2Exe-SetMainIcon %A_ScriptDir%\Icons\Verifier.ico
 ;@Ahk2Exe-SetVersion 0.1.0
+OnMessage(0x201, "WM_LBUTTONDOWN")
 
 OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 OnMessage(0x100, "GuiKeyDown")
@@ -164,10 +165,11 @@ else
     run,% A_ScriptDir "\cmd\menue_create.ahk " my_pid
 return
 
-
+!q::
 main_label:
-x := A_ScreenWidth / 2 + (750 / 2) + 12
-g_text_rendor.Render(help_string, "x:" x " y:top color:Random", "s:15 j:left ")
+x := g_config.win_x + g_config.win_w + 12
+y := g_config.win_y + 12
+g_text_rendor.Render(help_string, "x:" x " y:" y " color:Random", "s:15 j:left ")
 
 WinGet, g_exe_name, ProcessName, A
 WinGet, g_exe_id, ID , A
@@ -198,6 +200,7 @@ Gui, Color, %BackgroundColor%, %BackgroundColor%
 Gui, Font, s16 Q5, Consolas
 Gui, -0x400000 +Border ;WS_DLGFRAME WS_BORDER(细边框)  caption(标题栏和粗边框) = WS_DLGFRAME+WS_BORDER  一定要有WS_BORDER否则没法双缓冲
 Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd  +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
+;Gui, Add, Button, xm       w100 h200   vMove, Move
 Gui Add, Edit, hwndEDIT x0 y10 w750  vQuery gType -E0x200
 SetEditCueBanner(EDIT, "🔍  🙇⌨🛐📜▪例➡🅱󠁁🇩  🚀🚀🚀🚀🚀")
 Gui, Font, s14, Consolas
@@ -205,7 +208,9 @@ Gui Add, ListBox, hwndLIST x0 y+0 h20 w750  vCommand gSelect AltSubmit -HScroll 
 ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
 
-Gui Show, Xcenter Y0
+win_x := g_config.win_x
+win_y := g_config.win_y
+Gui Show, X%win_x% Y%win_y%
 GuiControl, % "Hide", Command
 Gui, Show, AutoSize
 
@@ -568,8 +573,9 @@ preview_command(command)
     GuiControlGet, out, Pos, Query
     if(!WinExist("超级命令添加工具"))
     {
-        x := A_ScreenWidth / 2 + (750 / 2) + 12
-        g_text_rendor.Render(UnityPath, "x:" x " y:top color:Random", "s:15 j:left ")
+        x := g_config.win_x + g_config.win_w + 12
+        y := g_config.win_y + 12
+        g_text_rendor.Render(UnityPath, "x:" x " y:" y " color:Random", "s:15 j:left ")
     }
 }
 
@@ -1246,4 +1252,17 @@ saveconfig(config)
     str := json_fromobj(config)
     FileDelete, % g_json_path
     FileAppend,% str,% g_json_path
+}
+
+WM_LBUTTONDOWN(wParam, lParam, msg, hwnd) 
+{
+    global MyGuiHwnd, g_config
+	PostMessage, 0xA1, 2 ; WM_NCLBUTTONDOWN
+	KeyWait, LButton, U
+    WinGetPos, X, Y, W, H, ahk_id %MyGuiHwnd%
+    log.info(MyGuiHwnd, x, y, w, h)
+    g_config.win_x := X
+    g_config.win_y := Y
+    g_config.win_w := W
+    saveconfig(g_config)
 }
