@@ -1260,9 +1260,11 @@ WM_LBUTTONDOWN(wParam, lParam, msg, hwnd)
 	PostMessage, 0xA1, 2 ; WM_NCLBUTTONDOWN
 	KeyWait, LButton, U
     WinGetPos, X, Y, W, H, ahk_id %MyGuiHwnd%
-    log.info(MyGuiHwnd, x, y, w, h)
-    g_config.win_x := X
-    g_config.win_y := Y
-    g_config.win_w := W
-    saveconfig(g_config)
+    if(x != "" && y != "" && W != "")
+    {
+        g_config.win_x := X
+        g_config.win_y := Y
+        g_config.win_w := W
+        saveconfig(g_config)
+    }
 }
