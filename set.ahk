@@ -18,6 +18,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance force
 #Persistent
 #include <log4ahk>
+#include <json>
 
 
 log.is_log_open := false
