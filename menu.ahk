@@ -39,19 +39,39 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
     ExitApp
 }
 
+log.is_log_open := false
+
+;加载配置
+global g_json_path := A_ScriptDir . "/config/settings.json"
+global g_config := {}
+if(!loadconfig(g_config))
+{
+    MsgBox,% "Load config"  g_json_path " failed! will exit!!"
+    ExitApp
+}
+h1 := g_config.key_open_search_box,
+h2 := g_config.key_send
+h3 := g_config.key_open_search_box,
+h4 := g_config.key_open_editor
+h5 := g_config.key_edit_now
 help_string =
 (
 v2.0
-shift+enter:  打开当前搜索框，再次按下shift+enter 复制文本到粘贴板
-esc: 取消窗口
-enter :执行命令
-ctrl+enter : 发送命令到窗口
-ctrl+c: 复制当前文本
-alt+c: 编辑所有命令
-ctrl+x: 编辑当前命令
+打开当前搜索框 [%h1%]
+发送命令到窗口 [%h2%]
+复制当前文本 [%h3%]
+执行命令 [enter]
+编辑所有命令 [%h4%]
+编辑当前命令 [%h5%]
+取消 [esc]
+复制当前文本 [Ctrl c]
 )
+help_string := StrReplace(help_string, "+", "Shift ")
+help_string := StrReplace(help_string, "^", "Ctrl ")
+help_string := StrReplace(help_string, "!", "Alt ")
+help_string := StrReplace(help_string, "#", "Win ")
+help_string := StrReplace(help_string, "~$")
 py.allspell_muti("ahk")
-log.is_log_open := false
 begin := 1
 total_command := 0 ;总命令个数
 is_get_all_cmd := false
@@ -78,6 +98,11 @@ fileread, xml_file_content,% "*P65001 " A_ScriptDir "\cmd\Menus\超级命令.xml
 my_xml.XML.LoadXML(xml_file_content)
 cmds := xml_parse(my_xml)
 
+;注册热键
+Hotkey,% g_config.key_open_search_box , main_label
+Hotkey,% g_config.key_send , label_send_command
+Hotkey,% g_config.key_open_editor , open_editor
+Hotkey,% g_config.key_edit_now , edit_now
 
 Menu, Tray, Icon, %A_ScriptDir%\Icons\Verifier.ico
 Menu, Tray, NoStandard
@@ -106,7 +131,7 @@ Return
     goto GuiEscape
 return
 
-~$^x::
+edit_now:
 if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
     return
 FileDelete,% A_ScriptDir "\cmd\tmp\tmp.ahk"
@@ -130,7 +155,7 @@ Clipboard := g_curent_text
 g_text_rendor_clip.Render("Saved text to clipboard.", "t:1250 c:#F9E486 y:75vh r:10%")
 return
 
-!c::
+open_editor:
 Process Exist
 my_pid := ErrorLevel
 if(A_IsCompiled)
@@ -138,8 +163,9 @@ if(A_IsCompiled)
 else
     run,% A_ScriptDir "\cmd\menue_create.ahk " my_pid
 return
-+Enter::
-!q::
+
+
+main_label:
 x := A_ScreenWidth / 2 + (750 / 2) + 12
 g_text_rendor.Render(help_string, "x:" x " y:top color:Random", "s:15 j:left ")
 
@@ -159,7 +185,7 @@ if WinActive()
 {
     log.info(A_ThisHotkey)
     log.info(g_curent_text)
-    if(g_curent_text != "" && A_ThisHotkey == "+Enter")
+    if(g_curent_text != "" && A_ThisHotkey == g_config.key_open_search_box)
     {
         Clipboard := g_curent_text
         g_text_rendor_clip.Render("Saved text to clipboard.", "t:1250 c:#F9E486 y:75vh r:10%")
@@ -273,6 +299,11 @@ handle_command(Command)
 return
 
 label_send_command:
+log.info("send command")
+
+Gui +LastFoundExist
+if !WinActive()
+    return
 GuiControlGet Command
 if !Command
     Command := 1
@@ -322,16 +353,17 @@ GuiKeyDown(wParam, lParam)
 {
     if !A_Gui
         return
+    log.info(A_ThisHotkey)
     if (wParam = GetKeyVK("Enter") && !GetKeyState("LCtrl"))
     {
         gosub Confirm
         return 0
     }
-    if (wParam = GetKeyVK("Enter") && GetKeyState("LCtrl"))
-    {
-        gosub label_send_command
-        return 0
-    }
+    ;if (wParam = GetKeyVK("Enter") && GetKeyState("LCtrl"))
+    ;{
+        ;gosub label_send_command
+        ;return 0
+    ;}
     if (wParam = GetKeyVK(key := "Down")
      || wParam = GetKeyVK(key := "Up"))
     {
@@ -537,7 +569,7 @@ preview_command(command)
     if(!WinExist("超级命令添加工具"))
     {
         x := A_ScreenWidth / 2 + (750 / 2) + 12
-        g_text_rendor.Render(UnityPath, "x:" x " y:top color:Random r:5%", "s:15 j:left ")
+        g_text_rendor.Render(UnityPath, "x:" x " y:top color:Random", "s:15 j:left ")
     }
 }
 
@@ -590,7 +622,7 @@ handle_command(command)
     if(SubStr(UnityPath, 1, 3) == ";v2")
         ExecScript(UnityPath, "",A_ScriptDir "\v2\AutoHotkey.exe")
     else
-        ExecScript(UnityPath, "",A_ScriptDir "\AutoHotkey.exe")
+        ExecScript(UnityPath, "",A_ScriptDir "\v1\AutoHotkey.exe")
 }
 
 xml_parse(xml)
@@ -1195,3 +1227,23 @@ WinSet, Region, 1-0 W%W% H%H% R5-5, ahk_id %MyGuiHwnd%
 DllCall("dwmapi\DwmSetWindowAttribute", "ptr", myguihwnd
   , "uint", DWMWA_NCRENDERING_POLICY := 2, "int*", DWMNCRP_DISABLED := 1, "uint", 4)
 return
+
+loadconfig(ByRef config)
+{
+    Global g_json_path
+    config := ""
+    FileRead, OutputVar,% g_json_path
+    config := json_toobj(outputvar)
+    log.info(config)
+    if(config == "")
+        return false
+    return true
+}
+
+saveconfig(config)
+{
+    global g_json_path
+    str := json_fromobj(config)
+    FileDelete, % g_json_path
+    FileAppend,% str,% g_json_path
+}
