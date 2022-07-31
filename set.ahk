@@ -47,8 +47,50 @@ Gui, Add, Edit, vkey_edit_now x+40 w80,% g_config.key_edit_now
 
 Gui, Add, Text, xm, 打开命令添加界面:
 Gui, Add, Edit, vkey_open_editor x+15 w80,% g_config.key_open_editor
-Gui, Add, Link, xm, 查询按键 <a href="https://www.autoahk.com/help/autohotkey/zh-cn/docs/Hotkeys.htm">按键列表</a>
 
+;宽度
+Gui, Add, Text, xm, 搜索框宽度:
+Gui, Add, Edit, vwin_w x+50 w80,% g_config.win_w
+
+
+Gui, Add, Text, xm, 搜索框背景颜色:
+Gui, Add, Edit, vwin_search_box_back_color x+30 w80,% g_config.win_search_box_back_color
+
+Gui, Add, Text, xm, 搜索框字体颜色:
+Gui, Add, Edit, vwin_search_box_text_color x+30 w80,% g_config.win_search_box_text_color
+
+
+Gui, Add, Text, xm, 搜索框字体大小:
+Gui, Add, Edit, vwin_search_box_font_size x+30 w80,% g_config.win_search_box_font_size
+
+Gui, Add, Text, xm, 列表背景颜色:
+Gui, Add, Edit, vwin_list_back_color x+40 w80,% g_config.win_list_back_color
+
+Gui, Add, Text, xm, 列表字体颜色:
+Gui, Add, Edit, vwin_list_text_color x+40 w80,% g_config.win_list_text_color
+
+Gui, Add, Text, xm, 列表焦点背景颜色:
+Gui, Add, Edit, vwin_list_focus_back_color x+20 w80,% g_config.win_list_focus_back_color
+
+Gui, Add, Text, xm, 列表焦点字体颜色:
+Gui, Add, Edit, vwin_list_focus_text_color x+20 w80,% g_config.win_list_focus_text_color
+
+Gui, Add, Text, xm, 列表字体大小:
+Gui, Add, Edit, vwin_list_font_size x+40 w80,% g_config.win_list_font_size
+
+Gui, Add, Text, xm, 预览背景颜色
+Gui, Add, Edit, vtooltip_back_color x+40 w80,% g_config.tooltip_back_color
+
+Gui, Add, Text, xm, 预览字体颜色
+Gui, Add, Edit, vtooltip_text_color x+40 w80,% g_config.tooltip_text_color
+
+Gui, Add, Text, xm, 预览字体大小
+Gui, Add, Edit, vtooltip_font_size x+40 w80,% g_config.tooltip_font_size
+
+Gui, Add, Text, xm, 是否预览随机颜色[0/1]
+Gui, Add, Edit, vtooltip_random x+40 w80,% g_config.tooltip_random
+
+Gui, Add, Link, xm, 查询按键 <a href="https://www.autoahk.com/help/autohotkey/zh-cn/docs/Hotkeys.htm">按键列表</a>
 Gui, Add, Button, xm gsetting default, 设置
 Gui, Add, Button, x+10 greset, 重置
 
@@ -66,6 +108,21 @@ Gui, Submit,NoHide  ; 保存用户的输入到每个控件的关联变量中.
 g_config.key_open_search_box := key_open_search_box
 g_config.key_edit_now := key_edit_now
 g_config.key_open_editor := key_open_editor
+g_config.win_w := win_w
+g_config.win_search_box_back_color := win_search_box_back_color
+g_config.win_search_box_text_color := win_search_box_text_color
+g_config.win_search_box_font_size := win_search_box_font_size
+g_config.win_list_back_color := win_list_back_color
+g_config.win_list_text_color := win_list_text_color
+g_config.win_list_focus_back_color := win_list_focus_back_color
+g_config.win_list_focus_text_color := win_list_focus_text_color
+g_config.win_list_font_size := win_list_font_size
+
+g_config.tooltip_back_color := tooltip_back_color
+g_config.tooltip_text_color := tooltip_text_color
+g_config.tooltip_font_size := tooltip_font_size
+g_config.tooltip_random := tooltip_random
+
 saveconfig(g_config)
 log.info(g_config)
 save_script()
@@ -76,6 +133,23 @@ GuiControl,, key_open_search_box , +enter
 GuiControl,, key_send , ~$^enter
 GuiControl,, key_edit_now, ~$^x
 GuiControl,, key_open_editor , ~$!c
+GuiControl,, win_w , 600
+
+GuiControl,, win_search_box_back_color , 1d1d1d
+GuiControl,, win_search_box_text_color , 999999
+GuiControl,, win_search_box_font_size, 16
+
+GuiControl,, win_list_back_color , 1d1d1d
+GuiControl,, win_list_text_color , 999999
+GuiControl,, win_list_focus_back_color , 0x313131
+GuiControl,, win_list_focus_text_color , 0x959595
+GuiControl,, win_list_font_size, 14
+
+GuiControl,, tooltip_back_color , 1d1d1d
+GuiControl,, tooltip_text_color , 999999
+GuiControl,, tooltip_font_size , 15
+GuiControl,, tooltip_random , 1
+
 Gosub, setting
 return
 

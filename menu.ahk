@@ -7,10 +7,6 @@ OnMessage(0x201, "WM_LBUTTONDOWN")
 
 OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 OnMessage(0x100, "GuiKeyDown")
-;https://www.autohotkey.com/boards/viewtopic.php?t=3938
-OD_LB  := "+0x0050" ; LBS_OWNERDRAWFIXED = 0x0010, LBS_HASSTRINGS = 0x0040
-ODLB_SetItemHeight("s14 Normal", "MS Shell Dlg 2")
-ODLB_SetHiLiteColors(0x313131  , 0x959595)
 OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
 OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 #SingleInstance force
@@ -51,6 +47,12 @@ if(!loadconfig(g_config))
     MsgBox,% "Load config"  g_json_path " failed! will exit!!"
     ExitApp
 }
+
+;https://www.autohotkey.com/boards/viewtopic.php?t=3938
+OD_LB  := "+0x0050" ; LBS_OWNERDRAWFIXED = 0x0010, LBS_HASSTRINGS = 0x0040
+ODLB_SetItemHeight("s" g_config.win_list_font_size " Normal", "MS Shell Dlg 2")
+ODLB_SetHiLiteColors(g_config.win_list_focus_back_color  , g_config.win_list_focus_text_color)
+
 h1 := g_config.key_open_search_box,
 h2 := g_config.key_send
 h3 := g_config.key_open_search_box,
@@ -170,7 +172,10 @@ return
 main_label:
 x := g_config.win_x + g_config.win_w + 12
 y := g_config.win_y + 12
-g_text_rendor.Render(help_string, "x:" x " y:" y " color:Random", "s:15 j:left ")
+if(g_config.tooltip_random == 1)
+    g_text_rendor.Render(help_string, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
+else
+    g_text_rendor.Render(help_string, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
 
 WinGet, g_exe_name, ProcessName, A
 WinGet, g_exe_id, ID , A
@@ -197,7 +202,7 @@ if WinActive()
 }
 Gui Destroy
 Gui Margin, 0, 0
-Gui, Color, %BackgroundColor%, %BackgroundColor%
+Gui, Color,% g_config.win_search_box_back_color,% win_search_box_back_color
 Gui, Font, s16 Q5, Consolas
 Gui, -0x400000 +Border ;WS_DLGFRAME WS_BORDER(细边框)  caption(标题栏和粗边框) = WS_DLGFRAME+WS_BORDER  一定要有WS_BORDER否则没法双缓冲
 Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd  +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
@@ -206,8 +211,8 @@ Gui Add, Edit, hwndEDIT x0 y10 w%w%  vQuery gType -E0x200
 SetEditCueBanner(EDIT, "🔍  🙇⌨🛐📜▪例➡🅱󠁁🇩  🚀🚀🚀🚀🚀")
 Gui, Font, s14, Consolas
 Gui Add, ListBox, hwndLIST x0 y+0 h20 w%w%  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
-ControlColor(EDIT, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
-ControlColor(LIST, MyGuiHwnd, "0x" BackgroundColor, "0x" TextColor)
+ControlColor(EDIT, MyGuiHwnd, "0x" g_config.win_search_box_back_color, "0x" g_config.win_search_box_text_color)
+ControlColor(LIST, MyGuiHwnd, "0x" g_config.win_list_back_color, "0x" g_config.win_list_text_color)
 
 win_x := g_config.win_x
 win_y := g_config.win_y
@@ -576,7 +581,10 @@ preview_command(command)
     {
         x := g_config.win_x + g_config.win_w + 12
         y := g_config.win_y + 12
-        g_text_rendor.Render(UnityPath, "x:" x " y:" y " color:Random", "s:15 j:left ")
+        if(g_config.tooltip_random == 1)
+            g_text_rendor.Render(UnityPath, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
+        else
+            g_text_rendor.Render(UnityPath, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
     }
 }
 
