@@ -249,7 +249,7 @@ save_script()
     if(A_IsCompiled)
         run, %A_ScriptDir%/../menu.exe
     else
-        run, %A_ScriptDir%/../menu.ahk
+        run,% A_ScriptDir "\..\v1\AutoHotkey.exe " A_ScriptDir "\..\menu.ahk"
 }
 f7::
 id := TV_GetSelection()
@@ -329,7 +329,7 @@ editcmd()
     if(A_IsCompiled)
         run,% A_ScriptDir "\Adventure\Adventure.exe  " tmp_path " " my_pid
     else
-        run,% A_ScriptDir "\Adventure\Adventure.ahk  " tmp_path " " my_pid
+        run,% A_ScriptDir "\..\v1\AutoHotkey.exe " A_ScriptDir "\Adventure\Adventure.ahk  " tmp_path " " my_pid
     return
     savefile:
         Node:=GetNode()
@@ -340,7 +340,7 @@ editcmd()
         if(A_IsCompiled)
             run, %A_ScriptDir%/../menu.exe
         else
-            run, %A_ScriptDir%/../menu.ahk
+            run,% A_ScriptDir "\..\v1\AutoHotkey.exe " A_ScriptDir "\..\menu.ahk"
     return
 }
 node_get_path(c)

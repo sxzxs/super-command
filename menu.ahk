@@ -151,7 +151,7 @@ tmp_path =
 if(A_IsCompiled)
     run,% A_ScriptDir "\cmd\Adventure\Adventure.exe  " tmp_path " " my_pid
 else
-    run,% A_ScriptDir "\cmd\Adventure\Adventure.ahk  " tmp_path " " my_pid
+    run,% A_ScriptDir "\v1\AutoHotkey.exe " A_ScriptDir "\cmd\Adventure\Adventure.ahk  " tmp_path " " my_pid
 goto GuiEscape
 return
 
@@ -168,7 +168,7 @@ my_pid := ErrorLevel
 if(A_IsCompiled)
     run,% A_ScriptDir "\cmd\menue_create.exe " my_pid
 else
-    run,% A_ScriptDir "\cmd\menue_create.ahk " my_pid
+    run,% A_ScriptDir "\v1\AutoHotkey.exe " A_ScriptDir "\cmd\menue_create.ahk " my_pid
 return
 
 !q::

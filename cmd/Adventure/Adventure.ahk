@@ -3931,7 +3931,7 @@ write2xml(command, data)
     }
     else
     {
-        run, %A_ScriptDir%/../../menu.ahk
+        run,% A_ScriptDir "\..\..\v1\AutoHotkey.exe " A_ScriptDir "\..\..\menu.ahk"
     }
 }
 

@@ -1,4 +1,5 @@
-﻿/***********************************************************************************
+﻿;@Ahk2Exe-SetMainIcon %A_ScriptDir%\Icons\set.ico
+/***********************************************************************************
 Copyright:HX
 
 Author: kzf
@@ -195,5 +196,5 @@ save_script()
     if(A_IsCompiled)
         run, %A_ScriptDir%/menu.exe
     else
-        run, %A_ScriptDir%/menu.ahk
+        run,% A_ScriptDir "\v1\AutoHotkey.exe " A_ScriptDir "\menu.ahk"
 }
