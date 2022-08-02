@@ -9,7 +9,10 @@ OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
 OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
+
+DetectHiddenWindows On
 #SingleInstance force
+CheckProcess()
 #include <py>
 #include <btt>
 #include <log4ahk>
@@ -635,9 +638,9 @@ handle_command(command)
     UnityPath:= my_xml.SSN(pattern).text
 
     if(SubStr(UnityPath, 1, 3) == ";v2")
-        ExecScript(UnityPath, "",A_ScriptDir "\v2\AutoHotkey.exe")
+        ExecScript(UnityPath, A_ScriptDir, A_ScriptDir "\v2\AutoHotkey.exe")
     else
-        ExecScript(UnityPath, "",A_ScriptDir "\v1\AutoHotkey.exe")
+        ExecScript(UnityPath, A_ScriptDir, A_ScriptDir "\v1\AutoHotkey.exe")
 }
 
 xml_parse(xml)
@@ -1276,4 +1279,13 @@ WM_LBUTTONDOWN(wParam, lParam, msg, hwnd)
         g_config.win_w := W
         saveconfig(g_config)
     }
+}
+
+; Check if this script is already running (from a different location) and, if so, close the older process
+CheckProcess()
+{
+  PID := DllCall("GetCurrentProcessId")
+  Process, Exist, %A_ScriptName%
+  If (ErrorLevel != PID)
+    Process, Close, %ErrorLevel%
 }
