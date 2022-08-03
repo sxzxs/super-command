@@ -39,57 +39,63 @@ if(!loadconfig(g_config))
 
 ;UI
 Gui, Add, Text, xm, 打开搜索框:
-Gui, Add, Edit, vkey_open_search_box x+55 w80,% g_config.key_open_search_box
+Gui, Add, Edit, vkey_open_search_box section x+65 w80,% g_config.key_open_search_box
 Gui, Add, Text, xm, 发送文件:
-Gui, Add, Edit, vkey_send x+65 w80,% g_config.key_send
+Gui, Add, Edit, vkey_send xs+0 yp+0 w80,% g_config.key_send
 
 Gui, Add, Text, xm, 编辑当前指令:
-Gui, Add, Edit, vkey_edit_now x+40 w80,% g_config.key_edit_now
+Gui, Add, Edit, vkey_edit_now xs+0 yp+0 w80,% g_config.key_edit_now
 
 Gui, Add, Text, xm, 打开命令添加界面:
-Gui, Add, Edit, vkey_open_editor x+15 w80,% g_config.key_open_editor
+Gui, Add, Edit, vkey_open_editor xs+0 yp+0 w80,% g_config.key_open_editor
 
 ;宽度
 Gui, Add, Text, xm, 搜索框宽度:
-Gui, Add, Edit, vwin_w x+50 w80,% g_config.win_w
+Gui, Add, Edit, vwin_w xs+0 yp+0 w80,% g_config.win_w
 
 
 Gui, Add, Text, xm, 搜索框背景颜色:
-Gui, Add, Edit, vwin_search_box_back_color x+30 w80,% g_config.win_search_box_back_color
+Gui, Add, Edit, vwin_search_box_back_color xs+0 yp+0 w80,% g_config.win_search_box_back_color
 
 Gui, Add, Text, xm, 搜索框字体颜色:
-Gui, Add, Edit, vwin_search_box_text_color x+30 w80,% g_config.win_search_box_text_color
+Gui, Add, Edit, vwin_search_box_text_color xs+0 yp+0 w80,% g_config.win_search_box_text_color
 
 
 Gui, Add, Text, xm, 搜索框字体大小:
-Gui, Add, Edit, vwin_search_box_font_size x+30 w80,% g_config.win_search_box_font_size
+Gui, Add, Edit, vwin_search_box_font_size xs+0 yp+0 w80,% g_config.win_search_box_font_size
 
 Gui, Add, Text, xm, 列表背景颜色:
-Gui, Add, Edit, vwin_list_back_color x+40 w80,% g_config.win_list_back_color
+Gui, Add, Edit, vwin_list_back_color xs+0 yp+0 w80,% g_config.win_list_back_color
 
 Gui, Add, Text, xm, 列表字体颜色:
-Gui, Add, Edit, vwin_list_text_color x+40 w80,% g_config.win_list_text_color
+Gui, Add, Edit, vwin_list_text_color xs+0 yp+0 w80,% g_config.win_list_text_color
 
 Gui, Add, Text, xm, 列表焦点背景颜色:
-Gui, Add, Edit, vwin_list_focus_back_color x+20 w80,% g_config.win_list_focus_back_color
+Gui, Add, Edit, vwin_list_focus_back_color xs+0 yp+0 w80,% g_config.win_list_focus_back_color
 
 Gui, Add, Text, xm, 列表焦点字体颜色:
-Gui, Add, Edit, vwin_list_focus_text_color x+20 w80,% g_config.win_list_focus_text_color
+Gui, Add, Edit, vwin_list_focus_text_color xs+0 yp+0 w80,% g_config.win_list_focus_text_color
 
 Gui, Add, Text, xm, 列表字体大小:
-Gui, Add, Edit, vwin_list_font_size x+40 w80,% g_config.win_list_font_size
+Gui, Add, Edit, vwin_list_font_size xs+0 yp+0 w80,% g_config.win_list_font_size
 
 Gui, Add, Text, xm, 预览背景颜色
-Gui, Add, Edit, vtooltip_back_color x+40 w80,% g_config.tooltip_back_color
+Gui, Add, Edit, vtooltip_back_color xs+0 yp+0 w80,% g_config.tooltip_back_color
 
 Gui, Add, Text, xm, 预览字体颜色
-Gui, Add, Edit, vtooltip_text_color x+40 w80,% g_config.tooltip_text_color
+Gui, Add, Edit, vtooltip_text_color xs+0 yp+0 w80,% g_config.tooltip_text_color
 
 Gui, Add, Text, xm, 预览字体大小
-Gui, Add, Edit, vtooltip_font_size x+40 w80,% g_config.tooltip_font_size
+Gui, Add, Edit, vtooltip_font_size xs+0 yp+0 w80,% g_config.tooltip_font_size
 
 Gui, Add, Text, xm, 是否预览随机颜色[0/1]
-Gui, Add, Edit, vtooltip_random x+40 w80,% g_config.tooltip_random
+Gui, Add, Edit, vtooltip_random xs+0 yp+0 w80,% g_config.tooltip_random
+
+Gui, Add, Text, xm, 是否自动切换为英文[0/1]
+Gui, Add, Edit, vauto_english xs+0 yp+0 w80,% g_config.auto_english
+
+Gui, Add, Text, xm, 是否提示帮助信息[0/1]
+Gui, Add, Edit, vtooltip_help xs+0 yp+0 w80,% g_config.tooltip_help
 
 Gui, Add, Link, xm, 查询按键 <a href="https://www.autoahk.com/help/autohotkey/zh-cn/docs/Hotkeys.htm">按键列表</a>
 Gui, Add, Button, xm gsetting default, 设置
@@ -124,6 +130,9 @@ g_config.tooltip_text_color := tooltip_text_color
 g_config.tooltip_font_size := tooltip_font_size
 g_config.tooltip_random := tooltip_random
 
+g_config.auto_english := auto_english
+g_config.tooltip_help := tooltip_help
+
 saveconfig(g_config)
 log.info(g_config)
 save_script()
@@ -150,6 +159,9 @@ GuiControl,, tooltip_back_color , 1d1d1d
 GuiControl,, tooltip_text_color , 999999
 GuiControl,, tooltip_font_size , 15
 GuiControl,, tooltip_random , 1
+
+GuiControl,, auto_english , 1
+GuiControl,, tooltip_help , 1
 
 Gosub, setting
 return

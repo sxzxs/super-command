@@ -175,10 +175,13 @@ return
 main_label:
 x := g_config.win_x + g_config.win_w + 12
 y := g_config.win_y + 12
-if(g_config.tooltip_random == 1)
-    g_text_rendor.Render(help_string, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
-else
-    g_text_rendor.Render(help_string, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
+if(g_config.tooltip_help)
+{
+    if(g_config.tooltip_random == 1)
+        g_text_rendor.Render(help_string, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
+    else
+        g_text_rendor.Render(help_string, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
+}
 
 WinGet, g_exe_name, ProcessName, A
 WinGet, g_exe_id, ID , A
@@ -189,8 +192,12 @@ if (cmds == "")
     my_xml.XML.LoadXML(xml_file_content)
     cmds := xml_parse(my_xml)
 }
-SetCapsLockState,off
-switchime(0)
+if(g_config.auto_english)
+{
+    SetCapsLockState,off
+    switchime(0)
+}
+
 Gui +LastFoundExist
 if WinActive()
 {
@@ -222,6 +229,8 @@ win_y := g_config.win_y
 Gui Show, X%win_x% Y%win_y%
 GuiControl, % "Hide", Command
 Gui, Show, AutoSize
+
+;run,% A_ScriptDir "\hook.ahk " EDIT
 
 if(A_ThisHotkey == "!q")
     GuiControl,,% EDIT ,% " " g_exe_name
