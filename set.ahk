@@ -39,7 +39,7 @@ if(!loadconfig(g_config))
 
 ;UI
 Gui, Add, Text, xm, 打开搜索框:
-Gui, Add, Edit, vkey_open_search_box section x+65 w80,% g_config.key_open_search_box
+Gui, Add, Edit, vkey_open_search_box section x+75 w80,% g_config.key_open_search_box
 Gui, Add, Text, xm, 发送文件:
 Gui, Add, Edit, vkey_send xs+0 yp+0 w80,% g_config.key_send
 
@@ -97,6 +97,9 @@ Gui, Add, Edit, vauto_english xs+0 yp+0 w80,% g_config.auto_english
 Gui, Add, Text, xm, 是否提示帮助信息[0/1]
 Gui, Add, Edit, vtooltip_help xs+0 yp+0 w80,% g_config.tooltip_help
 
+Gui, Add, Text, xm, python解释器路径
+Gui, Add, Edit, vpython_path xs+0 yp+0 w160,% g_config.python_path
+
 Gui, Add, Link, xm, 查询按键 <a href="https://www.autoahk.com/help/autohotkey/zh-cn/docs/Hotkeys.htm">按键列表</a>
 Gui, Add, Button, xm gsetting default, 设置
 Gui, Add, Button, x+10 greset, 重置
@@ -133,6 +136,8 @@ g_config.tooltip_random := tooltip_random
 g_config.auto_english := auto_english
 g_config.tooltip_help := tooltip_help
 
+g_config.python_path := python_path
+
 saveconfig(g_config)
 log.info(g_config)
 save_script()
@@ -163,6 +168,7 @@ GuiControl,, tooltip_random , 1
 GuiControl,, auto_english , 1
 GuiControl,, tooltip_help , 1
 
+GuiControl,, python_path, C:\Python310\python.exe
 Gosub, setting
 return
 

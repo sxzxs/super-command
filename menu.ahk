@@ -40,7 +40,7 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
     ExitApp
 }
 
-log.is_log_open := false
+log.is_log_open := False
 
 ;加载配置
 global g_json_path := A_ScriptDir . "/config/settings.json"
@@ -95,7 +95,6 @@ TextColor := "999999"
 global g_text_rendor := TextRender()
 global g_text_rendor_clip := TextRender()
 g_text_rendor.Render(help_string, "t: 20seconds x:left y:top pt:2", "s:15 j:left ")
-
 
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
 {
@@ -648,6 +647,8 @@ handle_command(command)
 
     if(SubStr(UnityPath, 1, 3) == ";v2")
         ExecScript(UnityPath, A_ScriptDir, A_ScriptDir "\v2\AutoHotkey.exe")
+    else if(SubStr(UnityPath, 1, 3) == "#py")
+        execute_python(UnityPath)
     else
         ExecScript(UnityPath, A_ScriptDir, A_ScriptDir "\v1\AutoHotkey.exe")
 }
@@ -691,7 +692,16 @@ switchime(ime := "A")
 	}
 }
 
-ExecScript(Script, Params := "", AhkPath := "") {
+execute_python(script)
+{
+    global g_curent_text,g_config
+    FileDelete,% A_ScriptDir "\cmd\tmp\tmp.py"
+    FileAppend,% script,% A_ScriptDir "\cmd\tmp\tmp.py",UTF-8
+    Run,% ComSpec " /k "  g_config.python_path " " A_ScriptDir "\cmd\tmp\tmp.py"
+}
+
+ExecScript(Script, Params := "", AhkPath := "") 
+{
     Local Name, Pipe, Call, Shell, Exec
 
     Name := "AHK_CQT_" . A_TickCount
