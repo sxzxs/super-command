@@ -15,6 +15,11 @@
 # 修改热键
 执行 set.exe 程序设置
 
+# 其他支持的脚本语言执行
+* bat 脚本开头 ::bat
+* python 脚本开头  #py
+* ahk v2  脚本开头 ;v2
+
 ![](https://raw.githubusercontent.com/kazhafeizhale/pic/master/20220408125655.png)
 
 【ahk代码片段管理软件】：https://jq.qq.com/?_wv=1027&k=sxkummKG
