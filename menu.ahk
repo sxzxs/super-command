@@ -649,6 +649,8 @@ handle_command(command)
         ExecScript(UnityPath, A_ScriptDir, A_ScriptDir "\v2\AutoHotkey.exe")
     else if(SubStr(UnityPath, 1, 3) == "#py")
         execute_python(UnityPath)
+    else if(SubStr(UnityPath, 1, 5) == "::bat")
+        execute_bat(UnityPath)
     else
         ExecScript(UnityPath, A_ScriptDir, A_ScriptDir "\v1\AutoHotkey.exe")
 }
@@ -691,7 +693,13 @@ switchime(ime := "A")
 		Send, #{Space}
 	}
 }
-
+execute_bat(script)
+{    
+    global g_curent_text,g_config
+    FileDelete,% A_ScriptDir "\cmd\tmp\tmp.bat"
+    FileAppend,% script,% A_ScriptDir "\cmd\tmp\tmp.bat",UTF-8
+    Run,% A_ScriptDir "\cmd\tmp\tmp.bat"
+}
 execute_python(script)
 {
     global g_curent_text,g_config
