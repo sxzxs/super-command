@@ -3,42 +3,37 @@
 ; Script compiler directives
 ;@Ahk2Exe-SetMainIcon %A_ScriptDir%\Icons\Verifier.ico
 ;@Ahk2Exe-SetVersion 0.1.0
-OnMessage(0x201, "WM_LBUTTONDOWN")
 
-OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
-OnMessage(0x100, "GuiKeyDown")
-OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
-OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
-
+; Script options
+#SingleInstance Off  
+instance_one()
+#NoEnv
+#MaxMem 640
+#KeyHistory 0
+#Persistent
+SetBatchLines -1
 DetectHiddenWindows On
-#SingleInstance force
-CheckProcess()
+SetWinDelay -1
+SetControlDelay -1
+SetWorkingDir %A_ScriptDir%
+FileEncoding UTF-8
+CoordMode, ToolTip, Screen
+ListLines Off
+
+;管理员运行
+RunAsAdmin()
+
 #include <py>
 #include <btt>
 #include <log4ahk>
 #include <TextRender>
 #include <json>
-#Persistent
 
-
-;设置圆角
-;SetTimer set_region, 10
-
-CoordMode, ToolTip, Screen
-SetBatchLines -1
-;管理员运行
-full_command_line := DllCall("GetCommandLine", "str")
-if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
-{
-    try
-    {
-        if A_IsCompiled
-            Run *RunAs "%A_ScriptFullPath%" /restart
-        else
-            Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
-    }
-    ExitApp
-}
+OnMessage(0x201, "WM_LBUTTONDOWN")
+OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
+OnMessage(0x100, "GuiKeyDown")
+OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
+OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 
 log.is_log_open := False
 
@@ -1315,4 +1310,70 @@ CheckProcess()
   Process, Exist, %A_ScriptName%
   If (ErrorLevel != PID)
     Process, Close, %ErrorLevel%
+}
+RunAsAdmin()
+{
+ full_command_line := DllCall("GetCommandLine", "str")
+ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)")) {
+  try {
+   if A_IsCompiled
+    Run *RunAs "%A_ScriptFullPath%" /restart
+   else
+    Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
+  }Catch e{
+   MsgBox, 262160,Error,% e.Extra?e.Extra:"以管理员身份运行失败！",15
+   ExitApp
+  }
+ }
+}
+instance_one()
+{
+    DetectHiddenWindows, On
+    CurPID := DllCall("GetCurrentProcessId")
+    WinGet, List, List, %A_ScriptFullPath% ahk_class AutoHotkey
+    Loop % List
+    { 
+        WinGet, PID, PID, % "ahk_id" List%A_Index%
+        If (PID != CurPID)
+            Process, Close, %PID% 
+    }
+    TrayRefresh()
+}
+TrayRefresh() 
+{
+/*		Remove any dead icon from the tray menu
+ *		Should work both for W7 & W10
+ */
+	WM_MOUSEMOVE := 0x200
+	detectHiddenWin := A_DetectHiddenWindows
+	DetectHiddenWindows, On
+	allTitles := ["ahk_class Shell_TrayWnd"
+			, "ahk_class NotifyIconOverflowWindow"]
+	allControls := ["ToolbarWindow321"
+				,"ToolbarWindow322"
+				,"ToolbarWindow323"
+				,"ToolbarWindow324"]
+	allIconSizes := [24,32]
+	for id, title in allTitles {
+		for id, controlName in allControls
+		{
+			for id, iconSize in allIconSizes
+			{
+				ControlGetPos, xTray,yTray,wdTray,htTray,% controlName,% title
+				y := htTray - 10
+				While (y > 0)
+				{
+					x := wdTray - iconSize/2
+					While (x > 0)
+					{
+						point := (y << 16) + x
+						PostMessage,% WM_MOUSEMOVE, 0,% point,% controlName,% title
+						x -= iconSize/2
+					}
+					y -= iconSize/2
+				}
+			}
+		}
+	}
+	DetectHiddenWindows, %detectHiddenWin%
 }
