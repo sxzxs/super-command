@@ -37,7 +37,7 @@ OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
 OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 
-log.is_log_open := false
+log.is_log_open := False
 
 ;加载配置
 global g_json_path := A_ScriptDir . "/config/settings.json"
@@ -230,13 +230,15 @@ main_label:
     Gui Destroy
     Gui Margin, 0, 0
     Gui, Color,% g_config.win_search_box_back_color,% win_search_box_back_color
-    Gui, Font, s16 Q5, Consolas
+    win_search_box_font_size := g_config.win_search_box_font_size
+    Gui, Font, s%win_search_box_font_size% Q5, Consolas
     Gui, -0x400000 +Border ;WS_DLGFRAME WS_BORDER(细边框)  caption(标题栏和粗边框) = WS_DLGFRAME+WS_BORDER  一定要有WS_BORDER否则没法双缓冲
     Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd  +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
     w := g_config.win_w
     Gui Add, Edit, hwndEDIT x0 y10 w%w%  vQuery gType -E0x200
     SetEditCueBanner(EDIT, "🔍  🙇⌨🛐📜▪例➡🅱󠁁🇩  🚀🚀🚀🚀🚀")
-    Gui, Font, s14, Consolas
+    win_list_font_size := g_config.win_list_font_size
+    Gui, Font, s%win_list_font_size%, Consolas
     Gui Add, ListBox, hwndLIST x0 y+0 h20 w%w%  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
     ControlColor(EDIT, MyGuiHwnd, "0x" g_config.win_search_box_back_color, "0x" g_config.win_search_box_text_color)
     ControlColor(LIST, MyGuiHwnd, "0x" g_config.win_list_back_color, "0x" g_config.win_list_text_color)
@@ -325,7 +327,6 @@ return
 
 GuiEscape:
     Gui,Hide
-    btt()
     g_hook_rendor_list.render("")
     g_text_rendor.Render("")
 return
@@ -477,8 +478,11 @@ preview_command(command)
         x := g_config.win_x + g_config.win_w + 12
         y := g_config.win_y + 12
         if(g_hook_mode)
+        {
             g_hook_rendor.Render(UnityPath, " x:" g_hook_rendor_list.x2 + 10 " y:" g_hook_rendor_list.y + 11  " color:" g_config.tooltip_back_color
                                     , "s:" g_config.tooltip_font_size " j:left")
+        }
+            
         else
         {
             if(g_config.tooltip_random == 1)
@@ -744,9 +748,20 @@ update_btt()
     g_hook_command := g_hook_array[g_hook_real_index]
     log.info(g_hook_command, A_CaretX, A_CaretY)
     ps := GetCaretPos()
+    pre_h := (g_config.win_search_box_font_size + 11) * g_hook_array.Length() + 80
+    if(pre_h + ps.y > A_ScreenHeight)
+    {
+        ps.y := A_ScreenHeight - pre_h
+        ps.y := ps.y < 0 ? 0 : ps.y
+    }
     g_hook_rendor_list.Render(g_hook_strings "`n" tmp_str
                                 , "x:" ps.x + 30 " y:" ps.y + 40 " color:" g_config.win_search_box_back_color
                                 ,"s:" g_config.win_search_box_font_size + 5 " j:left " "c:" g_config.win_search_box_text_color "  b:true")
+
+    log.err(g_hook_rendor_list.y, g_hook_rendor_list.y2, g_hook_rendor_list.h)
+    log.err(g_hook_array.Length())
+    log.err(g_config.win_search_box_font_size + 5)
+    log.err((g_config.win_search_box_font_size + 11) * g_hook_array.Length() + 52)
     preview_command(g_hook_command)
     if(tmp_str == "")
         g_hook_rendor.render("")
