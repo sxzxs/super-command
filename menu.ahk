@@ -745,7 +745,7 @@ update_btt()
     log.info(g_hook_command, A_CaretX, A_CaretY)
     ps := GetCaretPos()
     g_hook_rendor_list.Render(g_hook_strings "`n" tmp_str
-                                , "x:" ps.x + 30 " y:" ps.y + 40 " color:" g_config.win_search_box_back_color " r:16px"
+                                , "x:" ps.x + 30 " y:" ps.y + 40 " color:" g_config.win_search_box_back_color
                                 ,"s:" g_config.win_search_box_font_size + 5 " j:left " "c:" g_config.win_search_box_text_color "  b:true")
     preview_command(g_hook_command)
     if(tmp_str == "")
