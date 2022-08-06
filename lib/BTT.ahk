@@ -62,6 +62,7 @@ ANSI版本的支持
 *跟随鼠标不出界
 *可贴附指定目标
 */
+global g_btt_X, g_btt_y, g_btt_w, g_btt_h
 btt(Text:="", X:="", Y:="", WhichToolTip:="", BulitInStyleOrStyles:="", BulitInOptionOrOptions:="")
 {
   static BTT
@@ -777,6 +778,10 @@ Class BeautifulToolTip
 
     ; 使用 ByRef 变量特性返回计算得到的 X和Y
     X := DisplayX , Y := DisplayY
+    g_btt_X := X
+    g_btt_Y := Y
+    g_btt_W := W
+    g_btt_H := H
   }
   
   ; https://autohotkey.com/boards/viewtopic.php?f=6&t=4379

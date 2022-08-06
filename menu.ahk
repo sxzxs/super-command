@@ -18,6 +18,7 @@ SetControlDelay -1
 SetWorkingDir %A_ScriptDir%
 FileEncoding UTF-8
 CoordMode, ToolTip, Screen
+CoordMode, Caret , Screen
 ListLines Off
 
 ;管理员运行
@@ -35,7 +36,7 @@ OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
 OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 
-log.is_log_open := False
+log.is_log_open := false
 
 ;加载配置
 global g_json_path := A_ScriptDir . "/config/settings.json"
@@ -77,7 +78,6 @@ py.allspell_muti("ahk")
 begin := 1
 total_command := 0 ;总命令个数
 is_get_all_cmd := false
-cmds := ""
 my_xml := new xml("xml")
 menue_create_pid := 0
 
@@ -87,8 +87,16 @@ g_exe_name := ""
 g_exe_id := ""
 BackgroundColor := "1d1d1d"
 TextColor := "999999"
+global cmds := ""
 global g_text_rendor := TextRender()
 global g_text_rendor_clip := TextRender()
+global g_hook_rendor := TextRender()
+global g_hook_strings := ""
+global g_hook_array := []
+global g_hook_real_index := 1
+global g_hook_list_strings := ""
+global g_hook_command := ""
+global g_hook_mode := false
 g_text_rendor.Render(help_string, "t: 20seconds x:left y:top pt:2", "s:15 j:left ")
 
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
@@ -165,6 +173,20 @@ else
     run,% A_ScriptDir "\v1\AutoHotkey.exe " A_ScriptDir "\cmd\menue_create.ahk " my_pid
 return
 
+
+<+Space::
+g_hook_strings := ""
+g_hook_mode := true
+
+global SacHook := InputHook("E", "{Esc}")
+SacHook.OnChar := Func("SacChar")
+SacHook.OnKeyDown := Func("SacKeyDown")
+SacHook.OnEnd := Func("SacEnd")
+SacHook.KeyOpt("{Backspace}", "N")
+SacHook.Start()
+
+return
+
 !q::
 main_label:
 x := g_config.win_x + g_config.win_w + 12
@@ -224,8 +246,6 @@ Gui Show, X%win_x% Y%win_y%
 GuiControl, % "Hide", Command
 Gui, Show, AutoSize
 
-;run,% A_ScriptDir "\hook.ahk " EDIT
-
 if(A_ThisHotkey == "!q")
     GuiControl,,% EDIT ,% " " g_exe_name
 return
@@ -235,16 +255,6 @@ SetTimer Refresh, -10
 return
 
 Refresh:
-;关闭重绘
-/*
-DllCall("dwmapi\DwmSetWindowAttribute", "ptr", myguihwnd
-  , "uint", DWMWA_NCRENDERING_POLICY := 2, "int*", DWMNCRP_DISABLED := 1, "uint", 4)
-
-Gui +LastFound 
-SendMessage, 0xB, false ; Turn off redrawing. 0xB is WM_SETREDRAW.
-GuiControl, -Redraw, Command
-GuiControl, -Redraw, Query
-*/
 
 GuiControlGet Query
 r := cmds
@@ -279,16 +289,6 @@ GuiControl, Move, Command, % "h" 33 * (total_command > 20 ? 22 : total_command)
 GuiControl, % (total_command && Query != "") ? "Show" : "Hide", Command
 HighlightedCommand := 1
 GuiControl, Choose, Command, 1
-
-;开启重绘
-/*
-Gui +LastFound 
-SendMessage, 0xB, true  ; Turn redrawing back on.
-WinSet Redraw  ; Force the window to repaint
-
-GuiControl, +Redraw, Command
-GuiControl, +Redraw, Query
-*/
 
 Gui, Show, AutoSize
 
@@ -334,6 +334,17 @@ Gui,Hide
 btt()
 g_text_rendor.Render("")
 return
+
+#if g_hook_mode
+up::
+    tab_choose("-")
+return
+
+down::
+    tab_choose()
+return
+#If
+
 
 #IfWinActive, menu ahk_class AutoHotkeyGUI
 
@@ -587,10 +598,15 @@ preview_command(command)
     {
         x := g_config.win_x + g_config.win_w + 12
         y := g_config.win_y + 12
-        if(g_config.tooltip_random == 1)
-            g_text_rendor.Render(UnityPath, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
+        if(g_hook_mode)
+            g_hook_rendor.Render(UnityPath, "x:" g_btt_x + g_btt_w + 20 " y:"  g_btt_y + 20 " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left ")
         else
-            g_text_rendor.Render(UnityPath, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
+        {
+            if(g_config.tooltip_random == 1)
+                g_text_rendor.Render(UnityPath, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
+            else
+                g_text_rendor.Render(UnityPath, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
+        }
     }
 }
 
@@ -620,8 +636,8 @@ send_command(command)
         return
     }
     SendInput, {RShift Down}{Insert}{RShift Up}
-    sleep,500
-    Clipboard := old_str
+    ;sleep,500
+    ;Clipboard := old_str
 }
 
 handle_command(command)
@@ -1376,4 +1392,99 @@ TrayRefresh()
 		}
 	}
 	DetectHiddenWindows, %detectHiddenWin%
+}
+
+SacChar(ih, char)  ; 当一个字符被添加到 SacHook.Input 时调用.
+{
+    if(GetKeyVK(char) == 13)
+    {
+        send_command(g_hook_command)
+        SacEnd()
+        return
+    }
+    if(char != A_tab)
+        g_hook_strings .= char
+    if(GetKeyVK(char) == 9)
+    {
+        log.info("tab")
+        tab_choose()
+    }
+    else
+        hook_mode_quck_search()
+    log.info(char, GetKeyVK(char))
+    log.info(g_hook_strings)
+}
+
+SacKeyDown(ih, vk, sc)
+{
+    if (vk = 8) ; 退格键
+        g_hook_strings := SubStr(g_hook_strings, 1 , -1)
+    log.info(g_hook_strings)
+    SacChar(ih, "")
+}
+SacEnd()
+{
+    g_hook_mode := false
+	SacHook.stop()
+    btt()
+    g_hook_rendor.Render("")
+}
+
+hook_mode_quck_search()
+{
+    log.info(g_hook_strings)
+    StringSplit q, g_hook_strings, %A_Space%
+    log.info(q0)
+    r := cmds
+    Loop % q0
+        r := Filter(r, q%A_Index%, c)
+    log.info(r)
+    g_hook_list_strings := ""
+    g_hook_array := []
+    g_hook_real_index := 1
+    real_index := 1
+    Loop Parse, r, `n
+    {
+        if(A_LoopField != "")
+        {
+            g_hook_array[real_index] := A_LoopField
+            if(real_index == 1)
+                g_hook_list_strings := real_index " " A_LoopField
+            else
+                g_hook_list_strings .= "`r`n"  real_index " "  A_LoopField
+            real_index++
+        }
+    }
+    log.info(g_hook_list_strings)
+    update_btt()
+}
+update_btt()
+{
+    CoordMode, ToolTip, Screen
+    tmp_str := ""
+    Loop, parse, g_hook_list_strings, `n, `r  ; 在 `r 之前指定 `n, 这样可以同时支持对 Windows 和 Unix 文件的解析.
+    {
+        s := A_LoopField
+        if(A_Index == g_hook_real_index)
+            s := "[✓]" A_LoopField
+        tmp_str .= s "`n"
+    }
+    g_hook_command := g_hook_array[g_hook_real_index]
+    log.info(g_hook_command, A_CaretX, A_CaretY)
+    btt(g_hook_strings "`n" tmp_str, A_CaretX, A_CaretY,,"Style4",{Transparent:250})
+    preview_command(g_hook_command)
+}
+
+tab_choose(opt := "")
+{
+    log.info(g_hook_array.Length())
+    if(opt == "-") 
+        g_hook_real_index--
+    else
+        g_hook_real_index++
+    if(g_hook_real_index > g_hook_array.Length())
+        g_hook_real_index := 1
+    if(g_hook_real_index == 0)
+        g_hook_real_index := g_hook_array.Length()
+    update_btt()
 }
