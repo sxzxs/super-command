@@ -9,6 +9,8 @@
 ![发送到窗口](https://user-images.githubusercontent.com/26515268/182857886-a8d0be3a-8b58-47b1-bb48-c937d8c4fa52.gif)
 * 复制到粘贴板
 ![复制到粘贴板](https://user-images.githubusercontent.com/26515268/182858230-992bdf37-c7d3-42f2-ba91-02fe19bf7671.gif)
+* hook 模式
+![hook模式](https://user-images.githubusercontent.com/26515268/183231847-cd02cc8e-0fb0-4a22-9bf3-f4d3f2a1a555.gif)
 * 执行ahk代码片段
 ![执行ahk命令](https://user-images.githubusercontent.com/26515268/182858487-052075ba-0d71-4e7a-b8ce-abbc5484b584.gif)
 * 执行python命令
