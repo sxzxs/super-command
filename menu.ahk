@@ -112,6 +112,7 @@ Hotkey,% g_config.key_open_search_box , main_label
 Hotkey,% g_config.key_send , label_send_command
 Hotkey,% g_config.key_open_editor , open_editor
 Hotkey,% g_config.key_edit_now , edit_now
+Hotkey,% g_config.hook_open , hook_open_label
 
 Menu, Tray, Icon, %A_ScriptDir%\Icons\Verifier.ico
 Menu, Tray, NoStandard
@@ -174,7 +175,8 @@ else
 return
 
 
-<+Space::
+
+hook_open_label:
 g_hook_strings := ""
 g_hook_mode := true
 
@@ -184,7 +186,6 @@ SacHook.OnKeyDown := Func("SacKeyDown")
 SacHook.OnEnd := Func("SacEnd")
 SacHook.KeyOpt("{Backspace}", "N")
 SacHook.Start()
-
 return
 
 !q::
@@ -336,10 +337,13 @@ g_text_rendor.Render("")
 return
 
 #if g_hook_mode
+
++tab::
 up::
     tab_choose("-")
 return
 
+tab::
 down::
     tab_choose()
 return
@@ -1407,7 +1411,7 @@ SacChar(ih, char)  ; 当一个字符被添加到 SacHook.Input 时调用.
     if(GetKeyVK(char) == 9)
     {
         log.info("tab")
-        tab_choose()
+        ;tab_choose()
     }
     else
         hook_mode_quck_search()
