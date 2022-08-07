@@ -178,6 +178,7 @@ return
 
 hook_open_label:
     g_hook_strings := ""
+    g_hook_list_strings := ""
     g_hook_mode := true
 
     global SacHook := InputHook("E", "{Esc}")
@@ -186,6 +187,7 @@ hook_open_label:
     SacHook.OnEnd := Func("SacEnd")
     SacHook.KeyOpt("{Backspace}", "N")
     SacHook.Start()
+    update_btt()
 return
 
 !q::
@@ -748,13 +750,16 @@ update_btt()
     g_hook_command := g_hook_array[g_hook_real_index]
     log.info(g_hook_command, A_CaretX, A_CaretY)
     ps := GetCaretPos()
-    pre_h := (g_config.win_search_box_font_size + 11) * g_hook_array.Length() + 80
+    pre_h := (g_config.win_search_box_font_size + 11) * g_hook_array.Length() + 100
     if(pre_h + ps.y > A_ScreenHeight)
     {
         ps.y := A_ScreenHeight - pre_h
         ps.y := ps.y < 0 ? 0 : ps.y
     }
-    g_hook_rendor_list.Render(g_hook_strings "`n" tmp_str
+    show_string := g_hook_strings "`n" tmp_str
+    if(g_hook_strings == "")
+        show_string := "⌨"  show_string
+    g_hook_rendor_list.Render(show_string
                                 , "x:" ps.x + 30 " y:" ps.y + 40 " color:" g_config.win_search_box_back_color
                                 ,"s:" g_config.win_search_box_font_size + 5 " j:left " "c:" g_config.win_search_box_text_color "  b:true")
 
