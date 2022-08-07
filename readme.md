@@ -36,5 +36,5 @@
 * ahk v2  脚本开头 ;v2
 
 ![](https://raw.githubusercontent.com/kazhafeizhale/pic/master/20220408125655.png)
-
+https://www.youtube.com/watch?v=jO3MFl0Vsbg
 【ahk代码片段管理软件】：https://jq.qq.com/?_wv=1027&k=sxkummKG
