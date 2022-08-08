@@ -349,6 +349,8 @@ GuiEscape:
     g_hook_rendor.DestroyWindow()
     g_hook_rendor := ""
     global g_hook_rendor := TextRender()
+    RunWait, %A_ScriptDir%/lib/empty.exe AutoHotkey.exe,,Hide
+    RunWait, %A_ScriptDir%/lib/empty.exe menu.exe,,Hide
 return
 
 #if g_hook_mode
