@@ -99,6 +99,7 @@ global g_hook_real_index := 1
 global g_hook_list_strings := ""
 global g_hook_command := ""
 global g_hook_mode := false
+global g_should_reload := false
 g_text_rendor.Render(help_string, "t: 5seconds x:left y:top pt:2", "s:15 j:left ")
 
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
@@ -353,8 +354,10 @@ GuiEscape:
     my_pid := ErrorLevel
     Try
     {
-        RunWait, %A_ScriptDir%/lib/empty.exe %my_pid%,,Hide
+        ;RunWait, %A_ScriptDir%/lib/empty.exe %my_pid%,,Hide
     }
+    if(g_should_reload)
+       Reload
 return
 
 #if g_hook_mode
@@ -484,6 +487,11 @@ Filter(s, q, ByRef count)
 
 preview_command(command)
 {
+    static preview_number := 0
+    preview_number++
+    if(preview_number == 1000)
+        g_should_reload := true
+
     g_text_rendor.clear()
     g_text_rendor.FreeMemory()
     g_hook_rendor.clear()
