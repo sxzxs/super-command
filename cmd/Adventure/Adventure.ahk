@@ -3910,17 +3910,26 @@ handle_command(command)
     }
     UnityPath:= my_xml.SSN(pattern).text
 }
+
+FindDupe(Node,Item){
+	if(SSN(Node.ParentNode,"Item[translate(@name,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='" Format("{:L}",Item) "']")){
+        return true
+	}
+}
+
 write2xml(command, data)
 {
     global my_xml,command_pid
-    word_array := StrSplit(command, ">")
+    word_array := StrSplit(command, " >")
     pattern := ""
     pattern := "//Menu" . pattern
     Node := my_xml.SSN("//Menu")
     for k,v in word_array
     {
-	    if(!my_xml.Find(Node,"Item/@name",v))
+        if(!FindDupe(Node.FirstChild, v))
+        {
 		    my_xml.Under(Node,"Item",{name:v,last:1})
+        }
         pattern .= "/*[@name='" v "']"
         Node := my_xml.SSN(pattern)
     }

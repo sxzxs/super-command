@@ -144,15 +144,37 @@ Return
 ~*esc::
     goto GuiEscape
 return
+
+copy_command_to_editor:
+    if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
+        return
+    pos := InStr(g_command, ">", CaseSensitive := false, StartingPos := 0, Occurrence := 1)
+    command := SubStr(g_command, 1, pos)
+    command := StrReplace(command, "$")
+    GuiControl,, Query ,% command
+    gui,Submit, Nohide
+return
 edit_new:
     if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
         return
     FileDelete,% A_ScriptDir "\cmd\tmp\tmp.ahk"
     FileAppend,% "",% A_ScriptDir "\cmd\tmp\tmp.ahk",UTF-8
     GuiControlGet, Query
+
+    command := ""
+    ar := StrSplit(Query, ">", " `t")
+    for k,v in ar
+    {
+        if(A_Index == 1)
+            command := v
+        else
+            command .= " >" v
+    }
+    command := StrReplace(command, "$")
+
     tmp_path =
     (
-        "%Query%"
+        "%command%"
     ) 
     if(A_IsCompiled)
         run,% A_ScriptDir "\cmd\Adventure\Adventure.exe  " tmp_path " " my_pid
@@ -182,6 +204,7 @@ return
         return
     Clipboard := g_curent_text
     g_text_rendor_clip.Render("Saved text to clipboard.", "t:1250 c:#F9E486 y:75vh r:10%")
+    gosub copy_command_to_editor
     return
 
     open_editor:
