@@ -351,7 +351,10 @@ GuiEscape:
     global g_hook_rendor := TextRender()
     Process Exist
     my_pid := ErrorLevel
-    RunWait, %A_ScriptDir%/lib/empty.exe %my_pid%,,Hide
+    Try
+    {
+        RunWait, %A_ScriptDir%/lib/empty.exe %my_pid%,,Hide
+    }
 return
 
 #if g_hook_mode
