@@ -492,10 +492,10 @@ preview_command(command)
     if(preview_number == 1000)
         g_should_reload := true
 
-    g_text_rendor.clear()
-    g_text_rendor.FreeMemory()
-    g_hook_rendor.clear()
-    g_hook_rendor.FreeMemory()
+    ;g_text_rendor.clear()
+    ;g_text_rendor.FreeMemory()
+    ;g_hook_rendor.clear()
+    ;g_hook_rendor.FreeMemory()
 
     command := StrReplace(command, "$")
     CoordMode, ToolTip, Screen
