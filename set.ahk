@@ -46,6 +46,9 @@ Gui, Add, Edit, vkey_send xs+0 yp+0 w80,% g_config.key_send
 Gui, Add, Text, xm, 编辑当前指令:
 Gui, Add, Edit, vkey_edit_now xs+0 yp+0 w80,% g_config.key_edit_now
 
+Gui, Add, Text, xm, 增加一条指令:
+Gui, Add, Edit, vkey_edit_new xs+0 yp+0 w80,% g_config.key_edit_new
+
 Gui, Add, Text, xm, 打开命令添加界面:
 Gui, Add, Edit, vkey_open_editor xs+0 yp+0 w80,% g_config.key_open_editor
 
@@ -121,6 +124,7 @@ setting:
 Gui, Submit,NoHide  ; 保存用户的输入到每个控件的关联变量中.
 g_config.key_open_search_box := key_open_search_box
 g_config.key_edit_now := key_edit_now
+g_config.key_edit_new := key_edit_new
 g_config.key_open_editor := key_open_editor
 g_config.hook_open := hook_open
 g_config.win_w := win_w
@@ -151,7 +155,8 @@ return
 reset:
 GuiControl,, key_open_search_box , +enter
 GuiControl,, key_send , ~$^enter
-GuiControl,, key_edit_now, ~$^x
+GuiControl,, key_edit_now, ~$^e
+GuiControl,, key_edit_now, ~$^d
 GuiControl,, key_open_editor , ~$!c
 GuiControl,, hook_open , +Space
 GuiControl,, win_w , 600

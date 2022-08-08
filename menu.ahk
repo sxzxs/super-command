@@ -115,7 +115,7 @@ Hotkey,% g_config.key_open_search_box , main_label
 Hotkey,% g_config.key_send , label_send_command
 Hotkey,% g_config.key_open_editor , open_editor
 Hotkey,% g_config.key_edit_now , edit_now
-Hotkey, ~^d, edit_new
+Hotkey,% g_config.key_edit_new , edit_new
 Hotkey,% g_config.hook_open , hook_open_label
 
 Menu, Tray, Icon, %A_ScriptDir%\Icons\Verifier.ico
@@ -152,6 +152,7 @@ copy_command_to_editor:
     command := SubStr(g_command, 1, pos)
     command := StrReplace(command, "$")
     GuiControl,, Query ,% command
+    SendInput, {end}
     gui,Submit, Nohide
 return
 edit_new:
