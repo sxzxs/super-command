@@ -64,6 +64,7 @@ If (Files.Length() && (hPrevInst := WinExist("Adventure v")) && Param != "/new")
 #Include %A_ScriptDir%\Lib\Scintilla.ahk
 #Include %A_ScriptDir%\Include\Globals.ahk
 
+
 If (!LoadSciLexer(SciLexer)) {
     MsgBox 0x10, %g_AppName% - Error
     , % "Failed to load library """ . SciLexer . """.`n`n" . GetErrorMessage(A_LastError) . "`nThe program will exit."
@@ -3912,13 +3913,18 @@ handle_command(command)
 write2xml(command, data)
 {
     global my_xml,command_pid
-    word_array := StrSplit(command, " >")
+    word_array := StrSplit(command, ">")
     pattern := ""
+    pattern := "//Menu" . pattern
+    Node := my_xml.SSN("//Menu")
     for k,v in word_array
     {
+	    if(!my_xml.Find(Node,"Item/@name",v))
+		    my_xml.Under(Node,"Item",{name:v,last:1})
         pattern .= "/*[@name='" v "']"
+        Node := my_xml.SSN(pattern)
     }
-    pattern := "//Menu" . pattern
+
     my_xml.SSN(pattern).text := data
     my_xml.save(1)
 

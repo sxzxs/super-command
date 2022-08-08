@@ -115,6 +115,7 @@ Hotkey,% g_config.key_open_search_box , main_label
 Hotkey,% g_config.key_send , label_send_command
 Hotkey,% g_config.key_open_editor , open_editor
 Hotkey,% g_config.key_edit_now , edit_now
+Hotkey, ~^d, edit_new
 Hotkey,% g_config.hook_open , hook_open_label
 
 Menu, Tray, Icon, %A_ScriptDir%\Icons\Verifier.ico
@@ -143,7 +144,22 @@ Return
 ~*esc::
     goto GuiEscape
 return
-
+edit_new:
+    if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
+        return
+    FileDelete,% A_ScriptDir "\cmd\tmp\tmp.ahk"
+    FileAppend,% "",% A_ScriptDir "\cmd\tmp\tmp.ahk",UTF-8
+    GuiControlGet, Query
+    tmp_path =
+    (
+        "%Query%"
+    ) 
+    if(A_IsCompiled)
+        run,% A_ScriptDir "\cmd\Adventure\Adventure.exe  " tmp_path " " my_pid
+    else
+        run,% A_ScriptDir "\v1\AutoHotkey.exe " A_ScriptDir "\cmd\Adventure\Adventure.ahk  " tmp_path " " my_pid
+    goto GuiEscape
+return
 edit_now:
     if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
         return
