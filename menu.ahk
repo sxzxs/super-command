@@ -269,7 +269,10 @@ Refresh:
             r := Filter(r, q%A_Index%, c)
     }
     else
-        g_text_rendor.Render("")
+    {
+        g_text_rendor.clear()
+        g_text_rendor.FreeMemory()
+    }
     rows := ""
     row_id := []
     real_index := 1
@@ -329,8 +332,23 @@ return
 
 GuiEscape:
     Gui,Hide
-    g_hook_rendor_list.render("")
-    g_text_rendor.Render("")
+    g_text_rendor.Clear("")
+    g_text_rendor.FreeMemory()
+    g_text_rendor.DestroyWindow()
+    g_text_rendor := ""
+    global g_text_rendor := TextRender()
+
+    g_hook_rendor_list.Clear("")
+    g_hook_rendor_list.FreeMemory()
+    g_hook_rendor_list.DestroyWindow()
+    g_hook_rendor_list := ""
+    global g_hook_rendor_list := TextRender()
+
+    g_hook_rendor.Clear("")
+    g_hook_rendor.FreeMemory()
+    g_hook_rendor.DestroyWindow()
+    g_hook_rendor := ""
+    global g_hook_rendor := TextRender()
 return
 
 #if g_hook_mode
@@ -460,6 +478,11 @@ Filter(s, q, ByRef count)
 
 preview_command(command)
 {
+    g_text_rendor.clear()
+    g_text_rendor.FreeMemory()
+    g_hook_rendor.clear()
+    g_hook_rendor.FreeMemory()
+
     command := StrReplace(command, "$")
     CoordMode, ToolTip, Screen
     global my_xml, menue_create_pid, log, gui_x, gui_y, g_curent_text, g_command
@@ -495,8 +518,10 @@ preview_command(command)
     }
     if(UnityPath == "")
     {
-        g_text_rendor.render("")
-        g_hook_rendor.render("")
+        g_text_rendor.Clear("")
+        g_text_rendor.FreeMemory()
+        g_hook_rendor.Clear("")
+        g_hook_rendor.FreeMemory()
     }
 }
 
@@ -604,7 +629,8 @@ execute_python(script)
 
 
 RemoveToolTip:
-    g_text_rendor.Render("")
+    g_text_rendor.clear()
+    g_text_rendor.FreeMemory()
 return
 
 Receive_WM_COPYDATA(wParam, lParam)
@@ -702,10 +728,18 @@ SacKeyDown(ih, vk, sc)
 }
 SacEnd()
 {
+    g_hook_rendor.Clear("")
+    g_hook_rendor.FreeMemory()
+    g_hook_rendor := ""
+    g_hook_rendor := TextRender()
+
+    g_hook_rendor_list.clear()
+    g_hook_rendor_list.FreeMemory()
+    g_hook_rendor_list := ""
+    g_hook_rendor_list := TextRender()
+
     g_hook_mode := false
 	SacHook.stop()
-    g_hook_rendor_list.render("")
-    g_hook_rendor.Render("")
 }
 
 hook_mode_quck_search()
@@ -738,6 +772,9 @@ hook_mode_quck_search()
 }
 update_btt()
 {
+    g_hook_rendor_list.crear()
+    g_hook_rendor_list.FreeMemory()
+
     CoordMode, ToolTip, Screen
     tmp_str := ""
     Loop, parse, g_hook_list_strings, `n, `r  ; 在 `r 之前指定 `n, 这样可以同时支持对 Windows 和 Unix 文件的解析.
@@ -769,7 +806,10 @@ update_btt()
     log.err((g_config.win_search_box_font_size + 11) * g_hook_array.Length() + 52)
     preview_command(g_hook_command)
     if(tmp_str == "")
+    {
         g_hook_rendor.render("")
+        g_hook_rendor.FreeMemory()
+    }
 }
 
 tab_choose(opt := "")
