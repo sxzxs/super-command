@@ -39,6 +39,10 @@
 * python 脚本开头  #py
 * ahk v2  脚本开头 ;v2
 
+# TODO
+* excel数据批量导入
+* 配置文件升级处理
+
 ![](https://raw.githubusercontent.com/kazhafeizhale/pic/master/20220408125655.png)
 
 https://www.youtube.com/watch?v=jO3MFl0Vsbg
