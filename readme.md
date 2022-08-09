@@ -21,9 +21,10 @@
 ![新增代码片段](https://user-images.githubusercontent.com/26515268/182859737-187a93c0-7891-48e0-b5d9-9913fb86aaf3.gif)
 
 # 默认按键使用说明
-* 执行搜索命令 enter 
+* 打开搜索框 shift+enter 
+* 执行命令 enter
 * 命令面板编辑命令 alt+c 
-* 再次执行shift+enter 复制结果
+* 复制结果，再次执行shift+enter
 * 发送文本到窗口 ctrl+enter 
 * 编辑当前命令 ctrl+e 
 *  快速添加一条命令(命令path用 “>” 分割)  ctrl+d
