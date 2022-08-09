@@ -21,11 +21,16 @@
 ![新增代码片段](https://user-images.githubusercontent.com/26515268/182859737-187a93c0-7891-48e0-b5d9-9913fb86aaf3.gif)
 
 # 默认按键使用说明
-* shift+enter 执行搜索命令
-* alt+c 添加命令并编辑
-* 再次执行shift+enter 复制结果
-* ctrl+enter 发送文本到窗口
-* alt+x 编辑该条命令
+* 打开搜索框 shift+enter 
+* 执行命令 enter
+* 命令面板编辑命令 alt+c 
+* 复制结果，再次执行shift+enter
+* 发送文本到窗口 ctrl+enter 
+* 编辑当前命令 ctrl+e 
+*  快速添加一条命令(命令path用 “>” 分割)  ctrl+d
+![image](https://user-images.githubusercontent.com/26515268/183568525-2747b706-0ac2-4c86-b8f7-f9ba7a83b510.png)
+* 复制选择的到命令父路径到搜索框 CTRl+C，可以配合快速添加使用
+
 
 # 修改热键
 执行 set.exe 程序设置
@@ -35,7 +40,15 @@
 * python 脚本开头  #py
 * ahk v2  脚本开头 ;v2
 
+# TODO
+* excel数据批量导入
+* 配置文件升级处理
+
+
+# 添加界面
 ![](https://raw.githubusercontent.com/kazhafeizhale/pic/master/20220408125655.png)
+
+# 其他链接
 
 https://www.youtube.com/watch?v=jO3MFl0Vsbg
 
