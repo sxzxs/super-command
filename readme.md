@@ -28,7 +28,7 @@
 * 编辑当前命令 ctrl+e 
 *  快速添加一条命令(命令path用 “>” 分割)  ctrl+d
 ![image](https://user-images.githubusercontent.com/26515268/183568525-2747b706-0ac2-4c86-b8f7-f9ba7a83b510.png)
-* 复制选择的到命令父路径到搜索框，可以配合快速添加使用
+* 复制选择的到命令父路径到搜索框 CTRl+C，可以配合快速添加使用
 
 
 # 修改热键
