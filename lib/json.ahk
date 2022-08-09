@@ -1,145 +1,104 @@
-﻿json_fromobj( obj ) {
+﻿;------------------------------
+;  JSon.ahk - v2.1  By FeiYue
+;------------------------------
 
-	If IsObject( obj )
-	{
-		isarray := 0 ; an empty object could be an array... but it ain't, says I
-		for key in obj
-			if ( key != ++isarray )
-			{
-				isarray := 0
-				Break
-			}
+json_toobj(s)  ; JSon字符串转AHK对象
+{
+  static rep:=[ ["\\","\u005c"], ["\""",""""], ["\/","/"]
+    , ["\r","`r"], ["\n","`n"], ["\t","`t"]
+    , ["\b","`b"], ["\f","`f"] ]
+  if !(p:=RegExMatch(s, "[\{\[]", r))
+    return
+  SetBatchLines, % (bch:=A_BatchLines)?"-1":"-1"
+  stack:=[], obj:=arr:=[], is_arr:=(r="[")
+  , key:=(is_arr ? 1:""), keyok:=0
+  While p:=RegExMatch(s, "\S", r, p+StrLen(r))
+  {
+    if (r="{" or r="[")  ; 如果是 左括号
+    {
+      stack.Push(is_arr, arr), arr[key]:=[], arr:=arr[key]
+      , is_arr:=(r="["), key:=(is_arr ? 1:""), keyok:=0
+    }
+    else if (r="}" or r="]")  ; 如果是 右括号
+    {
+      if !stack.Length()
+        Break
+      arr:=stack.Pop(), is_arr:=stack.Pop()
+      , key:=(is_arr ? arr.Length():""), keyok:=0
+    }
+    else if (r=",")  ; 如果是 逗号
+    {
+      key:=(is_arr ? Floor(key)+1:""), keyok:=0
+    }
+    else if (r="""")  ; 如果是 双引号
+    {
+      if RegExMatch(s, """((?:[^""\\]|\\[\s\S])*)""", r, p)!=p
+        Break
+      if InStr(r1, "\")
+      {
+        For k,v in rep
+          r1:=StrReplace(r1, v[1], v[2])
+        v:="", k:=1
+        While i:=RegExMatch(r1, "\\u[0-9A-Fa-f]{4}",, k)
+          v.=SubStr(r1,k,i-k) . Chr("0x" SubStr(r1,i+2,4)), k:=i+6
+        r1:=v . SubStr(r1,k)
+      }
+      if (!is_arr and keyok=0)
+      {
+        p+=StrLen(r)
+        if RegExMatch(s, "\s*:", r, p)!=p
+          Break
+        key:=r1, keyok:=1
+      }
+      else arr[key]:=r1
+    }
+    else  ; 如果是 true、false、null、数字
+    {
+      if RegExMatch(s, "[\w\+\-\.]+", r, p)!=p
+        Break
+      arr[key]:=(r=="true" ? 1:r=="false" ? 0:r=="null" ? "":r+0)
+    }
+  }
+  SetBatchLines, %bch%
+  return obj
+}
 
-		for key, val in obj
-			str .= ( A_Index = 1 ? "" : "," ) ( isarray ? "" : json_fromObj( key ) ":" ) json_fromObj( val )
-
-		return isarray ? "[" str "]" : "{" str "}"
-	}
-	else if obj IS NUMBER
-		return obj
-;	else if obj IN null,true,false ; AutoHotkey does not natively distinguish these
-;		return obj
-
-	; Encode control characters, starting with backslash.
-	StringReplace, obj, obj, \, \\, A
-	StringReplace, obj, obj, % Chr(08), \b, A
-	StringReplace, obj, obj, % A_Tab, \t, A
-	StringReplace, obj, obj, `n, \n, A
-	StringReplace, obj, obj, % Chr(12), \f, A
-	StringReplace, obj, obj, `r, \r, A
-	StringReplace, obj, obj, ", \", A
-	StringReplace, obj, obj, /, \/, A
-	While RegexMatch( obj, "[^\x20-\x7e]", key )
-	{
-		str := Asc( key )
-		val := "\u" . Chr( ( ( str >> 12 ) & 15 ) + ( ( ( str >> 12 ) & 15 ) < 10 ? 48 : 55 ) )
-				. Chr( ( ( str >> 8 ) & 15 ) + ( ( ( str >> 8 ) & 15 ) < 10 ? 48 : 55 ) )
-				. Chr( ( ( str >> 4 ) & 15 ) + ( ( ( str >> 4 ) & 15 ) < 10 ? 48 : 55 ) )
-				. Chr( ( str & 15 ) + ( ( str & 15 ) < 10 ? 48 : 55 ) )
-		StringReplace, obj, obj, % key, % val, A
-	}
-	return """" obj """"
-} ; json_fromobj( obj )
-
-json_toobj( str ) {
-
-	quot := """" ; firmcoded specifically for readability. Hardcode for (minor) performance gain
-	ws := "`t`n`r " Chr(160) ; whitespace plus NBSP. This gets trimmed from the markup
-	obj := {} ; dummy object
-	objs := [] ; stack
-	keys := [] ; stack
-	isarrays := [] ; stack
-	literals := [] ; queue
-	y := nest := 0
-
-; First pass swaps out literal strings so we can parse the markup easily
-	StringGetPos, z, str, %quot% ; initial seek
-	while !ErrorLevel
-	{
-		; Look for the non-literal quote that ends this string. Encode literal backslashes as '\u005C' because the
-		; '\u..' entities are decoded last and that prevents literal backslashes from borking normal characters
-		StringGetPos, x, str, %quot%,, % z + 1
-		while !ErrorLevel
-		{
-			StringMid, key, str, z + 2, x - z - 1
-			StringReplace, key, key, \\, \u005C, A
-			If SubStr( key, 0 ) != "\"
-				Break
-			StringGetPos, x, str, %quot%,, % x + 1
-		}
-	;	StringReplace, str, str, %quot%%t%%quot%, %quot% ; this might corrupt the string
-		str := ( z ? SubStr( str, 1, z ) : "" ) quot SubStr( str, x + 2 ) ; this won't
-
-	; Decode entities
-		StringReplace, key, key, \%quot%, %quot%, A
-		StringReplace, key, key, \b, % Chr(08), A
-		StringReplace, key, key, \t, % A_Tab, A
-		StringReplace, key, key, \n, `n, A
-		StringReplace, key, key, \f, % Chr(12), A
-		StringReplace, key, key, \r, `r, A
-		StringReplace, key, key, \/, /, A
-		while y := InStr( key, "\u", 0, y + 1 )
-			if ( A_IsUnicode || Abs( "0x" SubStr( key, y + 2, 4 ) ) < 0x100 )
-				key := ( y = 1 ? "" : SubStr( key, 1, y - 1 ) ) Chr( "0x" SubStr( key, y + 2, 4 ) ) SubStr( key, y + 6 )
-
-		literals.insert(key)
-
-		StringGetPos, z, str, %quot%,, % z + 1 ; seek
-	}
-
-; Second pass parses the markup and builds the object iteratively, swapping placeholders as they are encountered
-	key := isarray := 1
-
-	; The outer loop splits the blob into paths at markers where nest level decreases
-	Loop Parse, str, % "]}"
-	{
-		StringReplace, str, A_LoopField, [, [], A ; mark any array open-brackets
-
-		; This inner loop splits the path into segments at markers that signal nest level increases
-		Loop Parse, str, % "[{"
-		{
-			; The first segment might contain members that belong to the previous object
-			; Otherwise, push the previous object and key to their stacks and start a new object
-			if ( A_Index != 1 )
-			{
-				objs.insert( obj )
-				isarrays.insert( isarray )
-				keys.insert( key )
-				obj := {}
-				isarray := key := Asc( A_LoopField ) = 93
-			}
-
-			; arrrrays are made by pirates and they have index keys
-			if ( isarray )
-			{
-				Loop Parse, A_LoopField, `,, % ws "]"
-					if ( A_LoopField != "" )
-						obj[key++] := A_LoopField = quot ? literals.remove(1) : A_LoopField
-			}
-			; otherwise, parse the segment as key/value pairs
-			else
-			{
-				Loop Parse, A_LoopField, `,
-					Loop Parse, A_LoopField, :, % ws
-						if ( A_Index = 1 )
-							key := A_LoopField = quot ? literals.remove(1) : A_LoopField
-						else if ( A_Index = 2 && A_LoopField != "" )
-							obj[key] := A_LoopField = quot ? literals.remove(1) : A_LoopField
-			}
-			nest += A_Index > 1
-		} ; Loop Parse, str, % "[{"
-
-		If !--nest
-			Break
-
-		; Insert the newly closed object into the one on top of the stack, then pop the stack
-		pbj := obj
-		obj := objs.remove()
-		obj[key := keys.remove()] := pbj
-		If ( isarray := isarrays.remove() )
-			key++
-
-	} ; Loop Parse, str, % "]}"
-
-	Return obj
-} ; json_toobj( str )
+json_fromobj(obj, space:="")  ; AHK对象转JSon字符串
+{
+  ;-------------------
+  ; 默认不替换 "/-->\/" 与 特殊html字符<、>、&
+  ;-------------------
+  static rep:=[ ["\\","\"], ["\""",""""]  ; , ["\/","/"]
+    ; , ["\\u003c","<"], ["\\u003e",">"], ["\\u0026","&"]
+    , ["\r","`r"], ["\n","`n"], ["\t","`t"]
+    , ["\b","`b"], ["\f","`f"] ]
+  if !IsObject(obj)
+  {
+    if obj is Number  ; thanks lexikos
+      return ([obj].GetCapacity(1) ? """" obj """" : obj)
+    ;-------------------
+    ; 布尔值在AHK中转为数字了
+    ; if (obj=="true" or obj=="false" or obj=="null")
+    ;   return obj
+    ;-------------------
+    For k,v in rep
+      obj:=StrReplace(obj, v[2], v[1])
+    ;-------------------
+    ; 默认不替换 "Unicode字符-->\uXXXX"
+    ; While RegExMatch(obj, "[^\x20-\x7e]", k)
+    ;   obj:=StrReplace(obj, k, Format("\u{:04x}",Ord(k)))
+    ;-------------------
+    return """" obj """"
+  }
+  is_arr:=1  ; 是简单数组
+  For k,v in obj
+    if (k!=A_Index) and !(is_arr:=0)
+      Break
+  s:="", space2:=space . "    ", f:=A_ThisFunc
+  For k,v in obj
+    s.= "`r`n" space2
+    . (is_arr ? "" : """" Trim(%f%(k ""),"""") """: ")
+    . %f%(v,space2) . ","
+  return (is_arr?"[":"{") . Trim(s,",")
+    . "`r`n" space . (is_arr?"]":"}")
+}

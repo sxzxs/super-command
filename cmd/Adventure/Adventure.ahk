@@ -41,7 +41,7 @@ if(xml_path == "")
 }
 
 my_xml := new xml("xml")
-fileread, xml_file_content,% A_ScriptDir "\..\Menus\超级命令.xml"
+fileread, xml_file_content,% "*P65001 " A_ScriptDir "\..\Menus\超级命令.xml"
 my_xml.file := A_ScriptDir "\..\Menus\超级命令.xml"
 if(xml_file_content == "")
 {
@@ -4014,11 +4014,18 @@ Class XML{
 			this.Transform()
 		if(this.XML.SelectSingleNode("*").xml="")
 			return m("Errors happened while trying to save " this.file ". Reverting to old version of the XML")
-		filename:=this.file?this.file:x.1.1,ff:=FileOpen(filename,0),text:=ff.Read(ff.length),ff.Close()
+		filename:=this.file?this.file:x.1.1,
+        ff:=FileOpen(filename,0),
+        ff.Encoding := "UTF-8"
+        text:=ff.Read(ff.length),ff.Close()
 		if(!this[])
 			return m("Error saving the " this.file " XML.  Please get in touch with maestrith if this happens often")
 		if(text!=this[])
-			file:=FileOpen(filename,"rw"),file.Seek(0),file.Write(this[]),file.Length(file.Position)
+        {
+			file:=FileOpen(filename,"rw")
+            file.Encoding := "UTF-8"
+            file.Seek(0),file.Write(this[]),file.Length(file.Position)
+        }
 	}SSN(XPath){
 		return this.XML.SelectSingleNode(XPath)
 	}SN(XPath){

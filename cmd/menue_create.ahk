@@ -23,6 +23,7 @@ MainWin.Add("TreeView,w350 h300 vTV gUpdateColor AltSubmit,,wh"
 		 ,"Button,xs+10 yp+30 gAddMenuItem Default,&Add,y"
 		 ,"Button,x+m gAddSubMenuItem,Add &Sub-Menu,y"
 		 ,"Button,x+m gEdit,&Name,y"
+		 ,"Button,x+m gdeleteMenuItem,&delete,y"
 		 ,"Radio,xs+30 yp+35 vAfter Checked gFocusItem,Insert Af&ter,y"
 		 ,"Radio,vBefore gFocusItem,Insert &Before,y"
 		 ,"Checkbox,xm vConfirm,Confirm Delete,y"
@@ -476,6 +477,16 @@ AddMenuItem(){
 	}MainWin.SetText("Item"),Populate()
     MenuHandler("save", 4, "File")
 }
+deleteMenuItem()
+{
+	if(!Node:=GetNode())
+	{
+		MsgBox,("Please selete intem first!")
+		return
+	}
+	Delete()
+}
+
 AddSubMenuItem(){
     ;ToolTip, 注意命令节点名称不能相同，建议名字结尾添加当前时间(点击TIME按钮获取到剪切板)
     ;SetTimer, RemoveToolTip, -5000
@@ -731,15 +742,19 @@ Class XML{
 			this.Transform()
 		if(this.XML.SelectSingleNode("*").xml="")
 			return m("Errors happened while trying to save " this.file ". Reverting to old version of the XML")
-		FileName:=this.file?this.file:x.1.1,ff:=FileOpen(FileName,"R"),text:=ff.Read(ff.length),ff.Close()
-		if(ff.encoding!="UTF-8")
-			FileDelete,%FileName%
+		filename:=this.file?this.file:x.1.1,
+        ff:=FileOpen(filename,0),
+        ff.Encoding := "UTF-8"
+        text:=ff.Read(ff.length),ff.Close()
 		if(!this[])
 			return m("Error saving the " this.file " XML.  Please get in touch with maestrith if this happens often")
-		if(!FileExist(FileName))
-			FileAppend,% this[],%FileName%,UTF-8
-		else if(text!=this[])
-			file:=FileOpen(FileName,"W","UTF-8"),file.Write(this[]),file.Length(file.Position),file.Close()
+		if(text!=this[])
+        {
+			file:=FileOpen(filename,"rw")
+            file.Encoding := "UTF-8"
+            file.Seek(0),file.Write(this[]),file.Length(file.Position)
+
+        }
 	}SSN(XPath){
 		return this.XML.SelectSingleNode(XPath)
 	}SN(XPath){

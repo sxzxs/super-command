@@ -117,6 +117,7 @@ Hotkey,% g_config.key_open_editor , open_editor
 Hotkey,% g_config.key_edit_now , edit_now
 Hotkey,% g_config.key_edit_new , edit_new
 Hotkey,% g_config.hook_open , hook_open_label
+;Hotkey, delete , label_delete
 
 Menu, Tray, Icon, %A_ScriptDir%\Icons\Verifier.ico
 Menu, Tray, NoStandard
@@ -216,6 +217,40 @@ return
     else
         run,% A_ScriptDir "\v1\AutoHotkey.exe " A_ScriptDir "\cmd\menue_create.ahk " my_pid
 return
+
+label_delete:
+    if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
+        return
+
+    GuiControlGet Command
+    if !Command
+        return
+    Command := row_id[Command]
+    command := StrReplace(command, "$")
+    word_array := StrSplit(command, " >")
+    pattern := ""
+    for k,v in word_array
+        pattern .= "/*[@name='" v "']"
+    pattern := "//Menu" . pattern
+    node := my_xml.SSN(pattern)
+	if(!Next:=Node.NextSibling?Node.NextSibling:Node.PreviousSibling)
+		Next:=Node.ParentNode
+	Next.SetAttribute("last",1)
+    Node.ParentNode.RemoveChild(Node)
+    my_xml.save(1)
+    Populate()
+return
+
+Populate(SetLast:=0){
+	All:=MenuXML.SN("//Menu/descendant::*")
+	if(Last:=MenuXML.SSN("//*[@last]"))
+		TV_Modify(SSN(Last,"@tv").text,"Select Vis Focus"),Last.RemoveAttribute("last")
+	All:=MenuXML.SN("//*[@expand]")
+	while(aa:=All.Item[A_Index-1],ea:=XML.EA(aa))
+		TV_Modify(ea.tv,"Expand"),aa.RemoveAttribute("expand")
+	GuiControl,1:+Redraw,SysTreeView321
+}
+
 
 hook_open_label:
     g_hook_strings := ""
