@@ -97,6 +97,7 @@ global g_hook_command := ""
 global g_hook_mode := false
 global g_should_reload := false
 global g_my_menu_map := {"增加一条命令: " convert_key2str(g_config.key_edit_new) : "edit_new"
+                            , "删除当前命令: delete" : "label_delete"
                             , "编辑当前命令: " convert_key2str(g_config.key_edit_now) : "edit_now"
                             , "编辑全部命令: " convert_key2str(g_config.key_open_editor) : "open_editor"
                             , "发送到窗口: " convert_key2str(g_config.key_send) : "label_send_command"
@@ -111,6 +112,7 @@ if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
 fileread, xml_file_content,% "*P65001 " A_ScriptDir "\cmd\Menus\超级命令.xml"
 my_xml.XML.LoadXML(xml_file_content)
 cmds := xml_parse(my_xml)
+my_xml.file := A_ScriptDir "\cmd\Menus\超级命令.xml"
 
 ;注册热键
 Hotkey,% g_config.key_open_search_box , main_label
@@ -259,8 +261,15 @@ return
         run,% A_ScriptDir "\v1\AutoHotkey.exe " A_ScriptDir "\cmd\menue_create.ahk " my_pid
 return
 
+~Delete::
+gosub, label_delete
+return
+
 label_delete:
     if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
+        return
+
+    if(m("无法撤销, 确定删除?","ico:?","btn:ync","def:2")!="Yes")
         return
 
     GuiControlGet Command
@@ -276,10 +285,11 @@ label_delete:
     node := my_xml.SSN(pattern)
 	if(!Next:=Node.NextSibling?Node.NextSibling:Node.PreviousSibling)
 		Next:=Node.ParentNode
-	Next.SetAttribute("last",1)
+	;Next.SetAttribute("last",1)
     Node.ParentNode.RemoveChild(Node)
     my_xml.save(1)
     Populate()
+    reload
 return
 
 Populate(SetLast:=0){
