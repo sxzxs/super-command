@@ -61,14 +61,16 @@ h5 := g_config.key_edit_now
 help_string =
 (
 v2.0
+右键搜索框打开菜单
 打开当前搜索框 [%h1%]
 发送命令到窗口 [%h2%]
-复制当前文本 [%h3%]
+复制当前文本 [%h3%],或右键单击预览
 执行命令 [enter]
 编辑所有命令 [%h4%]
-编辑当前命令 [%h5%]
+编辑当前命令 [%h5%],或双击预览
 取消 [esc]
 复制当前文本 [Ctrl c]
+hook模式参看帮助说明
 )
 convert_key2str(help_string)
 py.allspell_muti("ahk")
@@ -191,6 +193,9 @@ return
 ~RButton::
 ~MButton::
 if(!WinActive("ahk_id " MyGuiHwnd))
+    return
+MouseGetPos, , , id, control
+if(id == g_text_rendor.hwnd)
     return
 Menu, MyMenu, Show
 return
