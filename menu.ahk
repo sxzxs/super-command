@@ -165,6 +165,28 @@ Rel:
     Reload
 Return
 
+~LButton::
+    if(!WinActive("ahk_id " g_text_rendor.hwnd) && !WinActive("ahk_id " myguihwnd))
+        return
+    if winc_presses > 0 ; SetTimer 已经启动, 所以我们记录键击.
+    {
+        winc_presses += 1
+        return
+    }
+    ; 否则, 这是新开始系列中的首次按下. 把次数设为 1 并启动
+    ; 计时器:
+    winc_presses = 1
+    SetTimer, KeyWinC, -400 ; 在 400 毫秒内等待更多的键击.
+return
+KeyWinC:
+    if winc_presses = 2 ; 此键按下了两次.
+    {
+        Gosub, edit_now_sub
+    }
+    ; 不论触发了上面的哪个动作, 都对 count 进行重置
+    ; 为下一个系列的按下做准备:
+    winc_presses = 0
+return
 
 ~RButton::
 ~MButton::
@@ -221,9 +243,11 @@ edit_new:
         run,% A_ScriptDir "\v1\AutoHotkey.exe " A_ScriptDir "\cmd\Adventure\Adventure.ahk  " tmp_path " " my_pid
     goto GuiEscape
 return
+
 edit_now:
     if(!WinActive("ahk_id " MyGuiHwnd))
         return
+edit_now_sub:
     if(g_command == "")
     {
         msgbox, 请输入命令的路径和短语, 提示: Ctrl+C 复制已有命令路径到编辑框
