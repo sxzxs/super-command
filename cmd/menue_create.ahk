@@ -10,7 +10,7 @@ OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
 #SingleInstance,Force
 global Settings:=new XML(A_ScriptDir "\Settings"),MainWin:=new GUIKeep(1),MenuXML
 ;msgbox,% Settings.Get("//Last/@file","Menus\Menu.XML")
-Main:={"&File":["&New","&Open","&Save","E&xit"],"A&bout":["Help","Online Manual"]},Order:=["&File","A&bout"],MenuXML:=new XML("Menu",A_ScriptDir "/Menus/超级命令.xml")
+Main:={"&File":["&New","&Open","&Save","E&xit", "Importer form excel"],"A&bout":["Help","Online Manual"]},Order:=["&File","A&bout"],MenuXML:=new XML("Menu",A_ScriptDir "/Menus/超级命令.xml")
 for a,b in Order
 	for c,d in Main[b]
 		Menu,% RegExReplace(b,"\W"),Add,%d%,MenuHandler
@@ -405,6 +405,12 @@ MenuHandler(a,b,c){
 			return Clipboard:=Export(1)
             ;outToFile(),
             ;changeCmdfile()
+		}
+		else if(Item="Importer form excel"){
+			FileSelectFile,FileName,,Menus,Open a Menu,*.xml
+			if(ErrorLevel||!FileExist(FileName))
+				return
+			importer_from_excel(FileName)
 		}
 	}if(c="About"){
 		if(Item="Help")
@@ -932,3 +938,8 @@ Send_WM_COPYDATA(ByRef StringToSend, ByRef TargetScriptTitle)  ; 在这种情况
 ~Esc::
 btt()
 return
+importer_from_excel(file_name)
+{
+
+
+}

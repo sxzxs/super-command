@@ -37,7 +37,7 @@ OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
 OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 
-log.is_log_open := False
+log.is_log_open := false
 
 ;加载配置
 global g_json_path := A_ScriptDir . "/config/settings.json"
@@ -70,11 +70,7 @@ v2.0
 取消 [esc]
 复制当前文本 [Ctrl c]
 )
-help_string := StrReplace(help_string, "+", "Shift ")
-help_string := StrReplace(help_string, "^", "Ctrl ")
-help_string := StrReplace(help_string, "!", "Alt ")
-help_string := StrReplace(help_string, "#", "Win ")
-help_string := StrReplace(help_string, "~$")
+convert_key2str(help_string)
 py.allspell_muti("ahk")
 begin := 1
 total_command := 0 ;总命令个数
@@ -100,6 +96,12 @@ global g_hook_list_strings := ""
 global g_hook_command := ""
 global g_hook_mode := false
 global g_should_reload := false
+global g_my_menu_map := {"增加一条命令: " convert_key2str(g_config.key_edit_new) : "edit_new"
+                            , "编辑当前命令: " convert_key2str(g_config.key_edit_now) : "edit_now"
+                            , "编辑全部命令: " convert_key2str(g_config.key_open_editor) : "open_editor"
+                            , "发送到窗口: " convert_key2str(g_config.key_send) : "label_send_command"
+                            , "复制结果: " convert_key2str(g_config.key_open_search_box) : "label_menu_copy_data"
+                            , "设置" : "open_set"}
 g_text_rendor.Render(help_string, "t: 5seconds x:left y:top pt:2", "s:15 j:left ")
 
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
@@ -117,15 +119,34 @@ Hotkey,% g_config.key_open_editor , open_editor
 Hotkey,% g_config.key_edit_now , edit_now
 Hotkey,% g_config.key_edit_new , edit_new
 Hotkey,% g_config.hook_open , hook_open_label
-;Hotkey, delete , label_delete
 
 Menu, Tray, Icon, %A_ScriptDir%\Icons\Verifier.ico
 Menu, Tray, NoStandard
-Menu, Tray, Add , Suspend, Sus
-Menu, Tray, Add , Reload, Rel
+Menu, Tray, add, 帮助,  open_github
+Menu, Tray, add, 设置,  open_set
+Menu, Tray, add,% "打开搜索框: " convert_key2str(g_config.key_open_search_box),  main_label
+Menu, Tray, add,% "添加命令: " convert_key2str(g_config.key_open_editor),  open_set
 Menu, Tray, Add , Exit, Exi
 Menu, Tray, Default, Exit
 Menu, Tray, Icon , %A_ScriptDir%\Icons\Verifier.ico,, 1
+
+
+; 添加一些菜单项来创建弹出菜单.
+for k,v in g_my_menu_map
+    Menu, Mymenu, add,% k,  MenuHandler
+return  ; 脚本的自动运行段结束.
+
+MenuHandler:
+if(!WinActive("ahk_id " MyGuiHwnd))
+    return
+log.info(A_ThisMenu, A_ThisMenuItem)
+for k,v in g_my_menu_map
+{
+    if(A_ThisMenuItem == k)
+        Gosub,% v
+}
+return
+
 Return
 
 Sus:
@@ -142,6 +163,14 @@ Rel:
     Reload
 Return
 
+
+~RButton::
+~MButton::
+if(!WinActive("ahk_id " MyGuiHwnd))
+    return
+Menu, MyMenu, Show
+return
+
 ~*esc::
     goto GuiEscape
 return
@@ -157,8 +186,14 @@ copy_command_to_editor:
     gui,Submit, Nohide
 return
 edit_new:
-    if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
+    if(!WinActive("ahk_id " MyGuiHwnd))
         return
+    if(g_command == "")
+    {
+        msgbox, 请先在编辑框添加路径和短语, 提示: ctrl+c可复制已有路径
+        return
+    }
+    
     FileDelete,% A_ScriptDir "\cmd\tmp\tmp.ahk"
     FileAppend,% "",% A_ScriptDir "\cmd\tmp\tmp.ahk",UTF-8
     GuiControlGet, Query
@@ -185,8 +220,14 @@ edit_new:
     goto GuiEscape
 return
 edit_now:
-    if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
+    if(!WinActive("ahk_id " MyGuiHwnd))
         return
+    if(g_command == "")
+    {
+        msgbox, 请输入命令的路径和短语, 提示: Ctrl+C 复制已有命令路径到编辑框
+        return
+    }
+    
     FileDelete,% A_ScriptDir "\cmd\tmp\tmp.ahk"
     FileAppend,% g_curent_text,% A_ScriptDir "\cmd\tmp\tmp.ahk",UTF-8
     g_command := StrReplace(g_command, "$")
@@ -267,6 +308,7 @@ hook_open_label:
 return
 
 !q::
+label_menu_copy_data:
 main_label:
     x := g_config.win_x + g_config.win_w + 12
     y := g_config.win_y + 12
@@ -298,7 +340,7 @@ main_label:
     {
         log.info(A_ThisHotkey)
         log.info(g_curent_text)
-        if(g_curent_text != "" && A_ThisHotkey == g_config.key_open_search_box)
+        if(g_curent_text != "" && (A_ThisHotkey == g_config.key_open_search_box || A_ThisLabel == "label_menu_copy_data"))
         {
             Clipboard := g_curent_text
             g_text_rendor_clip.Render("Saved text to clipboard.", "t:1250 c:#F9E486 y:75vh r:10%")
@@ -314,7 +356,7 @@ main_label:
     Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd  +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
     w := g_config.win_w
     Gui Add, Edit, hwndEDIT x0 y10 w%w%  vQuery gType -E0x200
-    SetEditCueBanner(EDIT, "🔍  🙇⌨🛐📜▪例➡🅱󠁁🇩  🚀🚀🚀🚀🚀")
+    SetEditCueBanner(EDIT, "🔍 右键菜单 🙇⌨🛐📜▪例➡🅱󠁁🇩  🚀🚀🚀🚀🚀")
     win_list_font_size := g_config.win_list_font_size
     Gui, Font, s%win_list_font_size%, Consolas
     Gui Add, ListBox, hwndLIST x0 y+0 h20 w%w%  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
@@ -913,4 +955,26 @@ tab_choose(opt := "")
     if(g_hook_real_index == 0)
         g_hook_real_index := g_hook_array.Length()
     update_btt()
+}
+
+open_set:
+    if(A_IsCompiled)
+        run,% A_ScriptDir "\set.exe"
+    else
+        run,% A_ScriptDir "\set.exe"
+return
+
+open_github:
+run,https://github.com/kazhafeizhale/super-command
+return
+
+
+convert_key2str(byref help_string)
+{
+    help_string := StrReplace(help_string, "+", "Shift ")
+    help_string := StrReplace(help_string, "^", "Ctrl ")
+    help_string := StrReplace(help_string, "!", "Alt ")
+    help_string := StrReplace(help_string, "#", "Win ")
+    help_string := StrReplace(help_string, "~$")
+    return help_string
 }
