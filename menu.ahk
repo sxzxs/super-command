@@ -961,7 +961,7 @@ open_set:
     if(A_IsCompiled)
         run,% A_ScriptDir "\set.exe"
     else
-        run,% A_ScriptDir "\set.exe"
+        run,% A_ScriptDir "\set.ahk"
 return
 
 open_github:
