@@ -539,7 +539,7 @@ down::
 return
 #If
 
-#IfWinActive, menu ahk_class AutoHotkeyGUI
+#IfWinActive, 超级命令 ahk_class AutoHotkeyGUI
 
 ^Backspace::
     Send ^+{Left}{Backspace}

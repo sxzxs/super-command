@@ -163,7 +163,7 @@ ApplyToolbarSettings()
 SetStatusBar()
 Sci[1].GrabFocus()
 SetIndent()
-#Include %A_ScriptDir%\Include\Menu.ahk
+#Include %A_ScriptDir%\Include\menu.ahk
 Try {
     Menu MenuViewTabBar, Check, % (g_TabBarPos == 1 ? "Top" : "Bottom")
     Menu MenuViewTabBar, Check, % (g_TabBarStyle == 1 ? "Standard" : "Buttons")
@@ -3942,11 +3942,11 @@ write2xml(command, data)
     result := Send_WM_COPYDATA(StringToSend, TargetScriptTitle)
     if(A_IsCompiled)
     {
-        run, %A_ScriptDir%/../../menu.exe
+        run, %A_ScriptDir%/../../超级命令
     }
     else
     {
-        run,% A_ScriptDir "\..\..\v1\AutoHotkey.exe " A_ScriptDir "\..\..\menu.ahk"
+        run,% A_ScriptDir "\..\..\v1\AutoHotkey.exe " A_ScriptDir "\..\..\超级命令.ahk"
     }
 }
 
