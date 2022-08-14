@@ -248,9 +248,9 @@ save_script()
 {
     MenuHandler("save", 4, "File")
     if(A_IsCompiled)
-        run, %A_ScriptDir%/../超级命令
+        run, %A_ScriptDir%/../super-command.exe
     else
-        run,% A_ScriptDir "\..\v1\AutoHotkey.exe " A_ScriptDir "\..\超级命令.ahk"
+        run,% A_ScriptDir "\..\v1\AutoHotkey.exe " A_ScriptDir "\..\super-command.ahk"
 }
 f7::
 id := TV_GetSelection()
@@ -339,9 +339,9 @@ editcmd()
         Node.text := Myedit
         MenuHandler("save", 4, "File")
         if(A_IsCompiled)
-            run, %A_ScriptDir%/../超级命令
+            run, %A_ScriptDir%/../super-command.exe
         else
-            run,% A_ScriptDir "\..\v1\AutoHotkey.exe " A_ScriptDir "\..\超级命令.ahk"
+            run,% A_ScriptDir "\..\v1\AutoHotkey.exe " A_ScriptDir "\..\super-command.ahk"
     return
 }
 node_get_path(c)
@@ -836,9 +836,9 @@ xml_reload()
         return m("XML Not compatible")
     MenuXML:=xx,Populate()
     ;if(A_IsCompiled)
-        ;run, %A_ScriptDir%/../超级命令
+        ;run, %A_ScriptDir%/../super-command.exe
     ;else
-        ;run, %A_ScriptDir%/../超级命令.ahk
+        ;run, %A_ScriptDir%/../super-command.ahk
 }
 
 changeCmdfile()

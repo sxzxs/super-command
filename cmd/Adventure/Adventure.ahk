@@ -3942,11 +3942,11 @@ write2xml(command, data)
     result := Send_WM_COPYDATA(StringToSend, TargetScriptTitle)
     if(A_IsCompiled)
     {
-        run, %A_ScriptDir%/../../超级命令
+        run, %A_ScriptDir%/../../super-command.exe
     }
     else
     {
-        run,% A_ScriptDir "\..\..\v1\AutoHotkey.exe " A_ScriptDir "\..\..\超级命令.ahk"
+        run,% A_ScriptDir "\..\..\v1\AutoHotkey.exe " A_ScriptDir "\..\..\super-command.ahk"
     }
 }
 
