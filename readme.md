@@ -3,6 +3,7 @@
 * 通过设置关键字检索文本，文本可以预览并复制到粘贴板。如果文本是ahk脚本则可以执行
 * 检索支持拼音首字母、全拼等
 
+![image](https://user-images.githubusercontent.com/26515268/184530626-e96a55f9-dfe5-49a0-a69a-964727a13a3d.png)
 ![image](https://user-images.githubusercontent.com/26515268/181262236-35d2d780-88bf-4b05-8cad-3f85d3537ef0.png)
 ![jks](https://user-images.githubusercontent.com/26515268/181264528-0d49dc1e-5440-46be-a3de-525999e783f8.gif)
 * 发送到窗口
