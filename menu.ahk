@@ -1,7 +1,7 @@
 ﻿; 超级命令
 ; Tested on AHK v1.1.33.02 Unicode 32/64-bit, Windows /10
 ; Script compiler directives
-;@Ahk2Exe-SetMainIcon %A_ScriptDir%\Icons\Verifier.ico
+;@Ahk2Exe-SetMainIcon %A_ScriptDir%\Icons\super-command.ico
 ;@Ahk2Exe-SetVersion 0.1.0
 
 ; Script options
@@ -61,15 +61,15 @@ h5 := g_config.key_edit_now
 help_string =
 (
 v2.0
+取消 [esc]
+执行命令 [enter]
 右键搜索框打开菜单
+编辑所有命令 [%h4%]
 打开当前搜索框 [%h1%]
 发送命令到窗口 [%h2%]
-复制当前文本 [%h3%],或右键单击预览
-执行命令 [enter]
-编辑所有命令 [%h4%]
 编辑当前命令 [%h5%],或双击预览
-取消 [esc]
-复制当前文本 [Ctrl c]
+复制当前父路径到搜索框 [Ctrl c]
+复制当前文本 [%h3%],或右键单击预览
 hook模式参看帮助说明
 )
 convert_key2str(help_string)
@@ -98,13 +98,13 @@ global g_hook_list_strings := ""
 global g_hook_command := ""
 global g_hook_mode := false
 global g_should_reload := false
-global g_my_menu_map := {"增加一条命令: " convert_key2str(g_config.key_edit_new) : "edit_new"
-                            , "删除当前命令: delete" : "label_delete"
-                            , "编辑当前命令: " convert_key2str(g_config.key_edit_now) : "edit_now"
-                            , "编辑全部命令: " convert_key2str(g_config.key_open_editor) : "open_editor"
-                            , "发送到窗口: " convert_key2str(g_config.key_send) : "label_send_command"
-                            , "复制结果: " convert_key2str(g_config.key_open_search_box) : "label_menu_copy_data"
-                            , "设置" : "open_set"}
+global g_my_menu_map := {"增加一条命令: " convert_key2str(g_config.key_edit_new) : ["edit_new", A_ScriptDir "\Icons\添加.ico"]
+                            , "删除当前命令: delete" : ["label_delete", A_ScriptDir "\Icons\删除.ico"]
+                            , "编辑当前命令: " convert_key2str(g_config.key_edit_now) : ["edit_now", A_ScriptDir "\Icons\编辑.ico"]
+                            , "编辑全部命令: " convert_key2str(g_config.key_open_editor) : ["open_editor", A_ScriptDir "\Icons\编辑全部.ico"]
+                            , "发送到窗口: " convert_key2str(g_config.key_send) : ["label_send_command", A_ScriptDir "\Icons\发送.ico"]
+                            , "复制结果: " convert_key2str(g_config.key_open_search_box) : ["label_menu_copy_data", A_ScriptDir "\Icons\复制.ico"]
+                            , "设置" : ["open_set", A_ScriptDir "\Icons\设置.ico"]}
 g_text_rendor.Render(help_string, "t: 5seconds x:left y:top pt:2", "s:15 j:left ")
 
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
@@ -124,20 +124,29 @@ Hotkey,% g_config.key_edit_now , edit_now
 Hotkey,% g_config.key_edit_new , edit_new
 Hotkey,% g_config.hook_open , hook_open_label
 
-Menu, Tray, Icon, %A_ScriptDir%\Icons\Verifier.ico
+Menu, Tray, Icon, %A_ScriptDir%\Icons\super-command.ico
 Menu, Tray, NoStandard
 Menu, Tray, add, 帮助,  open_github
+Menu, Tray, icon, 帮助,% A_ScriptDir "\Icons\帮助.ico"
 Menu, Tray, add, 设置,  open_set
+Menu, Tray, icon, 设置,% A_ScriptDir "\Icons\设置.ico"
 Menu, Tray, add,% "打开搜索框: " convert_key2str(g_config.key_open_search_box),  main_label
-Menu, Tray, add,% "添加命令: " convert_key2str(g_config.key_open_editor),  open_set
-Menu, Tray, Add , Exit, Exi
-Menu, Tray, Default, Exit
-Menu, Tray, Icon , %A_ScriptDir%\Icons\Verifier.ico,, 1
-
+Menu, Tray, icon,% "打开搜索框: " convert_key2str(g_config.key_open_search_box),% A_ScriptDir "\Icons\搜索.ico"
+Menu, Tray, add,% "添加命令: " convert_key2str(g_config.key_open_editor),  open_editor
+Menu, Tray, icon,% "添加命令: " convert_key2str(g_config.key_open_editor),% A_ScriptDir "\Icons\添加.ico" 
+Menu, Tray, Add , 重启, rel
+Menu, Tray, icon , 重启,% A_ScriptDir "\Icons\重启.ico" 
+Menu, Tray, Add , 退出, Exi
+Menu, Tray, icon , 退出,% A_ScriptDir "\Icons\退出.ico" 
+Menu, Tray, Default, 退出
+Menu, Tray, Icon , %A_ScriptDir%\Icons\super-command.ico,, 1
 
 ; 添加一些菜单项来创建弹出菜单.
 for k,v in g_my_menu_map
+{
     Menu, Mymenu, add,% k,  MenuHandler
+    Menu, Mymenu, icon,% k,% v[2]
+}
 return  ; 脚本的自动运行段结束.
 
 MenuHandler:
@@ -147,7 +156,7 @@ log.info(A_ThisMenu, A_ThisMenuItem)
 for k,v in g_my_menu_map
 {
     if(A_ThisMenuItem == k)
-        Gosub,% v
+        Gosub,% v[1]
 }
 return
 
@@ -272,6 +281,7 @@ edit_now_sub:
         run,% A_ScriptDir "\v1\AutoHotkey.exe " A_ScriptDir "\cmd\Adventure\Adventure.ahk  " tmp_path " " my_pid
     goto GuiEscape
 return
+
 
 ~$^c::
     if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
