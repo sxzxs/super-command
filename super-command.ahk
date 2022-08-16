@@ -409,8 +409,8 @@ main_label:
     win_list_font_size := g_config.win_list_font_size
     Gui, Font, s%win_list_font_size%, Consolas
     Gui Add, ListBox, hwndLIST x0 y+0 h20 w%w%  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
-    ControlColor(EDIT, MyGuiHwnd, "0x" g_config.win_search_box_back_color, "0x" g_config.win_search_box_text_color)
-    ControlColor(LIST, MyGuiHwnd, "0x" g_config.win_list_back_color, "0x" g_config.win_list_text_color)
+    ControlColor(EDIT, MyGuiHwnd, g_config.win_search_box_back_color, g_config.win_search_box_text_color)
+    ControlColor(LIST, MyGuiHwnd, g_config.win_list_back_color, g_config.win_list_text_color)
 
     win_x := g_config.win_x
     win_y := g_config.win_y
