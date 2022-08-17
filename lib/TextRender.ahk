@@ -159,8 +159,10 @@ class TextRender {
       ; Allow Render() to commit when previous Draw() has happened.
       if (this.layers.length() > 0) {
          ; Use the default rendering when the canvas coordinates fall within the bitmap area.
-         if this.InBounds()
-            return this.Render(terms*)
+
+         ;by sxz render函数，当双屏是坐标显示不对
+         ;if this.InBounds()
+            ;return this.Render(terms*)
 
          ; Render objects that reside off screen.
          ; Create a new bitmap using the width and height of the canvas object.

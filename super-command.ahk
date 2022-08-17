@@ -105,7 +105,7 @@ global g_my_menu_map := {"增加一条命令: " convert_key2str(g_config.key_edi
                             , "发送到窗口: " convert_key2str(g_config.key_send) : ["label_send_command", A_ScriptDir "\Icons\发送.ico"]
                             , "复制结果: " convert_key2str(g_config.key_open_search_box) : ["label_menu_copy_data", A_ScriptDir "\Icons\复制.ico"]
                             , "设置" : ["open_set", A_ScriptDir "\Icons\设置.ico"]}
-g_text_rendor.Render(help_string, "t: 5seconds x:left y:top pt:2", "s:15 j:left ")
+g_text_rendor.RenderOnScreen(help_string, "t: 5seconds x:left y:top pt:2", "s:15 j:left ")
 
 if !FileExist(A_ScriptDir "\cmd\Menus\超级命令.xml")
 {
@@ -287,7 +287,7 @@ return
     if(!WinActive("ahk_id " MyGuiHwnd) || g_command == "")
         return
     Clipboard := g_curent_text
-    g_text_rendor_clip.Render("Saved text to clipboard.", "t:1250 c:#F9E486 y:75vh r:10%")
+    g_text_rendor_clip.RenderOnScreen("Saved text to clipboard.", "t:1250 c:#F9E486 y:75vh r:10%")
     gosub copy_command_to_editor
     return
 
@@ -364,9 +364,9 @@ main_label:
     if(g_config.tooltip_help)
     {
         if(g_config.tooltip_random == 1)
-            g_text_rendor.Render(help_string, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
+            g_text_rendor.RenderOnScreen(help_string, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
         else
-            g_text_rendor.Render(help_string, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
+            g_text_rendor.RenderOnScreen(help_string, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
     }
 
     WinGet, g_exe_name, ProcessName, A
@@ -392,7 +392,7 @@ main_label:
         if(g_curent_text != "" && (A_ThisHotkey == g_config.key_open_search_box || A_ThisLabel == "label_menu_copy_data"))
         {
             Clipboard := g_curent_text
-            g_text_rendor_clip.Render("Saved text to clipboard.", "t:1250 c:#F9E486 y:75vh r:10%")
+            g_text_rendor_clip.RenderOnScreen("Saved text to clipboard.", "t:1250 c:#F9E486 y:75vh r:10%")
         }
         goto GuiEscape
     }
@@ -684,16 +684,16 @@ preview_command(command)
         y := g_config.win_y + 12
         if(g_hook_mode)
         {
-            g_hook_rendor.Render(UnityPath, " x:" g_hook_rendor_list.x2 + 10 " y:" g_hook_rendor_list.y + 11  " color:" g_config.tooltip_back_color
+            g_hook_rendor.RenderOnScreen(UnityPath, " x:" g_hook_rendor_list.x2 + 10 " y:" g_hook_rendor_list.y + 11  " color:" g_config.tooltip_back_color
                                     , "s:" g_config.tooltip_font_size " j:left")
         }
             
         else
         {
             if(g_config.tooltip_random == 1)
-                g_text_rendor.Render(UnityPath, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
+                g_text_rendor.RenderOnScreen(UnityPath, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
             else
-                g_text_rendor.Render(UnityPath, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
+                g_text_rendor.RenderOnScreen(UnityPath, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
         }
     }
     if(UnityPath == "")
@@ -976,7 +976,7 @@ update_btt()
     show_string := g_hook_strings "`n" tmp_str
     if(g_hook_strings == "")
         show_string := "⌨"  show_string
-    g_hook_rendor_list.Render(show_string
+    g_hook_rendor_list.RenderOnScreen(show_string
                                 , "x:" ps.x + 30 " y:" ps.y + 40 " color:" g_config.win_search_box_back_color
                                 ,"s:" g_config.win_search_box_font_size + 5 " j:left " "c:" g_config.win_search_box_text_color "  b:true")
 
@@ -987,7 +987,7 @@ update_btt()
     preview_command(g_hook_command)
     if(tmp_str == "")
     {
-        g_hook_rendor.render("")
+        g_hook_rendor.RenderOnScreen("")
         g_hook_rendor.FreeMemory()
     }
 }
