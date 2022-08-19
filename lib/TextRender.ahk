@@ -159,10 +159,8 @@ class TextRender {
       ; Allow Render() to commit when previous Draw() has happened.
       if (this.layers.length() > 0) {
          ; Use the default rendering when the canvas coordinates fall within the bitmap area.
-
-         ;by sxz render函数，当双屏是坐标显示不对
-         ;if this.InBounds()
-            ;return this.Render(terms*)
+         if this.InBounds()
+            return this.Render(terms*)
 
          ; Render objects that reside off screen.
          ; Create a new bitmap using the width and height of the canvas object.
@@ -2265,14 +2263,26 @@ class TextRender {
 
       ; Changing x, y, w, h to be stationary does not provide a speed boost.
       ; Nor does making the window opaque.
+
+      VarSetCapacity(pptDst, 8)
+         NumPut( x, pptDst, 0, "int")
+         NumPut( y, pptDst, 4, "int")
+
+      VarSetCapacity(psize, 8)
+         NumPut( w, psize, 0, "int")
+         NumPut( h, psize, 4, "int")
+
+      VarSetCapacity(pptSrc, 8)
+         NumPut( x - this.BitmapLeft, pptSrc, 0, "int")
+         NumPut( y - this.BitmapTop , pptSrc, 4, "int")
+
       return DllCall("UpdateLayeredWindow"
                ,    "ptr", this.hwnd                ; hWnd
                ,    "ptr", 0                        ; hdcDst
-               ,"uint64*", x | y << 32              ; *pptDst
-               ,"uint64*", w | h << 32              ; *psize
+               ,    "ptr", &pptDst                  ; *pptDst
+               ,    "ptr", &psize                   ; *psize
                ,    "ptr", this.hdc                 ; hdcSrc
-               ,"uint64*", x - this.BitmapLeft
-                        |  y - this.BitmapTop << 32 ; *pptSrc
+               ,    "ptr", &pptSrc                  ; *pptSrc
                ,   "uint", 0                        ; crKey
                ,  "uint*", alpha << 16 | 0x01 << 24 ; *pblend
                ,   "uint", 2                        ; dwFlags
@@ -2779,3 +2789,11 @@ class ImageRender extends TextRender {
             , y2: y_bound + h_bound}
    }
 } ; End of ImageRender class.
+
+
+; |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|
+; | Double click TextRender.ahk or .exe to show GUI. |
+; |__________________________________________________|
+if (A_LineFile == A_ScriptFullPath) {
+   MsgBox % "TextRender GUI is currently available only on AutoHotkey v2."
+}
