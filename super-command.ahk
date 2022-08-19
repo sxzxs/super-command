@@ -1015,6 +1015,8 @@ return
 
 open_github:
 run,https://github.com/kazhafeizhale/super-command
+run,https://zhangyue667.lanzouh.com/DirectXRepairEnhanced
+run,https://blog.csdn.net/vbcom/article/details/7245186
 return
 
 
