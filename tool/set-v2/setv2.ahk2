@@ -1,0 +1,193 @@
+#include <imgui>
+#include <log>
+_ImGui_EnableViewports(true)
+
+g_config_path := A_ScriptDir "\..\..\config\settings.json"
+g_config := {}
+loadconfig(&g_config, g_config_path)
+
+logger.is_log_open := false
+logger.info(g_config)
+main()
+main()
+{
+    static no_menu := false
+    hwnd := _ImGui_GUICreate("AHK ImGui", 1, 1, -100, -100, 0, 0x80)
+    WinShow(hwnd)
+    WinSetAlwaysOnTop( 1,hwnd)
+
+    style := _ImGui_GetStyle()
+    set_style(style)
+
+    io := _ImGui_GetIO()
+    _ImGui_SetWindowTitleAlign(0.5, 0.5)
+    _ImGui_EnableDocking(True)
+    static window_flags := 0
+    while(_ImGui_PeekMsg())
+    {
+        _ImGui_BeginFrame()
+        if(!_ImGui_Begin("设置", show_close := true, window_flags))
+            ExitApp
+        ;添加代码 =====================================
+
+        static tab_bar_flags := ImGuiTabBarFlags_None
+
+        ;快捷键
+        static key_open_search_box := g_config["key_open_search_box"]
+        static key_send := g_config["key_send"]
+        static key_edit_now := g_config["key_edit_now"]
+        static key_edit_new := g_config["key_edit_new"]
+        static key_open_editor := g_config["key_open_editor"]
+        static hook_open := g_config["hook_open"]
+        ;searchbox
+        static win_w := g_config["win_w"]
+        static win_search_box_back_color := g_config["win_search_box_back_color"]
+        static win_search_box_text_color := g_config["win_search_box_text_color"]
+        static win_search_box_font_size := g_config["win_search_box_font_size"]
+        ;list
+        static win_list_back_color := g_config["win_list_back_color"]
+        static win_list_text_color := g_config["win_list_text_color"]
+        static win_list_focus_back_color := g_config["win_list_focus_back_color"]
+        static win_list_focus_text_color := g_config["win_list_focus_text_color"]
+        static win_list_font_size := g_config["win_list_font_size"]
+        ;preview
+        static tooltip_back_color := g_config["tooltip_back_color"]
+        static tooltip_text_color := g_config["tooltip_text_color"]
+        static tooltip_font_size := g_config["tooltip_font_size"]
+        static tooltip_random := g_config["tooltip_random"]
+        ;other
+        static auto_english := g_config["auto_english"]
+        static tooltip_help := g_config["tooltip_help"]
+        static python_path := g_config["python_path"]
+
+        _ImGui_PushStyleColor(ImGuiCol_TabActive, "0xffe5b83d")
+        if(_ImGui_BeginTabBar("mytabbar", tab_bar_flags))
+        {
+            if(_ImGui_BeginTabItem("搜索框设置"))
+            {
+                _ImGui_InputText("搜索框宽度##win_w", &win_w)
+                _ImGui_InputText("搜索框背景颜色##win_search_box_back_color", &win_search_box_back_color)
+                _ImGui_InputText("搜索框字体颜色##win_search_box_text_color", &win_search_box_text_color)
+                _ImGui_InputText("搜索框字体大小##win_search_box_font_size", &win_search_box_font_size)
+                _ImGui_EndTabItem()
+            }
+
+            if(_ImGui_BeginTabItem("下拉列表设置"))
+            {
+                _ImGui_InputText("列表背景颜色##win_list_back_color", &win_list_back_color)
+                _ImGui_InputText("列表字体颜色##win_list_text_color", &win_list_text_color)
+                _ImGui_InputText("列表焦点背景颜色##win_list_focus_back_color", &win_list_focus_back_color)
+                _ImGui_InputText("列表焦点字体颜色##win_list_focus_text_color", &win_list_focus_text_color)
+                _ImGui_InputText("列表字体大小##win_list_font_size", &win_list_font_size)
+                _ImGui_EndTabItem()
+            }
+            if(_ImGui_BeginTabItem("预览设置"))
+            {
+                _ImGui_InputText("预览背景颜色##tooltip_back_color", &tooltip_back_color)
+                _ImGui_InputText("预览字体颜色##tooltip_text_color", &tooltip_text_color)
+                _ImGui_InputText("预览字体大小##tooltip_font_size", &tooltip_font_size)
+                _ImGui_InputText("是否预览随机颜色[0/1]##tooltip_random", &tooltip_random)
+                _ImGui_EndTabItem()
+            }
+            if(_ImGui_BeginTabItem("快捷键设置"))
+            {
+                _ImGui_InputText("打开搜索框##open_search_box", &key_open_search_box)
+                _ImGui_InputText("发送文本##send_text", &key_send)
+                _ImGui_InputText("编辑当前指令##edit_now", &key_edit_now)
+                _ImGui_InputText("增加一条指令##add_a_command", &key_edit_new)
+                _ImGui_InputText("打开命令添加界面##open_command_page", &key_open_editor)
+                _ImGui_InputText("hook模式快捷键##hook_mode_key", &hook_open)
+
+                _ImGui_EndTabItem()
+            }
+            if(_ImGui_BeginTabItem("其他"))
+            {
+                _ImGui_InputText("是否自动切换为英文[0/1]##auto_english", &auto_english)
+                _ImGui_InputText("是否提示帮助信息[0/1]##tooltip_help", &tooltip_help)
+                _ImGui_InputText("python解释器路径##python_path", &python_path)
+
+                _ImGui_EndTabItem()
+            }
+        }
+        if(_ImGui_Button("确定##ok"))
+        {
+            g_config["key_open_search_box"] := key_open_search_box
+            g_config["key_edit_now"] := key_edit_now
+            g_config["key_edit_new"] := key_edit_new
+            g_config["key_open_editor"] := key_open_editor
+            g_config["hook_open"] := hook_open
+            g_config["win_w"] := win_w
+            g_config["win_search_box_back_color"] := win_search_box_back_color
+            g_config["win_search_box_text_color"] := win_search_box_text_color
+            g_config["win_search_box_font_size"] := win_search_box_font_size
+            g_config["win_list_back_color"] := win_list_back_color
+            g_config["win_list_text_color"] := win_list_text_color
+            g_config["win_list_focus_back_color"] := win_list_focus_back_color
+            g_config["win_list_focus_text_color"] := win_list_focus_text_color
+            g_config["win_list_font_size"] := win_list_font_size
+
+            g_config["tooltip_back_color"] := tooltip_back_color
+            g_config["tooltip_text_color"] := tooltip_text_color
+            g_config["tooltip_font_size"] := tooltip_font_size
+            g_config["tooltip_random"] := tooltip_random
+
+            g_config["auto_english"] := auto_english
+            g_config["tooltip_help"] := tooltip_help
+
+            g_config["python_path"] := python_path
+
+            saveconfig(g_config, g_config_path)
+            tooltip("请重新启动auto-command", 0, 0)
+        }
+        _ImGui_PopStyleColor(1)
+        ;====================================
+        _ImGui_End()
+        _ImGui_EndFrame()
+    }
+    ExitApp()
+    return
+}
+
+
+set_style(style)
+{
+	style.WindowBorderSize := 0
+	style.WindowTitleAlign := [0.5, 0.5]
+	style.WindowMinSize := [500, 430]
+	style.FramePadding := [8, 6]
+
+	style.Colors[ImGuiCol_TitleBg] := [255, 101, 53, 255]
+	style.Colors[ImGuiCol_TitleBgActive] := [255, 101, 53, 255]
+	style.Colors[ImGuiCol_TitleBgCollapsed] := [0, 0, 0, 130]
+
+	style.Colors[ImGuiCol_Button] := [31, 30, 31, 255]
+	style.Colors[ImGuiCol_ButtonActive] := [41, 40, 41, 255]
+	style.Colors[ImGuiCol_ButtonHovered] := [41, 40, 41, 255]
+
+	style.Colors[ImGuiCol_Separator] := [70, 70, 70, 255]
+	style.Colors[ImGuiCol_SeparatorActive] := [76, 76, 76, 255]
+	style.Colors[ImGuiCol_SeparatorHovered] := [76, 76, 76, 255]
+
+	style.Colors[ImGuiCol_FrameBg] := [37, 36, 37, 255]
+	style.Colors[ImGuiCol_FrameBgActive] := [37, 36, 37, 255]
+	style.Colors[ImGuiCol_FrameBgHovered] := [37, 36, 37, 255]
+
+	style.Colors[ImGuiCol_Header] := [0, 0, 0, 0]
+	style.Colors[ImGuiCol_HeaderActive] := [0, 0, 0, 0]
+	style.Colors[ImGuiCol_HeaderHovered] := [46, 46, 46, 255]
+
+}
+
+;加载配置函数
+loadconfig(&config, json_path)
+{
+    outputvar := FileRead(json_path)
+    config := JSON.parse(outputvar)
+}
+;保存配置函数
+saveconfig(config, json_path)
+{
+    str := JSON.stringify(config)
+    FileDelete(json_path)
+    FileAppend(str, json_path, 'UTF-8')
+}

@@ -104,6 +104,7 @@ global g_my_menu_map := {"增加一条命令: " convert_key2str(g_config.key_edi
                             , "编辑全部命令: " convert_key2str(g_config.key_open_editor) : ["open_editor", A_ScriptDir "\Icons\编辑全部.ico"]
                             , "发送到窗口: " convert_key2str(g_config.key_send) : ["label_send_command", A_ScriptDir "\Icons\发送.ico"]
                             , "复制结果: " convert_key2str(g_config.key_open_search_box) : ["label_menu_copy_data", A_ScriptDir "\Icons\复制.ico"]
+                            , "设置v2" : ["open_setv2", A_ScriptDir "\Icons\设置.ico"]
                             , "设置" : ["open_set", A_ScriptDir "\Icons\设置.ico"]}
 g_text_rendor.RenderOnScreen(help_string, "t: 5seconds x:left y:top pt:2", "s:15 j:left ")
 
@@ -130,6 +131,8 @@ Menu, Tray, add, 帮助,  open_github
 Menu, Tray, icon, 帮助,% A_ScriptDir "\Icons\帮助.ico"
 Menu, Tray, add, 设置,  open_set
 Menu, Tray, icon, 设置,% A_ScriptDir "\Icons\设置.ico"
+Menu, Tray, add, 设置v2,  open_setv2
+Menu, Tray, icon, 设置v2,% A_ScriptDir "\Icons\设置.ico"
 Menu, Tray, add,% "打开搜索框: " convert_key2str(g_config.key_open_search_box),  main_label
 Menu, Tray, icon,% "打开搜索框: " convert_key2str(g_config.key_open_search_box),% A_ScriptDir "\Icons\搜索.ico"
 Menu, Tray, add,% "添加命令: " convert_key2str(g_config.key_open_editor),  open_editor
@@ -1005,7 +1008,9 @@ tab_choose(opt := "")
         g_hook_real_index := g_hook_array.Length()
     update_btt()
 }
-
+open_setv2:
+    run,% A_ScriptDir "\tool\set-v2\setv2.exe"
+return
 open_set:
     if(A_IsCompiled)
         run,% A_ScriptDir "\set.exe"
