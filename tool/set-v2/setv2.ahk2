@@ -143,6 +143,7 @@ main()
         ;====================================
         _ImGui_End()
         _ImGui_EndFrame()
+        Sleep(10)
     }
     ExitApp()
     return
