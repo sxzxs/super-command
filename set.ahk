@@ -98,6 +98,9 @@ Gui, Add, Edit, vtooltip_font_size xs+0 yp+0 w80,% g_config.tooltip_font_size
 Gui, Add, Text, xm, 是否预览随机颜色[0/1]
 Gui, Add, Edit, vtooltip_random xs+0 yp+0 w80,% g_config.tooltip_random
 
+Gui, Add, Text, xm, 窗口透明度
+Gui, Add, Edit, vwin_trans xs+0 yp+0 w80,% g_config.win_trans
+
 Gui, Add, Text, xm, 是否自动切换为英文[0/1]
 Gui, Add, Edit, vauto_english xs+0 yp+0 w80,% g_config.auto_english
 
@@ -145,6 +148,8 @@ g_config.tooltip_random := tooltip_random
 g_config.auto_english := auto_english
 g_config.tooltip_help := tooltip_help
 
+g_config.win_trans := win_trans
+
 g_config.python_path := python_path
 
 saveconfig(g_config)
@@ -178,6 +183,9 @@ GuiControl,, tooltip_random , 1
 
 GuiControl,, auto_english , 1
 GuiControl,, tooltip_help , 1
+
+GuiControl,, win_trans , 222
+
 
 GuiControl,, python_path, C:\Python310\python.exe
 Gosub, setting

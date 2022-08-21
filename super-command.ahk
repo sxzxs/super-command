@@ -30,6 +30,7 @@ RunAsAdmin()
 #include <TextRender>
 #include <json>
 #include <utility>
+#include <gdip_all>
 
 OnMessage(0x201, "WM_LBUTTONDOWN")
 OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
@@ -150,6 +151,39 @@ for k,v in g_my_menu_map
     Menu, Mymenu, add,% k,  MenuHandler
     Menu, Mymenu, icon,% k,% v[2]
 }
+
+;gdip
+If !pToken := Gdip_Startup()
+{
+    MsgBox, 48, gdiplus error!, Gdiplus failed to start. Please ensure you have gdiplus on your system
+    ExitApp
+}
+Gui, 2: -Caption +E0x80000 +LastFound +AlwaysOnTop +ToolWindow +OwnDialogs +hwndhwnd2
+Gui, 2: Show, NA
+Gui,2: Hide
+pBitmap := Gdip_CreateBitmapFromFile(A_ScriptDir "\Icons\龙.png")
+If !pBitmap
+{
+	MsgBox, 48, File loading error!, Could not load 'background.png'
+	ExitApp
+}
+log.info(hwnd2, pbitmap)
+
+; Get a handle to this window we have created in order to update it later
+; 获取2号句柄。
+Width := Gdip_GetImageWidth(pBitmap), Height := Gdip_GetImageHeight(pBitmap)
+hbm := CreateDIBSection(Width//2, Height//2)
+hdc := CreateCompatibleDC()
+obm := SelectObject(hdc, hbm)
+G := Gdip_GraphicsFromHDC(hdc)
+Gdip_SetInterpolationMode(G, 7)
+Gdip_DrawImage(G, pBitmap, 0, 0, Width//2, Height//2, 0, 0, Width, Height)
+UpdateLayeredWindow(hwnd2, hdc, 5, 0, Width//2, Height//2)
+Gdip_DisposeImage(pBitmap)
+Gdip_DeleteGraphics(G)
+SelectObject(hdc, obm)
+DeleteDC(hdc)
+DeleteObject(hbm)
 return  ; 脚本的自动运行段结束.
 
 MenuHandler:
@@ -161,7 +195,7 @@ for k,v in g_my_menu_map
     if(A_ThisMenuItem == k)
         Gosub,% v[1]
 }
-return
+
 
 Return
 
@@ -417,10 +451,11 @@ main_label:
 
     win_x := g_config.win_x
     win_y := g_config.win_y
+    gui,2: show, NA X%win_x% Y%win_y%
     Gui Show, X%win_x% Y%win_y%
     GuiControl, % "Hide", Command
     Gui, Show, AutoSize
-
+    WinSet, Trans,% g_config.win_trans,ahk_id %myguihwnd%
     if(A_ThisHotkey == "!q")
         GuiControl,,% EDIT ,% " " g_exe_name
 return
@@ -501,6 +536,7 @@ label_send_command:
 return
 
 GuiEscape:
+    Gui,2: hide
     Gui,Hide
     g_text_rendor.Clear("")
     g_text_rendor.FreeMemory()
@@ -1033,4 +1069,10 @@ convert_key2str(byref help_string)
     help_string := StrReplace(help_string, "#", "Win ")
     help_string := StrReplace(help_string, "~$")
     return help_string
+}
+
+
+create_gdi_ui()
+{
+
 }

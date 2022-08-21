@@ -23,11 +23,20 @@ main()
     _ImGui_SetWindowTitleAlign(0.5, 0.5)
     _ImGui_EnableDocking(True)
     static window_flags := 0
+    static back_img_id := _ImGui_ImageFromFile(A_ScriptDir "\..\..\Icons\龙.png")
     while(_ImGui_PeekMsg())
     {
         _ImGui_BeginFrame()
         if(!_ImGui_Begin("设置", show_close := true, window_flags))
             ExitApp
+
+        window_draw_list := _ImGui_GetWindowDrawList()
+
+        _ImDraw_SetDrawList(window_draw_list)
+        p := _ImGui_GetWindowPos()
+        s := _ImGui_GetWindowSize()
+        _ImDraw_AddImage(back_img_id, p[1], p[2], p[1] + s[1], p[2] + s[2])
+
         ;添加代码 =====================================
 
         static tab_bar_flags := ImGuiTabBarFlags_None
@@ -59,6 +68,7 @@ main()
         static auto_english := g_config["auto_english"]
         static tooltip_help := g_config["tooltip_help"]
         static python_path := g_config["python_path"]
+        static win_trans := g_config["win_trans"]
 
         _ImGui_PushStyleColor(ImGuiCol_TabActive, "0xffe5b83d")
         if(_ImGui_BeginTabBar("mytabbar", tab_bar_flags))
@@ -105,6 +115,7 @@ main()
                 _ImGui_InputText("是否自动切换为英文[0/1]##auto_english", &auto_english)
                 _ImGui_InputText("是否提示帮助信息[0/1]##tooltip_help", &tooltip_help)
                 _ImGui_InputText("python解释器路径##python_path", &python_path)
+                _ImGui_InputText("win_trans##win_trans", &win_trans)
 
                 _ImGui_EndTabItem()
             }
@@ -135,6 +146,7 @@ main()
             g_config["tooltip_help"] := tooltip_help
 
             g_config["python_path"] := python_path
+            g_config["win_trans"] := win_trans
 
             saveconfig(g_config, g_config_path)
             tooltip("请重新启动auto-command", 0, 0)

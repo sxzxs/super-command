@@ -2789,11 +2789,3 @@ class ImageRender extends TextRender {
             , y2: y_bound + h_bound}
    }
 } ; End of ImageRender class.
-
-
-; |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|
-; | Double click TextRender.ahk or .exe to show GUI. |
-; |__________________________________________________|
-if (A_LineFile == A_ScriptFullPath) {
-   MsgBox % "TextRender GUI is currently available only on AutoHotkey v2."
-}
