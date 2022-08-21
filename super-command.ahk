@@ -499,7 +499,9 @@ Refresh:
     HighlightedCommand := 1
     GuiControl, Choose, Command, 1
     Gui, Show, AutoSize
-
+    WinGetPos, X, Y, W, H, ahk_id %myguihwnd%
+    y := y + h
+    gui,2: show, NA X%x% Y%y%
 Select:
     GuiControlGet Command
     if !Command
