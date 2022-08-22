@@ -26,7 +26,7 @@ RunAsAdmin()
 
 #include <py>
 #include <btt>
-#include <log4ahk>
+#include <log>
 #include <TextRender>
 #include <json>
 #include <utility>
@@ -38,7 +38,7 @@ OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
 OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 
-log.is_log_open := false
+log.is_log_open := true
 
 ;加载配置
 global g_json_path := A_ScriptDir . "/config/settings.json"
@@ -81,6 +81,9 @@ is_get_all_cmd := false
 my_xml := new xml("xml")
 menue_create_pid := 0
 
+
+global g_listbox_height := 30
+global g_max_listbox_number := 22
 global g_curent_text := ""
 global g_command := ""
 global g_exe_name := ""
@@ -437,6 +440,8 @@ main_label:
     Gui Add, ListBox, hwndLIST x0 y+0 h20 w%w%  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
     ControlColor(EDIT, MyGuiHwnd, g_config.win_search_box_back_color, g_config.win_search_box_text_color)
     ControlColor(LIST, MyGuiHwnd, g_config.win_list_back_color, g_config.win_list_text_color)
+    g_listbox_height := LB_GetItemHeight(LIST)
+    log.info(g_listbox_height)
 
     win_x := g_config.win_x
     win_y := g_config.win_y
@@ -482,7 +487,9 @@ Refresh:
     if (Query = "")
         c := row_id.MaxIndex()
     total_command := c
-    GuiControl, Move, Command, % "h" 33 * (total_command > 20 ? 22 : total_command)
+    ;获取item高度
+    log.info(g_listbox_height, g_max_listbox_number)
+    GuiControl, Move, Command, % "h" g_listbox_height * (total_command > g_max_listbox_number ? g_max_listbox_number : total_command)
     GuiControl, % (total_command && Query != "") ? "Show" : "Hide", Command
     HighlightedCommand := 1
     GuiControl, Choose, Command, 1
