@@ -81,13 +81,15 @@ is_get_all_cmd := false
 my_xml := new xml("xml")
 menue_create_pid := 0
 
-g_curent_text := ""
-g_command := ""
-g_exe_name := ""
-g_exe_id := ""
-BackgroundColor := "1d1d1d"
-TextColor := "999999"
+global g_curent_text := ""
+global g_command := ""
+global g_exe_name := ""
+global g_exe_id := ""
+global BackgroundColor := "1d1d1d"
+global TextColor := "999999"
 global cmds := ""
+global arr_cmds := []
+global arr_cmds_pinyin := []
 global g_text_rendor := TextRender()
 global g_text_rendor_clip := TextRender()
 global g_hook_rendor := TextRender()
@@ -167,7 +169,6 @@ If !pBitmap
 	MsgBox, 48, File loading error!, Could not load 'background.png'
 	ExitApp
 }
-log.info(hwnd2, pbitmap)
 
 ; Get a handle to this window we have created in order to update it later
 ; 获取2号句柄。
@@ -195,8 +196,6 @@ for k,v in g_my_menu_map
     if(A_ThisMenuItem == k)
         Gosub,% v[1]
 }
-
-
 Return
 
 Sus:
@@ -221,8 +220,6 @@ Return
         winc_presses += 1
         return
     }
-    ; 否则, 这是新开始系列中的首次按下. 把次数设为 1 并启动
-    ; 计时器:
     winc_presses = 1
     SetTimer, KeyWinC, -400 ; 在 400 毫秒内等待更多的键击.
 return
@@ -231,8 +228,6 @@ KeyWinC:
     {
         Gosub, edit_now_sub
     }
-    ; 不论触发了上面的哪个动作, 都对 count 进行重置
-    ; 为下一个系列的按下做准备:
     winc_presses = 0
 return
 
@@ -409,12 +404,6 @@ main_label:
     WinGet, g_exe_name, ProcessName, A
     WinGet, g_exe_id, ID , A
     g_command := ""
-    if (cmds == "")
-    {
-        my_xml := new xml("xml")
-        my_xml.XML.LoadXML(xml_file_content)
-        cmds := xml_parse(my_xml)
-    }
     if(g_config.auto_english)
     {
         SetCapsLockState,off
@@ -466,12 +455,11 @@ return
 
 Refresh:
     GuiControlGet Query
-    r := cmds
+    r := []
     if (Query != "")
     {
-        StringSplit q, Query, %A_Space%
-        Loop % q0
-            r := Filter(r, q%A_Index%, c)
+	    q := StrSplit(Query, " ")
+        r := Filter(arr_cmds_pinyin, q, c)
     }
     else
     {
@@ -481,12 +469,12 @@ Refresh:
     rows := ""
     row_id := []
     real_index := 1
-    Loop Parse, r, `n
+    for k,v in r
     {
-        if(A_LoopField != "")
+        if(v != "")
         {
-            row_id[real_index] := A_LoopField
-            rows .= "|"  real_index " "  A_LoopField
+            row_id[real_index] := arr_cmds[v]
+            rows .= "|"  real_index " "  arr_cmds[v]
             real_index++
         }
     }
@@ -656,54 +644,40 @@ GuiKeyDown(wParam, lParam)
     }
 }
 
-keyValueFind(haystack,needle)
+/** 
+@brief 筛选
+@param [IN] s 数组，所有命令,包括拼音
+@param [IN] q 数组，query空格分割
+@param [OUT] count 匹配个个数
+return 新的数组
+*/
+filter(cmds, query, ByRef count)
 {
-    ;拼音首字母转换
-    haystack .= py.allspell_muti(haystack) py.initials_muti(haystack) 
-	findSign:=1
-	needleArray := StrSplit(needle, " ")
-	Loop,% needleArray.MaxIndex()
-	{
-		if(!InStr(haystack, needleArray[A_Index], false))
-		{
-			findSign:=0
-			break
-		}	
-	}
-	return findSign
-}
-Filter(s, q, ByRef count)
-{
-    ;建立数组 [{“a" : "原始值", "b" : "首字母"}]
-    ;匹配
-    s := StrSplit(s, ["`r","`n"])
-    result := ""
-    VarSetCapacity(result, 0)
-    VarSetCapacity(result, 90000)
-    count := 0
-    for k,v in s
+    arr_result := []
+    for k,v in cmds
     {
-        if(keyValueFind(v, q))
+        findSign := true
+        Loop,% query.MaxIndex()
         {
-            result .= v "`n"
-            count += 1
+            if(!InStr(v, query[A_Index], false))
+            {
+                findSign := false
+                break
+            }	
         }
+        if(findSign == true)
+            arr_result.Push(k)
     }
-    return SubStr(result, 1, -1)
+    count := arr_result.Length()
+    return arr_result
 }
 
 preview_command(command)
 {
     static preview_number := 0
     preview_number++
-    if(preview_number == 1000)
+    if(preview_number == 5000)
         g_should_reload := true
-
-    ;g_text_rendor.clear()
-    ;g_text_rendor.FreeMemory()
-    ;g_hook_rendor.clear()
-    ;g_hook_rendor.FreeMemory()
-
     command := StrReplace(command, "$")
     CoordMode, ToolTip, Screen
     global my_xml, menue_create_pid, log, gui_x, gui_y, g_curent_text, g_command
@@ -800,8 +774,9 @@ handle_command(command)
 
 xml_parse(xml)
 {
-	All:=xml.SN("//Menu/descendant::*")
+    arr_cmds := []
     Script := ""
+	All:=xml.SN("//Menu/descendant::*")
 	while(aa:=All.Item[A_Index-1],ea:=XML.EA(aa))
     {
         c := aa
@@ -819,9 +794,13 @@ xml_parse(xml)
                 ParentName := c_parent_name "$" " >" parentname
             c := p
         }
-        Script .= ParentName  ea.Name "$" "`r`n"
+        str := ParentName  ea.Name "$"
+        arr_cmds.Push(str)
+        Script .= str "`r`n"
+        str .= py.allspell_muti(str) py.initials_muti(str) 
+        arr_cmds_pinyin.Push(str)
     }
-    return script
+    return Script
 }
 
 switchime(ime := "A")
@@ -965,30 +944,24 @@ SacEnd()
 
 hook_mode_quck_search()
 {
-    log.info(g_hook_strings)
-    StringSplit q, g_hook_strings, %A_Space%
-    log.info(q0)
-    r := cmds
-    Loop % q0
-        r := Filter(r, q%A_Index%, c)
-    log.info(r)
+	q := StrSplit(g_hook_strings, " ")
+    r := Filter(arr_cmds_pinyin, q, c)
     g_hook_list_strings := ""
     g_hook_array := []
     g_hook_real_index := 1
     real_index := 1
-    Loop Parse, r, `n
+    for k,v in r
     {
-        if(A_LoopField != "")
+        if(arr_cmds[v] != "")
         {
-            g_hook_array[real_index] := A_LoopField
+            g_hook_array[real_index] := arr_cmds[v]
             if(real_index == 1)
-                g_hook_list_strings := real_index " " A_LoopField
+                g_hook_list_strings := real_index " " arr_cmds[v]
             else
-                g_hook_list_strings .= "`r`n"  real_index " "  A_LoopField
+                g_hook_list_strings .= "`r`n"  real_index " "  arr_cmds[v]
             real_index++
         }
     }
-    log.info(g_hook_list_strings)
     update_btt()
 }
 update_btt()
@@ -1062,7 +1035,6 @@ run,https://zhangyue667.lanzouh.com/DirectXRepairEnhanced
 run,https://blog.csdn.net/vbcom/article/details/7245186
 return
 
-
 convert_key2str(byref help_string)
 {
     help_string := StrReplace(help_string, "+", "Shift ")
@@ -1071,10 +1043,4 @@ convert_key2str(byref help_string)
     help_string := StrReplace(help_string, "#", "Win ")
     help_string := StrReplace(help_string, "~$")
     return help_string
-}
-
-
-create_gdi_ui()
-{
-
 }
