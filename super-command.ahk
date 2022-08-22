@@ -38,7 +38,7 @@ OnMessage(0x100, "GuiKeyDown")
 OnMessage(0x002C, "ODLB_MeasureItem") ; WM_MEASUREITEM
 OnMessage(0x002B, "ODLB_DrawItem") ; WM_DRAWITEM
 
-log.is_log_open := true
+log.is_log_open := false
 
 ;加载配置
 global g_json_path := A_ScriptDir . "/config/settings.json"
