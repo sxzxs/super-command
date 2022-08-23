@@ -430,8 +430,9 @@ main_label:
     Gui, Color,% g_config.win_search_box_back_color,% win_search_box_back_color
     win_search_box_font_size := g_config.win_search_box_font_size
     Gui, Font, s%win_search_box_font_size% Q5, Consolas
-    Gui, -0x400000 +Border ;WS_DLGFRAME WS_BORDER(细边框)  caption(标题栏和粗边框) = WS_DLGFRAME+WS_BORDER  一定要有WS_BORDER否则没法双缓冲
-    Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd  +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
+    ;Gui, -0x400000 +Border ;WS_DLGFRAME WS_BORDER(细边框)  caption(标题栏和粗边框) = WS_DLGFRAME+WS_BORDER  一定要有WS_BORDER否则没法双缓冲
+    gui, -Caption
+    Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd ;  +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
     w := g_config.win_w
     Gui Add, Edit, hwndEDIT x0 y10 w%w%  vQuery gType -E0x200
     SetEditCueBanner(EDIT, "🔍 右键菜单 🙇⌨🛐📜▪例➡🅱󠁁🇩  🚀🚀🚀🚀🚀")
@@ -461,28 +462,20 @@ return
 Refresh:
     GuiControlGet Query
     r := []
+    rows := ""
+    row_id := []
     if (Query != "")
     {
 	    q := StrSplit(Query, " ")
-        r := Filter(arr_cmds_pinyin, q, c)
+        r := Filter(arr_cmds_pinyin, q, c, rows, row_id)
     }
     else
     {
         g_text_rendor.clear()
         g_text_rendor.FreeMemory()
     }
-    rows := ""
-    row_id := []
-    real_index := 1
-    for k,v in r
-    {
-        if(v != "")
-        {
-            row_id[real_index] := arr_cmds[v]
-            rows .= "|"  real_index " "  arr_cmds[v]
-            real_index++
-        }
-    }
+    ;stop listbox
+    GuiControl, -Redraw, Command
     GuiControl,, Command, % rows ? rows : "|"
     if (Query = "")
         c := row_id.MaxIndex()
@@ -493,6 +486,8 @@ Refresh:
     GuiControl, % (total_command && Query != "") ? "Show" : "Hide", Command
     HighlightedCommand := 1
     GuiControl, Choose, Command, 1
+    ;redraw
+    GuiControl, +Redraw, Command 
     Gui, Show, AutoSize
     WinGetPos, X, Y, W, H, ahk_id %myguihwnd%
     y := y + h
@@ -658,9 +653,10 @@ GuiKeyDown(wParam, lParam)
 @param [OUT] count 匹配个个数
 return 新的数组
 */
-filter(cmds, query, ByRef count)
+filter(cmds, query, ByRef count, ByRef rows, ByRef row_id)
 {
     arr_result := []
+    real_index := 1
     for k,v in cmds
     {
         findSign := true
@@ -673,7 +669,12 @@ filter(cmds, query, ByRef count)
             }	
         }
         if(findSign == true)
+        {
             arr_result.Push(k)
+            row_id[real_index] := arr_cmds[k]
+            rows .= "|"  real_index " "  arr_cmds[k]
+            real_index++
+        }
     }
     count := arr_result.Length()
     return arr_result
@@ -713,9 +714,9 @@ preview_command(command)
         else
         {
             if(g_config.tooltip_random == 1)
-                g_text_rendor.RenderOnScreen(UnityPath, "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
+                g_text_rendor.RenderOnScreen(substr(UnityPath, 1, 1000), "x:" x " y:" y " color:Random", "s:" g_config.tooltip_font_size " j:left ")
             else
-                g_text_rendor.RenderOnScreen(UnityPath, "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
+                g_text_rendor.RenderOnScreen(substr(UnityPath, 1, 1000), "x:" x " y:" y " color:" g_config.tooltip_back_color, "s:" g_config.tooltip_font_size " j:left " "c:" g_config.tooltip_text_color)
         }
     }
     if(UnityPath == "")
@@ -952,7 +953,9 @@ SacEnd()
 hook_mode_quck_search()
 {
 	q := StrSplit(g_hook_strings, " ")
-    r := Filter(arr_cmds_pinyin, q, c)
+    rows := ""
+    row_id := []
+    r := Filter(arr_cmds_pinyin, q, c, rows, row_id)
     g_hook_list_strings := ""
     g_hook_array := []
     g_hook_real_index := 1
