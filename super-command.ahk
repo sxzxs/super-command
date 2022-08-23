@@ -441,8 +441,9 @@ main_label:
     Gui Add, ListBox, hwndLIST x0 y+0 h20 w%w%  vCommand gSelect AltSubmit -HScroll %OD_LB% -E0x200
     ControlColor(EDIT, MyGuiHwnd, g_config.win_search_box_back_color, g_config.win_search_box_text_color)
     ControlColor(LIST, MyGuiHwnd, g_config.win_list_back_color, g_config.win_list_text_color)
+
+    LB_SetItemHeight(LIST, g_config.win_list_height)
     g_listbox_height := LB_GetItemHeight(LIST)
-    log.info(g_listbox_height)
 
     win_x := g_config.win_x
     win_y := g_config.win_y
@@ -481,7 +482,6 @@ Refresh:
         c := row_id.MaxIndex()
     total_command := c
     ;获取item高度
-    log.info(g_listbox_height, g_max_listbox_number)
     GuiControl, Move, Command, % "h" g_listbox_height * (total_command > g_max_listbox_number ? g_max_listbox_number : total_command)
     GuiControl, % (total_command && Query != "") ? "Show" : "Hide", Command
     HighlightedCommand := 1

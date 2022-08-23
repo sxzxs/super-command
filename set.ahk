@@ -86,6 +86,9 @@ Gui, Add, Edit, vwin_list_focus_text_color xs+0 yp+0 w80,% g_config.win_list_foc
 Gui, Add, Text, xm, 列表字体大小:
 Gui, Add, Edit, vwin_list_font_size xs+0 yp+0 w80,% g_config.win_list_font_size
 
+Gui, Add, Text, xm, 列表高度:
+Gui, Add, Edit, vwin_list_height xs+0 yp+0 w80,% g_config.win_list_height
+
 Gui, Add, Text, xm, 预览背景颜色
 Gui, Add, Edit, vtooltip_back_color xs+0 yp+0 w80,% g_config.tooltip_back_color
 
@@ -139,6 +142,7 @@ g_config.win_list_text_color := win_list_text_color
 g_config.win_list_focus_back_color := win_list_focus_back_color
 g_config.win_list_focus_text_color := win_list_focus_text_color
 g_config.win_list_font_size := win_list_font_size
+g_config.win_list_height := win_list_height
 
 g_config.tooltip_back_color := tooltip_back_color
 g_config.tooltip_text_color := tooltip_text_color
@@ -175,6 +179,7 @@ GuiControl,, win_list_text_color , 999999
 GuiControl,, win_list_focus_back_color , 0x313131
 GuiControl,, win_list_focus_text_color , 0x959595
 GuiControl,, win_list_font_size, 14
+GuiControl,, win_list_height, 30
 
 GuiControl,, tooltip_back_color , 1d1d1d
 GuiControl,, tooltip_text_color , 999999

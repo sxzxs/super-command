@@ -59,6 +59,7 @@ main()
         static win_list_focus_back_color := g_config["win_list_focus_back_color"]
         static win_list_focus_text_color := g_config["win_list_focus_text_color"]
         static win_list_font_size := g_config["win_list_font_size"]
+        static win_list_height := g_config["win_list_height"]
         ;preview
         static tooltip_back_color := g_config["tooltip_back_color"]
         static tooltip_text_color := g_config["tooltip_text_color"]
@@ -89,6 +90,7 @@ main()
                 _ImGui_InputText("列表焦点背景颜色##win_list_focus_back_color", &win_list_focus_back_color)
                 _ImGui_InputText("列表焦点字体颜色##win_list_focus_text_color", &win_list_focus_text_color)
                 _ImGui_InputText("列表字体大小##win_list_font_size", &win_list_font_size)
+                _ImGui_InputText("列表高度##win_list_height", &win_list_height)
                 _ImGui_EndTabItem()
             }
             if(_ImGui_BeginTabItem("预览设置"))
@@ -136,6 +138,7 @@ main()
             g_config["win_list_focus_back_color"] := win_list_focus_back_color
             g_config["win_list_focus_text_color"] := win_list_focus_text_color
             g_config["win_list_font_size"] := win_list_font_size
+            g_config["win_list_height"] := win_list_height
 
             g_config["tooltip_back_color"] := tooltip_back_color
             g_config["tooltip_text_color"] := tooltip_text_color
