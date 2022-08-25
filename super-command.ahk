@@ -432,7 +432,7 @@ main_label:
     Gui, Font, s%win_search_box_font_size% Q5, Consolas
     ;Gui, -0x400000 +Border ;WS_DLGFRAME WS_BORDER(细边框)  caption(标题栏和粗边框) = WS_DLGFRAME+WS_BORDER  一定要有WS_BORDER否则没法双缓冲
     gui, -Caption
-    Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd ;  +E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
+    Gui, +AlwaysOnTop -DPIScale +ToolWindow +HwndMyGuiHwnd ;+E0x02000000 +E0x00080000 ;+E0x02000000 +E0x00080000 双缓冲
     w := g_config.win_w
     Gui Add, Edit, hwndEDIT x0 y10 w%w%  vQuery gType -E0x200
     SetEditCueBanner(EDIT, "🔍 右键菜单 🙇⌨🛐📜▪例➡🅱󠁁🇩  🚀🚀🚀🚀🚀")
@@ -511,7 +511,11 @@ Confirm:
     Command := row_id[Command]
     if !GetKeyState("Shift")
         gosub GuiEscape
-    handle_command(Command)
+
+    if(SubStr(Query, 1 , 1) == "/")
+        handle_plug(Query)
+    else
+        handle_command(Command)
 return
 
 label_send_command:
@@ -755,7 +759,32 @@ send_command(command)
     ;sleep,500
     ;Clipboard := old_str
 }
-
+handle_plug(command)
+{
+    log.info(command)
+    pos := InStr(command, A_Space)
+    log.info(pos)
+    plug := SubStr(command, 2 , pos - 2)
+    command := SubStr(command, pos)
+    command := Trim(command)
+    log.info(plug, command)
+    path := A_ScriptDir "\plugin\" plug
+    file_path := A_ScriptDir "\plugin\" plug "\" plug ".ahk"
+    init_plugin = 
+    (%
+        command := A_args[1]
+        msgbox, 此插件需要完善，你输入的命令是 %command%
+    )
+    if(FileExist(file_path))
+        run,% A_ScriptDir "\v1\autohotkey.exe " file_path " " command 
+    else
+    {
+        FileCreateDir,% path
+        FileAppend,% init_plugin ,% file_path
+        run,% path
+        run,% A_ScriptDir "\v1\autohotkey.exe " file_path " " command 
+    }
+}
 handle_command(command)
 {
     global my_xml, menue_create_pid, log
@@ -1036,7 +1065,7 @@ open_set:
     if(A_IsCompiled)
         run,% A_ScriptDir "\set.exe"
     else
-        run,% A_ScriptDir "\set.ahk"
+        run,% A_ScriptDir "\v1\autohotkey.exe " A_ScriptDir "\set.ahk"
 return
 
 open_github:
