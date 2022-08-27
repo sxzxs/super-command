@@ -31,6 +31,7 @@ RunAsAdmin()
 #include <json>
 #include <utility>
 #include <gdip_all>
+#include <shinsoverlayclass>
 
 OnMessage(0x201, "WM_LBUTTONDOWN")
 OnMessage(0x004A, "Receive_WM_COPYDATA")  ; 0x004A 为 WM_COPYDATA
@@ -82,6 +83,7 @@ my_xml := new xml("xml")
 menue_create_pid := 0
 
 
+global g_is_rain := false
 global g_listbox_height := 30
 global g_max_listbox_number := 22
 global g_curent_text := ""
@@ -188,6 +190,29 @@ Gdip_DeleteGraphics(G)
 SelectObject(hdc, obm)
 DeleteDC(hdc)
 DeleteObject(hbm)
+
+
+;=================================rain====================================================
+SysGet, VirtualScreenWidth, 78
+SysGet, VirtualScreenHeight, 79
+SysGet, VirtualScreenX, 76
+SysGet, VirtualScreenY, 77
+
+overlay := new ShinsOverlayClass(VirtualScreenX, VirtualScreenY, VirtualScreenWidth, VirtualScreenHeight,1,1,0)
+opacity := 1
+
+trails := []
+lastX := -1
+lastY := -1
+trailColor := 0xFF000000 + (random(128,255)<<16) + (random(128,255)<<8) + random(128,255)
+objs := []
+trailColor := 0xFFFFFF00
+rainDir := 1.6
+rainInc := 0.001
+
+onmessage(0x201,"WindowMove")
+moving := false
+settimer,draw,10
 return  ; 脚本的自动运行段结束.
 
 MenuHandler:
@@ -454,6 +479,10 @@ main_label:
     WinSet, Trans,% g_config.win_trans,ahk_id %myguihwnd%
     if(A_ThisHotkey == "!q")
         GuiControl,,% EDIT ,% " " g_exe_name
+
+    overlay := ""
+    overlay := new ShinsOverlayClass(win_x, win_y, w, VirtualScreenHeight,1,1,0)
+    g_is_rain := true
 return
 
 Type:
@@ -532,6 +561,7 @@ label_send_command:
 return
 
 GuiEscape:
+    g_is_rain := false
     Gui,2: hide
     Gui,Hide
     g_text_rendor.Clear("")
@@ -1082,4 +1112,136 @@ convert_key2str(byref help_string)
     help_string := StrReplace(help_string, "#", "Win ")
     help_string := StrReplace(help_string, "~$")
     return help_string
+}
+
+draw:
+if (overlay.BeginDraw()) {
+    if(g_is_rain)
+    {
+	    ;draw background
+        overlay.FillRoundedRectangle(0,0,overlay.width,overlay.height,55,55,(opacity<<24))
+        
+        rainDir += rainInc * random(1,10)
+        if (rainDir > 2.3) {
+            rainInc := -0.001
+            rainDir := 2.3
+        } else if (rainDir < 0.7) {
+            rainDir := 0.7
+            rainInc := 0.001
+        }
+        if (objs.length() < 500)
+            loop 1
+                objs.push(new rain(-500,overlay.width+500,-100,0,(random(200,255)<<24)+(random(95,230)<<16)+(random(200,250)<<8)+random(222,255),overlay.height))
+        for k,v in objs
+            v.draw(overlay,rainDir)
+                
+        
+        if (overlay.GetMousePos(mx,my)) {
+            if (lastX != -1 and (lastX != mx or lastY != my)) {
+                trails.push(new mouseTrail(lastX,lastY,mx,my,trailColor))
+            }
+            lastX := mx
+            lastY := my
+        } else {
+            lastX := lastY := -1
+        }
+        
+        i := 1
+        while(i < trails.length()) {
+            if (!trails[i].draw(overlay)) {
+                trails.removeat(i)
+            } else {
+                i++
+            }
+        }
+    }
+    sleep,10
+	overlay.EndDraw()
+}
+return
+
+class Rain {
+	__New(minx,maxx,miny,maxy,col,maxHeight) {
+		 this.minx := minx
+		 this.maxx := maxx
+		 this.miny := miny
+		 this.maxy := maxy
+		 this.col := col
+		 this.SetRandom()
+		 this.maxHeight := maxHeight - Random(0,100)
+		 this.puddle := 0
+		 this.puddlex := random(0.33,1.00) * (this.speed/2)
+		 this.puddley := this.puddlex / 2
+	}
+
+	SetRandom() {
+		this.speed := random(14.91,32.12)
+		this.x := random(this.minx,this.maxx)
+		this.y := random(this.miny,this.maxy)
+	}
+	
+	Draw(o,dir) {
+		if (this.puddle > 0) {
+			this.puddle -= random(1,5)
+			if (this.puddle < 1) {
+				this.puddle := 0
+				this.SetRandom()
+			} else {
+				o.FillEllipse(this.x,this.y,this.puddlex,this.puddley,(this.puddle<<24) + 0x89E0F1)
+			}
+		} else {
+			x2 := this.x + (cos(dir) * this.speed)
+			y2 := this.y + (sin(dir) * this.speed)
+			o.DrawLine(this.x,this.y,x2,y2,this.col)
+			this.x := x2
+			this.y := y2
+			if (this.y > this.maxHeight) {
+				this.puddle := 255
+			}
+		}
+	}
+}
+
+class mouseTrail {
+	__New(x1,y1,x2,y2,color) {
+		this.x1 := x1
+		this.y1 := y1
+		this.x2 := x2
+		this.y2 := y2
+		this.alpha := (color&0xFF000000)>>24
+		this.rgb := (color&0xFFFFFF)
+	}
+	
+	Draw(o) {
+		this.alpha -= 5
+		if (this.alpha < 1)
+			return 0
+		o.DrawLine(this.x1,this.y1,this.x2,this.y2,(this.alpha<<24)+this.rgb,(this.alpha / 255) * 10,1)
+		return 1
+	}
+}
+
+
+Random(min,max) {
+	random,result,min,max
+	return result
+}
+
+f4::
+hide_show_window()
+return
+
+hide_show_window()
+{
+	global overlay,log
+	log.info("in")
+	static is_show := false
+	is_show := !is_show
+	hwnd := overlay.hwnd
+	log.info(is_show, hwnd)
+	if(is_show)
+		WinShow, ahk_id %hwnd%
+	else
+		winhide, ahk_id %hwnd%
+	return
 }
