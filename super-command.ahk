@@ -741,7 +741,7 @@ preview_command(command)
         y := g_config.win_y + 12
         if(g_hook_mode)
         {
-            g_hook_rendor.RenderOnScreen(UnityPath, " x:" g_hook_rendor_list.x2 + 10 " y:" g_hook_rendor_list.y + 11  " color:" g_config.tooltip_back_color
+            g_hook_rendor.RenderOnScreen(substr(UnityPath, 1, 1000), " x:" g_hook_rendor_list.x2 + 10 " y:" g_hook_rendor_list.y + 11  " color:" g_config.tooltip_back_color
                                     , "s:" g_config.tooltip_font_size " j:left")
         }
             
@@ -1040,12 +1040,24 @@ update_btt()
 
     CoordMode, ToolTip, Screen
     tmp_str := ""
+    total_show_number := 50
+    midle_show_number := 20
+    start_index := 1
+    if(g_hook_real_index > midle_show_number)
+        start_index := g_hook_real_index - midle_show_number
+
+    have_show := 1
     Loop, parse, g_hook_list_strings, `n, `r  ; 在 `r 之前指定 `n, 这样可以同时支持对 Windows 和 Unix 文件的解析.
     {
+        if(A_Index < start_index)
+            Continue
         s := A_LoopField
         if(A_Index == g_hook_real_index)
             s := "[✓]" A_LoopField
         tmp_str .= s "`n"
+        if(have_show > 50)
+            break
+        have_show += 1
     }
     g_hook_command := g_hook_array[g_hook_real_index]
     log.info(g_hook_command, A_CaretX, A_CaretY)
