@@ -198,7 +198,7 @@ SysGet, VirtualScreenHeight, 79
 SysGet, VirtualScreenX, 76
 SysGet, VirtualScreenY, 77
 
-overlay := new ShinsOverlayClass(VirtualScreenX, VirtualScreenY, VirtualScreenWidth, VirtualScreenHeight,1,1,0)
+;overlay := new ShinsOverlayClass(VirtualScreenX, VirtualScreenY, VirtualScreenWidth, VirtualScreenHeight,1,1,0)
 opacity := 1
 
 trails := []
@@ -481,7 +481,7 @@ main_label:
         GuiControl,,% EDIT ,% " " g_exe_name
 
     overlay := ""
-    overlay := new ShinsOverlayClass(win_x, win_y, w, VirtualScreenHeight,1,1,0)
+    ;overlay := new ShinsOverlayClass(win_x, win_y, w, VirtualScreenHeight,1,1,0)
     g_is_rain := true
 return
 
@@ -1115,6 +1115,7 @@ convert_key2str(byref help_string)
 }
 
 draw:
+return
 if (overlay.BeginDraw()) {
     if(g_is_rain)
     {
