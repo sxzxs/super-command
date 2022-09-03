@@ -69,6 +69,7 @@ main()
         static auto_english := g_config["auto_english"]
         static tooltip_help := g_config["tooltip_help"]
         static python_path := g_config["python_path"]
+        static is_show_log := g_config["is_show_log"]
         static win_trans := g_config["win_trans"]
 
         _ImGui_PushStyleColor(ImGuiCol_TabActive, "0xffe5b83d")
@@ -117,6 +118,7 @@ main()
                 _ImGui_InputText("是否自动切换为英文[0/1]##auto_english", &auto_english)
                 _ImGui_InputText("是否提示帮助信息[0/1]##tooltip_help", &tooltip_help)
                 _ImGui_InputText("python解释器路径##python_path", &python_path)
+                _ImGui_InputText("是否显示logo##is_show_logo", &is_show_logo)
                 _ImGui_InputText("win_trans##win_trans", &win_trans)
 
                 _ImGui_EndTabItem()
@@ -149,6 +151,7 @@ main()
             g_config["tooltip_help"] := tooltip_help
 
             g_config["python_path"] := python_path
+            g_config["is_show_logo"] := is_show_logo
             g_config["win_trans"] := win_trans
 
             saveconfig(g_config, g_config_path)

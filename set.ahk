@@ -113,6 +113,9 @@ Gui, Add, Edit, vtooltip_help xs+0 yp+0 w80,% g_config.tooltip_help
 Gui, Add, Text, xm, python解释器路径
 Gui, Add, Edit, vpython_path xs+0 yp+0 w160,% g_config.python_path
 
+Gui, Add, Text, xm, 是否显示LOGO[0/1]
+Gui, Add, Edit, vis_show_log xs+0 yp+0 w160,% g_config.is_show_logo
+
 Gui, Add, Link, xm, 查询按键 <a href="https://www.autoahk.com/help/autohotkey/zh-cn/docs/Hotkeys.htm">按键列表</a>
 Gui, Add, Button, xm gsetting default, 设置
 Gui, Add, Button, x+10 greset, 重置
@@ -155,6 +158,7 @@ g_config.tooltip_help := tooltip_help
 g_config.win_trans := win_trans
 
 g_config.python_path := python_path
+g_config.is_show_logo := is_show_logo
 
 saveconfig(g_config)
 log.info(g_config)
@@ -193,6 +197,7 @@ GuiControl,, win_trans , 222
 
 
 GuiControl,, python_path, C:\Python310\python.exe
+GuiControl,, is_show_logo, 1
 Gosub, setting
 return
 

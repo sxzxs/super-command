@@ -472,7 +472,8 @@ main_label:
 
     win_x := g_config.win_x
     win_y := g_config.win_y
-    gui,2: show, NA X%win_x% Y%win_y%
+    if(g_config.is_show_logo == 1)
+        gui,2: show, NA X%win_x% Y%win_y%
     Gui Show, X%win_x% Y%win_y%
     GuiControl, % "Hide", Command
     Gui, Show, AutoSize
@@ -520,7 +521,8 @@ Refresh:
     Gui, Show, AutoSize
     WinGetPos, X, Y, W, H, ahk_id %myguihwnd%
     y := y + h
-    gui,2: show, NA X%x% Y%y%
+    if(g_config.is_show_logo == 1)
+        gui,2: show, NA X%x% Y%y%
 Select:
     GuiControlGet Command
     if !Command

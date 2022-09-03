@@ -1,6 +1,7 @@
 {
     "auto_english": "1",
     "hook_open": "+space",
+    "is_show_logo": "",
     "key_edit_new": "~$^d",
     "key_edit_now": "~$^e",
     "key_open_editor": "~$!c",
@@ -16,13 +17,13 @@
     "win_list_focus_back_color": "0x663dB5",
     "win_list_focus_text_color": "0x959595",
     "win_list_font_size": "16",
-    "win_list_height": "40",
+    "win_list_height": "35",
     "win_list_text_color": "0x000000",
     "win_search_box_back_color": "0xFFB558",
     "win_search_box_font_size": "16",
     "win_search_box_text_color": "0x000000",
     "win_trans": "240",
-    "win_w": "862",
-    "win_x": 832,
-    "win_y": 151
+    "win_w": "800",
+    "win_x": 787,
+    "win_y": 57
 }
