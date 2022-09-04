@@ -872,6 +872,50 @@ xml_parse(xml)
     return Script
 }
 
+f4::
+    export2folder(arr_cmds)
+return
+export2folder(arr_cmds)
+{
+    global my_xml
+    FileSelectFolder, OutputVar, , 3
+    if OutputVar =
+        MsgBox, You didn't select a folder.
+    else
+        MsgBox, You selected folder "%OutputVar%".
+    for k,v in arr_cmds
+    {
+        command := v
+        command := StrReplace(command, "$")
+        word_array := StrSplit(command, " >")
+        pattern := ""
+        folder := OutputVar
+        for k,v in word_array
+        {
+            pattern .= "/*[@name='" v "']"
+            folder .= "\" v
+        }
+        pattern := "//Menu" . pattern
+        first_child_name := SSN(my_xml.SSN(pattern), "Item/@name").text
+        if(first_child_name != "")
+            Continue
+        file_path := folder . ".txt"
+        log.info(file_path)
+        UnityPath:= my_xml.SSN(pattern).text
+
+        SplitPath, file_path, name, dir, ext, name_no_ext, drive
+        log.info(dir)
+        if !FileExist(dir)
+        {
+            log.info(dir)
+            FileCreateDir,% dir
+        }
+        FileDelete,% file_path
+        FileAppend,% UnityPath,% file_path,UTF-8
+    }
+}
+
+
 switchime(ime := "A")
 {
 	if (ime = 1)
@@ -1242,9 +1286,6 @@ Random(min,max) {
 	return result
 }
 
-f4::
-hide_show_window()
-return
 
 hide_show_window()
 {
